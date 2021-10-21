@@ -9,6 +9,9 @@ module.exports = {
         blueish: "#50b7f5",
         hoverBluish: "#3799d4",
       },
+      fontFamily: {
+        mainFontHelv: "helvetica",
+      },
     },
   },
   variants: {

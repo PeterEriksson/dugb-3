@@ -7,10 +7,11 @@ import {
   LogoutIcon,
   SearchIcon,
   UserIcon,
+  HomeIcon,
 } from "@heroicons/react/outline";
 function Sidebar() {
   return (
-    <div className=" h-screen w-56  p-7 flex flex-col  ">
+    <div className=" h-screen w-56 font-mainFontHelv p-7 flex flex-col  ">
       <div className="flex flex-col  space-y-4">
         <div className="cursor-pointer shadow-lg flex items-center justify-center">
           <LazyLoadImage
@@ -18,6 +19,11 @@ function Sidebar() {
             alt=""
             src="https://images.unsplash.com/photo-1602901248692-06c8935adac0?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2FsbCUyMG9mJTIwZHV0eXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80"
           />
+        </div>
+
+        <div className="sidebarBtn group">
+          <HomeIcon className="icon" />
+          <p className="iconText">Home</p>
         </div>
 
         <div className="sidebarBtn group">

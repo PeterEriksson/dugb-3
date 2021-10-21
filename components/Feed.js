@@ -1,3 +1,4 @@
+import Post from "./Post";
 import Tweetbox from "./Tweetbox";
 
 /* text area max w 576 px xl */
@@ -10,6 +11,7 @@ function Feed() {
       {/* Tweetbox */}
       <Tweetbox />
       {/* Posts */}
+      <Post />
     </div>
   );
 }
