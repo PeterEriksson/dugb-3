@@ -5,7 +5,7 @@ function Tweetbox() {
   const postMaxLength = 120;
 
   return (
-    <div className="w-full font-mainFontHelv border-t border-gray-300 flex flex-col ">
+    <div className="w-full  font-mainFontHelv border-t border-gray-300 flex flex-col ">
       <div className="flex w-11/12  mb-6 flex-grow space-x-4 py-8 ml-6">
         <img
           className="w-8 h-8 rounded-full"

@@ -8,9 +8,19 @@ module.exports = {
         grayish: "#e6ecf0",
         blueish: "#50b7f5",
         hoverBluish: "#3799d4",
+        orange: "#FF6600",
       },
       fontFamily: {
         mainFontHelv: "helvetica",
+      },
+      spacing: {
+        test: "76px",
+      },
+      screens: {
+        mdLgTest: "890px",
+      },
+      borderRadius: {
+        widgetsBorder: "20px",
       },
     },
   },

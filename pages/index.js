@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Feed from "../components/Feed";
 import Sidebar from "../components/Sidebar";
+import Widgets from "../components/Widgets";
 
 export default function Home() {
   return (
@@ -14,11 +15,12 @@ export default function Home() {
 
       {/* (page)feed */}
       <Feed />
+
       {/* -Tweetbox */}
       {/* Posts */}
 
       {/* Widgets */}
-      {/* ...sidebar to right, only show for larger screen sizes.. */}
+      <Widgets />
     </div>
   );
 }

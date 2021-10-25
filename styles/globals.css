@@ -14,4 +14,8 @@
   .iconText {
     @apply group-hover:text-blueish font-semibold;
   }
+
+  .postIcon {
+    @apply w-4 h-4 cursor-pointer;
+  }
 }
