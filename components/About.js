@@ -1,6 +1,6 @@
 function About() {
   return (
-    <div className="flex flex-col">
+    <>
       <h1 className="font-bold text-2xl">About</h1>
       <h2 className="font-semibold text-xl">
         Developed and designed by schmetir
@@ -13,7 +13,7 @@ function About() {
         sollicitudin donec faucibus curae orci molestie, et proin curae aliquet
         venenatis ligula amet vivamus orci varius arcu.
       </p>
-    </div>
+    </>
   );
 }
 

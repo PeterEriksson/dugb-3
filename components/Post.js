@@ -3,6 +3,7 @@ import {
   PencilIcon,
   RefreshIcon,
   TrashIcon,
+  FireIcon as FireIconSolid,
 } from "@heroicons/react/outline";
 import { ShieldCheckIcon, FireIcon } from "@heroicons/react/solid";
 
@@ -39,7 +40,7 @@ function Post() {
             />
             <div className="flex ml-5 items-center ">
               {/* img + fullName + symbol + userName */}
-              <p className="font-bold text-lg ">{postItem.fullName}</p>
+              <p className="font-bold ">{postItem.fullName}</p>
               <ShieldCheckIcon className="h-4 w-4 text-blueish " />
               <p className="text-sm  text-gray-400 ">@{postItem.userName}</p>
             </div>
@@ -51,7 +52,8 @@ function Post() {
             <RefreshIcon className="postIcon" />
             <PencilIcon className="postIcon" />
             <TrashIcon className="postIcon" />
-            <FireIcon className="postIcon text-orange" />
+            {/* <FireIcon className="postIcon text-orange" /> */}
+            <FireIconSolid className="postIcon" />
           </div>
         </div>
       ))}

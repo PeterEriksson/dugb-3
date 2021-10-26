@@ -5,7 +5,7 @@ import Tweetbox from "./Tweetbox";
 
 function Feed() {
   return (
-    <div className="flex flex-col  w-10/12 border-l border-r border-t">
+    <div className="flex flex-col border-l border-r border-t">
       <p className="font-bold text-2xl py-3 ml-4">Home | Skvaller</p>
 
       {/* Tweetbox */}

@@ -18,6 +18,7 @@ module.exports = {
       },
       screens: {
         mdLgTest: "890px",
+        smallerTest: "600px",
       },
       borderRadius: {
         widgetsBorder: "20px",
