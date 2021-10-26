@@ -40,7 +40,10 @@ function Sidebar({ children }) {
             <p className="iconText hidden smallerTest:inline-flex">Profile</p>
           </div>
 
-          <div className="sidebarBtn group">
+          <div
+            onClick={() => router.push("/search")}
+            className="sidebarBtn group"
+          >
             <SearchIcon className="icon" />
             <p className="iconText hidden smallerTest:inline-flex">Search</p>
           </div>
