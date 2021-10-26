@@ -20,7 +20,7 @@ function Tweetbox() {
           rows=""
           className="w-full text-xl font-light outline-none resize-none"
           type="text"
-          placeholder="Vad händer?"
+          placeholder="Vad händer schmetir?"
         />
       </div>
       <p

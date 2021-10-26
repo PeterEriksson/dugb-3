@@ -5,7 +5,7 @@ function about() {
   return (
     <div className="flex flex-col">
       <Head>
-        <title>About</title>
+        <title>DUGB3 About</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <About />
