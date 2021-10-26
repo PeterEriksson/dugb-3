@@ -8,6 +8,7 @@ function profile() {
         <title>DUGB3 Profile</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <p className="font-bold text-2xl py-3 ml-4">Profile | schmetir</p>
       <Profile />
     </div>
   );
