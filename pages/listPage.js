@@ -14,10 +14,13 @@ function listPage() {
     },
   ];
   return (
-    <div className="w-full flex flex-col">
-      <p className="mt-3 font-bold text-2xl">Lists</p>
-      <p className="font-light">
-        Who is best at what? Customize your own lists and rank your team
+    <div className="w-full h-screen border-l border-grayish flex flex-col">
+      <p className="mt-3 ml-3 font-bold text-2xl">Lists</p>
+      <p className="font-light ml-3">
+        Who is best at what? Customize your own lists and rank your team. Hot
+        tip: it's probably not Martin. Hot tip 2: it's probably not Norman
+        either. It doesn't matter. It's time for GIBB and that's what it's all
+        about.
       </p>
     </div>
   );

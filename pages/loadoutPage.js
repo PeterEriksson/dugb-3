@@ -1,6 +1,6 @@
 function loadoutPage() {
   return (
-    <div className="w-full flex flex-col">
+    <div className="w-full pl-3 flex flex-col border-l border-grayish">
       <p className="text-2xl font-bold mt-3">Loadouts</p>
       <p className="font-light">
         Having a hard time finding the right loadout? Relax. Swimmerboi is here

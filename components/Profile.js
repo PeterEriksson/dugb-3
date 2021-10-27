@@ -50,37 +50,40 @@ function Profile() {
             src="https://i.pinimg.com/236x/79/44/69/794469d92431bd6d291755f35a4a6530.jpg"
             className="rounded-2xl max-w-xs h-72"
           />
-          <div className="ml-8 flex flex-col justify-center mb-4">
-            <h2 className="font-bold text-xl mb-3">schmetir</h2>
-            <div className="flex">
-              <h3 className="font-semibold">K/D:&nbsp;</h3>
-              <p className="font-light">{Number(profile.kdRatio).toFixed(3)}</p>
-            </div>
-            <div className="flex">
-              <h3 className="font-semibold">Wins:&nbsp;</h3>
-              <p className="font-light">{profile.wins}</p>
-            </div>
+          <div className="ml-8 flex flex-col justify-center mb-2">
+            <h2 className="font-bold text-xl mb-2">schmetir</h2>
+            <div className="flex flex-col space-y-1.5">
+              <div className="flex">
+                <h3 className="font-semibold">K/D:&nbsp;</h3>
+                <p className="font-light">
+                  {Number(profile.kdRatio).toFixed(3)}
+                </p>
+              </div>
+              <div className="flex">
+                <h3 className="font-semibold">Wins:&nbsp;</h3>
+                <p className="font-light">{profile.wins}</p>
+              </div>
 
-            <div className="flex">
-              <h3 className="font-semibold">Top five:&nbsp;</h3>
-              <p className="font-light">{profile.topFive}</p>
-            </div>
-            {/* <div className="flex">
+              <div className="flex">
+                <h3 className="font-semibold">Top five:&nbsp;</h3>
+                <p className="font-light">{profile.topFive}</p>
+              </div>
+              {/* <div className="flex">
               <h3 className="font-semibold">Top ten:&nbsp;</h3>
               <p className="font-light">{profile.topTen}</p>
             </div> */}
-            <div className="flex">
-              <h3 className="font-semibold">Description:&nbsp;</h3>
-              {/* <p>{currentUser[0]?.description}</p> */}
-              <p className="font-light">...</p>
-            </div>
-            <div className="flex">
-              <h3 className="font-semibold">Stengths:&nbsp;</h3>
-              <p className="font-light">...</p>
-            </div>
-            <div className="flex">
-              <h3 className="font-semibold">Weaknesses:&nbsp;</h3>
-              <p className="font-light">...</p>
+              <div className="flex">
+                <h3 className="font-semibold">Clans:&nbsp;</h3>
+                <p className="font-light">[SHP]</p>
+              </div>
+              <div className="flex">
+                <h3 className="font-semibold">Stengths:&nbsp;</h3>
+                <p className="font-light">...</p>
+              </div>
+              <div className="flex">
+                <h3 className="font-semibold">Weaknesses:&nbsp;</h3>
+                <p className="font-light">...</p>
+              </div>
             </div>
           </div>
         </div>

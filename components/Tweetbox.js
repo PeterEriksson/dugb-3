@@ -24,16 +24,16 @@ function Tweetbox() {
         />
       </div>
       {/* img + chars div */}
-      <div className="flex mb-3 items-center">
+      <div className="flex mb-3  items-center">
         <input
           type="text"
           className=" ml-20 focus:ring-gray-600 focus:border-gray-600  w-40 sm:text-xs border-gray-200 rounded-md"
           placeholder="optional: enter img url"
         />
         <p
-          className={`ml-auto mr-5 mb-3 ${
-            postText.length === 0 && "opacity-0"
-          } ${
+          className={`ml-auto mr-5 mb-1.5 ${
+            postText.length > postMaxLength ? "font-normal" : "font-light"
+          } ${postText.length === 0 && "opacity-0"} ${
             postText.length > postMaxLength ? "text-red-500" : "text-gray-500"
           }`}
         >
