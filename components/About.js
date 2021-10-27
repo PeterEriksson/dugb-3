@@ -1,7 +1,7 @@
 function About() {
   return (
     <>
-      <h1 className="font-bold text-2xl">About</h1>
+      <h1 className="font-bold text-2xl mt-3">About</h1>
       <h2 className="font-semibold text-xl">
         Developed and designed by schmetir
       </h2>
@@ -13,6 +13,11 @@ function About() {
         sollicitudin donec faucibus curae orci molestie, et proin curae aliquet
         venenatis ligula amet vivamus orci varius arcu.
       </p>
+      <img
+        className="rounded-2xl "
+        alt=""
+        src="https://i.pinimg.com/236x/21/15/0d/21150d9a9397a97c8d796e62214c907b.jpg"
+      />
     </>
   );
 }
