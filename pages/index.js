@@ -4,6 +4,7 @@ import Post from "../components/Post";
 import Tweetbox from "../components/Tweetbox";
 
 export default function Home() {
+  /* console.log(process.env.REACT_APP_FIREBASE_KEY); */
   return (
     <div className="flex flex-col w-full mr-3 border-r border-t border-l mdLgTest:mr-0">
       <Head>

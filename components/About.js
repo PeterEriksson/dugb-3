@@ -1,11 +1,11 @@
 function About() {
   return (
     <>
-      <h1 className="font-bold text-2xl mt-3">About</h1>
-      <h2 className="font-semibold text-xl">
+      <h1 className="font-bold text-2xl mt-3 text-center">About</h1>
+      <h2 className="font-semibold text-xl text-center">
         Developed and designed by schmetir
       </h2>
-      <p>
+      <p className="text-center">
         Warzone-portal för seriösa elitgibbare. Ditt andra hem från Verdansk.
         Posta skvaller, skapa listor, spana in din och dina vänners statistik.
         Välkommen till det heliga gibblocket 3.0 Ad donec tincidunt torquent

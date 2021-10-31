@@ -17,7 +17,7 @@ function Sidebar({ children }) {
   const router = useRouter();
   return (
     <div className="flex flex-row">
-      <div className=" h-screen w-56 font-mainFontHelv px-7  pt-3  flex flex-col  border-grayish ">
+      <div className=" h-screen w-56  font-mainFontHelv px-7  pt-3  flex flex-col  border-grayish ">
         <div className="flex flex-col  space-y-4">
           <LazyLoadImage
             onClick={() => router.push("/")}

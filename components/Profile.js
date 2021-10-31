@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import LoadingSpinner from "./LoadingSpinner";
 
 /* import { CircularProgress } from "@material-ui/core"; */
 /* import { Context } from "./Context"; */
@@ -19,6 +20,7 @@ function Profile() {
           headers: {
             "x-rapidapi-key":
               "6cb5ccf59dmsh35a1e1cf90546e8p1291dajsnc92e6565a8e2",
+            /* process.env.REACT_APP_RAPID_KEY, */
             "x-rapidapi-host": "call-of-duty-modern-warfare.p.rapidapi.com",
           },
         }
@@ -77,6 +79,10 @@ function Profile() {
                 <p className="font-light">[SHP]</p>
               </div>
               <div className="flex">
+                <h3 className="font-semibold">Favorite saying:&nbsp;</h3>
+                <p className="font-light">Gött å leva</p>
+              </div>
+              <div className="flex">
                 <h3 className="font-semibold">Stengths:&nbsp;</h3>
                 <p className="font-light">...</p>
               </div>
@@ -88,8 +94,7 @@ function Profile() {
           </div>
         </div>
       ) : (
-        <p>loading</p>
-        /* insert Spinner here (copy from Countries main project) */
+        <LoadingSpinner />
       )}
     </div>
   );
