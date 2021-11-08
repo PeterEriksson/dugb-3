@@ -3,7 +3,7 @@ import Head from "next/head";
 
 function about() {
   return (
-    <div className="flex border-l pl-3 border-grayish flex-col">
+    <div className="flex border-l border-grayish border-r flex-col">
       <Head>
         <title>DUGB3 About</title>
         <link rel="icon" href="/favicon.ico" />

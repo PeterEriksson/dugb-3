@@ -2,6 +2,7 @@ function About() {
   return (
     <>
       <h1 className="font-bold text-2xl mt-3 text-center">About</h1>
+      <div className="border-b border-grayish " />
       <h2 className="font-semibold text-xl text-center">
         Developed and designed by schmetir
       </h2>

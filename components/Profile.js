@@ -1,19 +1,13 @@
 import { useEffect, useState } from "react";
 import LoadingSpinner from "./LoadingSpinner";
 
-/* import { CircularProgress } from "@material-ui/core"; */
-/* import { Context } from "./Context"; */
-
 function Profile() {
   const [profile, setProfile] = useState({});
   const [searchOk, setSearchOk] = useState(false);
-  /* const { user } = useContext(Context); */
-  /*  const { users } = useContext(Context); */
 
   useEffect(() => {
     const getProfile = async () => {
       await fetch(
-        /* `https://call-of-duty-modern-warfare.p.rapidapi.com/warzone/${user.displayName}/psn`, */
         "https://call-of-duty-modern-warfare.p.rapidapi.com/warzone/schmetir/psn",
         {
           method: "GET",
@@ -70,10 +64,6 @@ function Profile() {
                 <h3 className="font-semibold">Top five:&nbsp;</h3>
                 <p className="font-light">{profile.topFive}</p>
               </div>
-              {/* <div className="flex">
-              <h3 className="font-semibold">Top ten:&nbsp;</h3>
-              <p className="font-light">{profile.topTen}</p>
-            </div> */}
               <div className="flex">
                 <h3 className="font-semibold">Clans:&nbsp;</h3>
                 <p className="font-light">[SHP]</p>

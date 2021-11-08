@@ -48,7 +48,8 @@ function search() {
     getProfile();
   };
 
-  /* console.log(process.env.REACT_APP_RAPID_KEY); */
+  /*   console.log(process.env.REACT_APP_RAPID_KEY);
+  console.log(process.env.REACT_APP_FIREBASE_KEY); */
 
   const searchReturnDiv = () => {
     if (!searched) {
@@ -114,9 +115,10 @@ function search() {
         <title>DUGB3 search</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <p className="font-bold border-b border-grayish text-2xl py-3 text-center">
+      <p className="font-bold   border-b border-grayish text-2xl py-3 text-center">
         Search
       </p>
+
       {/* SEARCH FIELD */}
       <div className="flex justify-center ">
         <form onSubmit={(e) => handleForm(e)} className="w-72">
