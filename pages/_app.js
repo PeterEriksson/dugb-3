@@ -2,13 +2,16 @@
 import Sidebar from "../components/Sidebar";
 import Widgets from "../components/Widgets";
 import "../styles/globals.css";
+import { ContextProvider } from "../Context";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Sidebar>
-      <Component {...pageProps} />
-      <Widgets />
-    </Sidebar>
+    <ContextProvider>
+      <Sidebar>
+        <Component {...pageProps} />
+        <Widgets />
+      </Sidebar>
+    </ContextProvider>
   );
 }
 
