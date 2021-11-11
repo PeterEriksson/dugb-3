@@ -36,7 +36,7 @@ function listPage() {
     },
   ]; */
 
-  console.log(openListModal);
+  /*   console.log(openListModal); ok.*/
 
   return (
     <div className="w-full  h-screen border-l border-grayish flex flex-col">
@@ -49,15 +49,12 @@ function listPage() {
       </p>
       <div className="border-b border-grayish " />
 
-      {/* BUTTON */}
-      <div className="flex mt-4 justify-center">
-        <button
-          onClick={() => setOpenListModal((prev) => !prev)}
-          className="flex transition duration-100 hover:scale-105 bg-blueish w-28 h-10 p-4 rounded-full justify-center items-center"
-        >
-          <p className="text-white font-light text-md">New list</p>
-        </button>
-      </div>
+      <button
+        onClick={() => setOpenListModal((prev) => !prev)}
+        className="flex mx-auto mt-3 transition duration-100 hover:scale-105 bg-blueish w-28 h-10 p-4 rounded-full justify-center items-center"
+      >
+        <p className="text-white font-light text-md">New list</p>
+      </button>
 
       <List />
     </div>
