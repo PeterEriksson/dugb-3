@@ -1,10 +1,12 @@
 import { useContext, useState } from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import List from "../components/List";
+import NewListModal from "../components/NewListModal";
 import { Context } from "../Context";
+import ListPublishedExample from "../components/ListPublishedExample";
 
-function listPage() {
-  const { setOpenListModal, openListModal } = useContext(Context);
+function lists() {
+  const { openNewListModal, setOpenNewListModal } = useContext(Context);
 
   const [profiles, setProfiles] = useState([
     {
@@ -36,7 +38,7 @@ function listPage() {
     },
   ]; */
 
-  /*   console.log(openListModal); ok.*/
+  /* console.log(openNewListModal); */
 
   return (
     <div className="w-full  h-screen border-l border-grayish flex flex-col">
@@ -44,21 +46,22 @@ function listPage() {
       <p className="font-light ml-3 text-center pb-4">
         Who is best at what? Customize your own lists and rank your team. Hot
         tip: it's probably not Martin. Hot tip 2: it's probably not Norman
-        either. It doesn't matter. It's time for GIBB and that's what it's all
-        about.
+        either.
       </p>
       <div className="border-b border-grayish " />
 
       <button
-        onClick={() => setOpenListModal((prev) => !prev)}
+        onClick={() => setOpenNewListModal((prev) => !prev)}
         className="flex mx-auto mt-3 transition duration-100 hover:scale-105 bg-blueish w-28 h-10 p-4 rounded-full justify-center items-center"
       >
         <p className="text-white font-light text-md">New list</p>
       </button>
 
-      <List />
+      <NewListModal />
+
+      <ListPublishedExample />
     </div>
   );
 }
 
-export default listPage;
+export default lists;

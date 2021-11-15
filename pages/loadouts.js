@@ -1,4 +1,4 @@
-function loadoutPage() {
+function loadouts() {
   return (
     <div className="w-full  flex flex-col border-l border-r border-grayish">
       <p className="text-2xl font-bold mx-3 mt-3">Loadouts</p>
@@ -16,4 +16,4 @@ function loadoutPage() {
   );
 }
 
-export default loadoutPage;
+export default loadouts;

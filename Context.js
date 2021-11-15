@@ -3,13 +3,13 @@ import React, { useState, useEffect } from "react";
 const Context = React.createContext();
 
 function ContextProvider({ children }) {
-  const [openListModal, setOpenListModal] = useState(false);
+  const [openNewListModal, setOpenNewListModal] = useState(false);
 
   return (
     <Context.Provider
       value={{
-        openListModal,
-        setOpenListModal,
+        openNewListModal,
+        setOpenNewListModal,
       }}
     >
       {children}

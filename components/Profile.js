@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { Context } from "../Context";
 import LoadingSpinner from "./LoadingSpinner";
 
 function Profile() {
@@ -14,7 +15,8 @@ function Profile() {
           headers: {
             "x-rapidapi-key":
               "6cb5ccf59dmsh35a1e1cf90546e8p1291dajsnc92e6565a8e2",
-            /* process.env.REACT_APP_RAPID_KEY, */
+            /* process.env.RAPID_KEY, */
+
             "x-rapidapi-host": "call-of-duty-modern-warfare.p.rapidapi.com",
           },
         }
