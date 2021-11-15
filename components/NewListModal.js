@@ -57,15 +57,15 @@ function NewListModal() {
                     <input
                       className="border-none focus:ring-0 w-full text-center"
                       type="text"
-                      placeholder="List header"
+                      placeholder="Header"
                     />
                   </div>
                   <input
                     className="border-none focus:ring-0 w-full text-center"
                     type="text"
-                    placeholder="Sub-heading"
+                    placeholder="Subheader"
                   />
-
+                  <List />
                   <textarea
                     name=""
                     id=""
@@ -77,7 +77,7 @@ function NewListModal() {
                   />
                 </div>
 
-                <List />
+                {/* <List /> */}
 
                 <div className="mt-5 flex justify-center sm:mt-6">
                   <button
