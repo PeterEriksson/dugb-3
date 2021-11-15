@@ -3,8 +3,8 @@ function loadouts() {
     <div className="w-full  flex flex-col border-l border-r border-grayish">
       <p className="text-2xl font-bold mx-3 mt-3">Loadouts</p>
       <p className="font-light mx-3">
-        Having a hard time finding the right loadout? Relax. Swimmerboi is here
-        to help you
+        Having a hard time finding the right loadout? Relax, Swimmerboi is here
+        to help you. How about a Crossbow and a Pila?
       </p>
       <div className="border-b border-grayish" />
       <img

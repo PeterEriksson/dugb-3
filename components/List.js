@@ -1,29 +1,17 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
+import { Context } from "../Context";
 
 function List() {
-  const [profiles, setProfiles] = useState([
-    {
-      userName: "schmetir",
-      img: "https://user-images.githubusercontent.com/17027312/134349999-06919dce-11f2-42b9-9c0c-2b27d8dcce51.jpeg",
-    },
-    {
-      userName: "nurrminator",
-      img: "https://photos.smugmug.com/photos/i-HGQDK9V/0/XL/i-HGQDK9V-XL.jpg",
-    },
-    {
-      userName: "BigMme930",
-      img: "https://photos.smugmug.com/photos/i-BS3QMBH/0/O/i-BS3QMBH-O.jpg",
-    },
-  ]);
+  const { _profiles, _setProfiles } = useContext(Context);
 
   const handleOnDragEnd = (result) => {
     if (!result.destination) return;
-    const items = Array.from(profiles);
+    const items = Array.from(_profiles);
     const [reorderedItem] = items.splice(result.source.index, 1);
     items.splice(result.destination.index, 0, reorderedItem);
 
-    setProfiles(items);
+    _setProfiles(items);
   };
 
   return (
@@ -36,7 +24,7 @@ function List() {
               {...provided.droppableProps}
               ref={provided.innerRef}
             >
-              {profiles.map((profileItem, i) => {
+              {_profiles.map((profileItem, i) => {
                 return (
                   <Draggable
                     key={profileItem.userName}
