@@ -20,9 +20,7 @@ function search() {
         {
           method: "GET",
           headers: {
-            "x-rapidapi-key":
-              /* "6cb5ccf59dmsh35a1e1cf90546e8p1291dajsnc92e6565a8e2", */
-              process.env.NEXT_PUBLIC_RAPID_KEY,
+            "x-rapidapi-key": process.env.NEXT_PUBLIC_RAPID_KEY,
             "x-rapidapi-host": "call-of-duty-modern-warfare.p.rapidapi.com",
           },
         }

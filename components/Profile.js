@@ -70,7 +70,7 @@ function Profile() {
               </div>
               <div className="flex">
                 <h3 className="font-semibold">Favorite saying:&nbsp;</h3>
-                <p className="font-light">Gött å leva</p>
+                <p className="font-light">revivea mig</p>
               </div>
               <div className="flex">
                 <h3 className="font-semibold">Stengths:&nbsp;</h3>
