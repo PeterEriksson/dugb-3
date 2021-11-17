@@ -1,5 +1,6 @@
 import Profile from "../components/Profile";
 import Head from "next/head";
+/* import { useEffect } from "react"; */
 
 function profile() {
   return (

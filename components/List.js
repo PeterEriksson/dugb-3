@@ -15,7 +15,7 @@ function List() {
   };
 
   return (
-    <div className=" mb-1 mt-3 flex flex-col p-2 px-2  rounded-xl ml-3">
+    <div className=" mb-1 mt-1 flex flex-col p-2 px-2 rounded-xl ">
       <DragDropContext onDragEnd={handleOnDragEnd}>
         <Droppable droppableId="todos">
           {(provided) => (

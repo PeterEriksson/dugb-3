@@ -11,6 +11,7 @@ module.exports = {
         orange: "#FF6600",
         testBg: "#caccce",
         whiteSmoke: "#E8E8E8",
+        whiteExp: "#FAF9F6",
       },
       fontFamily: {
         mainFontHelv: "helvetica",

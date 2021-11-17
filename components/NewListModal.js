@@ -6,6 +6,14 @@ import List from "./List";
 
 function NewListModal() {
   const { openNewListModal, setOpenNewListModal } = useContext(Context);
+  const {
+    newListHeader,
+    setNewListHeader,
+    newListSubHeader,
+    setNewListSubHeader,
+    newListExplanation,
+    setNewListExplanation,
+  } = useContext(Context);
 
   return (
     <Transition.Root show={openNewListModal} as={Fragment}>
@@ -45,7 +53,7 @@ function NewListModal() {
           >
             <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5  pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full">
               <div>
-                <div className="mt-3 text-center sm:mt-5">
+                <div className="mt-1 text-center sm:mt-5">
                   <Dialog.Title
                     as="h3"
                     className="text-lg leading-6 font-medium text-gray-900"
@@ -58,26 +66,31 @@ function NewListModal() {
                       className="border-none focus:ring-0 w-full text-center"
                       type="text"
                       placeholder="Header"
+                      /* value={newListHeader} */
+                      onChange={(e) => setNewListHeader(e.target.value)}
                     />
                   </div>
                   <input
                     className="border-none focus:ring-0 w-full text-center"
                     type="text"
                     placeholder="Subheader"
+                    /* value={newListSubHeader} */
+                    onChange={(e) => setNewListSubHeader(e.target.value)}
                   />
+
                   <List />
                   <textarea
+                    /* value={newListExplanation} */
+                    onChange={(e) => setNewListExplanation(e.target.value)}
                     name=""
                     id=""
                     cols=""
                     rows=""
-                    className="w-full text-xl text-center focus:ring-transparent font-light border-none outline-none resize-none"
+                    className="w-full text-base text-center focus:ring-transparent font-light border-none outline-none resize-none"
                     type="text"
-                    placeholder="Explain your list. Swing hard"
+                    placeholder="Explain your list. Drag n drop to reorder players. Swing hard"
                   />
                 </div>
-
-                {/* <List /> */}
 
                 <div className="mt-5 flex justify-center sm:mt-6">
                   <button
