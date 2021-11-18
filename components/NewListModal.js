@@ -13,7 +13,33 @@ function NewListModal() {
     setNewListSubHeader,
     newListExplanation,
     setNewListExplanation,
+    _profiles,
   } = useContext(Context);
+  const { lists, setLists } = useContext(Context);
+
+  const handlePublishNewList = (e) => {
+    e.preventDefault(e);
+    if (
+      newListExplanation !== "" &&
+      newListHeader !== "" &&
+      newListExplanation !== ""
+    ) {
+      setLists((prev) => [
+        ...prev,
+        {
+          header: newListHeader,
+          subheader: newListSubHeader,
+          list: _profiles,
+          listExplanation: newListExplanation,
+        },
+      ]);
+
+      setOpenNewListModal(false);
+      setNewListHeader("");
+      setNewListSubHeader("");
+      setNewListExplanation("");
+    }
+  };
 
   return (
     <Transition.Root show={openNewListModal} as={Fragment}>
@@ -66,7 +92,7 @@ function NewListModal() {
                       className="border-none focus:ring-0 w-full text-center"
                       type="text"
                       placeholder="Header"
-                      /* value={newListHeader} */
+                      value={newListHeader}
                       onChange={(e) => setNewListHeader(e.target.value)}
                     />
                   </div>
@@ -74,13 +100,13 @@ function NewListModal() {
                     className="border-none focus:ring-0 w-full text-center"
                     type="text"
                     placeholder="Subheader"
-                    /* value={newListSubHeader} */
+                    value={newListSubHeader}
                     onChange={(e) => setNewListSubHeader(e.target.value)}
                   />
 
                   <List />
                   <textarea
-                    /* value={newListExplanation} */
+                    value={newListExplanation}
                     onChange={(e) => setNewListExplanation(e.target.value)}
                     name=""
                     id=""
@@ -95,6 +121,7 @@ function NewListModal() {
                 <div className="mt-5 flex justify-center sm:mt-6">
                   <button
                     type="button"
+                    onClick={(e) => handlePublishNewList(e)}
                     className="inline-flex justify-center py-2 w-2/5 rounded-md border border-transparent shadow-sm px-4  bg-blueish text-base font-medium text-white hover:bg-hoverBluish  focus:outline-none  sm:text-sm disabled:bg-gray-300 disabled:cursor-not-allowed disabled:hover:bg-gray-300 "
                   >
                     Publish

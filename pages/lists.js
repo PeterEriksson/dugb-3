@@ -7,6 +7,7 @@ import ListPublishedExample from "../components/ListPublishedExample";
 
 function lists() {
   const { openNewListModal, setOpenNewListModal } = useContext(Context);
+  const { lists, setLists } = useContext(Context);
 
   return (
     <div className="w-full  h-screen border-l border-grayish flex flex-col">
@@ -27,7 +28,11 @@ function lists() {
 
       <NewListModal />
 
-      <ListPublishedExample />
+      {/* LISTS FEED */}
+      {lists.map((item, i) => (
+        <ListPublishedExample key={i} item={item} />
+      ))}
+      {/* <ListPublishedExample /> */}
     </div>
   );
 }

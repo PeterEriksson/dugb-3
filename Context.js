@@ -4,13 +4,9 @@ const Context = React.createContext();
 
 function ContextProvider({ children }) {
   const [openNewListModal, setOpenNewListModal] = useState(false);
-  const [newListHeader, setNewListHeader] = useState("Störst potential");
-  const [newListSubHeader, setNewListSubHeader] = useState(
-    "Stats å sido, vem har störst potential? Vi snackar talang, vi snackar kapacitet. Här är min lista:"
-  );
-  const [newListExplanation, setNewListExplanation] = useState(
-    "Första-platsen inte mycket att orda om. Andra-platsen desto jämnare. Den otippade finnen nurrminator drar ändå längsta strået. Har tidigare visat vilken talang han är i CS, jag tycker vi kan börja se glimtar av det även i cod. Martin får sista-platsen, han har kunnandet, han har kapaciteten, men han misslyckas att omsätta det i praktiken. Prestationsångest? Kanske. Behöver ett nytt Belgien-läger."
-  );
+  const [newListHeader, setNewListHeader] = useState("");
+  const [newListSubHeader, setNewListSubHeader] = useState("");
+  const [newListExplanation, setNewListExplanation] = useState("");
   /*   const [user, setUser] = useState(true); */
   const [_profiles, _setProfiles] = useState([
     {
@@ -24,6 +20,16 @@ function ContextProvider({ children }) {
     {
       userName: "BigMme930",
       img: "https://photos.smugmug.com/photos/i-BS3QMBH/0/O/i-BS3QMBH-O.jpg",
+    },
+  ]);
+  const [lists, setLists] = useState([
+    {
+      header: "Störst potential",
+      subheader:
+        "Stats å sido, vem har störst potential? Vi snackar talang, vi snackar kapacitet. Här är min lista:",
+      list: _profiles,
+      listExplanation:
+        "Första-platsen inte mycket att orda om. Andra-platsen desto jämnare. Den otippade finnen nurrminator drar ändå längsta strået. Har tidigare visat vilken talang han är i CS, jag tycker vi kan börja se glimtar av det även i cod. Martin får sista-platsen, han har kunnandet, han har kapaciteten, men han misslyckas att omsätta det i praktiken. Prestationsångest? Kanske. Behöver ett nytt Belgien-läger.",
     },
   ]);
 
@@ -40,6 +46,8 @@ function ContextProvider({ children }) {
         setNewListSubHeader,
         newListExplanation,
         setNewListExplanation,
+        lists,
+        setLists,
       }}
     >
       {children}
