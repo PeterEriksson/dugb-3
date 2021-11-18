@@ -25,8 +25,6 @@ function Tweetbox() {
     }
   };
 
-  console.log(posts);
-
   return (
     <div className="w-full font-mainFontHelv border-t border-grayish flex flex-col ">
       <div className="flex w-11/12  mb-3 flex-grow space-x-4 py-8 ml-6">

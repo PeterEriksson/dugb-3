@@ -13,26 +13,25 @@ function NewListModal() {
 
   const handlePublishNewList = (e) => {
     e.preventDefault(e);
-    if (
+    /* if (
       newListExplanation !== "" &&
       newListHeader !== "" &&
       newListExplanation !== ""
-    ) {
-      setLists((prev) => [
-        ...prev,
-        {
-          header: newListHeader,
-          subheader: newListSubHeader,
-          list: _profiles,
-          listExplanation: newListExplanation,
-        },
-      ]);
+    )  */
+    setLists((prev) => [
+      ...prev,
+      {
+        header: newListHeader,
+        subheader: newListSubHeader,
+        list: _profiles,
+        listExplanation: newListExplanation,
+      },
+    ]);
 
-      setOpenNewListModal(false);
-      setNewListHeader("");
-      setNewListSubHeader("");
-      setNewListExplanation("");
-    }
+    setOpenNewListModal(false);
+    setNewListHeader("");
+    setNewListSubHeader("");
+    setNewListExplanation("");
   };
 
   return (
@@ -115,6 +114,11 @@ function NewListModal() {
 
                 <div className="mt-5 flex justify-center sm:mt-6">
                   <button
+                    disabled={
+                      !newListHeader.trim() ||
+                      !newListSubHeader.trim() ||
+                      !newListExplanation.trim()
+                    }
                     type="button"
                     onClick={(e) => handlePublishNewList(e)}
                     className="inline-flex justify-center py-2 w-2/5 rounded-md border border-transparent shadow-sm px-4  bg-blueish text-base font-medium text-white hover:bg-hoverBluish  focus:outline-none  sm:text-sm disabled:bg-gray-300 disabled:cursor-not-allowed disabled:hover:bg-gray-300 "
