@@ -9,7 +9,7 @@ function Tweetbox() {
 
   const handleNewPost = (e) => {
     e.preventDefault();
-    if (postText !== "") {
+    if (postText.length <= postMaxLength) {
       setPosts((prev) => [
         ...prev,
         {
@@ -68,6 +68,7 @@ function Tweetbox() {
 
       <button
         onClick={(e) => handleNewPost(e)}
+        disabled={!postText.trim()}
         className="py-3 w-32 mx-auto px-6 cursor-pointer mb-3 hover:bg-hoverBluish transition transform duration-100 bg-blueish rounded-full"
       >
         <p className="text-white text-sm">Share post</p>
