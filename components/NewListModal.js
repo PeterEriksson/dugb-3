@@ -1,21 +1,15 @@
 import { Dialog, Transition } from "@headlessui/react";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { useContext } from "react";
 import { Context } from "../Context";
 import List from "./List";
 
 function NewListModal() {
-  const { openNewListModal, setOpenNewListModal } = useContext(Context);
-  const {
-    newListHeader,
-    setNewListHeader,
-    newListSubHeader,
-    setNewListSubHeader,
-    newListExplanation,
-    setNewListExplanation,
-    _profiles,
-  } = useContext(Context);
-  const { lists, setLists } = useContext(Context);
+  const { openNewListModal, setOpenNewListModal, _profiles, lists, setLists } =
+    useContext(Context);
+  const [newListHeader, setNewListHeader] = useState("");
+  const [newListSubHeader, setNewListSubHeader] = useState("");
+  const [newListExplanation, setNewListExplanation] = useState("");
 
   const handlePublishNewList = (e) => {
     e.preventDefault(e);

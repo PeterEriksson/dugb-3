@@ -4,11 +4,6 @@ const Context = React.createContext();
 
 function ContextProvider({ children }) {
   const [openNewListModal, setOpenNewListModal] = useState(false);
-  const [newListHeader, setNewListHeader] = useState("");
-  const [newListSubHeader, setNewListSubHeader] = useState("");
-  const [newListExplanation, setNewListExplanation] = useState("");
-  /*   const [user, setUser] = useState(null); */
-  /* const [currUserAdditionalInfo, setCurrUserAdditionalInfo] = useState(null); */
   const [_profiles, _setProfiles] = useState([
     {
       userName: "schmetir",
@@ -85,12 +80,6 @@ function ContextProvider({ children }) {
         setOpenNewListModal,
         _profiles,
         _setProfiles,
-        newListHeader,
-        setNewListHeader,
-        newListSubHeader,
-        setNewListSubHeader,
-        newListExplanation,
-        setNewListExplanation,
         lists,
         setLists,
         posts,
