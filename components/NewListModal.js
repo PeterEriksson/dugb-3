@@ -105,6 +105,7 @@ function NewListModal() {
                   />
 
                   <List />
+
                   <textarea
                     value={newListExplanation}
                     onChange={(e) => setNewListExplanation(e.target.value)}

@@ -1,8 +1,31 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { Context } from "../Context";
 
 function Tweetbox() {
   const [postText, setPostText] = useState("");
+  const [postImg, setPostImg] = useState("");
   const postMaxLength = 120;
+  const { setPosts, posts } = useContext(Context);
+
+  const handleNewPost = (e) => {
+    e.preventDefault();
+    if (postText !== "") {
+      setPosts((prev) => [
+        ...prev,
+        {
+          img: "https://user-images.githubusercontent.com/17027312/134349999-06919dce-11f2-42b9-9c0c-2b27d8dcce51.jpeg",
+          fullName: "Peter Eriksson",
+          userName: "schmetir",
+          postText: postText,
+          postImg: postImg,
+        },
+      ]);
+      setPostImg("");
+      setPostText("");
+    }
+  };
+
+  console.log(posts);
 
   return (
     <div className="w-full font-mainFontHelv border-t border-grayish flex flex-col ">
@@ -26,6 +49,8 @@ function Tweetbox() {
       {/* img + chars div */}
       <div className="flex mb-3  items-center">
         <input
+          value={postImg}
+          onChange={(e) => setPostImg(e.target.value)}
           type="text"
           className=" ml-20 focus:ring-gray-600 focus:border-gray-600  w-40 sm:text-xs border-gray-200 rounded-md"
           placeholder="optional: enter img url"
@@ -40,7 +65,11 @@ function Tweetbox() {
           {postText.length}/{postMaxLength}
         </p>
       </div>
-      <button className="py-3 w-32 mx-auto px-6 cursor-pointer mb-3 hover:bg-hoverBluish transition transform duration-100 bg-blueish rounded-full">
+
+      <button
+        onClick={(e) => handleNewPost(e)}
+        className="py-3 w-32 mx-auto px-6 cursor-pointer mb-3 hover:bg-hoverBluish transition transform duration-100 bg-blueish rounded-full"
+      >
         <p className="text-white text-sm">Share post</p>
       </button>
 
