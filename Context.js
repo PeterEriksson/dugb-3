@@ -5,7 +5,7 @@ const Context = React.createContext();
 function ContextProvider({ children }) {
   const [englishLanguage, setEnglishLanguage] = useState(false);
   const [openNewListModal, setOpenNewListModal] = useState(false);
-  const [userGuest, setUserGuest] = useState(false);
+  const [userGuest, setUserGuest] = useState(!false);
   const [_profiles, _setProfiles] = useState([
     {
       userName: "schmetir",
@@ -31,7 +31,7 @@ function ContextProvider({ children }) {
     },
   ]);
   const [posts, setPosts] = useState([
-    {
+    /* {
       img: "https://user-images.githubusercontent.com/17027312/134349999-06919dce-11f2-42b9-9c0c-2b27d8dcce51.jpeg",
       fullName: "Peter Eriksson",
       userName: "schmetir",
@@ -72,7 +72,7 @@ function ContextProvider({ children }) {
       postText: "Jag hatar gulag",
       postImg:
         "https://i.pinimg.com/236x/3c/77/f1/3c77f15815aaa71cb85f376dbc2d5c72.jpg",
-    },
+    }, */
   ]);
 
   return (

@@ -6,10 +6,14 @@ import {
   FireIcon as FireIconSolid,
 } from "@heroicons/react/outline";
 import { ShieldCheckIcon, FireIcon } from "@heroicons/react/solid";
+import { forwardRef } from "react";
 
-function Post({ item }) {
+const Post = forwardRef(({ item }, ref) => {
   return (
-    <div className="w-full pb-6 font-mainFontHelv hover:bg-grayish border-b border-gray-300 flex flex-col ">
+    <div
+      ref={ref}
+      className="w-full pb-6 font-mainFontHelv hover:bg-grayish border-b border-gray-300 flex flex-col "
+    >
       <div className="flex w-11/12 flex-grow mt-2.5 ml-1">
         <img
           className="w-8 h-8 ml-5 mt-2 rounded-full object-cover"
@@ -40,6 +44,6 @@ function Post({ item }) {
       </div>
     </div>
   );
-}
+});
 
 export default Post;
