@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 const Context = React.createContext();
 
 function ContextProvider({ children }) {
+  const [englishLanguage, setEnglishLanguage] = useState(false);
   const [openNewListModal, setOpenNewListModal] = useState(false);
   const [userGuest, setUserGuest] = useState(false);
   const [_profiles, _setProfiles] = useState([
@@ -87,6 +88,8 @@ function ContextProvider({ children }) {
         setPosts,
         userGuest,
         setUserGuest,
+        englishLanguage,
+        setEnglishLanguage,
       }}
     >
       {children}
