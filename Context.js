@@ -4,6 +4,7 @@ const Context = React.createContext();
 
 function ContextProvider({ children }) {
   const [openNewListModal, setOpenNewListModal] = useState(false);
+  const [userGuest, setUserGuest] = useState(false);
   const [_profiles, _setProfiles] = useState([
     {
       userName: "schmetir",
@@ -84,6 +85,8 @@ function ContextProvider({ children }) {
         setLists,
         posts,
         setPosts,
+        userGuest,
+        setUserGuest,
       }}
     >
       {children}

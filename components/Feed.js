@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { Context } from "../Context";
 import Post from "./Post";
-import Tweetbox from "./Tweetbox";
 
 /* text area max w 576 px xl ...?*/
 

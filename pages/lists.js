@@ -22,7 +22,7 @@ function lists() {
         onClick={() => setOpenNewListModal((prev) => !prev)}
         className="flex mx-auto mt-3 transition duration-100 hover:scale-105 bg-blueish w-28 h-10 p-4 rounded-full justify-center items-center"
       >
-        <p className="text-white font-light text-md">New list</p>
+        <p className="text-white font-light text-md">Create list</p>
       </button>
 
       <NewListModal />
