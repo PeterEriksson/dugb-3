@@ -14,7 +14,7 @@ function Login() {
           Statistik, fakta, skvaller
         </h2>
 
-        {/* buttons section */}
+        {/* top buttons section */}
         <section className="flex flex-row mt-auto mb-4">
           <button className="text-white py-4 w-36 border border-white hover:bg-white hover:text-black">
             Log in
@@ -23,9 +23,10 @@ function Login() {
             Sign up
           </button>
         </section>
+
         <button
           onClick={() => setUserGuest((prev) => !prev)}
-          className="text-white rounded-lg border border-white px-4 mb-6 hover:bg-white hover:text-black"
+          className="text-white rounded-md border border-white px-4 mb-6 hover:bg-white hover:text-black"
         >
           Guest
         </button>
