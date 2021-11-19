@@ -18,7 +18,11 @@ import Login from "./Login";
 
 function Sidebar({ children }) {
   const { asPath } = useRouter();
-  const { userGuest } = useContext(Context);
+  const { userGuest, setUserGuest } = useContext(Context);
+
+  const handleLogout = () => {
+    userGuest && setUserGuest(false);
+  };
 
   return (
     <>
@@ -53,6 +57,7 @@ function Sidebar({ children }) {
               <SidebarOption text="Search" Icon={SearchIcon} />
               <SidebarOption text="Lists" Icon={ClipboardListIcon} />
 
+              {/* refactor when notifications page is set up. */}
               <div className="sidebarBtn group">
                 <BellIcon className="icon" />
                 <p className="iconText hidden smallerTest:inline-flex">
@@ -63,7 +68,7 @@ function Sidebar({ children }) {
               <SidebarOption text="Loadouts" Icon={GiftIcon} />
               <SidebarOption text="About" Icon={InformationCircleIcon} />
 
-              <div className="sidebarBtn group">
+              <div onClick={() => handleLogout()} className="sidebarBtn group">
                 <LogoutIcon className="icon" />
                 <p className="iconText hidden smallerTest:inline-flex">
                   Log out
