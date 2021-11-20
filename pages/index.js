@@ -11,7 +11,9 @@ export default function Home() {
         <title>DUGB3</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <p className="font-bold text-2xl py-3 ml-4">Home | Skvaller</p>
+      <div className="">
+        <p className="font-bold text-2xl py-3 ml-4">Home | Skvaller</p>
+      </div>
       <Tweetbox />
 
       <Feed />

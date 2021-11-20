@@ -17,7 +17,7 @@ function List() {
   return (
     <div className=" mb-1 mt-1 flex flex-col p-2 px-2 rounded-xl ">
       <DragDropContext onDragEnd={handleOnDragEnd}>
-        <Droppable droppableId="todos">
+        <Droppable droppableId="listitems">
           {(provided) => (
             <div
               className="p-2 w-full ml-auto mr-auto bg-gradient-to-br rounded-2xl from-white via-indigo-100 to-blueish"
@@ -31,14 +31,18 @@ function List() {
                     draggableId={profileItem.userName}
                     index={i}
                   >
-                    {(provided) => (
+                    {(provided, snapshot) => (
                       <div
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
                         ref={provided.innerRef}
-                        className="ml-3 flex justify-center"
+                        className={`ml-3 flex justify-center `}
                       >
-                        <div className="bg-grayish mb-2 p-4 w-60 rounded-2xl flex space-x-2 items-center">
+                        <div
+                          className={`bg-grayish ${
+                            snapshot.isDragging && "bg-red-500 z-50"
+                          } mb-2 p-4 w-60 rounded-2xl flex space-x-2 items-center`}
+                        >
                           <p className="mr-10">{i + 1}</p>
                           <img
                             src={profileItem.img}
