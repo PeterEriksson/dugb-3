@@ -4,7 +4,7 @@ function About() {
       <h1 className="font-bold text-2xl mt-3 text-center">About</h1>
       <div className="border-b border-grayish " />
       <h2 className="font-semibold text-lg text-center">
-        Designed by nurrminator. Developed by schmetir.
+        Concept by nurrminator. Designed and developed by schmetir.
       </h2>
       <p className="text-center">
         Warzone-portal för seriösa elitgibbare. Ditt andra hem från Verdansk.

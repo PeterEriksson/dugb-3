@@ -31,7 +31,6 @@ function lists() {
       {lists.map((item, i) => (
         <ListPublishedExample key={i} item={item} />
       ))}
-      {/* <ListPublishedExample /> */}
     </div>
   );
 }
