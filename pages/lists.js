@@ -4,9 +4,15 @@ import List from "../components/List";
 import NewListModal from "../components/NewListModal";
 import { Context } from "../Context";
 import ListPublishedExample from "../components/ListPublishedExample";
+import ModalTest from "../components/ModalTest";
 
 function lists() {
-  const { openNewListModal, setOpenNewListModal } = useContext(Context);
+  const {
+    openNewListModal,
+    setOpenNewListModal,
+    openTestModal,
+    setOpenTestModal,
+  } = useContext(Context);
   const { lists } = useContext(Context);
 
   return (
@@ -19,13 +25,15 @@ function lists() {
       <div className="border-b border-grayish " />
 
       <button
-        onClick={() => setOpenNewListModal((prev) => !prev)}
+        /* onClick={() => setOpenNewListModal((prev) => !prev)} */
+        onClick={() => setOpenTestModal((prev) => !prev)}
         className="flex mx-auto mt-3 transition duration-100 hover:scale-105 bg-blueish w-28 h-10 p-4 rounded-full justify-center items-center"
       >
         <p className="text-white font-light text-md">Create list</p>
       </button>
 
-      <NewListModal />
+      {/* <NewListModal /> */}
+      <ModalTest />
 
       {/* LISTS FEED */}
       {lists.map((item, i) => (

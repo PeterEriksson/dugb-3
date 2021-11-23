@@ -15,18 +15,21 @@ import SidebarOption from "./SidebarOption";
 import { useContext } from "react";
 import { Context } from "../Context";
 import Login from "./Login";
+import { auth } from "../firebase";
 
 function Sidebar({ children }) {
   const { asPath } = useRouter();
-  const { userGuest, setUserGuest } = useContext(Context);
+  const { userGuest, setUserGuest, user, setUser } = useContext(Context);
 
   const handleLogout = () => {
     userGuest && setUserGuest(false);
+    auth?.signOut();
+    setUser(null);
   };
 
   return (
     <>
-      {userGuest ? (
+      {userGuest || user ? (
         // user/guest has logged in (temp) ->
         <div className="flex flex-row">
           <div className=" h-screen w-56  font-mainFontHelv px-7  pt-3  flex flex-col  border-grayish ">

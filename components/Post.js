@@ -6,9 +6,17 @@ import {
   FireIcon as FireIconSolid,
 } from "@heroicons/react/outline";
 import { ShieldCheckIcon, FireIcon } from "@heroicons/react/solid";
-import { forwardRef } from "react";
+import { forwardRef, useContext } from "react";
+import { Context } from "../Context";
 
 const Post = forwardRef(({ item }, ref) => {
+  const { posts, setPosts } = useContext(Context);
+
+  const handleDeletePost = () => {
+    const newArr = posts.filter((postItem) => postItem.postId !== item.postId);
+    setPosts(newArr);
+  };
+
   return (
     <div
       ref={ref}
@@ -38,7 +46,7 @@ const Post = forwardRef(({ item }, ref) => {
         <ChatIcon className="postIcon" />
         <RefreshIcon className="postIcon" />
         <PencilIcon className="postIcon" />
-        <TrashIcon className="postIcon" />
+        <TrashIcon onClick={handleDeletePost} className="postIcon" />
         {/* <FireIcon className="postIcon text-orange" /> */}
         <FireIconSolid className="postIcon" />
       </div>

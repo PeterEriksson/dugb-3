@@ -1,12 +1,16 @@
+/* import { useContext } from "react"; */
 import {
   TwitterTimelineEmbed,
   //TwitterShareButton,
   TwitterTweetEmbed,
 } from "react-twitter-embed";
+/* import { Context } from "../Context"; */
 
 function Widgets() {
+  /* const { openTestModal } = useContext(Context);
+  console.log(openTestModal); */
   return (
-    <div className="hidden mdLgTest:inline-flex flex-col pr-5">
+    <div className={`hidden mdLgTest:inline-flex flex-col pr-5`}>
       <h2 className="mt-3 ml-5 text-2xl font-bold">Senaste</h2>
       <div
         aria-label="widgets__container"

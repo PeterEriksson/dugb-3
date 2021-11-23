@@ -5,7 +5,12 @@ function Tweetbox() {
   const [postText, setPostText] = useState("");
   const [postImg, setPostImg] = useState("");
   const postMaxLength = 120;
-  const { setPosts, posts } = useContext(Context);
+  const { setPosts, posts, user, users } = useContext(Context);
+
+  //limitations of firebase username/password -> getaround....
+  const { fullName } = users.find(
+    (item) => item.displayName === user.displayName
+  );
 
   const handleNewPost = (e) => {
     e.preventDefault();
@@ -13,15 +18,17 @@ function Tweetbox() {
       setPosts((prev) => [
         ...prev,
         {
-          img: "https://user-images.githubusercontent.com/17027312/134349999-06919dce-11f2-42b9-9c0c-2b27d8dcce51.jpeg",
-          fullName: "Peter Eriksson",
-          userName: "schmetir",
+          img: user.photoURL,
+          fullName: fullName,
+          userName: user.displayName,
           postText: postText,
           postImg: postImg,
+          postId: Math.floor(Math.random() * 5000),
         },
       ]);
       setPostImg("");
       setPostText("");
+      console.log(posts);
     }
   };
 
@@ -29,8 +36,8 @@ function Tweetbox() {
     <div className="w-full font-mainFontHelv border-t border-grayish flex flex-col ">
       <div className="flex w-11/12  mb-3 flex-grow space-x-4 py-8 ml-6">
         <img
-          className="w-8 h-8 rounded-full"
-          src="https://user-images.githubusercontent.com/17027312/134349999-06919dce-11f2-42b9-9c0c-2b27d8dcce51.jpeg"
+          className="w-9 h-8 rounded-full object-cover"
+          src={`${user.photoURL}`}
         />
         <textarea
           value={postText}
@@ -41,7 +48,7 @@ function Tweetbox() {
           rows=""
           className="w-full text-xl  focus:ring-transparent font-light border-none outline-none resize-none"
           type="text"
-          placeholder="Vad händer schmetir?"
+          placeholder={`Vad händer ${user?.displayName}?`}
         />
       </div>
       {/* img + chars div */}

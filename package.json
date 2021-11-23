@@ -9,7 +9,7 @@
     "@headlessui/react": "^1.4.2",
     "@heroicons/react": "^1.0.4",
     "@tailwindcss/forms": "^0.3.4",
-    "firebase": "^9.2.0",
+    "firebase": "^7.23.0",
     "next": "latest",
     "next-auth": "^4.0.0-beta.6",
     "react": "^17.0.2",

@@ -12,12 +12,16 @@ module.exports = {
         testBg: "#caccce",
         whiteSmoke: "#E8E8E8",
         whiteExp: "#FAF9F6",
+        purpleish: "#482980",
+        hoverPurpleish: "#341d5c",
       },
       fontFamily: {
         mainFontHelv: "helvetica",
       },
       spacing: {
         test: "76px",
+        largeTest: "512px",
+        xxxxxl: "1024px",
       },
       screens: {
         mdLgTest: "890px",

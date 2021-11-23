@@ -1,12 +1,8 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp, getApp, getApps } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+/* https://github.com/vercel/next.js/issues/1999 */
 
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import * as firebase from "firebase";
 
-// Your web app's Firebase configuration
-const firebaseConfig = {
+var firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_KEY,
   authDomain: "dugb-20d8f.firebaseapp.com",
   projectId: "dugb-20d8f",
@@ -16,7 +12,15 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
-const db = getFirestore();
+/* const firebaseApp = firebase.initializeApp(firebaseConfig); */
+const firebaseApp = !firebase.apps.length
+  ? firebase.initializeApp(firebaseConfig)
+  : firebase.app();
 
-export { app, db };
+//access the db
+const db = firebaseApp.firestore();
+
+//log in, log out, create users
+const auth = firebase.auth();
+
+export { db, auth };
