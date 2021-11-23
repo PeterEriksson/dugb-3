@@ -5,12 +5,16 @@ function Tweetbox() {
   const [postText, setPostText] = useState("");
   const [postImg, setPostImg] = useState("");
   const postMaxLength = 120;
-  const { setPosts, posts, user, users } = useContext(Context);
+  const { setPosts, posts, user, users, userGuest } = useContext(Context);
 
-  //limitations of firebase username/password -> getaround....
-  const { fullName } = users.find(
-    (item) => item.displayName === user.displayName
-  );
+  const tempGuest = {
+    fullName: "Guest",
+  };
+  //limitations of firebase username/password -> getaround ->
+  //if guest is logged in we also need to cover for that, hence tempGuest
+  const { fullName } = userGuest
+    ? tempGuest
+    : users.find((item) => item.displayName === user?.displayName);
 
   const handleNewPost = (e) => {
     e.preventDefault();
@@ -37,7 +41,7 @@ function Tweetbox() {
       <div className="flex w-11/12  mb-3 flex-grow space-x-4 py-8 ml-6">
         <img
           className="w-9 h-8 rounded-full object-cover"
-          src={`${user.photoURL}`}
+          src={`${user?.photoURL}`}
         />
         <textarea
           value={postText}
@@ -48,7 +52,11 @@ function Tweetbox() {
           rows=""
           className="w-full text-xl  focus:ring-transparent font-light border-none outline-none resize-none"
           type="text"
-          placeholder={`Vad händer ${user?.displayName}?`}
+          placeholder={`${
+            userGuest
+              ? "Hello guest. you need to be logged in to be able to post"
+              : `Vad händer ${user?.displayName}?`
+          }  `}
         />
       </div>
       {/* img + chars div */}
@@ -73,7 +81,7 @@ function Tweetbox() {
 
       <button
         onClick={(e) => handleNewPost(e)}
-        disabled={!postText.trim()}
+        disabled={!postText.trim() || userGuest}
         className="py-3 w-32 mx-auto px-6 cursor-pointer mb-3 hover:bg-hoverBluish transition transform duration-100 bg-blueish rounded-full"
       >
         <p className="text-white text-sm">Share post</p>
