@@ -14,7 +14,7 @@ function List({ item }) {
       <p className="font-medium">{item.subheader}</p>
 
       <div className="p-4 w-4/5 ml-auto mr-auto bg-gradient-to-br rounded-2xl from-white via-indigo-100 to-blueish">
-        {item.list.map((profileItem, i) => {
+        {item.ranking.map((profileItem, i) => {
           return (
             <div key={i} className="ml-3 flex justify-center">
               <div className="bg-white mb-2 p-4 w-72 rounded-2xl flex space-x-5 items-center">

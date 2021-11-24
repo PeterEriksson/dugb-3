@@ -1,10 +1,11 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 /* import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd"; */
 import List from "../components/List";
 import NewListModal from "../components/NewListModal";
 import { Context } from "../Context";
 import ListPublishedExample from "../components/ListPublishedExample";
 import ModalTest from "../components/ModalTest";
+import { db } from "../firebase";
 
 function lists() {
   const {
@@ -13,7 +14,19 @@ function lists() {
     openTestModal,
     setOpenTestModal,
   } = useContext(Context);
-  const { lists } = useContext(Context);
+
+  /* const { lists } = useContext(Context); */
+
+  const [lists, setLists] = useState([]);
+  useEffect(() => {
+    db.collection("lists")
+      .orderBy("timestamp", "desc")
+      .onSnapshot((snapshot) =>
+        setLists(
+          snapshot.docs.map((doc) => ({ ...doc.data(), listId: doc.id }))
+        )
+      );
+  }, []);
 
   return (
     <div className="w-full  h-screen border-l border-grayish flex flex-col">
@@ -25,15 +38,15 @@ function lists() {
       <div className="border-b border-grayish " />
 
       <button
-        /* onClick={() => setOpenNewListModal((prev) => !prev)} */
-        onClick={() => setOpenTestModal((prev) => !prev)}
+        onClick={() => setOpenNewListModal((prev) => !prev)}
+        /* onClick={() => setOpenTestModal((prev) => !prev)} */
         className="flex mx-auto mt-3 transition duration-100 hover:scale-105 bg-blueish w-28 h-10 p-4 rounded-full justify-center items-center"
       >
-        <p className="text-white font-light text-md">Create list</p>
+        <p className="text-white font-normal text-md">Create list</p>
       </button>
 
-      {/* <NewListModal /> */}
-      <ModalTest />
+      <NewListModal />
+      {/* <ModalTest /> */}
 
       {/* LISTS FEED */}
       {lists.map((item, i) => (

@@ -1,32 +1,45 @@
 import { Dialog, Transition } from "@headlessui/react";
+import firebase from "firebase";
 import { Fragment, useState } from "react";
 import { useContext } from "react";
 import { Context } from "../Context";
+import { db } from "../firebase";
 import List from "./List";
 
 function NewListModal() {
-  const { openNewListModal, setOpenNewListModal, _profiles, lists, setLists } =
-    useContext(Context);
+  const {
+    openNewListModal,
+    setOpenNewListModal,
+    _profiles,
+    lists,
+    setLists,
+    user,
+  } = useContext(Context);
   const [newListHeader, setNewListHeader] = useState("");
   const [newListSubHeader, setNewListSubHeader] = useState("");
   const [newListExplanation, setNewListExplanation] = useState("");
 
   const handlePublishNewList = (e) => {
     e.preventDefault(e);
-    /* if (
-      newListExplanation !== "" &&
-      newListHeader !== "" &&
-      newListExplanation !== ""
-    )  */
-    setLists((prev) => [
+
+    db.collection("lists").add({
+      header: newListHeader,
+      subheader: newListSubHeader,
+      ranking: _profiles,
+      listExplanation: newListExplanation,
+      createdBy: user?.displayName,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    });
+
+    /* setLists((prev) => [
       ...prev,
       {
         header: newListHeader,
         subheader: newListSubHeader,
-        list: _profiles,
+        ranking: _profiles,
         listExplanation: newListExplanation,
       },
-    ]);
+    ]); */
 
     setOpenNewListModal(false);
     setNewListHeader("");
