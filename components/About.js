@@ -3,16 +3,13 @@ function About() {
     <>
       <h1 className="font-bold text-2xl mt-3 text-center">About</h1>
       <div className="border-b border-grayish " />
-      <h2 className="font-semibold text-lg text-center">
-        Concept by nurrminator. Designed and developed by schmetir.
+      <h2 className="font-semibold  text-center mx-5">
+        Concept by nurrminator. Designed and developed by schmetir
       </h2>
-      <p className="text-center">
+      <p className="text-center mx-5 font-light">
         Warzone-portal för seriösa elitgibbare. Ditt andra hem från Verdansk.
         Posta skvaller, skapa listor, spana in din och dina vänners statistik.
-        Välkommen till det heliga gibblocket 3.0 Ad donec tincidunt torquent
-        ultricies convallis sodales faucibus magna, fringilla lorem blandit
-        sollicitudin donec faucibus curae orci molestie, et proin curae aliquet
-        venenatis ligula amet vivamus orci varius arcu.
+        Välkommen till det heliga gibblocket 3.0
       </p>
       <img
         className="rounded-2xl "

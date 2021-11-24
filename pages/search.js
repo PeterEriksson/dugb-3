@@ -134,6 +134,9 @@ function search() {
           </div>
         </form>
       </div>
+      <p className="text-center text-xs font-light">
+        suggestions: (list players from db-users)
+      </p>
 
       {searchReturnDiv()}
     </div>
