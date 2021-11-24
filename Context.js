@@ -37,7 +37,7 @@ function ContextProvider({ children }) {
     },
   ]);
   const [posts, setPosts] = useState([
-    {
+    /* {
       img: "https://user-images.githubusercontent.com/17027312/134349999-06919dce-11f2-42b9-9c0c-2b27d8dcce51.jpeg",
       fullName: "Peter Eriksson",
       userName: "schmetir",
@@ -83,13 +83,21 @@ function ContextProvider({ children }) {
       postImg:
         "https://i.pinimg.com/236x/3c/77/f1/3c77f15815aaa71cb85f376dbc2d5c72.jpg",
       postId: Math.floor(Math.random() * 5000),
-    },
+    }, */
   ]);
 
   useEffect(() => {
     db.collection("users").onSnapshot((snapshot) =>
       setUsers(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
     );
+
+    db.collection("posts")
+      .orderBy("timestamp", "desc")
+      .onSnapshot((snapshot) =>
+        setPosts(
+          snapshot.docs.map((doc) => ({ ...doc.data(), postId: doc.id }))
+        )
+      );
   }, []);
 
   return (

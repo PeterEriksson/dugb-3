@@ -1,5 +1,7 @@
+import firebase from "firebase";
 import { useContext, useState } from "react";
 import { Context } from "../Context";
+import { db } from "../firebase";
 
 function Tweetbox() {
   const [postText, setPostText] = useState("");
@@ -9,6 +11,7 @@ function Tweetbox() {
 
   const tempGuest = {
     fullName: "Guest",
+    url: "",
   };
   //limitations of firebase username/password -> getaround ->
   //if guest is logged in we also need to cover for that, hence tempGuest
@@ -19,7 +22,7 @@ function Tweetbox() {
   const handleNewPost = (e) => {
     e.preventDefault();
     if (postText.length <= postMaxLength) {
-      setPosts((prev) => [
+      /* setPosts((prev) => [
         ...prev,
         {
           img: user.photoURL,
@@ -29,10 +32,18 @@ function Tweetbox() {
           postImg: postImg,
           postId: Math.floor(Math.random() * 5000),
         },
-      ]);
+      ]); */
+      db.collection("posts").add({
+        //avatar -> bettar name variable than "img"
+        avatar: user?.photoURL,
+        fullName: fullName,
+        userName: user?.displayName,
+        postText: postText,
+        postImg: postImg,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      });
       setPostImg("");
       setPostText("");
-      console.log(posts);
     }
   };
 

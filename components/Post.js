@@ -8,28 +8,28 @@ import {
 import { ShieldCheckIcon, FireIcon } from "@heroicons/react/solid";
 import { forwardRef, useContext } from "react";
 import { Context } from "../Context";
+import { db } from "../firebase";
 
 const Post = forwardRef(({ item }, ref) => {
   const { posts, setPosts } = useContext(Context);
 
   const handleDeletePost = () => {
-    const newArr = posts.filter((postItem) => postItem.postId !== item.postId);
-    setPosts(newArr);
+    db.collection("posts").doc(item.postId).delete();
   };
 
   return (
     <div
       ref={ref}
-      className="w-full pb-6 font-mainFontHelv hover:bg-grayish border-b border-gray-300 flex flex-col "
+      className="flex flex-col w-full pb-6 font-mainFontHelv hover:bg-grayish border-b border-gray-300"
     >
       <div className="flex w-11/12 flex-grow mt-2.5 ml-1">
         <img
           className="w-8 h-8 ml-5 mt-2 rounded-full object-cover"
-          src={item.img}
+          src={item.avatar}
           alt=""
         />
         <div className="flex ml-5 items-center ">
-          {/* img + fullName + symbol + userName */}
+          {/* fullName + shield + userName */}
           <p className="font-bold ">{item.fullName}</p>
           <ShieldCheckIcon className="h-4 w-4 text-blueish " />
           <p className="text-sm  text-gray-400 ">@{item.userName}</p>
