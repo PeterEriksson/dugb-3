@@ -11,7 +11,8 @@ function Tweetbox() {
 
   const tempGuest = {
     fullName: "Guest",
-    url: "",
+    avatar:
+      "https://i.pinimg.com/564x/25/8b/da/258bda8242c55a84922f8c1bd168d7e8.jpg",
   };
   //limitations of firebase username/password -> getaround ->
   //if guest is logged in we also need to cover for that, hence tempGuest
@@ -52,7 +53,7 @@ function Tweetbox() {
       <div className="flex w-11/12  mb-3 flex-grow space-x-4 py-8 ml-6">
         <img
           className="w-9 h-8 rounded-full object-cover"
-          src={`${user?.photoURL}`}
+          src={` ${userGuest ? `${tempGuest?.avatar}` : `${user?.photoURL}`}  `}
         />
         <textarea
           value={postText}
@@ -65,7 +66,7 @@ function Tweetbox() {
           type="text"
           placeholder={`${
             userGuest
-              ? "Hello guest. you need to be logged in to be able to post"
+              ? "Hello Guest. You need to be logged in to be able to post."
               : `Vad händer ${user?.displayName}?`
           }  `}
         />

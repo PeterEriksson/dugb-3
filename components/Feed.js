@@ -7,7 +7,20 @@ import { db } from "../firebase";
 /* text area max w 576 px xl ...?*/
 
 function Feed() {
-  const { posts } = useContext(Context);
+  //make use of FlipMove -> do useEffect instead
+  /* const { posts } = useContext(Context); */
+
+  //Make us of FlipMove:
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    db.collection("posts")
+      .orderBy("timestamp", "desc")
+      .onSnapshot((snapshot) =>
+        setPosts(
+          snapshot.docs.map((doc) => ({ ...doc.data(), postId: doc.id }))
+        )
+      );
+  }, []);
 
   return (
     <div className="flex flex-col //min-w-min-width// ">
