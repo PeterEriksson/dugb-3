@@ -14,6 +14,7 @@ function NewListModal() {
     lists,
     setLists,
     user,
+    userGuest,
   } = useContext(Context);
   const [newListHeader, setNewListHeader] = useState("");
   const [newListSubHeader, setNewListSubHeader] = useState("");
@@ -130,7 +131,8 @@ function NewListModal() {
                     disabled={
                       !newListHeader.trim() ||
                       !newListSubHeader.trim() ||
-                      !newListExplanation.trim()
+                      !newListExplanation.trim() ||
+                      userGuest
                     }
                     type="button"
                     onClick={(e) => handlePublishNewList(e)}

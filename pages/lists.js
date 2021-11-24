@@ -6,6 +6,7 @@ import { Context } from "../Context";
 import ListPublishedExample from "../components/ListPublishedExample";
 import ModalTest from "../components/ModalTest";
 import { db } from "../firebase";
+import FlipMove from "react-flip-move";
 
 function lists() {
   const {
@@ -49,9 +50,11 @@ function lists() {
       {/* <ModalTest /> */}
 
       {/* LISTS FEED */}
-      {lists.map((item, i) => (
-        <ListPublishedExample key={i} item={item} />
-      ))}
+      <FlipMove>
+        {lists.map((item /*,i */) => (
+          <ListPublishedExample key={item.listId} item={item} />
+        ))}
+      </FlipMove>
     </div>
   );
 }
