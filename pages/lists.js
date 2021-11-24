@@ -34,7 +34,7 @@ function lists() {
       <h1 className="mt-3 ml-3 font-bold text-2xl text-center">Lists</h1>
       <p className="font-light ml-3 text-center pb-4">
         Who is best at what? Customize your own lists and rank your team. Hot
-        tip: it's probably not Martin. Hot tip 2: it's probably neither Norman
+        tip: it's probably not Norman. Hot tip 2: it's probably neither Martin.
       </p>
       <div className="border-b border-grayish " />
 
