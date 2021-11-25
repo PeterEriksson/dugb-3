@@ -13,13 +13,15 @@ function Feed() {
   //Make us of FlipMove:
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    db.collection("posts")
+    const unsubscribe = db
+      .collection("posts")
       .orderBy("timestamp", "desc")
       .onSnapshot((snapshot) =>
         setPosts(
           snapshot.docs.map((doc) => ({ ...doc.data(), postId: doc.id }))
         )
       );
+    return unsubscribe;
   }, []);
 
   return (

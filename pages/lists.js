@@ -20,13 +20,15 @@ function lists() {
 
   const [lists, setLists] = useState([]);
   useEffect(() => {
-    db.collection("lists")
+    const unsubscribe = db
+      .collection("lists")
       .orderBy("timestamp", "desc")
       .onSnapshot((snapshot) =>
         setLists(
           snapshot.docs.map((doc) => ({ ...doc.data(), listId: doc.id }))
         )
       );
+    return unsubscribe;
   }, []);
 
   return (

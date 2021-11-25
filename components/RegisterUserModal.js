@@ -89,24 +89,24 @@ function RegisterUserModal() {
             <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5  pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full">
               <div>
                 <div className="mt-1 text-center sm:mt-5">
-                  {/* <Dialog.Title
-                    as="h3"
-                    className="text-lg leading-6 font-medium text-gray-900"
+                  <Dialog.Title
+                    as="h1"
+                    className="text-2xl leading-6 font-medium mb-4 text-gray-800"
                   >
                     New user
-                  </Dialog.Title> */}
-                  <UserCircleIcon className="h-12 w-12 mb-4 mx-auto" />
+                  </Dialog.Title>
+                  <UserCircleIcon className="h-10 w-10 mb-4 mx-auto" />
 
                   <div className="mt-2">
                     <input
-                      className="border-none focus:ring-0 w-full text-center"
+                      className="bg-gray-50 focus:ring-black mt-4 focus:border-black text-center focus:ring-0 w-full block sm:text-sm border-gray-300 rounded-md"
                       type="text"
                       placeholder="E-mail (anything@hotmail.com)"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                     />
                     <input
-                      className="border-none focus:ring-0 w-full text-center"
+                      className="bg-gray-50 focus:ring-black mt-4 focus:border-black text-center focus:ring-0 w-full block sm:text-sm border-gray-300 rounded-md"
                       type="text"
                       placeholder="Username (warzone name)"
                       value={userName}
@@ -114,21 +114,21 @@ function RegisterUserModal() {
                     />
                   </div>
                   <input
-                    className="border-none focus:ring-0 w-full text-center"
+                    className="bg-gray-50 focus:ring-black mt-4 focus:border-black text-center focus:ring-0 w-full block sm:text-sm border-gray-300 rounded-md"
                     type="text"
                     placeholder="Full name"
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                   />
                   <input
-                    className="border-none focus:ring-0 w-full text-center"
+                    className="bg-gray-50 focus:ring-black mt-4 focus:border-black text-center focus:ring-0 w-full block sm:text-sm border-gray-300 rounded-md"
                     type="text"
                     placeholder="Photo url"
                     value={photoURL}
                     onChange={(e) => setPhotoURL(e.target.value)}
                   />
                   <input
-                    className="border-none focus:ring-0 w-full text-center"
+                    className="bg-gray-50 focus:ring-black mt-4 focus:border-black text-center focus:ring-0 w-full block sm:text-sm border-gray-300 rounded-md"
                     type="password"
                     placeholder="Password"
                     value={password}

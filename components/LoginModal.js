@@ -71,11 +71,11 @@ function LoginModal() {
                 <div className="mt-1 text-center sm:mt-5">
                   <Dialog.Title
                     as="h3"
-                    className="text-lg leading-6 font-medium text-gray-900"
+                    className="text-2xl pb-5 leading-6 font-medium text-gray-900"
                   >
                     Log in
                   </Dialog.Title>
-                  <UserCircleIcon className="h-12 w-12 mb-4 mx-auto" />
+                  {/* <UserCircleIcon className="h-12 w-12 mb-4 mx-auto" /> */}
 
                   <div className="mt-2">
                     <input

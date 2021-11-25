@@ -56,7 +56,7 @@ const Post = forwardRef(({ item }, ref) => {
   };
 
   const userHasNotLikedPost = () => {
-    return postLikes.every((item) => item.userName !== user.displayName);
+    return postLikes.every((item) => item.userName !== user?.displayName);
   };
 
   return (
@@ -91,10 +91,10 @@ const Post = forwardRef(({ item }, ref) => {
         <TrashIcon
           onClick={handleDeletePost}
           className={`postIcon hover:text-black ${
-            user.displayName !== item.userName && "hidden"
+            user?.displayName !== item.userName && "hidden"
           }`}
         />
-        {/* <FireIcon className="postIcon text-orange" /> */}
+        {/* <FireIconSolid className="postIcon text-orange" /> */}
 
         {/* div for FireIcon + nr of likes */}
         <div
@@ -102,7 +102,7 @@ const Post = forwardRef(({ item }, ref) => {
           className="flex group items-center space-x-0.5 cursor-pointer"
         >
           <div className="flex  items-center justify-center group-hover:bg-orangeHover w-7 py-1 rounded-full ">
-            <FireIconSolid
+            <FireIcon
               className={`postIcon  ${
                 userHasNotLikedPost() ? "text-gray-800" : "text-orange"
               } group-hover:bg-orangeHover group-hover:text-orange `}
