@@ -79,7 +79,7 @@ function LoginModal() {
 
                   <div className="mt-2">
                     <input
-                      className="border-none focus:ring-0 w-full text-center"
+                      className="bg-gray-50 focus:ring-black mt-4 focus:border-black text-center focus:ring-0 w-full block sm:text-sm border-gray-300 rounded-md"
                       type="text"
                       placeholder="E-mail (anything@hotmail.com)"
                       value={email}
@@ -88,7 +88,7 @@ function LoginModal() {
                   </div>
 
                   <input
-                    className="border-none focus:ring-0 w-full text-center"
+                    className="bg-gray-50 focus:ring-black mt-4 focus:border-black text-center focus:ring-0 w-full block sm:text-sm border-gray-300 rounded-md"
                     type="password"
                     placeholder="Password"
                     value={password}

@@ -11,7 +11,7 @@ function ContextProvider({ children }) {
   const [openLoginModal, setOpenLoginModal] = useState(false);
   const [openNewListModal, setOpenNewListModal] = useState(false);
   const [openTestModal, setOpenTestModal] = useState(false);
-  const [userGuest, setUserGuest] = useState(!false);
+  const [userGuest, setUserGuest] = useState(false);
   const [_profiles, _setProfiles] = useState([
     {
       userName: "schmetir",

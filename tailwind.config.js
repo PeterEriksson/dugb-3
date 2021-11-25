@@ -9,6 +9,7 @@ module.exports = {
         blueish: "#50b7f5",
         hoverBluish: "#3799d4",
         orange: "#FF6600",
+        orangeHover: "#ff9e5e",
         testBg: "#caccce",
         whiteSmoke: "#E8E8E8",
         whiteExp: "#FAF9F6",

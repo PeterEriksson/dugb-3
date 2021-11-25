@@ -16,6 +16,6 @@
   }
 
   .postIcon {
-    @apply w-4 h-4 cursor-pointer;
+    @apply w-4 h-4 cursor-pointer text-gray-800;
   }
 }

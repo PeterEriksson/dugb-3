@@ -6,21 +6,63 @@ import {
   FireIcon as FireIconSolid,
 } from "@heroicons/react/outline";
 import { ShieldCheckIcon, FireIcon } from "@heroicons/react/solid";
-import { forwardRef, useContext } from "react";
+import { forwardRef, useContext, useEffect, useState } from "react";
 import { Context } from "../Context";
 import { db } from "../firebase";
 
 const Post = forwardRef(({ item }, ref) => {
-  const { posts, setPosts } = useContext(Context);
+  const { posts, setPosts, user, userGuest } = useContext(Context);
+  const [postLikes, setPostLikes] = useState([]);
 
   const handleDeletePost = () => {
     db.collection("posts").doc(item.postId).delete();
   };
 
+  useEffect(() => {
+    const unsubscribe = db
+      .collection("posts")
+      .doc(item.postId)
+      .collection("postLikes")
+      .onSnapshot((snapshot) =>
+        setPostLikes(
+          snapshot.docs.map((doc) => ({ ...doc.data(), postLikeId: doc.id }))
+        )
+      );
+    return unsubscribe;
+  }, []);
+
+  const handleLikePost = () => {
+    //Only perform the action if userGuest is Offline
+    if (!userGuest) {
+      //check if user has liked the post or not
+      ////user has not liked the post, add. User has liked the post, delete. ->
+      ///////// if every item in PostLikes does not contain user.displayName then it hasn't been liked by the current user, thus we add it to postLikes */
+      postLikes.every((item) => item.userName !== user.displayName)
+        ? db.collection("posts").doc(item.postId).collection("postLikes").add({
+            userName: user?.displayName,
+            photoURL: user?.photoURL,
+          })
+        : /* the user.displayName already exists in one of the postLikes, thus it has been liked by the current user and we delete it */
+          db
+            .collection("posts")
+            .doc(item.postId)
+            .collection("postLikes")
+            .doc(
+              postLikes.find((item) => item.userName === user?.displayName)
+                .postLikeId
+            )
+            .delete();
+    }
+  };
+
+  const userHasNotLikedPost = () => {
+    return postLikes.every((item) => item.userName !== user.displayName);
+  };
+
   return (
     <div
       ref={ref}
-      className="flex flex-col w-full pb-6 font-mainFontHelv hover:bg-grayish border-b border-gray-300"
+      className="flex flex-col w-full pb-4 font-mainFontHelv hover:bg-grayish border-b border-gray-300"
     >
       <div className="flex w-11/12 flex-grow mt-2.5 ml-1">
         <img
@@ -41,14 +83,41 @@ const Post = forwardRef(({ item }, ref) => {
         src={item?.postImg}
         alt=""
       />
-      {/* symbols - answer retweet edit trash heart */}
-      <div className="flex items-center ml-test mr-6 mt-6  justify-between">
+      {/* symbols - answer + retweet + edit + trash + fire */}
+      <div className="flex items-center ml-test mr-6 mt-5  justify-between">
         <ChatIcon className="postIcon" />
         <RefreshIcon className="postIcon" />
         <PencilIcon className="postIcon" />
-        <TrashIcon onClick={handleDeletePost} className="postIcon" />
+        <TrashIcon
+          onClick={handleDeletePost}
+          className={`postIcon hover:text-black ${
+            user.displayName !== item.userName && "hidden"
+          }`}
+        />
         {/* <FireIcon className="postIcon text-orange" /> */}
-        <FireIconSolid className="postIcon" />
+
+        {/* div for FireIcon + nr of likes */}
+        <div
+          onClick={handleLikePost}
+          className="flex group items-center space-x-0.5 cursor-pointer"
+        >
+          <div className="flex  items-center justify-center group-hover:bg-orangeHover w-7 py-1 rounded-full ">
+            <FireIconSolid
+              className={`postIcon  ${
+                userHasNotLikedPost() ? "text-gray-800" : "text-orange"
+              } group-hover:bg-orangeHover group-hover:text-orange `}
+            />
+          </div>
+          <p
+            className={`${
+              userHasNotLikedPost() ? "text-gray-800" : "text-orange"
+            } text-xs font-extralight group-hover:text-orange cursor-pointer ${
+              postLikes.length === 0 && "opacity-0"
+            }`}
+          >
+            {postLikes.length}
+          </p>
+        </div>
       </div>
     </div>
   );
