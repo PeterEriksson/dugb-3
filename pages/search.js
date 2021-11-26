@@ -2,6 +2,7 @@ import { PencilIcon, SearchIcon } from "@heroicons/react/outline";
 import Head from "next/head";
 import { useContext, useState } from "react";
 import LoadingSpinner from "../components/LoadingSpinner";
+import SearchSuggestion from "../components/SearchSuggestion";
 import { Context } from "../Context";
 
 function search() {
@@ -82,10 +83,6 @@ function search() {
                 <h3 className="font-semibold">Top five:&nbsp;</h3>
                 <p className="font-light">{profile?.topFive}</p>
               </div>
-              {/* <div className="flex">
-              <h3 className="font-semibold">Top ten:&nbsp;</h3>
-              <p className="font-light">{profile.topTen}</p>
-            </div> */}
               <div className="flex">
                 <h3 className="font-semibold">Clans:&nbsp;</h3>
                 <p className="font-light">[SHP]</p>
@@ -121,7 +118,7 @@ function search() {
       <div className="flex justify-center ">
         <form
           onSubmit={(e) => handleForm(e)}
-          className="w-72 hover:drop-shadow-lg"
+          className="w-80 hover:drop-shadow-lg"
         >
           <div className="relative mt-1 p-3 rounded-md  ">
             <div className="absolute z-30 inset-y-0 pl-3 flex items-center pointer-events-none ">
@@ -137,23 +134,17 @@ function search() {
           </div>
         </form>
       </div>
-      <p className="text-center text-xs font-light">
-        suggestions: (list players from db-users)
-      </p>
 
+      <p className="text-center text-lg font-semibold">Suggestions</p>
       {/*DIV SEARCH SUGGESTIONS  */}
+      {/* maybe use Next serverSideProps to avoid users displaying delay */}
       <div className="flex w-72 space-x-1.5 mx-auto mt-2">
         {users.map((item, i) => (
-          <div
-            onClick={() => setSearchText(item.displayName)}
-            className="py-1 px-3 hover:bg-gray-300  cursor-pointer drop-shadow-sm rounded-full bg-grayish border border-gray-300"
-            key={i}
-          >
-            <p className=" text-sm font-normal">{item?.displayName}</p>
-          </div>
+          <SearchSuggestion key={i} item={item} setSearchText={setSearchText} />
         ))}
       </div>
 
+      {/* TEMP COMMENT OUT 👇 */}
       {/* {searchReturnDiv()} */}
 
       {/* SEARCH PROFILE TEMP */}

@@ -4,8 +4,12 @@ import { Context } from "../Context";
 import LoadingSpinner from "./LoadingSpinner";
 
 function Profile() {
-  /* const [profile, setProfile] = useState({}); */
-  /* const [searchOk, setSearchOk] = useState(false); */
+  /* TEMP COMMENT OUT, WORK DITH DUMMY DATA instead (save api calls) */
+  /*   const [profile, setProfile] = useState({});
+  const [searchOk, setSearchOk] = useState(false);
+  const { users, user } = useContext(Context); */
+
+  const [avatar, setAvatar] = useState("");
 
   //temp dummyData
   const [searchOk, setSearchOk] = useState(!false);
@@ -15,8 +19,17 @@ function Profile() {
     topFive: 598,
   });
 
+  //inside useEffect, seemed to work.
+  /* setAvatar(
+        users.find((item) => item.displayName === user.displayName)
+          .profileAvatar
+      ); */
+
+  /* TEMP COMMENT OUT, WORK DITH DUMMY DATA (save api calls) */
   /* useEffect(() => {
     const getProfile = async () => {
+      
+
       await fetch(
         "https://call-of-duty-modern-warfare.p.rapidapi.com/warzone/schmetir/psn",
         {
@@ -30,14 +43,12 @@ function Profile() {
       )
         .then((response) => response.json())
         .then((response) => {
-          
           if (response.br) {
             setSearchOk(true);
           } else {
             setSearchOk(false);
           }
           setProfile(response.br);
-          
         })
         .catch((err) => {
           console.error(err);
@@ -53,6 +64,7 @@ function Profile() {
           <img
             alt=""
             src="https://i.pinimg.com/236x/79/44/69/794469d92431bd6d291755f35a4a6530.jpg"
+            /* src={avatar} */
             className="rounded-2xl max-w-xs h-72"
           />
           <div className="ml-8 flex flex-col justify-center //w-full mb-2">
