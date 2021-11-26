@@ -1,7 +1,8 @@
-import { SearchIcon } from "@heroicons/react/outline";
+import { PencilIcon, SearchIcon } from "@heroicons/react/outline";
 import Head from "next/head";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import LoadingSpinner from "../components/LoadingSpinner";
+import { Context } from "../Context";
 
 function search() {
   const [searchText, setSearchText] = useState("");
@@ -10,6 +11,8 @@ function search() {
   const [searched, setSearched] = useState(true);
   const [hide, setHide] = useState(true);
   const [errorMsg, setErrorMsg] = useState(false);
+
+  const { users } = useContext(Context);
 
   const handleForm = (e) => {
     e.preventDefault();
@@ -111,7 +114,7 @@ function search() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <p className="font-bold   border-b border-grayish text-2xl py-3 text-center">
-        Search
+        Search (beta)
       </p>
 
       {/* SEARCH FIELD */}
@@ -138,7 +141,67 @@ function search() {
         suggestions: (list players from db-users)
       </p>
 
-      {searchReturnDiv()}
+      {/*DIV SEARCH SUGGESTIONS  */}
+      <div className="flex w-72 space-x-1.5 mx-auto mt-2">
+        {users.map((item, i) => (
+          <div
+            onClick={() => setSearchText(item.displayName)}
+            className="py-1 px-3 hover:bg-gray-300  cursor-pointer drop-shadow-sm rounded-full bg-grayish border border-gray-300"
+            key={i}
+          >
+            <p className=" text-sm font-normal">{item?.displayName}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* {searchReturnDiv()} */}
+
+      {/* SEARCH PROFILE TEMP */}
+      <div className="ml-5 flex flex-row p-5 mt-1.5 bg-grayish rounded-2xl max-w-2xl mr-5 mdLgTest:mr-0 ">
+        <img
+          alt=""
+          src="https://i.pinimg.com/236x/89/51/60/895160aa966c6271c6f211b253671176.jpg"
+          className="rounded-2xl max-w-xs h-72"
+        />
+        <div className="ml-8 flex flex-col justify-center //w-full mb-2">
+          <h2 className="font-bold text-xl mb-2">nurrminator</h2>
+          <div className="flex flex-col space-y-1.5">
+            <div className="flex">
+              <h3 className="font-semibold">K/D:&nbsp;</h3>
+              <p className="font-light">0.723</p>
+            </div>
+            <div className="flex">
+              <h3 className="font-semibold">Wins:&nbsp;</h3>
+              <p className="font-light">15</p>
+            </div>
+
+            <div className="flex">
+              <h3 className="font-semibold">Top five:&nbsp;</h3>
+              <p className="font-light">158</p>
+            </div>
+            <div className="flex items-center group">
+              <h3 className="font-semibold">Clans:&nbsp;</h3>
+              <p className="font-light">[SHP]</p>
+            </div>
+            <div className="flex items-center group">
+              <h3 className="font-semibold">Favorite saying:&nbsp;</h3>
+              <p className="font-light">fan skulle ja göra</p>
+              <PencilIcon className="postIcon profileEditIconEffects" />
+            </div>
+            <div className="flex items-center group">
+              <h3 className="font-semibold">Stengths:&nbsp;</h3>
+              <p className="font-light">...</p>
+              <PencilIcon className="postIcon profileEditIconEffects" />
+            </div>
+            <div className="flex items-center group">
+              <h3 className="font-semibold">Weaknesses:&nbsp;</h3>
+              <p className="font-light">...</p>
+              <PencilIcon className="postIcon profileEditIconEffects" />
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* ☝ END OF SEARCH PROFILE TEMP */}
     </div>
   );
 }

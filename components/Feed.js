@@ -10,7 +10,7 @@ function Feed() {
   //make use of FlipMove -> do useEffect instead
   /* const { posts } = useContext(Context); */
 
-  //Make us of FlipMove:
+  //Make us of FlipMove. Fetch here instead of Context
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     const unsubscribe = db

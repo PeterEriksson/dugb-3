@@ -11,7 +11,7 @@ function ContextProvider({ children }) {
   const [openLoginModal, setOpenLoginModal] = useState(false);
   const [openNewListModal, setOpenNewListModal] = useState(false);
   const [openTestModal, setOpenTestModal] = useState(false);
-  const [userGuest, setUserGuest] = useState(false);
+  const [userGuest, setUserGuest] = useState(!false);
   const [_profiles, _setProfiles] = useState([
     {
       userName: "schmetir",
@@ -28,9 +28,12 @@ function ContextProvider({ children }) {
   ]);
 
   useEffect(() => {
-    db.collection("users").onSnapshot((snapshot) =>
-      setUsers(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
-    );
+    const unsubscribe = db
+      .collection("users")
+      .onSnapshot((snapshot) =>
+        setUsers(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+      );
+    return unsubscribe;
   }, []);
 
   return (
