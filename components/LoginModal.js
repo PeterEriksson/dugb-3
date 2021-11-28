@@ -81,7 +81,7 @@ function LoginModal() {
                     <input
                       className="bg-gray-50 focus:ring-black mt-4 focus:border-black text-center focus:ring-0 w-full block sm:text-sm border-gray-300 rounded-md"
                       type="text"
-                      placeholder="E-mail (anything@hotmail.com)"
+                      placeholder="E-mail"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                     />

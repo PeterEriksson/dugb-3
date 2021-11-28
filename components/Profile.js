@@ -5,19 +5,19 @@ import LoadingSpinner from "./LoadingSpinner";
 
 function Profile() {
   /* TEMP COMMENT OUT, WORK DITH DUMMY DATA instead (save api calls) */
-  /*   const [profile, setProfile] = useState({});
+  const [profile, setProfile] = useState({});
   const [searchOk, setSearchOk] = useState(false);
-  const { users, user } = useContext(Context); */
+  const { users, user } = useContext(Context);
 
   const [avatar, setAvatar] = useState("");
 
   //temp dummyData
-  const [searchOk, setSearchOk] = useState(!false);
+  /* const [searchOk, setSearchOk] = useState(!false);
   const [profile, setProfile] = useState({
     kdRatio: 1.256,
     wins: 51,
     topFive: 598,
-  });
+  }); */
 
   //inside useEffect, seemed to work.
   /* setAvatar(
@@ -26,12 +26,16 @@ function Profile() {
       ); */
 
   /* TEMP COMMENT OUT, WORK DITH DUMMY DATA (save api calls) */
-  /* useEffect(() => {
+  useEffect(() => {
     const getProfile = async () => {
-      
+      //fetch in db user profile the profileAvatar
+      setAvatar(
+        users.find((item) => item.displayName === user.displayName)
+          .profileAvatar
+      );
 
       await fetch(
-        "https://call-of-duty-modern-warfare.p.rapidapi.com/warzone/schmetir/psn",
+        `https://call-of-duty-modern-warfare.p.rapidapi.com/warzone/${user?.displayName}/psn`,
         {
           method: "GET",
           headers: {
@@ -55,7 +59,7 @@ function Profile() {
         });
     };
     getProfile();
-  }, []); */
+  }, []);
 
   return (
     <div className="ml-4 ">
@@ -63,12 +67,12 @@ function Profile() {
         <div className="flex flex-row p-5 mt-1.5 bg-grayish rounded-2xl max-w-2xl mr-5 mdLgTest:mr-0 ">
           <img
             alt=""
-            src="https://i.pinimg.com/236x/79/44/69/794469d92431bd6d291755f35a4a6530.jpg"
-            /* src={avatar} */
+            /* src="https://i.pinimg.com/236x/79/44/69/794469d92431bd6d291755f35a4a6530.jpg" */
+            src={avatar}
             className="rounded-2xl max-w-xs h-72"
           />
           <div className="ml-8 flex flex-col justify-center //w-full mb-2">
-            <h2 className="font-bold text-xl mb-2">schmetir</h2>
+            <h2 className="font-bold text-xl mb-2">{user?.displayName}</h2>
             <div className="flex flex-col space-y-1.5">
               <div className="flex">
                 <h3 className="font-semibold">K/D:&nbsp;</h3>
@@ -92,12 +96,12 @@ function Profile() {
               </div>
               <div className="flex items-center group">
                 <h3 className="font-semibold">Favorite saying:&nbsp;</h3>
-                <p className="font-light">revivea mig</p>
+                {/* <p className="font-light">revivea mig</p> */}
                 <PencilIcon className="postIcon profileEditIconEffects" />
               </div>
               <div className="flex items-center group">
                 <h3 className="font-semibold">Avatar:&nbsp;</h3>
-                <p className="font-light truncate">.....</p>
+                <p className="font-light truncate"></p>
                 <PencilIcon className="postIcon profileEditIconEffects" />
               </div>
               <div className="flex ">

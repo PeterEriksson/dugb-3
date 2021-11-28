@@ -11,7 +11,7 @@ function ContextProvider({ children }) {
   const [openLoginModal, setOpenLoginModal] = useState(false);
   const [openNewListModal, setOpenNewListModal] = useState(false);
   const [openTestModal, setOpenTestModal] = useState(false);
-  const [userGuest, setUserGuest] = useState(!false);
+  const [userGuest, setUserGuest] = useState(false);
   const [_profiles, _setProfiles] = useState([
     {
       userName: "schmetir",
@@ -32,6 +32,32 @@ function ContextProvider({ children }) {
       .collection("users")
       .onSnapshot((snapshot) =>
         setUsers(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+      );
+    return unsubscribe;
+  }, []);
+
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    const unsubscribe = db
+      .collection("posts")
+      .orderBy("timestamp", "desc")
+      .onSnapshot((snapshot) =>
+        setPosts(
+          snapshot.docs.map((doc) => ({ ...doc.data(), postId: doc.id }))
+        )
+      );
+    return unsubscribe;
+  }, []);
+
+  const [lists, setLists] = useState([]);
+  useEffect(() => {
+    const unsubscribe = db
+      .collection("lists")
+      .orderBy("timestamp", "desc")
+      .onSnapshot((snapshot) =>
+        setLists(
+          snapshot.docs.map((doc) => ({ ...doc.data(), listId: doc.id }))
+        )
       );
     return unsubscribe;
   }, []);
@@ -57,6 +83,11 @@ function ContextProvider({ children }) {
         setUser,
         users,
         setUsers,
+
+        posts,
+        setPosts,
+        lists,
+        setLists,
       }}
     >
       {children}

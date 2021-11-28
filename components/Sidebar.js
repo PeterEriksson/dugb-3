@@ -30,7 +30,7 @@ function Sidebar({ children }) {
   return (
     <>
       {userGuest || user ? (
-        // user/guest has logged in (temp) ->
+        // user or guest has logged in (temp) ->
         <div className="flex flex-row">
           <div className=" h-screen w-56  font-mainFontHelv px-7  pt-3  flex flex-col  border-grayish ">
             <div className="flex flex-col  space-y-4">
@@ -60,13 +60,14 @@ function Sidebar({ children }) {
               <SidebarOption text="Search" Icon={SearchIcon} />
               <SidebarOption text="Lists" Icon={ClipboardListIcon} />
 
+              <SidebarOption text="Notifications" Icon={BellIcon} />
               {/* refactor when notifications page is set up. */}
-              <div className="sidebarBtn group">
+              {/* <div className="sidebarBtn group">
                 <BellIcon className="icon" />
                 <p className="iconText hidden smallerTest:inline-flex">
                   Notifications
                 </p>
-              </div>
+              </div> */}
 
               <SidebarOption text="Loadouts" Icon={GiftIcon} />
               <SidebarOption text="About" Icon={InformationCircleIcon} />

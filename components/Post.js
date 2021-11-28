@@ -33,26 +33,26 @@ const Post = forwardRef(({ item }, ref) => {
 
   const handleLikePost = () => {
     //Only perform the action if userGuest is Offline
-    if (!userGuest) {
-      //check if user has liked the post or not
-      ////user has not liked the post, add. User has liked the post, delete. ->
-      ///////// if every item in PostLikes does not contain user.displayName then it hasn't been liked by the current user, thus we add it to postLikes */
-      postLikes.every((item) => item.userName !== user.displayName)
-        ? db.collection("posts").doc(item.postId).collection("postLikes").add({
-            userName: user?.displayName,
-            photoURL: user?.photoURL,
-          })
-        : /* the user.displayName already exists in one of the postLikes, thus it has been liked by the current user and we delete it */
-          db
-            .collection("posts")
-            .doc(item.postId)
-            .collection("postLikes")
-            .doc(
-              postLikes.find((item) => item.userName === user?.displayName)
-                .postLikeId
-            )
-            .delete();
-    }
+    if (userGuest) return;
+
+    //check if user has liked the post or not
+    ////user has not liked the post, add. User has liked the post, delete. ->
+    ///////// if every item in PostLikes does not contain user.displayName then it hasn't been liked by the current user, thus we add it to postLikes */
+    postLikes.every((item) => item.userName !== user.displayName)
+      ? db.collection("posts").doc(item.postId).collection("postLikes").add({
+          userName: user?.displayName,
+          photoURL: user?.photoURL,
+        })
+      : /* the user.displayName already exists in one of the postLikes, thus it has been liked by the current user and we therefore delete it */
+        db
+          .collection("posts")
+          .doc(item.postId)
+          .collection("postLikes")
+          .doc(
+            postLikes.find((item) => item.userName === user?.displayName)
+              .postLikeId
+          )
+          .delete();
   };
 
   const userHasNotLikedPost = () => {

@@ -16,9 +16,7 @@ function lists() {
     setOpenTestModal,
   } = useContext(Context);
 
-  /* const { lists } = useContext(Context); */
-
-  const [lists, setLists] = useState([]);
+  /* const [lists, setLists] = useState([]);
   useEffect(() => {
     const unsubscribe = db
       .collection("lists")
@@ -29,7 +27,15 @@ function lists() {
         )
       );
     return unsubscribe;
-  }, []);
+  }, []); */
+
+  /* Make use of FlipMove and NOT read from firebase every time (only when firebase lists db is changed) */
+  const [__lists, __setLists] = useState([]);
+  const { lists } = useContext(Context);
+  useEffect(() => {
+    /* const unsubscribe = */ __setLists(lists);
+    /* return unsubscribe; */
+  }, [lists]);
 
   return (
     <div className="w-full  h-screen border-l border-grayish flex flex-col">
@@ -53,7 +59,7 @@ function lists() {
 
       {/* LISTS FEED */}
       <FlipMove>
-        {lists.map((item /*,i */) => (
+        {__lists.map((item /*,i */) => (
           <ListPublishedExample key={item.listId} item={item} />
         ))}
       </FlipMove>

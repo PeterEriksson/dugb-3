@@ -32,6 +32,11 @@ function NewListModal() {
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     });
 
+    /* Skip array ((ranking: _profiles)) and use subcollection instead, how? Add collection 
+    and subcollection simultaneously, how? then method? batch?--
+     -- Create a batch and add the main document & the subcollection ?*/
+    /* https://stackoverflow.com/questions/61654653/how-to-add-subcollection-to-document-in-firestore */
+
     /* setLists((prev) => [
       ...prev,
       {

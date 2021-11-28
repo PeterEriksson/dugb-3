@@ -11,7 +11,7 @@ function Feed() {
   /* const { posts } = useContext(Context); */
 
   //Make us of FlipMove. Fetch here instead of Context
-  const [posts, setPosts] = useState([]);
+  /* const [posts, setPosts] = useState([]);
   useEffect(() => {
     const unsubscribe = db
       .collection("posts")
@@ -22,13 +22,22 @@ function Feed() {
         )
       );
     return unsubscribe;
-  }, []);
+  }, []); */
+
+  /* New solution: Don't need to read from firebase every time when visiting Home 
+  just to be able to make us of FlipMove effect. Implement on lists feed aswell. */
+  const { posts } = useContext(Context);
+  const [__posts, __setPosts] = useState([]);
+  useEffect(() => {
+    /* const unsubscribe = */ __setPosts(posts);
+    /* return unsubscribe; */
+  }, [posts]);
 
   return (
     <div className="flex flex-col //min-w-min-width// ">
       <FlipMove>
-        {posts.map((item /* i */) => (
-          <Post item={item} /* key={i} */ key={item.postId} />
+        {__posts.map((item) => (
+          <Post item={item} key={item.postId} />
         ))}
       </FlipMove>
     </div>
