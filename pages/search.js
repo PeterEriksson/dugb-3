@@ -12,6 +12,7 @@ function search() {
   const [searched, setSearched] = useState(true);
   const [hide, setHide] = useState(true);
   const [errorMsg, setErrorMsg] = useState(false);
+  const [profileAvatarPic, setPofileAvatarPic] = useState("");
 
   const { users } = useContext(Context);
 
@@ -38,6 +39,9 @@ function search() {
           }
           setProfile(response.br);
           setCurrentProfile(searchText);
+          setPofileAvatarPic(
+            users.find((item) => item.displayName === searchText).profileAvatar
+          );
         })
         .catch((err) => {
           console.log(err);
@@ -62,7 +66,8 @@ function search() {
         >
           <img
             alt=""
-            src="https://i.pinimg.com/236x/89/51/60/895160aa966c6271c6f211b253671176.jpg"
+            /* src="https://i.pinimg.com/236x/89/51/60/895160aa966c6271c6f211b253671176.jpg" */
+            src={profileAvatarPic}
             className="rounded-2xl max-w-xs h-72"
           />
           <div className="ml-8 flex flex-col justify-center mb-2">
@@ -129,15 +134,14 @@ function search() {
               value={searchText}
               onChange={(e) => setSearchText(e.target.value)}
               className="bg-gray-50 //focus:ring-black //focus:border-black focus:border-gray-300 focus:ring-0 pl-10 w-full block sm:text-sm border-gray-300 rounded-md"
-              placeholder="search for a player"
+              placeholder="search for player(hit enter to search)"
             />
           </div>
         </form>
       </div>
 
-      <p className="text-center text-lg font-semibold">Suggestions</p>
+      {/* <p className="text-center text-lg font-semibold">Suggestions</p> */}
       {/*DIV SEARCH SUGGESTIONS  */}
-      {/* maybe use Next serverSideProps to avoid users displaying delay */}
       <div className="flex w-72 space-x-1.5 mx-auto mt-2">
         {users.map((item, i) => (
           <SearchSuggestion key={i} item={item} setSearchText={setSearchText} />
@@ -145,10 +149,10 @@ function search() {
       </div>
 
       {/* TEMP COMMENT OUT 👇 */}
-      {/* {searchReturnDiv()} */}
+      {searchReturnDiv()}
 
       {/* SEARCH PROFILE TEMP */}
-      <div className="ml-5 flex flex-row p-5 mt-1.5 bg-grayish rounded-2xl max-w-2xl mr-5 mdLgTest:mr-0 ">
+      {/* <div className="ml-5 flex flex-row p-5 mt-1.5 bg-grayish rounded-2xl max-w-2xl mr-5 mdLgTest:mr-0 ">
         <img
           alt=""
           src="https://i.pinimg.com/236x/89/51/60/895160aa966c6271c6f211b253671176.jpg"
@@ -191,7 +195,7 @@ function search() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       {/* ☝ END OF SEARCH PROFILE TEMP */}
     </div>
   );
