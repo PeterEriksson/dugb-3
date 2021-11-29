@@ -47,7 +47,7 @@ function Login() {
             Log in
           </button>
           <button
-            onClick={() => setOpenRegisterUserModal((prev) => !prev)}
+            /* onClick={() => setOpenRegisterUserModal((prev) => !prev)} */
             className="text-white  py-4 w-36 border-t border-b border-r border-white hover:bg-white hover:text-black"
           >
             Register
@@ -56,7 +56,7 @@ function Login() {
         <LoginModal />
         <RegisterUserModal />
         <button
-          onClick={() => setUserGuest((prev) => !prev)}
+          /* onClick={() => setUserGuest((prev) => !prev)} */
           className="text-white rounded-md border border-white px-4 mb-6 hover:bg-white hover:text-black"
         >
           Guest
