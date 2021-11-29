@@ -142,7 +142,7 @@ function search() {
 
       {/* <p className="text-center text-lg font-semibold">Suggestions</p> */}
       {/*DIV SEARCH SUGGESTIONS  */}
-      <div className="flex w-72 space-x-1.5 mx-auto mt-2">
+      <div className="flex  w-80 space-x-1.5  mt-2">
         {users.map((item, i) => (
           <SearchSuggestion key={i} item={item} setSearchText={setSearchText} />
         ))}

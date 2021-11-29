@@ -12,6 +12,7 @@ function ContextProvider({ children }) {
   const [openNewListModal, setOpenNewListModal] = useState(false);
   const [openTestModal, setOpenTestModal] = useState(false);
   const [userGuest, setUserGuest] = useState(false);
+
   const [_profiles, _setProfiles] = useState([
     {
       userName: "schmetir",
@@ -25,6 +26,10 @@ function ContextProvider({ children }) {
       userName: "BigMme930",
       img: "https://photos.smugmug.com/photos/i-BS3QMBH/0/O/i-BS3QMBH-O.jpg",
     },
+    {
+      userName: "Bengtbenny",
+      img: "https://user-images.githubusercontent.com/17027312/143914999-4b3362b9-259e-4fe0-9258-fff161b1c67a.jpeg",
+    },
   ]);
 
   useEffect(() => {
@@ -33,6 +38,7 @@ function ContextProvider({ children }) {
       .onSnapshot((snapshot) =>
         setUsers(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
       );
+
     return unsubscribe;
   }, []);
 
