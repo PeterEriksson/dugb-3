@@ -47,7 +47,7 @@ function Login() {
             Log in
           </button>
           <button
-            onClick={() => setOpenRegisterUserModal((prev) => !prev)}
+            /* onClick={() => setOpenRegisterUserModal((prev) => !prev)} */
             className="text-white  py-4 w-36 border-t border-b border-r border-white hover:bg-white hover:text-black"
           >
             Register
