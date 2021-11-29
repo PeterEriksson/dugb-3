@@ -6,7 +6,7 @@ import { db } from "../firebase";
 function Tweetbox() {
   const [postText, setPostText] = useState("");
   const [postImg, setPostImg] = useState("");
-  const postMaxLength = 120;
+  const postMaxLength = 200;
   const { setPosts, posts, user, users, userGuest } = useContext(Context);
 
   const tempGuest = {
