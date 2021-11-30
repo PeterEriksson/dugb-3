@@ -123,7 +123,7 @@ function search() {
       <div className="flex justify-center ">
         <form
           onSubmit={(e) => handleForm(e)}
-          className="w-80 hover:drop-shadow-lg"
+          className="w-80 //hover:drop-shadow-lg"
         >
           <div className="relative mt-1 p-3 rounded-md  ">
             <div className="absolute z-30 inset-y-0 pl-3 flex items-center pointer-events-none ">
@@ -133,7 +133,7 @@ function search() {
               type="text"
               value={searchText}
               onChange={(e) => setSearchText(e.target.value)}
-              className="bg-gray-50 //focus:ring-black //focus:border-black focus:border-gray-300 focus:ring-0 pl-10 w-full block sm:text-sm border-gray-300 rounded-md"
+              className="bg-gray-50 focus:ring-black focus:border-black //focus:border-gray-300 focus:ring-0 pl-10 w-full block sm:text-sm border-gray-300 rounded-md"
               placeholder="search for player(hit enter to search)"
             />
           </div>
