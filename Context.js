@@ -13,6 +13,10 @@ function ContextProvider({ children }) {
   const [openTestModal, setOpenTestModal] = useState(false);
   const [userGuest, setUserGuest] = useState(false);
 
+  /* TEMP TEST THIS SOLUTION -> SAVE API CALLS */
+  const [profile, setProfile] = useState({});
+  const [searchOk, setSearchOk] = useState(false);
+
   const [_profiles, _setProfiles] = useState([
     {
       userName: "schmetir",
@@ -94,6 +98,11 @@ function ContextProvider({ children }) {
         setPosts,
         lists,
         setLists,
+
+        searchOk,
+        setSearchOk,
+        profile,
+        setProfile,
       }}
     >
       {children}

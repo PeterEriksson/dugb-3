@@ -4,9 +4,14 @@ import { Context } from "../Context";
 import LoadingSpinner from "./LoadingSpinner";
 
 function Profile() {
-  /* TEMP COMMENT OUT, WORK DITH DUMMY DATA instead (save api calls) */
-  const [profile, setProfile] = useState({});
-  const [searchOk, setSearchOk] = useState(false);
+  /* TEMP COMMENT OUT, WORK DITH DUMMY DATA instead (save api calls) || work with context solution */
+  /*  const [profile, setProfile] = useState({});
+  const [searchOk, setSearchOk] = useState(false); */
+
+  /* TEMP TEST THIS SOLUTION -> SAVE API CALLS */
+  const { searchOk, setSearchOk } = useContext(Context);
+  const { profile, setProfile } = useContext(Context);
+
   const { users, user } = useContext(Context);
 
   const [avatar, setAvatar] = useState("");
