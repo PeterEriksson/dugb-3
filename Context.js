@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { db } from "./firebase";
+import { auth, db } from "./firebase";
 
 const Context = React.createContext();
 
@@ -71,6 +71,24 @@ function ContextProvider({ children }) {
       );
     return unsubscribe;
   }, []);
+
+  //user listener
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        //user has logged in
+        //console.log(authUser);
+        setUser(authUser);
+      } else {
+        //user has logged out
+        setUser(null);
+      }
+
+      return () => {
+        unsubscribe();
+      };
+    });
+  }, [user]);
 
   return (
     <Context.Provider

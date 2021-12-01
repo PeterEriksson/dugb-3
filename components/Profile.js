@@ -24,18 +24,12 @@ function Profile() {
     topFive: 598,
   }); */
 
-  //inside useEffect, seemed to work.
-  /* setAvatar(
-        users.find((item) => item.displayName === user.displayName)
-          .profileAvatar
-      ); */
-
   /* TEMP COMMENT OUT, WORK DITH DUMMY DATA (save api calls) */
   useEffect(() => {
     const getProfile = async () => {
       //fetch in db user profile the profileAvatar
       setAvatar(
-        users.find((item) => item.displayName === user.displayName)
+        users.find((item) => item.displayName === user?.displayName)
           .profileAvatar
       );
 

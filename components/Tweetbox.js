@@ -14,30 +14,22 @@ function Tweetbox() {
     avatar:
       "https://i.pinimg.com/564x/25/8b/da/258bda8242c55a84922f8c1bd168d7e8.jpg",
   };
+
   //limitations of firebase username/password -> getaround ->
   //if guest is logged in we also need to cover for that, hence tempGuest
-  const { fullName } = userGuest
+  /* const { fullName } = userGuest
     ? tempGuest
-    : users.find((item) => item.displayName === user?.displayName);
+    : users.find((item) => item.displayName === user?.displayName); */
+  //buggy ☝️ after user listener implemented in Context. added in db.add instead 👇.
 
   const handleNewPost = (e) => {
     e.preventDefault();
     if (postText.length <= postMaxLength) {
-      /* setPosts((prev) => [
-        ...prev,
-        {
-          img: user.photoURL,
-          fullName: fullName,
-          userName: user.displayName,
-          postText: postText,
-          postImg: postImg,
-          postId: Math.floor(Math.random() * 5000),
-        },
-      ]); */
       db.collection("posts").add({
         //avatar -> bettar name variable than "img"
         avatar: user?.photoURL,
-        fullName: fullName,
+        fullName: users.find((item) => item.displayName === user?.displayName)
+          .fullName,
         userName: user?.displayName,
         postText: postText,
         postImg: postImg,
