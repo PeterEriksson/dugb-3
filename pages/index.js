@@ -8,7 +8,7 @@ import { Context } from "../Context";
 export default function Home() {
   const { englishLanguage, setEnglishLanguage } = useContext(Context);
   return (
-    <div className="flex flex-col w-full mr-3 border-r border-t border-l mdLgTest:mr-0">
+    <div className="flex flex-col //unnecess->w-full mr-3 border-r border-t border-l mdLgTest:mr-0  //TEMP-TEST-ok-not-perfect.remove-for-now: //overflow-y-scroll //h-screen ">
       <Head>
         <title>DUGB3</title>
         <link rel="icon" href="/favicon.ico" />

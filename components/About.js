@@ -7,9 +7,9 @@ function About() {
         Concept by nurrminator. Designed and developed by schmetir
       </h2>
       <p className="text-center mx-5 font-light">
-        Warzone-portal för seriösa elitgibbare. Ditt andra hem från Verdansk.
-        Posta skvaller, skapa listor, bedöm spelare, spana in din och dina
-        vänners statistik. Välkommen till det heliga gibblocket 3.0
+        Warzone-portal för seriösa elitgibbare. Ditt andra hem från
+        Caldera/Verdansk. Posta skvaller, skapa listor, bedöm spelare, spana in
+        din och dina vänners statistik. Välkommen till det heliga gibblocket 3.0
       </p>
       <img
         className="rounded-2xl "
