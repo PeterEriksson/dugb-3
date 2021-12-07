@@ -32,9 +32,15 @@ function Sidebar({ children }) {
       {userGuest || user ? (
         // user or guest has logged in (temp) ->
         //TEMP DIV TEST to fix w issue -- ok.
-        <div className="flex justify-center">
+        <div
+          aria-label="entire-app-loggedIn-container"
+          className="flex justify-center"
+        >
           <div className="flex flex-row //added-> max-w-6xl flex-grow ">
-            <div className=" h-screen w-56  font-mainFontHelv px-7 pt-3 flex flex-col border-grayish">
+            <div
+              aria-label="Sidebar-container"
+              className=" h-screen w-56  font-mainFontHelv px-7 pt-3 flex flex-col border-grayish sticky top-0 z-50"
+            >
               <div className="flex flex-col  space-y-4">
                 <LazyLoadImage
                   onClick={() => router.push("/")}
@@ -61,19 +67,9 @@ function Sidebar({ children }) {
                 <SidebarOption text="Profile" Icon={UserIcon} />
                 <SidebarOption text="Search" Icon={SearchIcon} />
                 <SidebarOption text="Lists" Icon={ClipboardListIcon} />
-
                 <SidebarOption text="Notifications" Icon={BellIcon} />
-                {/* refactor when notifications page is set up. */}
-                {/* <div className="sidebarBtn group">
-                <BellIcon className="icon" />
-                <p className="iconText hidden smallerTest:inline-flex">
-                  Notifications
-                </p>
-              </div> */}
-
                 <SidebarOption text="Loadouts" Icon={GiftIcon} />
                 <SidebarOption text="About" Icon={InformationCircleIcon} />
-
                 <div
                   onClick={() => handleLogout()}
                   className="sidebarBtn group"

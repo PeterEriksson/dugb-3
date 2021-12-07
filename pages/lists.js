@@ -38,7 +38,7 @@ function lists() {
   }, [lists]);
 
   return (
-    <div className="w-full  h-screen border-l border-grayish flex flex-col">
+    <div className="//w-full //h-screen border-l border-grayish flex flex-col">
       <h1 className="mt-3 ml-3 font-bold text-2xl text-center">Lists</h1>
       <p className="font-light ml-3 text-center pb-4">
         Who is best at what? Customize your own lists and rank your team. Hot
