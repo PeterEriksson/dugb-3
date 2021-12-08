@@ -20,7 +20,7 @@ function List() {
         <Droppable droppableId="listitems">
           {(provided) => (
             <div
-              className="p-2 w-full ml-auto mr-auto bg-gradient-to-br rounded-2xl from-white via-indigo-100 to-blueish"
+              className={`p-2 w-full ml-auto mr-auto bg-gradient-to-br rounded-2xl from-white via-indigo-100 to-blueish`}
               {...provided.droppableProps}
               ref={provided.innerRef}
             >
@@ -36,11 +36,11 @@ function List() {
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
                         ref={provided.innerRef}
-                        className={`ml-3 flex justify-center `}
+                        className={`ml-3 flex justify-center top-auto left-auto`}
                       >
                         <div
                           className={`bg-grayish ${
-                            snapshot.isDragging && "bg-red-500 z-50"
+                            snapshot.isDragging && "bg-gray-400 z-50"
                           } mb-2 p-4 w-60 rounded-2xl flex space-x-2 items-center`}
                         >
                           <p className="mr-10">{i + 1}</p>

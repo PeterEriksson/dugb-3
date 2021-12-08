@@ -15,12 +15,12 @@ function ListTest() {
   };
 
   return (
-    <div className=" mb-1 mt-1 flex flex-col p-2 px-2 ">
+    <div className="mb-1 mt-1 flex flex-col p-2 px-2 ">
       <DragDropContext onDragEnd={handleOnDragEnd} className="">
         <Droppable droppableId="listitems">
           {(provided) => (
             <div
-              className="w-full h-2/3 max-h-full max-w-full     p-2  ml-auto mr-auto bg-gradient-to-br rounded-2xl from-white via-indigo-100 to-blueish"
+              className={`w-full h-2/3 max-h-full max-w-full p-2  ml-auto mr-auto bg-gradient-to-br rounded-2xl from-white via-indigo-100 to-blueish`}
               {...provided.droppableProps}
               ref={provided.innerRef}
             >
@@ -36,11 +36,11 @@ function ListTest() {
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
                         ref={provided.innerRef}
-                        className={`ml-3 flex justify-center `}
+                        className={`ml-3 flex justify-center top-auto left-auto `}
                       >
                         <div
                           className={`bg-grayish ${
-                            snapshot.isDragging && "bg-red-500 z-50"
+                            snapshot.isDragging && "bg-red-500 "
                           } mb-2 p-4 w-60 rounded-2xl flex space-x-2 items-center`}
                         >
                           <p className="mr-10">{i + 1}</p>

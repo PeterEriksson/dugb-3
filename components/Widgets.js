@@ -14,10 +14,17 @@ function Widgets() {
       >
         <h3 className="text-lg font-bold mb-3">Har du kört?</h3>
 
+        {/* Documentation: https://saurabhnemade.github.io/react-twitter-embed/?path=/story/twitter-timeline-embed--timeline-profile-with-screen-name */}
         <TwitterTimelineEmbed
           sourceType="profile"
           screenName="BattleRoyaleCoD"
-          options={{ height: 400 }}
+          options={{
+            height: 400,
+          }}
+          /* borderColor="#e6ecf0" */
+          /* (bottom line is meant, not surrounding border) */
+          /* noHeader */
+          /* noFooter */
         />
         <TwitterTweetEmbed tweetId={"1356641505889378305"} />
       </div>
