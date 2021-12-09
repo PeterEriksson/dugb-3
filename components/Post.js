@@ -70,11 +70,18 @@ const Post = forwardRef(({ item }, ref) => {
           src={item.avatar}
           alt=""
         />
-        <div className="flex ml-5 items-center ">
+        <div className="flex ml-5 items-center w-full ">
           {/* fullName + shield + userName */}
           <p className="font-bold ">{item.fullName}</p>
           <ShieldCheckIcon className="h-4 w-4 text-blueish " />
           <p className="text-sm  text-gray-400 ">@{item.userName}</p>
+
+          <p className="text-gray-300 cursor-default text-xs ml-auto">
+            {item.timestamp?.toDate().toLocaleDateString()}
+          </p>
+          <p className="text-gray-300 cursor-default text-xs ml-1">
+            {item.timestamp?.toDate().toLocaleTimeString().substring(0, 5)}
+          </p>
         </div>
       </div>
       <p className="ml-test -mt-1.5 mr-5">{item.postText}</p>
