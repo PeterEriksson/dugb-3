@@ -44,7 +44,7 @@ function Sidebar({ children }) {
               <div className="flex flex-col   space-y-2 sm:space-y-4">
                 <LazyLoadImage
                   onClick={() => router.push("/")}
-                  className="    (smaller/larger👉) h-12 mx-1 sm:mx-0 mt-2 sm:mt-0            sm:h-16 object-cover shadow-lg cursor-pointer"
+                  className="    (smaller/larger👉) h-12 mx-1 sm:mx-0 mt-2 sm:mt-0 object-contain          sm:object-cover sm:h-16 shadow-lg cursor-pointer"
                   alt=""
                   src="https://i.pinimg.com/236x/b4/7f/6c/b47f6c1f5324411fb9a3c8d730b93ece.jpg"
                 />
