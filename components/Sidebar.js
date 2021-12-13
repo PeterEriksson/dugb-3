@@ -44,10 +44,17 @@ function Sidebar({ children }) {
               <div className="flex flex-col   space-y-2 sm:space-y-4">
                 <LazyLoadImage
                   onClick={() => router.push("/")}
-                  className="hidden sm:inline   h-16 object-cover shadow-lg cursor-pointer"
+                  className="    (smaller/larger👉) h-12 mx-1 sm:mx-0 mt-2 sm:mt-0            sm:h-16 object-cover shadow-lg cursor-pointer"
                   alt=""
                   src="https://i.pinimg.com/236x/b4/7f/6c/b47f6c1f5324411fb9a3c8d730b93ece.jpg"
                 />
+                {/* Small size logo: */}
+                {/* <LazyLoadImage
+                  onClick={() => router.push("/")}
+                  className="sm:hidden h-12 mx-1 mt-2    object-cover shadow-lg cursor-pointer"
+                  alt=""
+                  src="https://i.pinimg.com/236x/02/a6/c3/02a6c3816d820f21912c7ee66a0ce6be.jpg"
+                /> */}
 
                 <div
                   onClick={() => router.push("/")}
