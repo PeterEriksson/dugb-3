@@ -62,7 +62,7 @@ const Post = forwardRef(({ item }, ref) => {
   return (
     <div
       ref={ref}
-      className="flex flex-col w-full pb-4 font-mainFontHelv hover:bg-grayish border-b border-gray-300"
+      className="flex flex-col w-full pb-4 font-mainFontHelv //hover:bg-grayish border-b border-gray-300"
     >
       <div className="flex w-11/12 flex-grow mt-2.5 ml-1">
         <img
@@ -76,10 +76,10 @@ const Post = forwardRef(({ item }, ref) => {
           <ShieldCheckIcon className="h-4 w-4 text-blueish " />
           <p className="text-sm  text-gray-400 ">@{item.userName}</p>
 
-          <p className="text-gray-300 cursor-default text-xs ml-auto">
+          <p className="text-gray-300 cursor-default text-xs ml-auto hidden widthForShowDate:inline ">
             {item.timestamp?.toDate().toLocaleDateString()}
           </p>
-          <p className="text-gray-300 cursor-default text-xs ml-1">
+          <p className="text-gray-300 cursor-default text-xs ml-1 hidden widthForShowDate:inline  ">
             {item.timestamp?.toDate().toLocaleTimeString().substring(0, 5)}
           </p>
         </div>

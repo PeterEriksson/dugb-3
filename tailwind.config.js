@@ -30,8 +30,10 @@ module.exports = {
         xxxxxl: "1024px",
       },
       screens: {
+        widthForShowDate: "998px",
         mdLgTest: "890px",
-        smallerTest: "600px",
+        smallerTest: "640px",
+        xs: "500px",
       },
       borderRadius: {
         widgetsBorder: "20px",
@@ -42,6 +44,9 @@ module.exports = {
       },
       minWidth: {
         "min-width": "fit-content",
+      },
+      maxWidth: {
+        detailsAboutLogin: "285px",
       },
     },
   },

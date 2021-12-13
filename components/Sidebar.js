@@ -39,12 +39,12 @@ function Sidebar({ children }) {
           <div className="flex flex-row //added-> max-w-6xl flex-grow ">
             <div
               aria-label="Sidebar-container"
-              className=" h-screen w-56  font-mainFontHelv px-7 pt-3 flex flex-col border-grayish sticky top-0 z-50"
+              className="//bg-red-500  w-20 sm:w-56  h-screen font-mainFontHelv sm:px-4   sm:pt-2 flex flex-col border-grayish sticky top-0 z-50"
             >
-              <div className="flex flex-col  space-y-4">
+              <div className="flex flex-col   space-y-2 sm:space-y-4">
                 <LazyLoadImage
                   onClick={() => router.push("/")}
-                  className="h-16 object-cover shadow-lg cursor-pointer"
+                  className="hidden sm:inline   h-16 object-cover shadow-lg cursor-pointer"
                   alt=""
                   src="https://i.pinimg.com/236x/b4/7f/6c/b47f6c1f5324411fb9a3c8d730b93ece.jpg"
                 />
