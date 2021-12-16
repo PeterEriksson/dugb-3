@@ -19,14 +19,16 @@ function Widgets() {
           sourceType="profile"
           screenName="BattleRoyaleCoD"
           options={{
-            height: 400,
+            /* height:400, */
+            height: 500,
+            width: 200,
           }}
           /* borderColor="#e6ecf0" */
           /* (bottom line is meant, not surrounding border) */
           /* noHeader */
           /* noFooter */
         />
-        <TwitterTweetEmbed tweetId={"1356641505889378305"} />
+        {/* <TwitterTweetEmbed tweetId={"1356641505889378305"} /> */}
       </div>
     </div>
   );
