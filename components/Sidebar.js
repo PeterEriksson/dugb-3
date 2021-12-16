@@ -36,7 +36,7 @@ function Sidebar({ children }) {
           aria-label="entire-app-loggedIn-container"
           className="flex justify-center"
         >
-          <div className="flex flex-row //added-> max-w-6xl flex-grow ">
+          <div className="flex flex-row max-w-6xl w-full">
             <div
               aria-label="Sidebar-container"
               className="//bg-red-500  w-20 sm:w-56  h-screen font-mainFontHelv sm:px-4   sm:pt-2 flex flex-col border-grayish sticky top-0 z-50"
