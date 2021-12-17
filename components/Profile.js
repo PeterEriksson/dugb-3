@@ -27,12 +27,6 @@ function Profile() {
   /* TEMP COMMENT OUT, WORK DITH DUMMY DATA (save api calls) */
   useEffect(() => {
     const getProfile = async () => {
-      //fetch in db user profile the profileAvatar
-      setAvatar(
-        users.find((item) => item.displayName === user?.displayName)
-          .profileAvatar
-      );
-
       await fetch(
         `https://call-of-duty-modern-warfare.p.rapidapi.com/warzone/${user?.displayName}/psn`,
         {
@@ -47,6 +41,11 @@ function Profile() {
         .then((response) => response.json())
         .then((response) => {
           if (response.br) {
+            //fetch in db user profile the profileAvatar
+            setAvatar(
+              users.find((item) => item.displayName === user?.displayName)
+                .profileAvatar
+            );
             setSearchOk(true);
           } else {
             setSearchOk(false);
