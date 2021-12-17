@@ -143,7 +143,7 @@ function NewListModal() {
                     onClick={(e) => handlePublishNewList(e)}
                     className="inline-flex justify-center py-2 w-2/5 rounded-md border border-transparent shadow-sm px-4  bg-blueish text-base font-medium text-white hover:bg-hoverBluish  focus:outline-none  sm:text-sm disabled:bg-gray-300 disabled:cursor-not-allowed disabled:hover:bg-gray-300 "
                   >
-                    Publish
+                    {userGuest ? "Can't publish as guest" : "Publish"}
                   </button>
                 </div>
               </div>

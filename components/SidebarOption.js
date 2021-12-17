@@ -5,13 +5,20 @@ import { Context } from "../Context";
 function SidebarOption({ text, Icon }) {
   const router = useRouter();
   const { asPath } = useRouter();
+  const { userGuest } = useContext(Context);
 
   const handleClick = () => {
     text === "Home" ? router.push("/") : router.push(`/${text.toLowerCase()}`);
   };
 
   return (
-    <div onClick={handleClick} className="sidebarBtn group">
+    <div
+      onClick={handleClick}
+      /* remove/hide Profile Icon if Guest is logged in. */
+      className={`sidebarBtn group ${
+        text === "Profile" && userGuest && "hidden"
+      }`}
+    >
       <Icon
         className={`icon ${
           asPath === `/${text.toLowerCase()}` && "text-blueish"

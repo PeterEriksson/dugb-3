@@ -16,8 +16,8 @@ function Widgets() {
       >
         <h3 className="text-lg font-bold //mb-3 ">Har du kört?</h3>
         <p
-          className="opacity-0 //px-24 lg:px-24 px-widgetsPaddingWidthTemp text-xs font-extralight"
-          aria-label="TEMP SOLUTION to increase widgets width"
+          className="opacity-0 cursor-default  lg:px-24 px-widgetsPaddingWidthTemp text-xs font-extralight"
+          aria-label="TEMP SOLUTION to increase widgets width (documentation for increasing width on TwitterTimelineEmbed??)"
         >
           hejhej
         </p>

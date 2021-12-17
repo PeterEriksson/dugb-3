@@ -58,7 +58,7 @@ function Tweetbox() {
           type="text"
           placeholder={`${
             userGuest
-              ? "Hello Guest. You need to be logged in to be able to post."
+              ? "Hello Guest. Only users can post."
               : `Vad händer ${user?.displayName}?`
           }  `}
         />
