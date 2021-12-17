@@ -16,7 +16,7 @@ function Widgets() {
       >
         <h3 className="text-lg font-bold //mb-3 ">Har du kört?</h3>
         <p
-          className="opacity-0 px-24 text-xs font-extralight"
+          className="opacity-0 //px-24 lg:px-24 px-widgetsPaddingWidthTemp text-xs font-extralight"
           aria-label="TEMP SOLUTION to increase widgets width"
         >
           hejhej

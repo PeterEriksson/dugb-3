@@ -28,6 +28,7 @@ module.exports = {
         test: "76px",
         largeTest: "512px",
         xxxxxl: "1024px",
+        widgetsPaddingWidthTemp: "88px",
       },
       screens: {
         widthForShowDate: "998px",
