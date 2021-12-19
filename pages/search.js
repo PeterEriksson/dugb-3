@@ -1,6 +1,6 @@
 import { PencilIcon, SearchIcon } from "@heroicons/react/outline";
 import Head from "next/head";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import LoadingSpinner from "../components/LoadingSpinner";
 import SearchSuggestion from "../components/SearchSuggestion";
 import { Context } from "../Context";
@@ -15,6 +15,8 @@ function search() {
   const [profileAvatarPic, setPofileAvatarPic] = useState("");
 
   const { users } = useContext(Context);
+
+  const inputRef = useRef();
 
   const handleForm = (e) => {
     e.preventDefault();
@@ -48,7 +50,7 @@ function search() {
         });
       setHide(false);
       setSearched(true);
-      setSearchText("");
+      //setSearchText("");
     };
 
     getProfile();
@@ -130,6 +132,7 @@ function search() {
               <SearchIcon className="h-5 w-5 text-gray-500 " />
             </div>
             <input
+              ref={inputRef}
               type="text"
               value={searchText}
               onChange={(e) => setSearchText(e.target.value)}
@@ -144,7 +147,12 @@ function search() {
       {/*DIV SEARCH SUGGESTIONS  */}
       <div className="flex w-full justify-center items-center space-x-1  mt-2">
         {users.map((item, i) => (
-          <SearchSuggestion key={i} item={item} setSearchText={setSearchText} />
+          <SearchSuggestion
+            key={i}
+            item={item}
+            setSearchText={setSearchText}
+            inputRef={inputRef}
+          />
         ))}
       </div>
 

@@ -37,16 +37,6 @@ function NewListModal() {
      -- Create a batch and add the main document & the subcollection ?*/
     /* https://stackoverflow.com/questions/61654653/how-to-add-subcollection-to-document-in-firestore */
 
-    /* setLists((prev) => [
-      ...prev,
-      {
-        header: newListHeader,
-        subheader: newListSubHeader,
-        ranking: _profiles,
-        listExplanation: newListExplanation,
-      },
-    ]); */
-
     setOpenNewListModal(false);
     setNewListHeader("");
     setNewListSubHeader("");

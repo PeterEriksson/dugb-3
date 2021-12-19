@@ -4,7 +4,7 @@ import List from "../components/List";
 import NewListModal from "../components/NewListModal";
 import { Context } from "../Context";
 import ListPublishedExample from "../components/ListPublishedExample";
-import ModalTest from "../components/ModalTest";
+/* import ModalTest from "../components/ModalTest";  deleted...*/
 import { db } from "../firebase";
 import FlipMove from "react-flip-move";
 

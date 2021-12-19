@@ -13,6 +13,9 @@ function ContextProvider({ children }) {
   const [openTestModal, setOpenTestModal] = useState(false);
   const [userGuest, setUserGuest] = useState(false);
 
+  /* TEMP TEST SOLUTION FOR search */
+  /* const [inputFocus, setInputFocus] = useState(true); */
+
   /* TEMP TEST THIS SOLUTION -> SAVE API CALLS */
   const [profile, setProfile] = useState({});
   const [searchOk, setSearchOk] = useState(false);
@@ -101,8 +104,8 @@ function ContextProvider({ children }) {
         setUserGuest,
         englishLanguage,
         setEnglishLanguage,
-        openTestModal,
-        setOpenTestModal,
+        /* openTestModal, */
+        /* setOpenTestModal, */
         openRegisterUserModal,
         setOpenRegisterUserModal,
         openLoginModal,
@@ -117,6 +120,7 @@ function ContextProvider({ children }) {
         lists,
         setLists,
 
+        /* save api calls👇 after 1 render the profile is always there, no need to call api again */
         searchOk,
         setSearchOk,
         profile,
