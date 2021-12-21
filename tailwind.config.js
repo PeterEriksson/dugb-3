@@ -5,7 +5,8 @@ module.exports = {
 
   /* solution to fix dnd issue 👉 */
   /* from documentation: The important option lets you control whether or not Tailwind’s utilities should be marked with !important. This can be really useful when using Tailwind with existing CSS that has high specificity selectors.(https://tailwindcss.com/docs/configuration) */
-  important: true,
+  /* important: true, */
+  /* (Can remove/out-comment ⬆ and in List do !top-auto !left-auto instead of top-auto left-auto -> cleaner) */
 
   theme: {
     extend: {

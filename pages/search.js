@@ -107,7 +107,7 @@ function search() {
         </div>
       );
     } else if (errorMsg) {
-      return <p>could not find player</p>;
+      return <p className="mx-auto mt-4">could not find player</p>;
     }
   };
 

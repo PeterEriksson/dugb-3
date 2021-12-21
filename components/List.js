@@ -36,7 +36,7 @@ function List() {
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
                         ref={provided.innerRef}
-                        className={`ml-3 flex justify-center top-auto left-auto`}
+                        className={`ml-3 flex justify-center !top-auto !left-auto`}
                       >
                         <div
                           className={`bg-grayish ${

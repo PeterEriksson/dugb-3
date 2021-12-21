@@ -47,7 +47,7 @@ function NewListModal() {
     <Transition.Root show={openNewListModal} as={Fragment}>
       <Dialog
         as="div"
-        className="fixed z-50 inset-0 overscroll-y-auto "
+        className="fixed z-50 inset-0 //overscroll-y-auto overflow-y-auto"
         onClose={setOpenNewListModal}
       >
         <div className="flex items-center justify-center min-h-[800px] sm:min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
