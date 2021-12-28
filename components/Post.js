@@ -4,15 +4,23 @@ import {
   RefreshIcon,
   TrashIcon,
   FireIcon as FireIconSolid,
+  InformationCircleIcon,
 } from "@heroicons/react/outline";
 import { ShieldCheckIcon, FireIcon } from "@heroicons/react/solid";
 import { forwardRef, useContext, useEffect, useState } from "react";
 import { Context } from "../Context";
 import { db } from "../firebase";
 
+/* TEST TEMP */
+import "react-responsive-modal/styles.css";
+import { Modal } from "react-responsive-modal";
+
 const Post = forwardRef(({ item }, ref) => {
   const { posts, setPosts, user, userGuest } = useContext(Context);
   const [postLikes, setPostLikes] = useState([]);
+
+  /* TEST TEMP */
+  const [open, setOpen] = useState(false);
 
   const handleDeletePost = () => {
     db.collection("posts").doc(item.postId).delete();
@@ -32,7 +40,7 @@ const Post = forwardRef(({ item }, ref) => {
   }, []);
 
   const handleLikePost = () => {
-    //Only perform the action if userGuest is Offline
+    //Only perform the action if userGuest is offline
     if (userGuest) return;
 
     //check if user has liked the post or not
@@ -90,18 +98,47 @@ const Post = forwardRef(({ item }, ref) => {
         src={item?.postImg}
         alt=""
       />
-      {/* symbols - answer + retweet + edit + trash + fire */}
+
       <div className="flex items-center ml-test mr-6 mt-5  justify-between">
-        <ChatIcon className="postIcon" />
-        <RefreshIcon className="postIcon" />
-        <PencilIcon className="postIcon" />
+        <ChatIcon className="postIcon opacity-50 !cursor-default" />
+        <PencilIcon className="postIcon opacity-50 !cursor-default" />
+        {/*  <RefreshIcon className="postIcon" /> */}
         <TrashIcon
           onClick={handleDeletePost}
           className={`postIcon hover:text-black ${
             user?.displayName !== item.userName && "hidden"
           }`}
         />
-        {/* <FireIconSolid className="postIcon text-orange" /> */}
+        <InformationCircleIcon
+          onClick={() => setOpen(true)}
+          className="postIcon hover:text-black"
+        />
+
+        {/* TEST TEMP - MODAL TO DISPLAY LIKES */}
+        <Modal
+          /* center */
+          showCloseIcon={false}
+          open={open}
+          onClose={() => setOpen(false)}
+        >
+          <div className="flex //bg-blue-500 flex-col space-y-3 items-center px-16">
+            <h2 className="font-bold text-lg underline ">Liked by</h2>
+            {postLikes.length === 0 && (
+              <p className="font-light">no likes yet</p>
+            )}
+
+            {postLikes.map((item) => (
+              <div className="flex w-full items-center //w-40 //bg-red-400">
+                <img
+                  className="h-8 w-8 rounded-full object-cover"
+                  src={item.photoURL}
+                  alt=""
+                />
+                <p className="ml-2 truncate ">{item.userName}</p>
+              </div>
+            ))}
+          </div>
+        </Modal>
 
         {/* div for FireIcon + nr of likes */}
         <div

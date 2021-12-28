@@ -1,21 +1,14 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Context } from "../Context";
 import RegisterUserModal from "./RegisterUserModal";
 import LoginModal from "./LoginModal";
 
 function Login() {
-  const {
-    userGuest,
-    setUserGuest,
-    englishLanguage,
-    setEnglishLanguage,
-    openRegisterUserModal,
-    setOpenRegisterUserModal,
-    openNewListModal,
-    setOpenNewListModal,
-    openLoginModal,
-    setOpenLoginModal,
-  } = useContext(Context);
+  const { userGuest, setUserGuest, englishLanguage, setEnglishLanguage } =
+    useContext(Context);
+
+  const [openLoginModal, setOpenLoginModal] = useState(false);
+  const [openRegisterUserModal, setOpenRegisterUserModal] = useState(false);
 
   return (
     <div className="bg-loginPic bg-cover h-screen">
@@ -53,8 +46,14 @@ function Login() {
             Register
           </button>
         </section>
-        <LoginModal />
-        <RegisterUserModal />
+        <LoginModal
+          openLoginModal={openLoginModal}
+          setOpenLoginModal={setOpenLoginModal}
+        />
+        <RegisterUserModal
+          openRegisterUserModal={openRegisterUserModal}
+          setOpenRegisterUserModal={setOpenRegisterUserModal}
+        />
         <button
           /* onClick={() => setUserGuest((prev) => !prev)} */
           className="text-white rounded-md border border-white px-4 mb-6 hover:bg-white hover:text-black"

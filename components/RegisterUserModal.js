@@ -5,9 +5,11 @@ import { useContext } from "react";
 import { Context } from "../Context";
 import { auth, db } from "../firebase";
 
-function RegisterUserModal() {
-  const { openRegisterUserModal, setOpenRegisterUserModal, user, setUser } =
-    useContext(Context);
+function RegisterUserModal({
+  openRegisterUserModal,
+  setOpenRegisterUserModal,
+}) {
+  const { user, setUser } = useContext(Context);
   const [userName, setUserName] = useState("");
   const [fullName, setFullName] = useState("");
   const [password, setPassword] = useState("");
@@ -16,7 +18,6 @@ function RegisterUserModal() {
 
   const handleRegister = (e) => {
     e.preventDefault();
-
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((userAuth) => {

@@ -5,8 +5,9 @@ import { useContext } from "react";
 import { Context } from "../Context";
 import { auth } from "../firebase";
 
-function LoginModal() {
-  const { openLoginModal, setOpenLoginModal, setUser } = useContext(Context);
+function LoginModal({ openLoginModal, setOpenLoginModal }) {
+  const { /* openLoginModal, setOpenLoginModal, */ setUser } =
+    useContext(Context);
 
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");

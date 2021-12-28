@@ -9,32 +9,13 @@ import { db } from "../firebase";
 import FlipMove from "react-flip-move";
 
 function lists() {
-  const {
-    openNewListModal,
-    setOpenNewListModal,
-    openTestModal,
-    setOpenTestModal,
-  } = useContext(Context);
-
-  /* const [lists, setLists] = useState([]);
-  useEffect(() => {
-    const unsubscribe = db
-      .collection("lists")
-      .orderBy("timestamp", "desc")
-      .onSnapshot((snapshot) =>
-        setLists(
-          snapshot.docs.map((doc) => ({ ...doc.data(), listId: doc.id }))
-        )
-      );
-    return unsubscribe;
-  }, []); */
+  const [openNewListModal, setOpenNewListModal] = useState(false);
 
   /* Make use of FlipMove and NOT read from firebase every time (only when firebase lists db is changed) */
   const [__lists, __setLists] = useState([]);
   const { lists } = useContext(Context);
   useEffect(() => {
-    /* const unsubscribe = */ __setLists(lists);
-    /* return unsubscribe; */
+    __setLists(lists);
   }, [lists]);
 
   return (
@@ -48,19 +29,19 @@ function lists() {
 
       <button
         onClick={() => setOpenNewListModal((prev) => !prev)}
-        /* onClick={() => setOpenTestModal((prev) => !prev)} */
         className="flex mx-auto mt-3 transition duration-100 hover:scale-105 bg-blueish w-28 h-10 p-4 rounded-full justify-center items-center"
       >
         <p className="text-white font-normal text-md">Create list</p>
       </button>
 
-      <NewListModal />
-      {/* TEMP TESTING */}
-      {/* <ModalTest /> */}
+      <NewListModal
+        openNewListModal={openNewListModal}
+        setOpenNewListModal={setOpenNewListModal}
+      />
 
       {/* LISTS FEED */}
       <FlipMove>
-        {__lists.map((item /*,i */) => (
+        {__lists.map((item) => (
           <ListPublishedExample key={item.listId} item={item} />
         ))}
       </FlipMove>

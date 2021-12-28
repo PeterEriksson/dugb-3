@@ -4,8 +4,6 @@ import Post from "./Post";
 import FlipMove from "react-flip-move";
 import { db } from "../firebase";
 
-/* text area max w 576 px xl ...?*/
-
 function Feed() {
   //make use of FlipMove -> do useEffect instead
   /* const { posts } = useContext(Context); */

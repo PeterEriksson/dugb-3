@@ -6,16 +6,8 @@ import { Context } from "../Context";
 import { db } from "../firebase";
 import List from "./List";
 
-function NewListModal() {
-  const {
-    openNewListModal,
-    setOpenNewListModal,
-    _profiles,
-    lists,
-    setLists,
-    user,
-    userGuest,
-  } = useContext(Context);
+function NewListModal({ openNewListModal, setOpenNewListModal }) {
+  const { _profiles, lists, setLists, user, userGuest } = useContext(Context);
   const [newListHeader, setNewListHeader] = useState("");
   const [newListSubHeader, setNewListSubHeader] = useState("");
   const [newListExplanation, setNewListExplanation] = useState("");

@@ -7,16 +7,8 @@ function ContextProvider({ children }) {
   const [englishLanguage, setEnglishLanguage] = useState(false);
   const [user, setUser] = useState(null);
   const [users, setUsers] = useState([]);
-  const [openRegisterUserModal, setOpenRegisterUserModal] = useState(false);
-  const [openLoginModal, setOpenLoginModal] = useState(false);
-  const [openNewListModal, setOpenNewListModal] = useState(false);
-  const [openTestModal, setOpenTestModal] = useState(false);
   const [userGuest, setUserGuest] = useState(false);
-
-  /* TEMP TEST SOLUTION FOR search */
-  /* const [inputFocus, setInputFocus] = useState(true); */
-
-  /* TEMP TEST THIS SOLUTION -> SAVE API CALLS */
+  /*SAVE API CALLS */
   const [profile, setProfile] = useState({});
   const [searchOk, setSearchOk] = useState(false);
 
@@ -96,20 +88,13 @@ function ContextProvider({ children }) {
   return (
     <Context.Provider
       value={{
-        openNewListModal,
-        setOpenNewListModal,
         _profiles,
         _setProfiles,
         userGuest,
         setUserGuest,
         englishLanguage,
         setEnglishLanguage,
-        /* openTestModal, */
-        /* setOpenTestModal, */
-        openRegisterUserModal,
-        setOpenRegisterUserModal,
-        openLoginModal,
-        setOpenLoginModal,
+
         user,
         setUser,
         users,
