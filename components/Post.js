@@ -128,7 +128,10 @@ const Post = forwardRef(({ item }, ref) => {
             )}
 
             {postLikes.map((item) => (
-              <div className="flex w-full items-center //w-40 //bg-red-400">
+              <div
+                key={item.postLikeId}
+                className="flex w-full items-center //w-40 //bg-red-400"
+              >
                 <img
                   className="h-8 w-8 rounded-full object-cover"
                   src={item.photoURL}
