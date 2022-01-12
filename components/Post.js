@@ -11,15 +11,15 @@ import { forwardRef, useContext, useEffect, useState } from "react";
 import { Context } from "../Context";
 import { db } from "../firebase";
 
-/* TEST TEMP */
 import "react-responsive-modal/styles.css";
 import { Modal } from "react-responsive-modal";
+import firebase from "firebase";
 
 const Post = forwardRef(({ item }, ref) => {
   const { posts, setPosts, user, userGuest } = useContext(Context);
   const [postLikes, setPostLikes] = useState([]);
 
-  /* TEST TEMP */
+  /* react-responsive-modal */
   const [open, setOpen] = useState(false);
 
   const handleDeletePost = () => {
@@ -50,6 +50,7 @@ const Post = forwardRef(({ item }, ref) => {
       ? db.collection("posts").doc(item.postId).collection("postLikes").add({
           userName: user?.displayName,
           photoURL: user?.photoURL,
+          timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         })
       : /* the user.displayName already exists in one of the postLikes, thus it has been liked by the current user and we therefore delete it */
         db
@@ -69,6 +70,9 @@ const Post = forwardRef(({ item }, ref) => {
 
   return (
     <div
+      /* TEST TEMP id FOR SCROLLING */
+      /* id={item.postId} */
+      /* END TEST TEMP */
       ref={ref}
       className="flex flex-col w-full pb-4 font-mainFontHelv //hover:bg-grayish border-b border-gray-300"
     >
@@ -114,7 +118,7 @@ const Post = forwardRef(({ item }, ref) => {
           className="postIcon hover:text-black"
         />
 
-        {/* TEST TEMP - MODAL TO DISPLAY LIKES */}
+        {/*MODAL TO DISPLAY LIKES */}
         <Modal
           /* center */
           showCloseIcon={false}

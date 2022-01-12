@@ -35,15 +35,15 @@ function RegisterUserModal({
 
               uid: userAuth.user.uid,
             });
+          })
+          .then(() => {
+            db.collection("users").doc(userAuth.user.uid).set({
+              displayName: userName,
+              email: email,
+              photoURL: photoURL,
+              fullName: fullName,
+            });
           });
-      })
-      .then(() => {
-        db.collection("users").add({
-          displayName: userName,
-          email: email,
-          photoURL: photoURL,
-          fullName: fullName,
-        });
       })
       .catch((error) => alert(error.message));
     //console.log(user);

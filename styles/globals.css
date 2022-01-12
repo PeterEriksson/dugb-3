@@ -4,7 +4,7 @@
 
 @layer components {
   .sidebarBtn {
-    @apply flex p-2 px-4 items-center rounded-full cursor-pointer hover:bg-grayish;
+    @apply flex p-2 px-4 items-center rounded-full cursor-pointer hover:bg-lightBlueish;
   }
 
   .icon {

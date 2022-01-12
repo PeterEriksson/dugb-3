@@ -8,22 +8,15 @@ import { Context } from "../Context";
 export default function Home() {
   const { englishLanguage, setEnglishLanguage } = useContext(Context);
   return (
-    <div className="flex flex-col mr-3 border-r border-t border-l mdLgTest:mr-0  ">
+    <div className="flex flex-col mr-3 border-r border-t border-l mdLgTest:mr-0   w-full">
       <Head>
         <title>DUGB3</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="flex items-center">
-        <p className="font-bold text-2xl py-3 ml-4">{`Home | ${
-          englishLanguage ? "Gossip" : "Skvaller"
-        }`}</p>
-        <p
-          onClick={() => setEnglishLanguage((prev) => !prev)}
-          className="ml-auto mr-4 cursor-pointer"
-        >
-          {englishLanguage ? "🇸🇪" : "🇬🇧"}
-        </p>
-      </div>
+      <h1 className="mt-3 font-bold text-2xl ml-3 mb-2 //text-center">
+        Home | Skvaller
+      </h1>
+
       <Tweetbox />
 
       <Feed />

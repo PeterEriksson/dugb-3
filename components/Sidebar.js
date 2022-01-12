@@ -1,6 +1,6 @@
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import {
-  BellIcon,
+  /* BellIcon, */
   ClipboardListIcon,
   GiftIcon,
   InformationCircleIcon,
@@ -12,10 +12,11 @@ import {
 import { useRouter } from "next/router";
 import router from "next/router";
 import SidebarOption from "./SidebarOption";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Context } from "../Context";
 import Login from "./Login";
 import { auth } from "../firebase";
+import SidebarNotificationOption from "./SidebarNotificationOption";
 
 function Sidebar({ children }) {
   const { asPath } = useRouter();
@@ -30,8 +31,6 @@ function Sidebar({ children }) {
   return (
     <>
       {userGuest || user ? (
-        // user or guest has logged in (temp) ->
-        //TEMP DIV TEST to fix w issue -- ok.
         <div
           aria-label="entire-app-loggedIn-container"
           className="flex justify-center"
@@ -48,13 +47,6 @@ function Sidebar({ children }) {
                   alt=""
                   src="https://i.pinimg.com/236x/b4/7f/6c/b47f6c1f5324411fb9a3c8d730b93ece.jpg"
                 />
-                {/* Small size logo: */}
-                {/* <LazyLoadImage
-                  onClick={() => router.push("/")}
-                  className="sm:hidden h-12 mx-1 mt-2    object-cover shadow-lg cursor-pointer"
-                  alt=""
-                  src="https://i.pinimg.com/236x/02/a6/c3/02a6c3816d820f21912c7ee66a0ce6be.jpg"
-                /> */}
 
                 <div
                   onClick={() => router.push("/")}
@@ -74,7 +66,10 @@ function Sidebar({ children }) {
                 <SidebarOption text="Profile" Icon={UserIcon} />
                 <SidebarOption text="Search" Icon={SearchIcon} />
                 <SidebarOption text="Lists" Icon={ClipboardListIcon} />
-                <SidebarOption text="Notifications" Icon={BellIcon} />
+
+                {/* only render if userGuest isn't logged in. i.e if a user is logged in */}
+                {!userGuest && <SidebarNotificationOption />}
+
                 <SidebarOption text="Loadouts" Icon={GiftIcon} />
                 <SidebarOption text="About" Icon={InformationCircleIcon} />
                 <div
@@ -90,11 +85,9 @@ function Sidebar({ children }) {
             </div>
             {children}
           </div>
-
-          {/* TEMPDIV TEST to fix width issue --ok. */}
         </div>
       ) : (
-        /*  user/guest has not logged in (temp) -> */
+        /*  user/guest has not logged in -> */
         <Login />
       )}
     </>

@@ -21,6 +21,7 @@ module.exports = {
         whiteExp: "#FAF9F6",
         purpleish: "#482980",
         hoverPurpleish: "#341d5c",
+        lightBlueish: "#e8f5fe",
       },
       fontFamily: {
         mainFontHelv: "helvetica",
@@ -30,6 +31,7 @@ module.exports = {
         largeTest: "512px",
         xxxxxl: "1024px",
         widgetsPaddingWidthTemp: "88px",
+        notificationWidth: "350px",
       },
       screens: {
         widthForShowDate: "998px",
@@ -49,6 +51,11 @@ module.exports = {
       },
       maxWidth: {
         detailsAboutLogin: "285px",
+        notificationHeader: "190px",
+        notificationText: "175px",
+      },
+      fontSize: {
+        verySmall: "9px",
       },
     },
   },
