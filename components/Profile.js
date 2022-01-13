@@ -63,7 +63,7 @@ function Profile() {
             alt=""
             /* src="https://i.pinimg.com/236x/79/44/69/794469d92431bd6d291755f35a4a6530.jpg" */
             src={avatar}
-            className="rounded-2xl max-w-xs h-72"
+            className="rounded-2xl max-w-profileAvatar object-cover h-72"
           />
           <div className="ml-8 flex flex-col justify-center //w-full mb-2">
             <h2 className="font-bold text-xl mb-2">{user?.displayName}</h2>

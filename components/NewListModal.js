@@ -22,6 +22,7 @@ function NewListModal({ openNewListModal, setOpenNewListModal }) {
       listExplanation: newListExplanation,
       createdBy: user?.displayName,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      avatar: user?.photoURL,
     });
 
     /* Skip array ((ranking: _profiles)) and use subcollection instead, how? Add collection 

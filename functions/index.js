@@ -116,6 +116,99 @@ exports.createNotificationOnPost = functions.firestore
     await batch.commit();
   });
 
+exports.createNotificationOnList = functions.firestore
+  .document("lists/{listId}")
+  .onCreate(async (snap, context) => {
+    const usersData = await db.collection("users").get();
+    const userUids = usersData.docs.map((doc) => doc.id);
+
+    const listHeader = snap.data().header;
+    const listAuthor = snap.data().createdBy;
+    const listAuthorAvatar = snap.data().avatar;
+    const listTimestamp = snap.data().timestamp;
+
+    const listId = context.params.listId;
+
+    /* extra safety(like above in createNotificationOnPost): ...necessary? */
+    const listAuthorUid = usersData.docs.some(
+      (doc) => doc.data().displayName === listAuthor
+    )
+      ? usersData.docs.find((doc) => doc.data().displayName === listAuthor).id
+      : null;
+
+    const notificationContent = {
+      message: `${listAuthor} created a list`,
+      text: listHeader,
+      avatar: listAuthorAvatar,
+      timestamp: listTimestamp,
+      typeLocation: "/lists",
+      hasSeen: false,
+    };
+
+    // WARNING: Limited to 500 writes at once. - not a problem for now lol.
+    // If handling more than 500 entries, split into groups.
+    const batch = db.batch();
+    userUids.forEach((uid) => {
+      /* get hold of the postAuthors uid */
+      /* only notify other users */
+      if (listAuthorUid !== uid) {
+        const notifyDocRef = db.doc(`users/${uid}/notifications/${listId}`);
+
+        batch.set(notifyDocRef, notificationContent);
+      } else return null;
+    });
+    await batch.commit();
+  });
+
+exports.deleteNotificationOnListDelete = functions.firestore
+  .document("lists/{listId}")
+  .onDelete(async (snap, context) => {
+    //get hold of the user's uid ->
+    //-> the rest of the uids we map thorugh and delete the
+    //notification, if it exists (check)
+    const listAuthor = snap.data().createdBy;
+
+    //we have the listauthor -> get hold of user doc, then from there -> uid
+    const userDoc = await db
+      .collection("users")
+      .where("displayName", "==", listAuthor)
+      .get();
+    //get the uid from userDoc. This uid we do NOT want to include in loop. Note this is an array so do [0] later
+    const listAuthorUid = userDoc.docs.map((item) => item.id);
+
+    //get hold of all users, so we can begin loop.
+    const users = await db
+      .collection("users")
+      .where("displayName", "!=", listAuthor)
+      .get();
+    //get the uids
+    const userUids = users.docs.map((item) => item.id);
+
+    //listId same as notificationId👇
+    const notificationId = context.params.listId;
+
+    userUids.forEach(async (uid) => {
+      const userNotifications = await db
+        .collection("users")
+        .doc(uid)
+        .collection("notifications")
+        .get();
+      const userHasAlreadyDeletedNotification = userNotifications.docs.every(
+        (item) => item.id !== notificationId
+      );
+      if (userHasAlreadyDeletedNotification) {
+        return null;
+      } else {
+        return db
+          .collection("users")
+          .doc(uid)
+          .collection("notifications")
+          .doc(notificationId)
+          .delete();
+      }
+    });
+  });
+
 exports.createNotificationOnPostLike = functions.firestore
   .document("posts/{postId}/postLikes/{postLikeId}")
   .onCreate(async (snap, context) => {

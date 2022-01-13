@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { useContext } from "react";
 import { Context } from "../Context";
 import { db } from "../firebase";
+import Moment from "react-moment";
 
 function Notification({
   avatar,
@@ -94,7 +95,9 @@ function Notification({
         <p className="text-xs font-light max-w-notificationText //bg-blue-400 truncate">
           {text}
         </p>
-        {/* <p className="font-extralight text-verySmall ">{timestamp}</p> */}
+        <Moment fromNow className="font-extralight text-verySmall">
+          {timestamp.toDate()}
+        </Moment>
       </div>
 
       {/* blue hasSeen + cross icon */}

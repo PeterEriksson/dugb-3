@@ -70,7 +70,7 @@ function search() {
             alt=""
             /* src="https://i.pinimg.com/236x/89/51/60/895160aa966c6271c6f211b253671176.jpg" */
             src={profileAvatarPic}
-            className="rounded-2xl max-w-xs h-72"
+            className="rounded-2xl max-w-profileAvatar object-cover h-72"
           />
           <div className="ml-8 flex flex-col justify-center mb-2">
             <h2 className="font-bold text-xl mb-2">{currentProfile}</h2>

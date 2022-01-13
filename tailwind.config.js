@@ -53,9 +53,10 @@ module.exports = {
         detailsAboutLogin: "285px",
         notificationHeader: "190px",
         notificationText: "175px",
+        profileAvatar: "170px",
       },
       fontSize: {
-        verySmall: "9px",
+        verySmall: "11px",
       },
     },
   },

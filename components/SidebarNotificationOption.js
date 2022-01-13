@@ -8,7 +8,7 @@ import { db } from "../firebase";
 function SidebarNotificationOption() {
   const { asPath } = useRouter();
   const { user } = useContext(Context);
-  const [notifications, setNotifications] = useState([]);
+  const [notificationsNotChecked, setNotificationsNotChecked] = useState([]);
 
   useEffect(() => {
     const unsubscribe = db
@@ -16,11 +16,8 @@ function SidebarNotificationOption() {
       .doc(user.uid)
       .collection("notifications")
       .onSnapshot((snapshot) =>
-        setNotifications(
-          snapshot.docs.map((doc) => ({
-            ...doc.data(),
-            notificationId: doc.id,
-          }))
+        setNotificationsNotChecked(
+          snapshot.docs.filter((doc) => !doc.data().hasSeen)
         )
       );
     return unsubscribe;
@@ -35,9 +32,9 @@ function SidebarNotificationOption() {
         <BellIcon
           className={`icon ${asPath === "/notifications" && "text-blueish"}`}
         />
-        {notifications.length > 0 && (
+        {notificationsNotChecked.length > 0 && (
           <div className="absolute -top-1 right-1 text-xs w-5 h-5 bg-red-500 rounded-full flex items-center justify-center //animate-pulse text-white">
-            {notifications.length}
+            {notificationsNotChecked.length}
           </div>
         )}
       </div>
