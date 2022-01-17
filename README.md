@@ -36,8 +36,17 @@ Project is created with:
 ## Screenshots
 #### Home page 
 ![home](https://user-images.githubusercontent.com/17027312/149797152-110e4a10-d9e2-4b4b-a323-e27a78acea56.png)
-## Notifications page
+### Notifications page
 ![notiser](https://user-images.githubusercontent.com/17027312/149797165-1da1a58d-c259-4f21-961e-49207ba0fe86.png)
+### list page
+![listFeed](https://user-images.githubusercontent.com/17027312/149798508-436ecd70-864a-4d61-b1e8-f2f12609c55e.png)
+### list create modal
+![listModal](https://user-images.githubusercontent.com/17027312/149798554-e7d69d5b-28d2-48d0-910f-45c89f8121d9.png)
+### Profile page 
+![profilePage](https://user-images.githubusercontent.com/17027312/149798830-cdac6ec5-45d9-4529-8d87-b9edb749ba56.png)
+### Login
+![Login](https://user-images.githubusercontent.com/17027312/149799045-389013ad-e0c5-44d4-aee3-76dd0ca1651f.png)
+
 
 
 ## Todo
