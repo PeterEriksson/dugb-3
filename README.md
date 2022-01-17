@@ -72,6 +72,8 @@ Project is created with:
 - Automatic scroll down to the corresponding post/list when user clicks on a notification
 - Dark mode
 - next authentication
+- edit post
+- subPost collection (answer a certain post)
 
 ## Author
 
