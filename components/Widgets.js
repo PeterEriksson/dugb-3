@@ -14,7 +14,7 @@ function Widgets() {
         aria-label="widgets__container"
         className=" mt-4 ml-5 p-5 bg-grayish rounded-widgetsBorder sticky top-0    "
       >
-        <h3 className="text-lg font-bold //mb-3 ">Har du kört?</h3>
+        <h3 className="text-lg font-bold //mb-3 ">Nyheter</h3>
         <p
           className="opacity-0 cursor-default  lg:px-24 px-widgetsPaddingWidthTemp text-xs font-extralight"
           aria-label="TEMP SOLUTION to increase widgets width (documentation for increasing width on TwitterTimelineEmbed??)"

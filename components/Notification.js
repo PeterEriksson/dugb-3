@@ -35,15 +35,15 @@ function Notification({
 
   const handleRedirect = async (e) => {
     if (e.target.tagName.toLowerCase() === "svg") {
-      console.log("you clicked cross");
+      /* console.log("you clicked cross"); */
       return;
     }
     if (e.target.tagName.toLowerCase() === "path") {
-      console.log("you clicked cross");
+      /* console.log("you clicked cross"); */
       return;
     }
     if (e.target.tagName.toLowerCase() === "span") {
-      console.log("you clicked blueSpan");
+      /* console.log("you clicked blueSpan"); */
       return;
     }
 
@@ -72,7 +72,6 @@ function Notification({
   };
 
   return (
-    //<Link href={`${typeLocation}`}>
     <div
       onClick={(e) => handleRedirect(e)}
       className={`flex items-center mx-auto w-notificationWidth pl-6 pr-4 py-3 rounded-xl border border-grayish mt-4 cursor-pointer hover:shadow transform transition duration-100 ease-in  ${
@@ -114,7 +113,6 @@ function Notification({
         className="h-3.5 w-3.5 ml-2 //ml-auto text-gray-400 hover:text-black transform transition duration-100 ease-in cursor-pointer"
       />
     </div>
-    //</Link>
   );
 }
 
