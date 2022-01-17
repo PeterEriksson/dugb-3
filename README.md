@@ -4,6 +4,8 @@
 - [Technologies](#technologies)
 - [Features](#features)
 - [Screenshots](#screenshots)
+- [Todo](#todo)
+- [Author](#author)
 - [Setup](#setup)
 
 ## General info
@@ -47,10 +49,10 @@ Project is created with:
 
 
 
-#### list page
+#### List page
  ![listFeed](https://user-images.githubusercontent.com/17027312/149803988-949211e6-cabb-4d72-8fc8-cc4f13fda5b5.png)
 
-#### list create modal
+#### List create modal
  ![listModal](https://user-images.githubusercontent.com/17027312/149804003-bfda1f3b-efe5-42a0-80de-de01a284651d.png)
 
 #### Profile page 
@@ -64,8 +66,10 @@ Project is created with:
 
 ## Todo
 
-- fsadsf
-- sadfdafds
+- Come up with a nice design + add logic for reviewing other players (strengths/weaknesses)
+- Automatic scroll down to the corresponding post/list when user clicks on a notification
+- Dark mode
+- next authentication
 
 ## Author
 
