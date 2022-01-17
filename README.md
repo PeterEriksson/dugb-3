@@ -1,8 +1,9 @@
-# Det Heliga Gibblocket - a social media web app for gamers
+# 🎮 Det Heliga Gibblocket - a social media app for gamers
+
+Web app for Call of Duty gamers. Design is inspired by Twitter. Welcome to the Holy Gibb Bible. Your other home from Caldera/Verdansk. Post your thoughts, rank your teammates, view satistics + more.
 
 ## Table of contents
 
-- [General info](#general-info)
 - [Technologies](#technologies)
 - [Features](#features)
 - [Screenshots](#screenshots)
@@ -10,9 +11,7 @@
 - [Author](#author)
 - [Setup](#setup)
 
-## General info
-
-A social media app for Call of Duty gamers. Design is inspired by Twitter. Welcome to the Holy Gibb Bible. Your other home from Caldera/Verdansk. Post your thoughts, rank your teammates, view satistics + more.
+ 
 
 ## Technologies
 
