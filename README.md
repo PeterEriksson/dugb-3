@@ -2,6 +2,8 @@
 
 - [General info](#general-info)
 - [Technologies](#technologies)
+- [Features](#features)
+- [Screenshots](#screenshots)
 - [Setup](#setup)
 
 ## General info
