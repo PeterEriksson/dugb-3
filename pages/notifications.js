@@ -12,6 +12,7 @@ function notifications() {
       .collection("users")
       .doc(user.uid)
       .collection("notifications")
+      .orderBy("timestamp", "desc")
       .onSnapshot((snapshot) =>
         setNotifications(
           snapshot.docs.map((doc) => ({
