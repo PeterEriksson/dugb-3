@@ -6,7 +6,7 @@
 
 ## General info
 
-A social media app for Call of Duty gamers. Design is inspired by Twitter. Welcome to the Holy Gibb Bible. Your other home from Caldera/Verdansk. Post your thoughts, Rank your teammates, view satistics.
+A social media app for Call of Duty gamers. Design is inspired by Twitter. Welcome to the Holy Gibb Bible. Your other home from Caldera/Verdansk. Post your thoughts, rank your teammates, view satistics + more.
 
 ## Technologies
 
@@ -37,6 +37,12 @@ Project is created with:
 
 - fsadsf
 - sadfdafds
+
+## Author
+
+Created by Peter
+[Instagram](https://www.instagram.com/petee_10/)
+[Linkedin](https://www.linkedin.com/in/peter-eriksson-13b8b1120/)
 
 ## Setup
 
