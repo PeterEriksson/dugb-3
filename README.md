@@ -35,11 +35,10 @@ Project is created with:
 
 ## Screenshots
 #### Home page 
- 
- 
+ ![homePage2](https://user-images.githubusercontent.com/17027312/149804195-29a8b8e2-d7de-4e48-961a-2790d9b65a53.png)
  
 #### Post liked by
- ![homePage2](https://user-images.githubusercontent.com/17027312/149803916-59d41d4d-9ca8-488d-8113-4c2132989414.png)
+![postLikedBy](https://user-images.githubusercontent.com/17027312/149804276-31874ddf-1a1c-409f-b4b6-b93a4c5805e1.png)
  
 #### Notifications page
  ![notifications2](https://user-images.githubusercontent.com/17027312/149803855-354790e0-a16b-4d18-a2cd-18d483dac8fb.png)
