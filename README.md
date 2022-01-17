@@ -34,9 +34,9 @@ Project is created with:
 - Guest mode
 
 ## Screenshots
-Home page 
+####Home page 
 ![home](https://user-images.githubusercontent.com/17027312/149797152-110e4a10-d9e2-4b4b-a323-e27a78acea56.png)
-Notifications page
+##Notifications page
 ![notiser](https://user-images.githubusercontent.com/17027312/149797165-1da1a58d-c259-4f21-961e-49207ba0fe86.png)
 
 
