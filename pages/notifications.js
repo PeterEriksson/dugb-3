@@ -44,7 +44,6 @@ function notifications() {
           notification={item}
         />
       ))}
-      <p>hej</p>
     </div>
   );
 }
