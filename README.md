@@ -41,7 +41,8 @@ Project is created with:
  ![likedBy2](https://user-images.githubusercontent.com/17027312/149806642-3f404397-e5bc-4547-be1b-df34f7dda977.png)
  
 #### Notifications page
- ![notifications2](https://user-images.githubusercontent.com/17027312/149803855-354790e0-a16b-4d18-a2cd-18d483dac8fb.png)
+  ![notifications2](https://user-images.githubusercontent.com/17027312/149807032-be8871ac-e161-4520-a059-726bf58e0bac.png)
+
 
 #### list page
  ![listFeed](https://user-images.githubusercontent.com/17027312/149803988-949211e6-cabb-4d72-8fc8-cc4f13fda5b5.png)
