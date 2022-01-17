@@ -40,8 +40,8 @@ Project is created with:
 
 ## Author
 
-Created by Peter**
-[Instagram](https://www.instagram.com/petee_10/)**
+Created by Peter<br />
+[Instagram](https://www.instagram.com/petee_10/)<br />
 [Linkedin](https://www.linkedin.com/in/peter-eriksson-13b8b1120/)
 
 ## Setup
