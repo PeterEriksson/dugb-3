@@ -1,3 +1,5 @@
+# Det Heliga Gibblocket - a social media web app for gamers
+
 ## Table of contents
 
 - [General info](#general-info)
