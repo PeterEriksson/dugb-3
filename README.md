@@ -51,5 +51,6 @@ To run this project, install it locally using npm:
 ```
 $ npm install
 $ npm run dev
-(runs on port 3015)
 ```
+
+(runs on port 3015)
