@@ -35,9 +35,11 @@ Project is created with:
 
 ## Screenshots
 #### Home page 
-![home](https://user-images.githubusercontent.com/17027312/149797152-110e4a10-d9e2-4b4b-a323-e27a78acea56.png)
+ ![homePage2](https://user-images.githubusercontent.com/17027312/149800663-da7124f9-9f11-446e-8c0d-219730833194.png)
+### Post liked by
+![homePageLikedBy](https://user-images.githubusercontent.com/17027312/149800415-410053eb-1135-49a0-8010-be5257dfea51.png)
 ### Notifications page
-![notiser](https://user-images.githubusercontent.com/17027312/149797165-1da1a58d-c259-4f21-961e-49207ba0fe86.png)
+ ![notifications2](https://user-images.githubusercontent.com/17027312/149800306-d8baba0c-75ba-4e3a-aedc-14570370f021.png)
 ### list page
 ![listFeed](https://user-images.githubusercontent.com/17027312/149798508-436ecd70-864a-4d61-b1e8-f2f12609c55e.png)
 ### list create modal
