@@ -44,15 +44,6 @@ function notifications() {
           notification={item}
         />
       ))}
-      {/* <div>
-        {notifications.map((item) => (
-          <div key={item.notificationId}>
-            <p>{item.message}</p>
-            <p>{item.text}</p>
-             
-          </div>
-        ))}
-      </div> */}
     </div>
   );
 }
