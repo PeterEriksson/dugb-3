@@ -42,7 +42,7 @@ Project is created with:
 #### Home page 
  ![homePage2](https://user-images.githubusercontent.com/17027312/149806666-d75845c1-04a8-4405-9bd2-ab15e731d3ab.png)
  
-#### Post liked by
+#### Post liked by (when pressing information button)
  ![likedBy2](https://user-images.githubusercontent.com/17027312/149806642-3f404397-e5bc-4547-be1b-df34f7dda977.png)
  
 #### Notifications page
