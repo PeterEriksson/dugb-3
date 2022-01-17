@@ -34,3 +34,4 @@ yarn-error.log*
 .vercel
 notes.md
 .vscode/settings.json
+README.md
