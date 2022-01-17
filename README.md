@@ -33,6 +33,8 @@ Project is created with:
 - View statistics
 - Guest mode
 
+## Screenshots
+
 ## Todo
 
 - fsadsf
