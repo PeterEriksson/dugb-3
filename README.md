@@ -31,7 +31,7 @@ Project is created with:
 
 ## Features
 
-- Login functionality (email + password)
+- Login (email + password)
 - Share and like posts
 - Create lists
 - Personal notifications
@@ -67,7 +67,8 @@ Project is created with:
 
 ## Todo
 
-- Come up with a nice design + add logic for reviewing other players (strengths/weaknesses)
+- Come up with a nice design for Profile page + add logic for reviewing other players (strengths/weaknesses)
+- Personal notification after being reviewed by another player
 - Come up with a better design for lists
 - Automatic scroll down to the corresponding post/list when user clicks on a notification
 - Dark mode
