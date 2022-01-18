@@ -85,7 +85,7 @@ Created by Peter<br />
 
 ## Setup
 
-To run this project, install it locally using npm:
+To run this project, install it locally using npm. Then, run the development server:
 
 ```
 $ npm install
