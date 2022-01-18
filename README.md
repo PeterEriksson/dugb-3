@@ -67,7 +67,7 @@ Project is created with:
 
 ## Todo
 
-- Come up with a nice design for Profile page + add logic for reviewing other players (strengths/weaknesses)
+- Come up with a nicer design for Profile page + add logic for reviewing other players (strengths/weaknesses)
 - Personal notification after being reviewed by another player
 - Come up with a better design for lists
 - Come up with a concept for the Loadout page
