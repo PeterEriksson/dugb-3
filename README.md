@@ -74,6 +74,7 @@ Project is created with:
 - next authentication
 - edit post
 - subPost collection (answer a certain post)
+- Use grid layout for the parent container of sidebar+page-content+widgets
 
 ## Author
 
