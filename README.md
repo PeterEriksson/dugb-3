@@ -20,6 +20,7 @@ Project is created with:
 - React
 - Next.js
 - Tailwind CSS
+- Tailwind Modals
 - Firebase
 - Node.js (for writing cloud functions)
 - Context api
