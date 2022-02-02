@@ -15,7 +15,7 @@ Web app for Call of Duty gamers. Design is inspired by Twitter. Welcome to the H
 
 ## Technologies
 
-Project is created with:
+#### Project is created with:
 
 - React
 - Next.js
