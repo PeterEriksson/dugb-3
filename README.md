@@ -22,12 +22,13 @@ Project is created with:
 - Tailwind CSS
 - Tailwind Modals
 - Firebase
-- Node.js (for writing cloud functions)
+- Node.js (writing cloud functions)
 - Context api
 - Netlify (hosting)
 - Rapid api
 - react-beautiful-dnd
 - react-flip-move
+- react-twitter-embed (displaying news)
 - Hero icons
 
 ## Features
@@ -39,6 +40,7 @@ Project is created with:
 - View statistics
 - Responsive design
 - Guest mode
+- View latest news
 
 ## Screenshots
 #### Home page 
