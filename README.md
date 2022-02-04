@@ -76,7 +76,8 @@ Web app for Call of Duty gamers. Design is inspired by Twitter. Welcome to the H
 - next authentication
 - edit post
 - subPost collection (answer a certain post)
-- Use grid layout for the parent container of sidebar+page-content+widgets
+- Use grid instead of flex for the parent container of sidebar+page-content+widgets
+- Make the mobile screen size more user firendly
 
 ## Author
 
