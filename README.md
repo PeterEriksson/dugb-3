@@ -23,9 +23,9 @@ Web app for Call of Duty gamers. Design is inspired by Twitter. Welcome to the H
 - Tailwind Modals
 - Firebase
 - Node.js (writing cloud functions)
-- Context api
+- Context api (state management)
 - Netlify (hosting)
-- Rapid api
+- Rapid api (fetching player statistics)
 - react-beautiful-dnd
 - react-flip-move
 - react-twitter-embed (displaying news)
