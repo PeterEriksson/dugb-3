@@ -26,7 +26,7 @@ Web app for Call of Duty gamers. Design is inspired by Twitter. Welcome to the H
 - Context api (state management)
 - Netlify (hosting)
 - Rapid api (fetching player statistics)
-- react-beautiful-dnd
+- react-beautiful-dnd (listing players)
 - react-flip-move
 - react-twitter-embed (displaying news)
 - Hero icons
