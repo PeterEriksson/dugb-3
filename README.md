@@ -70,7 +70,7 @@ Web app for Call of Duty gamers. Design is inspired by Twitter. Welcome to the H
 - Come up with a nicer design for Profile page + add logic for reviewing other players (strengths/weaknesses)
 - Personal notification after being reviewed by another player
 - Come up with a better design for lists
-- Come up with a concept for the Loadout page
+- Come up with what Loadouts page should be
 - Automatic scroll down to the corresponding post/list when user clicks on a notification
 - Dark mode
 - next authentication
