@@ -165,6 +165,7 @@ function NewListModal({ openNewListModal, setOpenNewListModal }) {
                 <div className="mt-2 flex justify-center sm:mt-6">
                   <button
                     disabled={
+                      _profiles.length == 0 ||
                       !newListHeader.trim() ||
                       !newListSubHeader.trim() ||
                       !newListExplanation.trim() ||
