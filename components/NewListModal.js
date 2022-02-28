@@ -5,9 +5,19 @@ import { useContext } from "react";
 import { Context } from "../Context";
 import { db } from "../firebase";
 import List from "./List";
+import { PlusIcon, PlusCircleIcon, MinusIcon } from "@heroicons/react/outline";
 
 function NewListModal({ openNewListModal, setOpenNewListModal }) {
-  const { _profiles, lists, setLists, user, userGuest } = useContext(Context);
+  const {
+    _profiles,
+    lists,
+    setLists,
+    user,
+    userGuest,
+    _setProfiles,
+    listOfProfiles,
+    setListOfProfiles,
+  } = useContext(Context);
   const [newListHeader, setNewListHeader] = useState("");
   const [newListSubHeader, setNewListSubHeader] = useState("");
   const [newListExplanation, setNewListExplanation] = useState("");
@@ -34,6 +44,17 @@ function NewListModal({ openNewListModal, setOpenNewListModal }) {
     setNewListHeader("");
     setNewListSubHeader("");
     setNewListExplanation("");
+  };
+
+  const handlePlayer = (player) => {
+    if (_profiles.some((item) => item.userName === player.userName)) {
+      const newArr = _profiles.filter(
+        (item) => item.userName !== player.userName
+      );
+      _setProfiles(newArr);
+    } else {
+      _setProfiles((prev) => [...prev, player]);
+    }
   };
 
   return (
@@ -94,10 +115,37 @@ function NewListModal({ openNewListModal, setOpenNewListModal }) {
                   <input
                     className="border-none focus:ring-0 w-full text-center "
                     type="text"
-                    placeholder="Subheader"
+                    placeholder="Subheader - explain list"
                     value={newListSubHeader}
                     onChange={(e) => setNewListSubHeader(e.target.value)}
                   />
+
+                  {/* TEST TEMP... works ok. Fix plus/minus icon */}
+                  <h2 className="text-sm font-semibold text-gray-500 mb-1 ">
+                    Add players
+                  </h2>
+                  <div className="flex items-center justify-center space-x-1 ">
+                    {listOfProfiles.map((item) => (
+                      <div
+                        onClick={() => handlePlayer(item)}
+                        className="flex items-center justify-center flex-col space-y-1 py-1 px-2 bg-gray-100 rounded-lg cursor-pointer  hover:shadow-md transition duration-100 ease-in group"
+                        key={item.userName}
+                      >
+                        <img
+                          className="h-6 w-6 rounded-full"
+                          src={item.img}
+                          alt="image add player to list"
+                        />
+                        {_profiles.some(
+                          (profile) => profile.userName === item.userName
+                        ) ? (
+                          <MinusIcon className="h-3 w-3 opacity-60 group-hover:opacity-100 transition duration-100 ease-in" />
+                        ) : (
+                          <PlusIcon className="h-3 w-3 opacity-60 group-hover:opacity-100 transition duration-100 ease-in" />
+                        )}
+                      </div>
+                    ))}
+                  </div>
 
                   <List />
 
@@ -107,14 +155,14 @@ function NewListModal({ openNewListModal, setOpenNewListModal }) {
                     name=""
                     id=""
                     cols=""
-                    rows=""
-                    className="w-full text-center focus:ring-transparent font-light border-none outline-none resize-none"
+                    rows={3}
+                    className="w-full text-center focus:ring-transparent font-light border-none outline-none resize-none "
                     type="text"
-                    placeholder="Explain your list. Drag n drop to reorder players. Swing hard"
+                    placeholder="Motivate your ranking. Drag n drop to reorder players. Swing hard"
                   />
                 </div>
 
-                <div className="mt-4 flex justify-center sm:mt-6">
+                <div className="mt-2 flex justify-center sm:mt-6">
                   <button
                     disabled={
                       !newListHeader.trim() ||

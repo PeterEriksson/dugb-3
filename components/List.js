@@ -1,3 +1,4 @@
+import { MinusCircleIcon, MinusIcon } from "@heroicons/react/outline";
 import { useContext, useState } from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { Context } from "../Context";
@@ -12,6 +13,13 @@ function List() {
     items.splice(result.destination.index, 0, reorderedItem);
 
     _setProfiles(items);
+  };
+
+  const handleRemovePlayer = (player) => {
+    const newArr = _profiles.filter(
+      (item) => item.userName !== player.userName
+    );
+    _setProfiles(newArr);
   };
 
   return (
@@ -41,17 +49,21 @@ function List() {
                         <div
                           className={`bg-grayish ${
                             snapshot.isDragging && "bg-gray-400 z-50"
-                          } mb-2 p-4 w-60 rounded-2xl flex space-x-2 items-center`}
+                          } mb-2 p-3.5 w-52 xs:w-60 rounded-2xl flex space-x-2 items-center group`}
                         >
-                          <p className="mr-10">{i + 1}</p>
+                          <p className="sm:mr-10 mr-3">{i + 1}</p>
                           <img
                             src={profileItem.img}
-                            alt=""
-                            className="h-7 w-7 rounded-full"
+                            alt="list-profile-image"
+                            className="h-6 w-6 rounded-full"
                           />
                           <p className="font-semibold">
                             {profileItem.userName}
                           </p>
+                          <MinusCircleIcon
+                            onClick={() => handleRemovePlayer(profileItem)}
+                            className="w-4 h-4 !ml-auto  opacity-0 group-hover:opacity-60 hover:!opacity-100 cursor-pointer transition duration-150 ease-in transform"
+                          />
                         </div>
                       </div>
                     )}

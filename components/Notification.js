@@ -74,7 +74,7 @@ function Notification({
   return (
     <div
       onClick={(e) => handleRedirect(e)}
-      className={`flex items-center mx-auto w-notificationWidth pl-6 pr-4 py-3 rounded-xl border border-grayish mt-4 cursor-pointer hover:shadow transform transition duration-100 ease-in  ${
+      className={`flex items-center xs:mx-auto mx-3   w-notificationWidth pl-6 pr-4 py-3 rounded-xl border border-grayish mt-4 cursor-pointer hover:shadow transform transition duration-100 ease-in  ${
         hasSeen ? "bg-white" : "bg-gray-100"
       }  `}
     >

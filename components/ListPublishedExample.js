@@ -17,7 +17,7 @@ const ListPublishedExample = forwardRef(({ item }, ref) => {
   return (
     <div
       ref={ref}
-      className=" group mb-1 mt-3 flex flex-col p-3 border border-gray-300 bg-grayish shadow-md rounded-xl ml-3"
+      className=" group mb-1 mt-3 flex flex-col p-3 border border-gray-300 bg-grayish shadow-md rounded-xl mx-3"
     >
       <div className="flex items-center justify-between">
         <p className="italic text-sm font-extralight">{`${item.createdBy} created a list:`}</p>
@@ -29,14 +29,14 @@ const ListPublishedExample = forwardRef(({ item }, ref) => {
         />
       </div>
       <h2 className="text-lg font-bold">{item.header}</h2>
-      <p className="font-medium">{item.subheader}</p>
+      <p className="font-medium mb-1.5">{item.subheader}</p>
 
       <div className="p-4 w-4/5 ml-auto mr-auto bg-gradient-to-br rounded-2xl from-white via-indigo-100 to-blueish">
         {item.ranking.map((profileItem, i) => {
           return (
             <div key={i} className="ml-3 flex justify-center">
-              <div className="bg-white mb-2 p-4 w-72 rounded-2xl flex space-x-5 items-center">
-                <p className="mr-10">{i + 1}</p>
+              <div className="bg-white mb-2 p-3.5  w-72 rounded-2xl flex space-x-3 items-center">
+                <p className="mr-4 sm:mr-8">{i + 1}</p>
                 <img
                   src={profileItem.img}
                   alt=""
@@ -49,7 +49,7 @@ const ListPublishedExample = forwardRef(({ item }, ref) => {
         })}
       </div>
 
-      <section className="ml-3">
+      <section className="">
         <h2 className="font-bold">Kommentar</h2>
         <p className="font-light">{item.listExplanation}</p>
       </section>

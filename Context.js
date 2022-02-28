@@ -13,6 +13,25 @@ function ContextProvider({ children }) {
   const [searchOk, setSearchOk] = useState(false);
 
   const [_profiles, _setProfiles] = useState([
+    /* {
+      userName: "schmetir",
+      img: "https://user-images.githubusercontent.com/17027312/134349999-06919dce-11f2-42b9-9c0c-2b27d8dcce51.jpeg",
+    },
+    {
+      userName: "nurrminator",
+      img: "https://photos.smugmug.com/photos/i-HGQDK9V/0/XL/i-HGQDK9V-XL.jpg",
+    },
+    {
+      userName: "BigMme930",
+      img: "https://photos.smugmug.com/photos/i-BS3QMBH/0/O/i-BS3QMBH-O.jpg",
+    },
+    {
+      userName: "Bengtbenny",
+      img: "https://user-images.githubusercontent.com/17027312/143914999-4b3362b9-259e-4fe0-9258-fff161b1c67a.jpeg",
+    }, */
+  ]);
+
+  const [listOfProfiles, setListOfProfiles] = useState([
     {
       userName: "schmetir",
       img: "https://user-images.githubusercontent.com/17027312/134349999-06919dce-11f2-42b9-9c0c-2b27d8dcce51.jpeg",
@@ -30,6 +49,20 @@ function ContextProvider({ children }) {
       img: "https://user-images.githubusercontent.com/17027312/143914999-4b3362b9-259e-4fe0-9258-fff161b1c67a.jpeg",
     },
   ]);
+
+  /* ok. but save firebase calls for now */
+  /* useEffect(() => {
+    const unsubscribe = db.collection("users").onSnapshot((snapshot) =>
+      setListOfProfiles(
+        snapshot.docs.map((doc) => ({
+          userName: doc.data().displayName,
+          img: doc.data().photoURL,
+        }))
+      )
+    );
+
+    return unsubscribe;
+  }, []); */
 
   useEffect(() => {
     const unsubscribe = db
@@ -90,9 +123,13 @@ function ContextProvider({ children }) {
       value={{
         _profiles,
         _setProfiles,
+        listOfProfiles,
+        setListOfProfiles,
+
         userGuest,
         setUserGuest,
         englishLanguage,
+
         setEnglishLanguage,
 
         user,
