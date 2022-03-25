@@ -6,9 +6,7 @@ import {
 
 function Widgets() {
   return (
-    <div
-      className={`hidden //mdLgTest:inline-flex flex-col pr-5 //mr-3.5  mdLgTest:flex //w-full`}
-    >
+    <div className={`hidden pr-5 mdLgTest:flex flex-col`}>
       <h2 className="mt-3 ml-5 text-2xl font-bold">Senaste</h2>
       <div
         aria-label="widgets__container"
