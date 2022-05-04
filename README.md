@@ -73,12 +73,11 @@ Web app for Call of Duty gamers. Design is inspired by Twitter. Welcome to the H
 - Come up with what Loadouts page should be
 - Automatic scroll down to the corresponding post/list when user clicks on a notification
 - Dark mode
-- next authentication
-- edit post
 - subPost collection (answer a certain post)
 - Use grid instead of flex for the parent container of sidebar+page-content+widgets
 - Make the mobile screen size more user firendly
 - Upgrade Firebase version so that we can install firebase-hooks in order to render loading indicator while verifying user.
+- Error in the console when refreshing the site on the profile page
 
 ## Author
 
