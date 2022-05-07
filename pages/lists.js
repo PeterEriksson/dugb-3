@@ -26,7 +26,6 @@ function lists() {
   }, [lists]);
 
   useEffect(() => {
-    //can maybe do return here instead of nesting? try at list page
     if (elementIdToScrollTo == "") return;
     setLoadingNotific(true);
     setTimeout(() => {

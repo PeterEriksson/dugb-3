@@ -26,8 +26,11 @@ function Feed() {
   the correct post. Ok. Also implement on list page
   */
   useEffect(() => {
-    //can maybe do return here instead of nesting? try at list page
+    //can do return here instead of nesting? try at list page
     if (elementIdToScrollTo !== "") {
+      //future update:avoid bugs in case post is deleted with bad timing ->
+      //if(!posts.includes(item => item.postId === elementIdToScrollTo)) return
+      //post has been deleted, return
       setLoadingNotific(true);
       setTimeout(() => {
         document.getElementById(elementIdToScrollTo).scrollIntoView({
@@ -38,8 +41,8 @@ function Feed() {
       }, 1200);
     }
   }, []);
-  /* Timer is set to 1.4 seconds. Maybe not optimal. 
-  This can probably be solved with 
+  /* Timer is set to 1.4 seconds, posts are fetched before that. Maybe not optimal. 
+  This can probably be coaded cleaner with 
   firebase loading hook. ex from slack-build
   const [roomMessages, loading] = useCollection(
     roomId &&
@@ -50,7 +53,7 @@ function Feed() {
         .orderBy("timestamp", "asc")
   );
 
-  Here firebase v8 is used. A bit cleaner.
+  Here firebase v8 is used. A bit cleaner. 
   */
 
   return (
