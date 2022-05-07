@@ -98,6 +98,7 @@ exports.createNotificationOnPost = functions.firestore
       /* New. add 👇, for the user to be able to nav to that location */
       typeLocation: "/",
       hasSeen: false,
+      idToScrollTo: postId,
     };
 
     // WARNING: Limited to 500 writes at once. - not a problem for now lol.
@@ -143,6 +144,7 @@ exports.createNotificationOnList = functions.firestore
       timestamp: listTimestamp,
       typeLocation: "/lists",
       hasSeen: false,
+      idToScrollTo: listId,
     };
 
     // WARNING: Limited to 500 writes at once. - not a problem for now lol.
@@ -242,6 +244,7 @@ exports.createNotificationOnPostLike = functions.firestore
       timestamp: timestamp,
       avatar: photoURL,
       hasSeen: false,
+      idToScrollTo: postId,
     };
 
     const userToNotify = await db
@@ -266,6 +269,7 @@ exports.createNotificationOnPostLike = functions.firestore
         timestamp: notificationContent.timestamp,
         hasSeen: notificationContent.hasSeen,
         avatar: notificationContent.avatar,
+        idToScrollTo: postId,
       });
   });
 

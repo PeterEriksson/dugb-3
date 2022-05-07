@@ -70,9 +70,7 @@ const Post = forwardRef(({ item }, ref) => {
 
   return (
     <div
-      /* TEST TEMP id FOR SCROLLING */
-      /* id={item.postId} */
-      /* END TEST TEMP */
+      id={item.postId}
       ref={ref}
       className="flex flex-col w-full pb-4 font-mainFontHelv //hover:bg-grayish border-b border-gray-300"
     >

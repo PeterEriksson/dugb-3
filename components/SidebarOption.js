@@ -5,9 +5,10 @@ import { Context } from "../Context";
 function SidebarOption({ text, Icon }) {
   const router = useRouter();
   const { asPath } = useRouter();
-  const { userGuest } = useContext(Context);
+  const { userGuest, loadingNotific } = useContext(Context);
 
   const handleClick = () => {
+    if (loadingNotific) return;
     text === "Home" ? router.push("/") : router.push(`/${text.toLowerCase()}`);
   };
 

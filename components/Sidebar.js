@@ -20,12 +20,19 @@ import SidebarNotificationOption from "./SidebarNotificationOption";
 
 function Sidebar({ children }) {
   const { asPath } = useRouter();
-  const { userGuest, setUserGuest, user, setUser } = useContext(Context);
+  const { userGuest, setUserGuest, user, setUser, loadingNotific } =
+    useContext(Context);
 
   const handleLogout = () => {
+    if (loadingNotific) return;
     userGuest && setUserGuest(false);
     auth?.signOut();
     setUser(null);
+  };
+
+  const handleHomeClick = () => {
+    if (loadingNotific) return;
+    router.push("/");
   };
 
   return (
@@ -42,16 +49,13 @@ function Sidebar({ children }) {
             >
               <div className="flex flex-col   space-y-2 sm:space-y-4">
                 <LazyLoadImage
-                  onClick={() => router.push("/")}
+                  onClick={handleHomeClick}
                   className="    (smaller/larger👉) h-12 mx-1 sm:mx-0 mt-2 sm:mt-0 object-contain          sm:object-cover sm:h-16 shadow-lg cursor-pointer"
                   alt=""
                   src="https://i.pinimg.com/236x/b4/7f/6c/b47f6c1f5324411fb9a3c8d730b93ece.jpg"
                 />
 
-                <div
-                  onClick={() => router.push("/")}
-                  className={`sidebarBtn group`}
-                >
+                <div onClick={handleHomeClick} className={`sidebarBtn group`}>
                   <HomeIcon
                     className={`icon ${asPath === "/" && "text-blueish"}`}
                   />
@@ -67,7 +71,6 @@ function Sidebar({ children }) {
                 <SidebarOption text="Search" Icon={SearchIcon} />
                 <SidebarOption text="Lists" Icon={ClipboardListIcon} />
 
-                {/* only render if userGuest isn't logged in. i.e if a user is logged in */}
                 {!userGuest && <SidebarNotificationOption />}
 
                 <SidebarOption text="Loadouts" Icon={GiftIcon} />

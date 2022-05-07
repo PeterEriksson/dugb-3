@@ -4,32 +4,14 @@ import { auth, db } from "./firebase";
 const Context = React.createContext();
 
 function ContextProvider({ children }) {
-  const [englishLanguage, setEnglishLanguage] = useState(false);
   const [user, setUser] = useState(null);
   const [users, setUsers] = useState([]);
   const [userGuest, setUserGuest] = useState(false);
-  /*SAVE API CALLS */
+  /*SAVE rapidAPI CALLS for profile page. Once a user has loaded it, the data is saved in state -> */
   const [profile, setProfile] = useState({});
   const [searchOk, setSearchOk] = useState(false);
 
-  const [_profiles, _setProfiles] = useState([
-    /* {
-      userName: "schmetir",
-      img: "https://user-images.githubusercontent.com/17027312/134349999-06919dce-11f2-42b9-9c0c-2b27d8dcce51.jpeg",
-    },
-    {
-      userName: "nurrminator",
-      img: "https://photos.smugmug.com/photos/i-HGQDK9V/0/XL/i-HGQDK9V-XL.jpg",
-    },
-    {
-      userName: "BigMme930",
-      img: "https://photos.smugmug.com/photos/i-BS3QMBH/0/O/i-BS3QMBH-O.jpg",
-    },
-    {
-      userName: "Bengtbenny",
-      img: "https://user-images.githubusercontent.com/17027312/143914999-4b3362b9-259e-4fe0-9258-fff161b1c67a.jpeg",
-    }, */
-  ]);
+  const [_profiles, _setProfiles] = useState([]);
 
   const [listOfProfiles, setListOfProfiles] = useState([
     {
@@ -49,8 +31,7 @@ function ContextProvider({ children }) {
       img: "https://user-images.githubusercontent.com/17027312/143914999-4b3362b9-259e-4fe0-9258-fff161b1c67a.jpeg",
     },
   ]);
-
-  /* ok. but save firebase calls for now */
+  /* ...-> ok. but save firebase reads for now */
   /* useEffect(() => {
     const unsubscribe = db.collection("users").onSnapshot((snapshot) =>
       setListOfProfiles(
@@ -118,9 +99,18 @@ function ContextProvider({ children }) {
     });
   }, [user]);
 
+  /* TESTING TEMP - for scrolling */
+  const [elementIdToScrollTo, setElementIdToScrollTo] = useState("");
+  const [loadingNotific, setLoadingNotific] = useState(false);
+
   return (
     <Context.Provider
       value={{
+        elementIdToScrollTo,
+        setElementIdToScrollTo,
+        loadingNotific,
+        setLoadingNotific,
+
         _profiles,
         _setProfiles,
         listOfProfiles,
@@ -128,9 +118,6 @@ function ContextProvider({ children }) {
 
         userGuest,
         setUserGuest,
-        englishLanguage,
-
-        setEnglishLanguage,
 
         user,
         setUser,

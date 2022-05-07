@@ -7,16 +7,36 @@ import ListPublishedExample from "../components/ListPublishedExample";
 /* import ModalTest from "../components/ModalTest";  deleted...*/
 import { db } from "../firebase";
 import FlipMove from "react-flip-move";
+import LoadingSpinnerNotific from "../components/LoadingSpinnerNotific";
 
 function lists() {
   const [openNewListModal, setOpenNewListModal] = useState(false);
 
   /* Make use of FlipMove and NOT read from firebase every time (only when firebase lists db is changed) */
   const [__lists, __setLists] = useState([]);
-  const { lists } = useContext(Context);
+  const {
+    lists,
+    elementIdToScrollTo,
+    setElementIdToScrollTo,
+    setLoadingNotific,
+    loadingNotific,
+  } = useContext(Context);
   useEffect(() => {
     __setLists(lists);
   }, [lists]);
+
+  useEffect(() => {
+    //can maybe do return here instead of nesting? try at list page
+    if (elementIdToScrollTo == "") return;
+    setLoadingNotific(true);
+    setTimeout(() => {
+      document.getElementById(elementIdToScrollTo).scrollIntoView({
+        behavior: "smooth",
+      });
+      setElementIdToScrollTo("");
+      setLoadingNotific(false);
+    }, 1400);
+  }, []);
 
   return (
     <div className="//w-full //h-screen border-l border-grayish flex flex-col">
@@ -33,7 +53,7 @@ function lists() {
       >
         <p className="text-white font-normal text-md">Create list</p>
       </button>
-
+      {loadingNotific && <LoadingSpinnerNotific />}
       <NewListModal
         openNewListModal={openNewListModal}
         setOpenNewListModal={setOpenNewListModal}

@@ -7,7 +7,7 @@ import { db } from "../firebase";
 
 function SidebarNotificationOption() {
   const { asPath } = useRouter();
-  const { user } = useContext(Context);
+  const { user, loadingNotific } = useContext(Context);
   const [notificationsNotChecked, setNotificationsNotChecked] = useState([]);
 
   useEffect(() => {
@@ -23,9 +23,14 @@ function SidebarNotificationOption() {
     return unsubscribe;
   }, []);
 
+  const handleClick = () => {
+    if (loadingNotific) return;
+    router.push("/notifications");
+  };
+
   return (
     <div
-      onClick={() => router.push("/notifications")}
+      onClick={handleClick}
       className={`sidebarBtn group    //TESTtemp for notify-btn: //relative ->create-new-div-below-instead`}
     >
       <div className="relative">

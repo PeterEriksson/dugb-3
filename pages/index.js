@@ -6,7 +6,6 @@ import Tweetbox from "../components/Tweetbox";
 import { Context } from "../Context";
 
 export default function Home() {
-  const { englishLanguage, setEnglishLanguage } = useContext(Context);
   return (
     <div className="flex flex-col mr-3 border-r border-t border-l mdLgTest:mr-0   w-full">
       <Head>

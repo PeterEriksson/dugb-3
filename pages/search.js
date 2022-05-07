@@ -13,6 +13,7 @@ function search() {
   const [hide, setHide] = useState(true);
   const [errorMsg, setErrorMsg] = useState(false);
   const [profileAvatarPic, setPofileAvatarPic] = useState("");
+  const [favoriteSaying, setFavoriteSaying] = useState("");
 
   const { users } = useContext(Context);
 
@@ -44,6 +45,9 @@ function search() {
           setPofileAvatarPic(
             users.find((item) => item.displayName === searchText).profileAvatar
           );
+          setFavoriteSaying(
+            users.find((item) => item.displayName === searchText).favoriteSaying
+          );
         })
         .catch((err) => {
           console.log(err);
@@ -64,7 +68,7 @@ function search() {
         <div
           className={`${
             hide ? "hidden" : "ml-3 mt-5"
-          }  flex flex-row  p-5 mt-1.5 bg-grayish rounded-2xl max-w-2xl mr-5 mdLgTest:mr-0 `}
+          }  flex flex-row  p-5 mt-1.5 bg-grayish rounded-2xl max-w-2xl mr-5 mdLgTest:mr-0      border border-gray-300 drop-shadow-lg `}
         >
           <img
             alt=""
@@ -95,6 +99,10 @@ function search() {
                 <p className="font-light">[SHP]</p>
               </div>
               <div className="flex">
+                <h3 className="font-semibold">Favorite saying:&nbsp;</h3>
+                <p className="font-light">{favoriteSaying}</p>
+              </div>
+              <div className="flex">
                 <h3 className="font-semibold">Stengths:&nbsp;</h3>
                 <p className="font-light">...</p>
               </div>
@@ -123,10 +131,7 @@ function search() {
 
       {/* SEARCH FIELD */}
       <div className="flex justify-center ">
-        <form
-          onSubmit={(e) => handleForm(e)}
-          className="w-80 //hover:drop-shadow-lg"
-        >
+        <form onSubmit={(e) => handleForm(e)} className="w-80  ">
           <div className="relative mt-1 p-3 rounded-md  ">
             <div className="absolute z-30 inset-y-0 pl-3 flex items-center pointer-events-none ">
               <SearchIcon className="h-5 w-5 text-gray-500 " />

@@ -16,6 +16,7 @@ const ListPublishedExample = forwardRef(({ item }, ref) => {
 
   return (
     <div
+      id={item.listId}
       ref={ref}
       className=" group mb-1 mt-3 flex flex-col p-3 border border-gray-300 bg-grayish shadow-md rounded-xl mx-3"
     >

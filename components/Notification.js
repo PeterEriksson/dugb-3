@@ -18,9 +18,11 @@ function Notification({
   setNotifications,
   notifications,
   notification,
+  idToScrollTo,
 }) {
   const router = useRouter();
-  const { user } = useContext(Context);
+  const { user, setElementIdToScrollTo, elementIdToScrollTo } =
+    useContext(Context);
 
   const handleHasSeen = () => {
     db.collection("users")
@@ -34,16 +36,17 @@ function Notification({
   };
 
   const handleRedirect = async (e) => {
+    /* console.log(e.target.tagName.toLowerCase()); */
     if (e.target.tagName.toLowerCase() === "svg") {
-      /* console.log("you clicked cross"); */
+      //console.log("you clicked cross");
       return;
     }
     if (e.target.tagName.toLowerCase() === "path") {
-      /* console.log("you clicked cross"); */
+      //console.log("you clicked cross");
       return;
     }
     if (e.target.tagName.toLowerCase() === "span") {
-      /* console.log("you clicked blueSpan"); */
+      //console.log("you clicked blueSpan");
       return;
     }
 
@@ -59,8 +62,10 @@ function Notification({
         });
     };
     editHasSeenToFalse();
+    setElementIdToScrollTo(id);
+    /* console.log(id); */
     router.push(typeLocation);
-    //ok
+    /* editHasSeenToFalse(); */
   };
 
   const handleDelete = () => {
@@ -78,14 +83,11 @@ function Notification({
         hasSeen ? "bg-white" : "bg-gray-100"
       }  `}
     >
-      {/* profile image */}
       <img
         className="h-11 w-11 rounded-full object-cover"
         src={avatar}
         alt=""
       />
-
-      {/* message + text (col) ... + time */}
 
       <div className="flex flex-col ml-3 mr-2">
         <h3 className="font-semibold text-sm max-w-notificationHeader //bg-red-400 truncate">
@@ -99,7 +101,6 @@ function Notification({
         </Moment>
       </div>
 
-      {/* blue hasSeen + cross icon */}
       <span
         onClick={handleHasSeen}
         className={`w-2 h-2 ${

@@ -3,36 +3,59 @@ import { Context } from "../Context";
 import Post from "./Post";
 import FlipMove from "react-flip-move";
 import { db } from "../firebase";
+import LoadingSpinnerNotific from "./LoadingSpinnerNotific";
 
 function Feed() {
   //make use of FlipMove -> do useEffect instead
-  /* const { posts } = useContext(Context); */
-
-  //Make us of FlipMove. Fetch here instead of Context
-  /* const [posts, setPosts] = useState([]);
-  useEffect(() => {
-    const unsubscribe = db
-      .collection("posts")
-      .orderBy("timestamp", "desc")
-      .onSnapshot((snapshot) =>
-        setPosts(
-          snapshot.docs.map((doc) => ({ ...doc.data(), postId: doc.id }))
-        )
-      );
-    return unsubscribe;
-  }, []); */
 
   /* New solution: Don't need to read from firebase every time when visiting Home 
   just to be able to make us of FlipMove effect. Implement on lists feed aswell. */
-  const { posts } = useContext(Context);
+  const {
+    posts,
+    elementIdToScrollTo,
+    setElementIdToScrollTo,
+    loadingNotific,
+    setLoadingNotific,
+  } = useContext(Context);
   const [__posts, __setPosts] = useState([]);
   useEffect(() => {
-    /* const unsubscribe = */ __setPosts(posts);
-    /* return unsubscribe; */
+    __setPosts(posts);
   }, [posts]);
 
+  /* if user comes here by clicking on a notification ->  handle auto scrolling down to 
+  the correct post. Ok. Also implement on list page
+  */
+  useEffect(() => {
+    //can maybe do return here instead of nesting? try at list page
+    if (elementIdToScrollTo !== "") {
+      setLoadingNotific(true);
+      setTimeout(() => {
+        document.getElementById(elementIdToScrollTo).scrollIntoView({
+          behavior: "smooth",
+        });
+        setElementIdToScrollTo("");
+        setLoadingNotific(false);
+      }, 1200);
+    }
+  }, []);
+  /* Timer is set to 1.4 seconds. Maybe not optimal. 
+  This can probably be solved with 
+  firebase loading hook. ex from slack-build
+  const [roomMessages, loading] = useCollection(
+    roomId &&
+      db
+        .collection("rooms")
+        .doc(roomId)
+        .collection("messages")
+        .orderBy("timestamp", "asc")
+  );
+
+  Here firebase v8 is used. A bit cleaner.
+  */
+
   return (
-    <div className="flex flex-col //min-w-min-width// ">
+    <div className="flex flex-col  ">
+      {loadingNotific && <LoadingSpinnerNotific />}
       <FlipMove>
         {__posts.map((item) => (
           <Post item={item} key={item.postId} />

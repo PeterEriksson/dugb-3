@@ -42,6 +42,7 @@ function notifications() {
           setNotifications={setNotifications}
           notifications={notifications}
           notification={item}
+          idToScrollTo={item.idToScrollTo}
         />
       ))}
     </div>
