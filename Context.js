@@ -99,9 +99,11 @@ function ContextProvider({ children }) {
     });
   }, [user]);
 
-  /* TESTING TEMP - for scrolling */
   const [elementIdToScrollTo, setElementIdToScrollTo] = useState("");
   const [loadingNotific, setLoadingNotific] = useState(false);
+
+  /* TEST TEMP */
+  const [highlightNotification, setHighlightNotification] = useState(false);
 
   return (
     <Context.Provider
@@ -110,6 +112,8 @@ function ContextProvider({ children }) {
         setElementIdToScrollTo,
         loadingNotific,
         setLoadingNotific,
+        highlightNotification,
+        setHighlightNotification,
 
         _profiles,
         _setProfiles,

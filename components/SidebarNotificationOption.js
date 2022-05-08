@@ -7,7 +7,7 @@ import { db } from "../firebase";
 
 function SidebarNotificationOption() {
   const { asPath } = useRouter();
-  const { user, loadingNotific } = useContext(Context);
+  const { user, loadingNotific, setElementIdToScrollTo } = useContext(Context);
   const [notificationsNotChecked, setNotificationsNotChecked] = useState([]);
 
   useEffect(() => {
@@ -25,6 +25,7 @@ function SidebarNotificationOption() {
 
   const handleClick = () => {
     if (loadingNotific) return;
+    setElementIdToScrollTo("");
     router.push("/notifications");
   };
 

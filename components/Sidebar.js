@@ -20,11 +20,18 @@ import SidebarNotificationOption from "./SidebarNotificationOption";
 
 function Sidebar({ children }) {
   const { asPath } = useRouter();
-  const { userGuest, setUserGuest, user, setUser, loadingNotific } =
-    useContext(Context);
+  const {
+    userGuest,
+    setUserGuest,
+    user,
+    setUser,
+    loadingNotific,
+    setElementIdToScrollTo,
+  } = useContext(Context);
 
   const handleLogout = () => {
     if (loadingNotific) return;
+    setElementIdToScrollTo("");
     userGuest && setUserGuest(false);
     auth?.signOut();
     setUser(null);
@@ -32,6 +39,7 @@ function Sidebar({ children }) {
 
   const handleHomeClick = () => {
     if (loadingNotific) return;
+    setElementIdToScrollTo("");
     router.push("/");
   };
 

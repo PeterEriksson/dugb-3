@@ -63,7 +63,6 @@ function Notification({
     };
     editHasSeenToFalse();
     setElementIdToScrollTo(idToScrollTo);
-    /* console.log(id); */
     router.push(typeLocation);
   };
 

@@ -5,10 +5,12 @@ import { Context } from "../Context";
 function SidebarOption({ text, Icon }) {
   const router = useRouter();
   const { asPath } = useRouter();
-  const { userGuest, loadingNotific } = useContext(Context);
+  const { userGuest, loadingNotific, setElementIdToScrollTo } =
+    useContext(Context);
 
   const handleClick = () => {
     if (loadingNotific) return;
+    setElementIdToScrollTo("");
     text === "Home" ? router.push("/") : router.push(`/${text.toLowerCase()}`);
   };
 

@@ -15,8 +15,24 @@ import "react-responsive-modal/styles.css";
 import { Modal } from "react-responsive-modal";
 import firebase from "firebase";
 
+import styles from "../styles/effects.module.css";
+/* TEST TEMP OBSERVER */
+import { InView } from "react-intersection-observer";
+
 const Post = forwardRef(({ item }, ref) => {
-  const { posts, setPosts, user, userGuest } = useContext(Context);
+  const {
+    posts,
+    setPosts,
+    user,
+    userGuest,
+    highlightNotification,
+    elementIdToScrollTo,
+
+    /* TEST TEMP OBSERVER */
+    loadingNotific,
+    myNotificElementRef,
+    myNotificElementIsVisible,
+  } = useContext(Context);
   const [postLikes, setPostLikes] = useState([]);
 
   /* react-responsive-modal */
@@ -72,102 +88,125 @@ const Post = forwardRef(({ item }, ref) => {
     <div
       id={item.postId}
       ref={ref}
-      className="flex flex-col w-full pb-4 font-mainFontHelv //hover:bg-grayish border-b border-gray-300"
+      className={`flex flex-col w-full pb-4 font-mainFontHelv //hover:bg-grayish border-b border-gray-300   $//{highlightNotification &&item.postId === elementIdToScrollTo &&styles.animateHighlight}   `}
     >
-      <div className="flex w-11/12 flex-grow mt-2.5 ml-1">
-        <img
-          className="w-8 h-8 ml-5 mt-2 rounded-full object-cover"
-          src={item.avatar}
-          alt=""
-        />
-        <div className="flex ml-5 items-center w-full ">
-          {/* fullName + shield + userName */}
-          <p className="font-bold ">{item.fullName}</p>
-          <ShieldCheckIcon className="h-4 w-4 text-blueish " />
-          <p className="text-sm  text-gray-400 ">@{item.userName}</p>
-
-          <p className="text-gray-300 cursor-default text-xs ml-auto hidden widthForShowDate:inline ">
-            {item.timestamp?.toDate().toLocaleDateString()}
-          </p>
-          <p className="text-gray-300 cursor-default text-xs ml-1 hidden widthForShowDate:inline  ">
-            {item.timestamp?.toDate().toLocaleTimeString().substring(0, 5)}
-          </p>
-        </div>
-      </div>
-      <p className="ml-test -mt-1.5 mr-5">{item.postText}</p>
-      <img
-        className="rounded-lg max-w-xs ml-test mt-3"
-        src={item?.postImg}
-        alt=""
-      />
-
-      <div className="flex items-center ml-test mr-6 mt-5  justify-between">
-        <ChatIcon className="postIcon opacity-50 !cursor-default" />
-        <PencilIcon className="postIcon opacity-50 !cursor-default" />
-        {/*  <RefreshIcon className="postIcon" /> */}
-        <TrashIcon
-          onClick={handleDeletePost}
-          className={`postIcon hover:text-black ${
-            user?.displayName !== item.userName && "hidden"
-          }`}
-        />
-        <InformationCircleIcon
-          onClick={() => setOpen(true)}
-          className="postIcon hover:text-black"
-        />
-
-        {/*MODAL TO DISPLAY LIKES */}
-        <Modal
-          /* center */
-          showCloseIcon={false}
-          open={open}
-          onClose={() => setOpen(false)}
-        >
-          <div className="flex //bg-blue-500 flex-col space-y-3 items-center px-16">
-            <h2 className="font-bold text-lg underline ">Liked by</h2>
-            {postLikes.length === 0 && (
-              <p className="font-light">no likes yet</p>
-            )}
-
-            {postLikes.map((item) => (
-              <div
-                key={item.postLikeId}
-                className="flex w-full items-center //w-40 //bg-red-400"
-              >
-                <img
-                  className="h-8 w-8 rounded-full object-cover"
-                  src={item.photoURL}
-                  alt=""
-                />
-                <p className="ml-2 truncate ">{item.userName}</p>
-              </div>
-            ))}
-          </div>
-        </Modal>
-
-        {/* div for FireIcon + nr of likes */}
-        <div
-          onClick={handleLikePost}
-          className="flex group items-center space-x-0.5 cursor-pointer"
-        >
-          <div className="flex  items-center justify-center group-hover:bg-orangeHover w-7 py-1 rounded-full ">
-            <FireIcon
-              className={`postIcon  ${
-                userHasNotLikedPost() ? "text-gray-800" : "text-orange"
-              } group-hover:bg-orangeHover group-hover:text-orange `}
-            />
-          </div>
-          <p
-            className={`${
-              userHasNotLikedPost() ? "text-gray-800" : "text-orange"
-            } text-xs font-extralight group-hover:text-orange cursor-pointer ${
-              postLikes.length === 0 && "opacity-0"
-            }`}
+      {/* TEST TEMP OBSERVER */}
+      {/* if element is in view and elementIdToScrollTo ==item.postId do keyfram anim. */}
+      <InView triggerOnce>
+        {({
+          inView: myNotificElementIsVisible,
+          ref: myNotificElementRef,
+          entry,
+        }) => (
+          <div
+            ref={myNotificElementRef}
+            className={` ${
+              myNotificElementIsVisible &&
+              elementIdToScrollTo == item.postId &&
+              !loadingNotific &&
+              styles.animateHighlight
+            }          `}
           >
-            {postLikes.length}
-          </p>
-        </div>
-      </div>
+            {/* 🚀  📞  🤙  ☎️  */}
+            <div className="flex w-11/12 flex-grow mt-2.5 ml-1">
+              <img
+                className="w-8 h-8 ml-5 mt-2 rounded-full object-cover"
+                src={item.avatar}
+                alt=""
+              />
+              <div className="flex ml-5 items-center w-full ">
+                {/* fullName + shield + userName */}
+                <p className="font-bold ">{item.fullName}</p>
+                <ShieldCheckIcon className="h-4 w-4 text-blueish " />
+                <p className="text-sm  text-gray-400 ">@{item.userName}</p>
+
+                <p className="text-gray-300 cursor-default text-xs ml-auto hidden widthForShowDate:inline ">
+                  {item.timestamp?.toDate().toLocaleDateString()}
+                </p>
+                <p className="text-gray-300 cursor-default text-xs ml-1 hidden widthForShowDate:inline  ">
+                  {item.timestamp
+                    ?.toDate()
+                    .toLocaleTimeString()
+                    .substring(0, 5)}
+                </p>
+              </div>
+            </div>
+            <p className="ml-test -mt-1.5 mr-5">{item.postText}</p>
+            <img
+              className="rounded-lg max-w-xs ml-test mt-3"
+              src={item?.postImg}
+              alt=""
+            />
+            <div className="flex items-center ml-test mr-6 mt-5  justify-between">
+              <ChatIcon className="postIcon opacity-50 !cursor-default" />
+              <PencilIcon className="postIcon opacity-50 !cursor-default" />
+              {/*  <RefreshIcon className="postIcon" /> */}
+              <TrashIcon
+                onClick={handleDeletePost}
+                className={`postIcon hover:text-black ${
+                  user?.displayName !== item.userName && "hidden"
+                }`}
+              />
+              <InformationCircleIcon
+                onClick={() => setOpen(true)}
+                className="postIcon hover:text-black"
+              />
+
+              {/*MODAL TO DISPLAY LIKES */}
+              <Modal
+                /* center */
+                showCloseIcon={false}
+                open={open}
+                onClose={() => setOpen(false)}
+              >
+                <div className="flex //bg-blue-500 flex-col space-y-3 items-center px-16">
+                  <h2 className="font-bold text-lg underline ">Liked by</h2>
+                  {postLikes.length === 0 && (
+                    <p className="font-light">no likes yet</p>
+                  )}
+
+                  {postLikes.map((item) => (
+                    <div
+                      key={item.postLikeId}
+                      className="flex w-full items-center //w-40 //bg-red-400"
+                    >
+                      <img
+                        className="h-8 w-8 rounded-full object-cover"
+                        src={item.photoURL}
+                        alt=""
+                      />
+                      <p className="ml-2 truncate ">{item.userName}</p>
+                    </div>
+                  ))}
+                </div>
+              </Modal>
+
+              {/* div for FireIcon + nr of likes */}
+              <div
+                onClick={handleLikePost}
+                className="flex group items-center space-x-0.5 cursor-pointer"
+              >
+                <div className="flex  items-center justify-center group-hover:bg-orangeHover w-7 py-1 rounded-full ">
+                  <FireIcon
+                    className={`postIcon  ${
+                      userHasNotLikedPost() ? "text-gray-800" : "text-orange"
+                    } group-hover:bg-orangeHover group-hover:text-orange `}
+                  />
+                </div>
+                <p
+                  className={`${
+                    userHasNotLikedPost() ? "text-gray-800" : "text-orange"
+                  } text-xs font-extralight group-hover:text-orange cursor-pointer ${
+                    postLikes.length === 0 && "opacity-0"
+                  }`}
+                >
+                  {postLikes.length}
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+      </InView>
     </div>
   );
 });

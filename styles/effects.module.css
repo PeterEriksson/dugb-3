@@ -1,0 +1,31 @@
+.animateHighlight {
+  animation-duration: 2.5s;
+  animation-name: _highlight;
+}
+
+/* @keyframes _highlight {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+} */
+
+@keyframes _highlight {
+  0% {
+    transform: scale(1);
+  }
+  65% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* grayish: "#e6ecf0 */
