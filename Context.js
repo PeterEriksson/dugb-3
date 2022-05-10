@@ -102,9 +102,6 @@ function ContextProvider({ children }) {
   const [elementIdToScrollTo, setElementIdToScrollTo] = useState("");
   const [loadingNotific, setLoadingNotific] = useState(false);
 
-  /* TEST TEMP */
-  const [highlightNotification, setHighlightNotification] = useState(false);
-
   return (
     <Context.Provider
       value={{
@@ -112,8 +109,6 @@ function ContextProvider({ children }) {
         setElementIdToScrollTo,
         loadingNotific,
         setLoadingNotific,
-        highlightNotification,
-        setHighlightNotification,
 
         _profiles,
         _setProfiles,

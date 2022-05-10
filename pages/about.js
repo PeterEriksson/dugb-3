@@ -1,5 +1,6 @@
 import About from "../components/About";
 import Head from "next/head";
+import Heart from "../components/Heart";
 
 function about() {
   return (
@@ -9,6 +10,7 @@ function about() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <About />
+      <Heart />
     </div>
   );
 }

@@ -101,15 +101,15 @@ function Notification({
 
       <span
         onClick={handleHasSeen}
-        className={`w-2 h-2 ${
-          hasSeen ? "bg-gray-300" : "bg-blueish"
-        } inline-block rounded-full ml-auto    ${
-          hasSeen ? "hover:bg-blue-300" : "hover:opacity-75"
-        }`}
+        className={` w-2.5 h-2.5 inline-block rounded-full ml-auto ${
+          hasSeen
+            ? "bg-gray-300 hover:bg-blue-300"
+            : "bg-blueish hover:opacity-75"
+        }      `}
       ></span>
       <XIcon
         onClick={handleDelete}
-        className="h-3.5 w-3.5 ml-2 //ml-auto text-gray-400 hover:text-black transform transition duration-100 ease-in cursor-pointer"
+        className="h-4 w-4 ml-2.5 text-gray-400 hover:text-black transform transition duration-100 ease-in cursor-pointer"
       />
     </div>
   );

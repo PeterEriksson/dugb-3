@@ -75,6 +75,7 @@ function Profile() {
 
   const handlePencilIconAvatarClick = () => {
     setAvatarEditing(true);
+    setAvatar("");
     setTimeout(() => {
       avatarInputRef?.current?.focus();
     }, 20);
@@ -108,6 +109,8 @@ function Profile() {
     }
   };
 
+  const userInfo = users.find((item) => item.displayName === user?.displayName);
+
   const submitAvatar = (e) => {
     e.preventDefault();
 
@@ -116,16 +119,13 @@ function Profile() {
       setAvatar("");
     }
 
-    const userInfo = users.find(
-      (item) => item.displayName === user?.displayName
-    );
     /* use firebase set method. use userInfo and spread operator  */
-    if (favoriteSaying.trim() !== "") {
+    if (avatar.trim() !== "") {
       db.collection("users")
         .doc(users.find((item) => item.displayName === user?.displayName).id)
         .set({
           ...userInfo,
-          profileAvatar: profileAvatar,
+          profileAvatar: avatar,
         });
       setAvatarEditing(false);
       setAvatar("");
@@ -139,7 +139,7 @@ function Profile() {
           <img
             alt=""
             /* src="https://i.pinimg.com/236x/79/44/69/794469d92431bd6d291755f35a4a6530.jpg" */
-            src={avatar}
+            src={userInfo.profileAvatar}
             className="rounded-2xl max-w-profileAvatar object-cover h-72"
           />
           <div className="ml-8 flex flex-col justify-center //w-full mb-2">

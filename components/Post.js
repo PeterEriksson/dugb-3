@@ -25,10 +25,10 @@ const Post = forwardRef(({ item }, ref) => {
     setPosts,
     user,
     userGuest,
-    highlightNotification,
+
     elementIdToScrollTo,
 
-    /* TEST TEMP OBSERVER */
+    /* OBSERVER */
     loadingNotific,
     myNotificElementRef,
     myNotificElementIsVisible,
@@ -88,10 +88,8 @@ const Post = forwardRef(({ item }, ref) => {
     <div
       id={item.postId}
       ref={ref}
-      className={`flex flex-col w-full pb-4 font-mainFontHelv //hover:bg-grayish border-b border-gray-300   $//{highlightNotification &&item.postId === elementIdToScrollTo &&styles.animateHighlight}   `}
+      className={`flex flex-col w-full pb-4 font-mainFontHelv //hover:bg-grayish border-b border-gray-300  `}
     >
-      {/* TEST TEMP OBSERVER */}
-      {/* if element is in view and elementIdToScrollTo ==item.postId do keyfram anim. */}
       <InView triggerOnce>
         {({
           inView: myNotificElementIsVisible,
@@ -107,7 +105,6 @@ const Post = forwardRef(({ item }, ref) => {
               styles.animateHighlight
             }          `}
           >
-            {/* 🚀  📞  🤙  ☎️  */}
             <div className="flex w-11/12 flex-grow mt-2.5 ml-1">
               <img
                 className="w-8 h-8 ml-5 mt-2 rounded-full object-cover"

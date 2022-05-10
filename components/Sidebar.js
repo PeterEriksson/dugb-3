@@ -29,12 +29,16 @@ function Sidebar({ children }) {
     setElementIdToScrollTo,
   } = useContext(Context);
 
+  const router = useRouter();
+
   const handleLogout = () => {
     if (loadingNotific) return;
     setElementIdToScrollTo("");
     userGuest && setUserGuest(false);
     auth?.signOut();
     setUser(null);
+
+    router.push("/");
   };
 
   const handleHomeClick = () => {

@@ -20,62 +20,13 @@ function Feed() {
     setElementIdToScrollTo,
     loadingNotific,
     setLoadingNotific,
-
-    highlightNotification,
-    setHighlightNotification,
   } = useContext(Context);
   const [__posts, __setPosts] = useState([]);
   useEffect(() => {
     __setPosts(posts);
   }, [posts]);
 
-  /* if user comes here by clicking on a notification ->  handle auto scrolling down to 
-  the correct post.  
-  */
-  /* useEffect(() => {
-    //can do return here instead of nesting? try at list page
-    if (elementIdToScrollTo !== "") {
-      //future update:avoid bugs in case post is deleted with bad timing ->
-      //if(!posts.includes(item => item.postId === elementIdToScrollTo)) return
-      //post has been deleted, return
-      setLoadingNotific(true);
-
-      setTimeout(() => {
-        document.getElementById(elementIdToScrollTo).scrollIntoView({
-          behavior: "smooth",
-        });
-        //TEST TEMP comment out and move it to other timeout
-        //setElementIdToScrollTo("");
-        setLoadingNotific(false);
-
-        //TEST TEMP...ok but solution not great,can use observer instead for cleaner code ...move away from context
-        setHighlightNotification(true);
-      }, 1100);
-
-       //TEST TEMP...works but not great solution ...move away from context 
-      setTimeout(() => {
-        setHighlightNotification(false);
-        setElementIdToScrollTo("");
-      }, 3400);
-    }
-  }, []); */
-  /* Timer is set to 1.4 seconds, in order to fetch posts before that. Maybe not optimal. 
-  This can probably be coaded cleaner with 
-  firebase loading hook. ex from slack-build
-  const [roomMessages, loading] = useCollection(
-    roomId &&
-      db
-        .collection("rooms")
-        .doc(roomId)
-        .collection("messages")
-        .orderBy("timestamp", "asc")
-  );
-
-  Here firebase v8 is used. Also a bit cleaner than using useEffect. 
-  */
-
-  /* observer sol testing */
-  /* OK, now experiment with styling...scale again */
+  /* observer sol */
   useEffect(() => {
     //post has been deleted, return
     if (!posts.some((item) => item.postId == elementIdToScrollTo)) return;
@@ -85,12 +36,11 @@ function Feed() {
     //..when clicked, app can't find the id
     //future update:avoid bugs in case post is deleted with bad timing ->
     //if(!posts.includes(item => item.postId === elementIdToScrollTo)) return
-
     setLoadingNotific(true);
-
     setTimeout(() => {
       document.getElementById(elementIdToScrollTo).scrollIntoView({
         behavior: "smooth",
+        block: "center",
       });
       setLoadingNotific(false);
     }, 1100);
