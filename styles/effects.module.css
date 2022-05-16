@@ -6,13 +6,16 @@
 @keyframes _highlight {
   0% {
     transform: scale(1);
+    background-color: white;
   }
   65% {
     transform: scale(1.05);
+    background-color: lightgray;
   }
 
   100% {
     transform: scale(1);
+    background-color: white;
   }
 }
 
