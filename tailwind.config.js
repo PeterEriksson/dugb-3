@@ -27,7 +27,7 @@ module.exports = {
         mainFontHelv: "helvetica",
       },
       spacing: {
-        test: "76px",
+        test: "70px",
         largeTest: "512px",
         xxxxxl: "1024px",
         widgetsPaddingWidthTemp: "88px",
@@ -57,6 +57,9 @@ module.exports = {
       },
       fontSize: {
         verySmall: "11px",
+      },
+      height: {
+        18: "76px",
       },
     },
   },

@@ -88,7 +88,7 @@ function Tweetbox() {
         disabled={!postText.trim() || userGuest}
         className="py-3 w-32 mx-auto px-6 cursor-pointer mb-3 hover:bg-hoverBluish transition transform duration-100 bg-blueish rounded-full"
       >
-        <p className="text-white text-sm">Share post</p>
+        <p className="text-white text-sm">Post</p>
       </button>
 
       <div className="bg-grayish h-2 w-full" />

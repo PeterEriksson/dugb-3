@@ -162,8 +162,8 @@ function Profile() {
               </div>
               <div className="flex items-center group">
                 <h3 className="font-semibold">Clans:&nbsp;</h3>
-                <p className="font-light">[SHP]</p>
-                <PencilIcon className="postIcon profileEditIconEffects" />
+                <p className="font-light">...</p>
+                {/* <PencilIcon className="postIcon profileEditIconEffects" /> */}
               </div>
               <div className="flex items-center group ">
                 <h3 className="font-semibold flex items-center">

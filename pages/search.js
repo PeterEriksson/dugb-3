@@ -96,7 +96,7 @@ function search() {
               </div>
               <div className="flex">
                 <h3 className="font-semibold">Clans:&nbsp;</h3>
-                <p className="font-light">[SHP]</p>
+                <p className="font-light">...</p>
               </div>
               <div className="flex">
                 <h3 className="font-semibold">Favorite saying:&nbsp;</h3>
