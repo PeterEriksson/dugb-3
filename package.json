@@ -22,7 +22,7 @@
     "react-lazy-load-image-component": "^1.5.1",
     "react-moment": "^1.1.1",
     "react-responsive-modal": "^6.2.0",
-    "react-twitter-embed": "^3.0.3"
+    "react-twitter-embed": "^4.0.4"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.6",
