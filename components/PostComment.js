@@ -33,7 +33,7 @@ function PostComment({
       <div className="flex-1">
         <div className="flex items-center justify-between /space-x-1 ">
           <div className="flex items-center">
-            <p className="mr-1 font-semibold">{fullName}</p>
+            <p className="mr-1 font-semibold text-sm">{fullName}</p>
             <p className="text-sm text-gray-500 ">@{userName}</p>
           </div>
           <Moment fromNow className="text-sm text-gray-500 hidden lg:inline">

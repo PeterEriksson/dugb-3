@@ -19,4 +19,39 @@
   }
 }
 
+.animateFireIcon {
+  animation-duration: 2.5s;
+  animation-name: _fire;
+  animation-fill-mode: forwards;
+}
+
+@keyframes _fire {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: rotate(14deg);
+    color: #e76b6b;
+    /*  transform: scale(1.2); */
+  }
+  45% {
+    transform: rotate(-14deg);
+  }
+  65% {
+    /*  transform: scale(1.45); */
+    color: red;
+    transform: rotate(14deg);
+  }
+
+  80% {
+    transform: rotate(-14deg);
+  }
+
+  100% {
+    transform: scale(1);
+    color: #ff6600;
+    transform: rotate(0deg);
+  }
+}
+
 /* ------------------------------------ */

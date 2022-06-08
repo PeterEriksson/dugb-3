@@ -53,6 +53,9 @@ const Post = forwardRef(({ item }, ref) => {
   /* react-responsive-modal */
   const [open, setOpen] = useState(false);
 
+  /* fire effect when liking post (only triggered when user clicked like/fire. Not triggered when opening home page) */
+  const [triggerLikeEffect, setTriggerLikeEffect] = useState(false);
+
   const handleDeletePost = () => {
     db.collection("posts").doc(item.postId).delete();
   };
@@ -88,15 +91,23 @@ const Post = forwardRef(({ item }, ref) => {
     //Only perform the action if userGuest is offline
     if (userGuest) return;
 
+    /* can remove, but after testing noticed it avoids effect delay */
+    setTriggerLikeEffect(true);
+
     //check if user has liked the post or not
     ////user has not liked the post, add. User has liked the post, delete. ->
     ///////// if every item in PostLikes does not contain user.displayName then it hasn't been liked by the current user, thus we add it to postLikes */
     postLikes.every((item) => item.userName !== user.displayName)
-      ? db.collection("posts").doc(item.postId).collection("postLikes").add({
-          userName: user?.displayName,
-          photoURL: user?.photoURL,
-          timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-        })
+      ? db
+          .collection("posts")
+          .doc(item.postId)
+          .collection("postLikes")
+          .add({
+            userName: user?.displayName,
+            photoURL: user?.photoURL,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+          })
+          .then(() => setTriggerLikeEffect(true))
       : /* the user.displayName already exists in one of the postLikes, thus it has been liked by the current user and we therefore delete it */
         db
           .collection("posts")
@@ -106,7 +117,8 @@ const Post = forwardRef(({ item }, ref) => {
             postLikes.find((item) => item.userName === user?.displayName)
               .postLikeId
           )
-          .delete();
+          .delete()
+          .then(() => setTriggerLikeEffect(false));
   };
 
   const userHasNotLikedPost = () => {
@@ -247,13 +259,20 @@ const Post = forwardRef(({ item }, ref) => {
               {/* div for FireIcon + nr of likes */}
               <div
                 onClick={handleLikePost}
-                className="flex group items-center space-x-0.5 cursor-pointer"
+                className={` flex group items-center space-x-0.5 cursor-pointer`}
               >
                 <div className="flex  items-center justify-center group-hover:bg-orangeHover w-7 py-1 rounded-full ">
                   <FireIcon
-                    className={`postIcon  ${
-                      userHasNotLikedPost() ? "text-gray-800" : "text-orange"
-                    } group-hover:bg-orangeHover group-hover:text-orange `}
+                    className={`postIcon
+
+                    ${userHasNotLikedPost() ? "text-gray-800" : "text-orange"}
+                    ${
+                      !userHasNotLikedPost() &&
+                      triggerLikeEffect &&
+                      styles.animateFireIcon
+                    }
+                    
+                       group-hover:bg-orangeHover group-hover:text-orange `}
                   />
                 </div>
                 <p

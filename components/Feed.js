@@ -26,16 +26,12 @@ function Feed() {
     __setPosts(posts);
   }, [posts]);
 
-  /* observer sol */
+  /* scroll into view when viewing posts after clicking on a notification: */
   useEffect(() => {
     //post has been deleted, return
     if (!posts.some((item) => item.postId == elementIdToScrollTo)) return;
     //user comes here WITHOUT clicking notification, return
     if (elementIdToScrollTo == "") return;
-    //potential bug: user has like notification but the post is deleted.
-    //..when clicked, app can't find the id
-    //future update:avoid bugs in case post is deleted with bad timing ->
-    //if(!posts.includes(item => item.postId === elementIdToScrollTo)) return
     setLoadingNotific(true);
     setTimeout(() => {
       document.getElementById(elementIdToScrollTo).scrollIntoView({
