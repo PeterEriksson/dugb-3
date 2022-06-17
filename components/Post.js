@@ -288,10 +288,16 @@ const Post = forwardRef(({ item }, ref) => {
             </div>
 
             {/* COMMENT BOX LOGIC */}
-            {commentBoxVisible && (
+            {/* Have a smooth effect when clicking chatIcon...-> insert another div with className relative -> make use of absolute positioning below in form tag. Comment out {commentBoxVisible && (... css effects in form tag...  */}
+            <div className="relative">
+              {/* {commentBoxVisible && ( */}
               <form
                 onSubmit={handleSubmitComment}
-                className="mt-2 flex space-x-2 w-10/12 mx-auto"
+                className={`mt-2 flex space-x-2 w-10/12 mx-auto    ->smoothCommentTransition-> ${
+                  commentBoxVisible
+                    ? "scale-y-100 origin-top transform transition duration-500 ease-out "
+                    : "scale-y-0 absolute   "
+                }  `}
               >
                 <input
                   ref={commentInputRef}
@@ -319,7 +325,9 @@ const Post = forwardRef(({ item }, ref) => {
                   Submit
                 </button>
               </form>
-            )}
+              {/* )} */}
+            </div>
+            {/* --- */}
           </div>
         )}
       </InView>
