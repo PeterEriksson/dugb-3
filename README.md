@@ -46,22 +46,25 @@ Web app for Call of Duty gamers. Design is inspired by Twitter. Welcome to the H
 #### Home page 
  ![homePage2](https://user-images.githubusercontent.com/17027312/149806666-d75845c1-04a8-4405-9bd2-ab15e731d3ab.png)
  
+ #### Profile page 
+ ![profilePage](https://user-images.githubusercontent.com/17027312/149804028-4db7e730-9424-4e37-a5c0-b3113b08588a.png)
+ 
+ #### Search page 
+ ![searchPage](https://user-images.githubusercontent.com/17027312/174499135-4acaf7b4-dec4-4c09-afc9-fd4558644d0b.png)
+ 
+ #### Lists page
+ ![listFeed](https://user-images.githubusercontent.com/17027312/149803988-949211e6-cabb-4d72-8fc8-cc4f13fda5b5.png)
+
+#### Notifications page
+  ![notifications2](https://user-images.githubusercontent.com/17027312/149807459-40c1612c-024c-4b63-bd8c-0554d704ff18.png)
+ 
 #### Post liked by (when pressing information button)
  ![likedBy2](https://user-images.githubusercontent.com/17027312/149806642-3f404397-e5bc-4547-be1b-df34f7dda977.png)
  
-#### Notifications page
-  ![notifications2](https://user-images.githubusercontent.com/17027312/149807459-40c1612c-024c-4b63-bd8c-0554d704ff18.png)
-
-#### List page
- ![listFeed](https://user-images.githubusercontent.com/17027312/149803988-949211e6-cabb-4d72-8fc8-cc4f13fda5b5.png)
-
 #### List create modal
  ![listModal](https://user-images.githubusercontent.com/17027312/149804003-bfda1f3b-efe5-42a0-80de-de01a284651d.png)
 
-#### Profile page 
- ![profilePage](https://user-images.githubusercontent.com/17027312/149804028-4db7e730-9424-4e37-a5c0-b3113b08588a.png)
-
-#### Login
+#### Login/Register/Guest screen
  ![Login](https://user-images.githubusercontent.com/17027312/149804056-3cd127c9-35be-42cb-a05e-c109e54d99e1.png)
 
 
