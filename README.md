@@ -71,7 +71,7 @@ Web app for Call of Duty gamers. Design is inspired by Twitter. Welcome to the H
 - Personal notification after being reviewed by another player
 - Come up with a better design for lists
 - Come up with what Loadouts page should be
-- Automatic scroll down to the corresponding post/list when user clicks on a notification. Ok ✅ 
+- Automatic scroll down to the corresponding post/list when user clicks on a notification + css animation highlighting the corresponding post. Ok ✅ 
 - subPost collection? (answer a certain post) Ok ✅
 - Use grid instead of flex for parent containers(Sidebar, Feed, Widgets)? -> cleaner.
 - Make the mobile screen size more user firendly
