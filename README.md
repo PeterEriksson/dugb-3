@@ -50,7 +50,8 @@ Web app for Call of Duty gamers. Design is inspired by Twitter. Welcome to the H
  ![profilePage](https://user-images.githubusercontent.com/17027312/149804028-4db7e730-9424-4e37-a5c0-b3113b08588a.png)
  
  #### Search page 
- ![searchPage](https://user-images.githubusercontent.com/17027312/174499135-4acaf7b4-dec4-4c09-afc9-fd4558644d0b.png)
+ ![searchPage1](https://user-images.githubusercontent.com/17027312/174499268-e2efd08a-3944-4fcb-9565-679b61c8be07.png)
+
  
  #### Lists page
  ![listFeed](https://user-images.githubusercontent.com/17027312/149803988-949211e6-cabb-4d72-8fc8-cc4f13fda5b5.png)
