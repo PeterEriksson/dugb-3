@@ -84,6 +84,7 @@ A hobby project built over a longer period of time, constantly implementing new 
 - Make the mobile screen size more user firendly
 - Upgrade Firebase version so that we can install firebase-hooks in order to render loading indicator while verifying user.
 - Error in the console when refreshing the site on the profile page
+- Add feature to edit user's info. + if a user is edited(for example user img) add cloud function that handles updating user's info in posts/lists/comments
 
 ## Author
 
