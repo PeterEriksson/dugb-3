@@ -2,6 +2,8 @@
 
 Web app for Call of Duty gamers. Design is inspired by Twitter. Welcome to the Holy Gibb Bible. Your other home from Caldera/Verdansk. Post your thoughts, rank your teammates, view satistics + more.
 
+A hobby project built over a longer period of time, constantly implementing new features as I progress in my coding journey.
+
 ## Table of contents
 
 - [Technologies](#technologies)
