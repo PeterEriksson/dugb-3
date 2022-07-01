@@ -25,7 +25,7 @@ A hobby project built over a longer period of time, constantly implementing new 
 - Tailwind Modals
 - Firebase
 - Node.js (writing cloud functions)
-   - Nested bullet
+   - For generating personal notifications when a user has posted/liked/created list. Theoratically possible to implement on client side, but after researching the topic I found that cloud functions should be used. 
 - Context api (state management)
 - Netlify (hosting)
 - Rapid api (fetching player statistics)
