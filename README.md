@@ -25,7 +25,7 @@ A hobby project built over a longer period of time, constantly implementing new 
 - Tailwind Modals
 - Firebase
 - Node.js (writing cloud functions)
-* Nested bullet
+   - Nested bullet
 - Context api (state management)
 - Netlify (hosting)
 - Rapid api (fetching player statistics)
