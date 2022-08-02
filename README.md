@@ -75,12 +75,13 @@ A hobby project built over a longer period of time, constantly implementing new 
 ## Todo
 
 - Come up with a nicer design for Profile page + add logic for reviewing other players (strengths/weaknesses)
+- In profile page see trend for k/d. ↘ or ↗ (current k/d minus lastKd)
 - Personal notification after being reviewed by another player OR when a player has updated his ***favorite saying*** 
 - Come up with a better design for lists
 - Refactor SidebarOption(lives in Siebar), pass props that determine which functions should be called inside SidebarOption. -> Cleaner code inside Sidebar
 - Come up with what Loadouts page should be
 - Automatic scroll down to the corresponding post/list when user clicks on a notification + css animation highlighting the corresponding post. Ok ✅ 
-- subPost collection? (answer a certain post) Ok ✅
+- Comments on Posts? Ok ✅
 - Use grid instead of flex for parent containers(Sidebar, Feed, Widgets)? -> cleaner.
 - Make the mobile screen size more user firendly
 - Upgrade Firebase version so that we can install firebase-hooks in order to render loading indicator while verifying user.
