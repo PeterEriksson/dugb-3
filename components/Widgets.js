@@ -24,8 +24,8 @@ function Widgets() {
           sourceType="profile"
           screenName="BattleRoyaleCoD"
           options={{
-            height: 400,
-            /* height: 500, */
+            /* height: 400, */
+            height: 500,
             /* width: 230, */
           }}
           /* borderColor="#e6ecf0" */

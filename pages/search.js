@@ -126,7 +126,7 @@ function search() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <p className="font-bold   border-b border-grayish text-2xl py-3 text-center">
-        Search (beta)
+        Search
       </p>
 
       {/* SEARCH FIELD */}

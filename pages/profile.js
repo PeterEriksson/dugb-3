@@ -10,7 +10,7 @@ function profile() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <p className="font-bold text-2xl py-3 ml-4">Profile (beta)</p>
+      <p className="font-bold text-2xl py-3 ml-4">Profile</p>
 
       <Profile />
     </div>
