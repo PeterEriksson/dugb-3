@@ -75,7 +75,7 @@ A hobby project built over a longer period of time, constantly implementing new 
 ## Todo
 
 - Come up with a nicer design for Profile page + add logic for reviewing other players (strengths/weaknesses)
-- In profile page see trend for k/d. ↘ or ↗ or  ➡️ (current k/d minus lastKd)
+- In profile page see trend for k/d. ↘ or ↗ or  ➡️. Ok ✅
 - Personal notification after being reviewed by another player OR when a player has updated his ***favorite saying*** 
 - Come up with a better design for lists
 - Refactor SidebarOption(lives in Siebar), pass props that determine which functions should be called inside SidebarOption. -> Cleaner code inside Sidebar
