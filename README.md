@@ -49,23 +49,22 @@ A hobby project built over a longer period of time, constantly implementing new 
 #### Home page 
  ![homePage2](https://user-images.githubusercontent.com/17027312/149806666-d75845c1-04a8-4405-9bd2-ab15e731d3ab.png)
  
+ #### Post liked by (when pressing information button)
+ ![likedBy2](https://user-images.githubusercontent.com/17027312/149806642-3f404397-e5bc-4547-be1b-df34f7dda977.png)
+ 
+ #### Notifications page
+  ![notifications2](https://user-images.githubusercontent.com/17027312/149807459-40c1612c-024c-4b63-bd8c-0554d704ff18.png)
+ 
  #### Profile page 
  ![profilePage](https://user-images.githubusercontent.com/17027312/149804028-4db7e730-9424-4e37-a5c0-b3113b08588a.png)
  
  #### Search page 
  ![searchPage1](https://user-images.githubusercontent.com/17027312/174499268-e2efd08a-3944-4fcb-9565-679b61c8be07.png)
 
- 
  #### Lists page
  ![listFeed](https://user-images.githubusercontent.com/17027312/149803988-949211e6-cabb-4d72-8fc8-cc4f13fda5b5.png)
-
-#### Notifications page
-  ![notifications2](https://user-images.githubusercontent.com/17027312/149807459-40c1612c-024c-4b63-bd8c-0554d704ff18.png)
  
-#### Post liked by (when pressing information button)
- ![likedBy2](https://user-images.githubusercontent.com/17027312/149806642-3f404397-e5bc-4547-be1b-df34f7dda977.png)
- 
-#### List create modal
+ #### List create modal
  ![listModal](https://user-images.githubusercontent.com/17027312/149804003-bfda1f3b-efe5-42a0-80de-de01a284651d.png)
 
 #### Login/Register/Guest screen
