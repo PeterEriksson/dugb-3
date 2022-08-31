@@ -24,20 +24,20 @@ function Tweetbox() {
 
   const handleNewPost = (e) => {
     e.preventDefault();
-    if (postText.length <= postMaxLength) {
-      db.collection("posts").add({
-        //avatar -> bettar name variable than "img"
-        avatar: user?.photoURL,
-        fullName: users.find((item) => item.displayName === user?.displayName)
-          .fullName,
-        userName: user?.displayName,
-        postText: postText,
-        postImg: postImg,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-      });
-      setPostImg("");
-      setPostText("");
-    }
+    if (postText.length >= postMaxLength) return;
+
+    db.collection("posts").add({
+      //avatar -> bettar name variable than "img"
+      avatar: user?.photoURL,
+      fullName: users.find((item) => item.displayName === user?.displayName)
+        .fullName,
+      userName: user?.displayName,
+      postText: postText,
+      postImg: postImg,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    });
+    setPostImg("");
+    setPostText("");
   };
 
   return (

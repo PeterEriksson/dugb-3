@@ -1,9 +1,7 @@
 import Head from "next/head";
-import { useContext } from "react";
 import Feed from "../components/Feed";
 import Post from "../components/Post";
 import Tweetbox from "../components/Tweetbox";
-import { Context } from "../Context";
 
 export default function Home() {
   return (

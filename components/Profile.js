@@ -1,9 +1,16 @@
-import { CheckCircleIcon, PencilIcon, XIcon } from "@heroicons/react/outline";
-
+import {
+  CheckCircleIcon,
+  PencilIcon,
+  RefreshIcon,
+  XIcon,
+  ArrowCircleUpIcon,
+  ArrowCircleDownIcon,
+} from "@heroicons/react/outline";
 import { useContext, useEffect, useState, useRef } from "react";
 import { Context } from "../Context";
 import { db } from "../firebase";
 import LoadingSpinner from "./LoadingSpinner";
+import styles from "../styles/effects.module.css";
 
 function Profile() {
   /* TEMP TEST THIS SOLUTION -> SAVE API CALLS */
@@ -39,11 +46,11 @@ function Profile() {
         .then((response) => response.json())
         .then((response) => {
           if (response.br) {
-            //fetch in db user profile the profileAvatar
             setAvatar(
               users.find((item) => item.displayName === user?.displayName)
                 .profileAvatar
             );
+            /* move firestore set to here!? NO, must be when we log out */
             setSearchOk(true);
           } else {
             setSearchOk(false);
@@ -132,6 +139,19 @@ function Profile() {
     }
   };
 
+  const handleUpdateData = () => {
+    /* e.preventDefault(); */
+
+    /* ok */
+    db.collection("users")
+      .doc(users.find((item) => item.displayName === user?.displayName).id)
+      .set({
+        ...userInfo,
+        lastKd: profile?.kdRatio,
+      });
+    /* try react hot toast for notifyhing the user what happened */
+  };
+
   return (
     <div className="ml-4 ">
       {searchOk ? (
@@ -142,14 +162,52 @@ function Profile() {
             src={userInfo.profileAvatar}
             className="rounded-2xl max-w-profileAvatar object-cover h-72"
           />
-          <div className="ml-8 flex flex-col justify-center //w-full mb-2">
-            <h2 className="font-bold text-xl mb-2">{user?.displayName}</h2>
+          <div className="ml-8 flex flex-col justify-center  mb-2">
+            <div className="flex items-center justify-between /bg-red-300">
+              <h2 className="font-bold text-xl underline">
+                {user?.displayName}
+              </h2>
+              <RefreshIcon
+                onClick={handleUpdateData}
+                className="h-5 w-5 text-gray-600 transform ease-out transition duration-150 hover:rotate-90 cursor-pointer"
+              />
+            </div>
             <div className="flex flex-col space-y-1.5">
-              <div className="flex">
+              {/* KD INFO DIV */}
+              <div className="flex items-center">
                 <h3 className="font-semibold">K/D:&nbsp;</h3>
-                <p className="font-light">
-                  {Number(profile?.kdRatio).toFixed(3)}
+                <p className={`font-light`}>
+                  {Number(profile?.kdRatio).toFixed(4)}
                 </p>
+                <p className={`font-light ml-2   //{styles.animateKd}`}>
+                  {Number(profile?.kdRatio.toFixed(4)) ==
+                    Number(userInfo.lastKd.toFixed(4)) && (
+                    <ArrowCircleUpIcon className="w-5 h-5 ml-0.5 rotate-90 text-gray-500  " />
+                  )}
+                </p>
+                {Number(profile?.kdRatio.toFixed(4)) >
+                  Number(userInfo.lastKd.toFixed(4)) && (
+                  <div className="flex items-center">
+                    <ArrowCircleUpIcon className="w-5 h-5 ml-0.5 rotate-45 text-green-500 " />
+                    <p className="font-light text-sm">
+                      ({Number(profile?.kdRatio - userInfo.lastKd).toFixed(4)})
+                    </p>
+                  </div>
+                )}
+                {Number(profile?.kdRatio.toFixed(4)) <
+                  Number(userInfo.lastKd.toFixed(4)) && (
+                  <div className="flex items-center">
+                    <ArrowCircleDownIcon className="w-5 h-5 ml-0.5 -rotate-45 text-red-500 " />
+                    <p className="font-light text-sm">
+                      ({Number(profile?.kdRatio - userInfo.lastKd).toFixed(4)})
+                    </p>
+                  </div>
+                )}
+                {/* if kdRatio is less than lastKd than show arrow emoji + the diff */}
+                {/* {profile?.kdRatio < userInfo.lastKd &&
+                  ` ↘ (${Number(profile?.kdRatio - userInfo.lastKd).toFixed(
+                    4
+                  )})`} */}
               </div>
               <div className="flex">
                 <h3 className="font-semibold">Wins:&nbsp;</h3>
@@ -273,6 +331,7 @@ function Profile() {
       ) : (
         <LoadingSpinner />
       )}
+      <h2 className="text-lg font-bold mt-3">Friends ...</h2>
     </div>
   );
 }

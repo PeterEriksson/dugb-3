@@ -8,7 +8,7 @@ function ContextProvider({ children }) {
   const [users, setUsers] = useState([]);
   const [userGuest, setUserGuest] = useState(false);
   /*SAVE rapidAPI CALLS for profile page. Once a user has loaded it, the data is saved in state -> */
-  const [profile, setProfile] = useState({});
+  const [profile, setProfile] = useState(null);
   const [searchOk, setSearchOk] = useState(false);
 
   const [_profiles, _setProfiles] = useState([]);
@@ -102,6 +102,8 @@ function ContextProvider({ children }) {
   const [elementIdToScrollTo, setElementIdToScrollTo] = useState("");
   const [loadingNotific, setLoadingNotific] = useState(false);
 
+  /* console.log(profile); */
+
   return (
     <Context.Provider
       value={{
@@ -110,6 +112,7 @@ function ContextProvider({ children }) {
         loadingNotific,
         setLoadingNotific,
 
+        /* for list page */
         _profiles,
         _setProfiles,
         listOfProfiles,
@@ -118,6 +121,7 @@ function ContextProvider({ children }) {
         userGuest,
         setUserGuest,
 
+        //NOTE:user is the authUser(only:displayName, email, image), users is from the firestore with the complete info
         user,
         setUser,
         users,
@@ -128,6 +132,7 @@ function ContextProvider({ children }) {
         lists,
         setLists,
 
+        /* for profile page */
         /* save api calls👇 after 1 render the profile is always there, no need to call api again */
         searchOk,
         setSearchOk,

@@ -12,7 +12,7 @@ import {
 import { useRouter } from "next/router";
 import router from "next/router";
 import SidebarOption from "./SidebarOption";
-import { useContext, useState, useEffect } from "react";
+import { useContext } from "react";
 import { Context } from "../Context";
 import Login from "./Login";
 import { auth } from "../firebase";
@@ -27,6 +27,9 @@ function Sidebar({ children }) {
     setUser,
     loadingNotific,
     setElementIdToScrollTo,
+
+    setProfile,
+    setSearchOk,
   } = useContext(Context);
 
   const router = useRouter();
@@ -35,10 +38,12 @@ function Sidebar({ children }) {
     if (loadingNotific) return;
     setElementIdToScrollTo("");
     userGuest && setUserGuest(false);
-    auth?.signOut();
-    setUser(null);
 
     router.push("/");
+    auth?.signOut();
+    setUser(null);
+    setProfile(null);
+    setSearchOk(false);
   };
 
   const handleHomeClick = () => {
