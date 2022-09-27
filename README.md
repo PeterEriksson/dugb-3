@@ -87,6 +87,8 @@ A hobby project built over a longer period of time, constantly implementing new 
 - Error in the console when refreshing the site on the profile page
 - Add feature to edit user's info. 
    - if a user is edited (for example user has updated his userImage) add cloud function that handles updating user's info in posts/lists/comments
+- Dark/light mode toggle button
+   - Find colour palette for dark mode
 
 ## Author
 
