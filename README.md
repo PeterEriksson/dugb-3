@@ -97,13 +97,5 @@ Website: [Peter resume](https://peter-portfolio-app.netlify.app/) <br />
 [Instagram](https://www.instagram.com/petee_10/)<br />
 [Linkedin](https://www.linkedin.com/in/peter-eriksson-13b8b1120/)
 
-## Setup
-
-To run this project, install it locally using npm. Then, run the development server:
-
-```
-$ npm install
-$ npm run dev
-```
-Open http://localhost:3015 with your browser to see the result.
+ 
  
