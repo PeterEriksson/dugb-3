@@ -148,6 +148,7 @@ function Profile() {
       .set({
         ...userInfo,
         lastKd: profile?.kdRatio,
+        lastWins: profile?.wins,
       });
     /* try react hot toast for notifyhing the user what happened */
   };
@@ -179,41 +180,61 @@ function Profile() {
                 <p className={`font-light`}>
                   {Number(profile?.kdRatio).toFixed(4)}
                 </p>
-                <p className={`font-light ml-2   //{styles.animateKd}`}>
+                <p className={`font-light ml-2    `}>
                   {Number(profile?.kdRatio.toFixed(4)) ==
                     Number(userInfo.lastKd.toFixed(4)) && (
                     <ArrowCircleUpIcon className="w-5 h-5 ml-0.5 rotate-90 text-gray-500  " />
                   )}
                 </p>
+                {/* IF KD IS UP->display green text(the diff) */}
                 {Number(profile?.kdRatio.toFixed(4)) >
                   Number(userInfo.lastKd.toFixed(4)) && (
-                  <div className="flex items-center">
-                    <ArrowCircleUpIcon className="w-5 h-5 ml-0.5 rotate-45 text-green-500 " />
-                    <p className="font-light text-sm">
+                  <div className="flex items-center space-x-0.5 text-green-500">
+                    <ArrowCircleUpIcon className="w-5 h-5 ml-0.5 rotate-45   " />
+                    <p className="font-light text-sm  italic">
                       ({Number(profile?.kdRatio - userInfo.lastKd).toFixed(4)})
                     </p>
                   </div>
                 )}
+                {/* IF KD IS DOWN->display red text(the diff) */}
                 {Number(profile?.kdRatio.toFixed(4)) <
                   Number(userInfo.lastKd.toFixed(4)) && (
-                  <div className="flex items-center">
-                    <ArrowCircleDownIcon className="w-5 h-5 ml-0.5 -rotate-45 text-red-500 " />
-                    <p className="font-light text-sm">
+                  <div className="flex items-center space-x-0.5 text-red-500">
+                    <ArrowCircleDownIcon className="w-5 h-5 ml-0.5 -rotate-45  " />
+                    <p className="font-light text-sm italic">
                       ({Number(profile?.kdRatio - userInfo.lastKd).toFixed(4)})
                     </p>
                   </div>
                 )}
-                {/* if kdRatio is less than lastKd than show arrow emoji + the diff */}
-                {/* {profile?.kdRatio < userInfo.lastKd &&
-                  ` ↘ (${Number(profile?.kdRatio - userInfo.lastKd).toFixed(
-                    4
-                  )})`} */}
               </div>
-              <div className="flex">
+              {/* END OF KD INFO DIV */}
+              {/* WINS INFO DIV */}
+              <div className="flex items-center">
                 <h3 className="font-semibold">Wins:&nbsp;</h3>
-                <p className="font-light">{profile?.wins}</p>
+                <p className={`font-light`}>{profile?.wins}</p>
+                <p className={`font-light ml-2    `}>
+                  {profile?.wins == userInfo.lastWins && (
+                    <ArrowCircleUpIcon className="w-5 h-5 ml-0.5 rotate-90 text-gray-500  " />
+                  )}
+                </p>
+                {/* IF WINS ARE UP->display green text(the diff) */}
+                {profile?.wins > userInfo.lastWins && (
+                  <div className="flex items-center space-x-0.5 text-green-500">
+                    <ArrowCircleUpIcon className="w-5 h-5 ml-0.5 rotate-45  " />
+                    <p className="font-light text-sm  italic">
+                      ({profile?.wins - userInfo.lastWins})
+                    </p>
+                  </div>
+                )}
+                {/* WINS CAN'T GO DOWN SO NO NEED TO DISPLAY THE RED ARROW...(as in k/d) */}
               </div>
 
+              {/* old wins */}
+              {/*  <div className="flex">
+                <h3 className="font-semibold">Wins:&nbsp;</h3>
+                <p className="font-light">{profile?.wins}</p>
+              </div> */}
+              {/* end of old wins info div */}
               <div className="flex">
                 <h3 className="font-semibold">Top five:&nbsp;</h3>
                 <p className="font-light">{profile?.topFive}</p>

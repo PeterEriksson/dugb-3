@@ -19,13 +19,6 @@
   }
 }
 
-.animateKd {
-  animation-name: _kd;
-}
-
-@keyframes _kd {
-}
-
 .animateFireIcon {
   animation-duration: 2.5s;
   animation-name: _fire;
