@@ -56,10 +56,10 @@ A hobby project built over a longer period of time, constantly implementing new 
   ![notifications2](https://user-images.githubusercontent.com/17027312/149807459-40c1612c-024c-4b63-bd8c-0554d704ff18.png)
  
  #### Profile page 
- ![profilePage](https://user-images.githubusercontent.com/17027312/149804028-4db7e730-9424-4e37-a5c0-b3113b08588a.png)
+ ![profile-page](https://user-images.githubusercontent.com/17027312/193240546-2d4d68f8-0b40-4565-bc5a-9ae083a6bff7.png)
  
  #### Search page 
- ![searchPage1](https://user-images.githubusercontent.com/17027312/174499268-e2efd08a-3944-4fcb-9565-679b61c8be07.png)
+ ![search-nurrm](https://user-images.githubusercontent.com/17027312/193240518-8616f2c6-07a7-4736-8aee-ee924c9d1327.png)
 
  #### Lists page
  ![listFeed](https://user-images.githubusercontent.com/17027312/149803988-949211e6-cabb-4d72-8fc8-cc4f13fda5b5.png)
