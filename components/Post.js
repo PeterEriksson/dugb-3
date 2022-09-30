@@ -225,14 +225,16 @@ const Post = forwardRef(({ item }, ref) => {
                 </p>
               </div>
             </div>
-            <p className=" -mt-1.5 mr-5 ml-test ">{item.postText}</p>
+            <p className=" -mt-1.5 /mr-5 pr-6  ml-postPrimaryDivSpacing ">
+              {item.postText}
+            </p>
             <img
-              className="rounded-lg max-w-xs ml-test mt-3"
+              className="rounded-lg max-w-xs ml-postPrimaryDivSpacing mt-3"
               src={item?.postImg}
               alt=""
             />
             {/* DIV FOR ICONS ON BOTTOM OF (main)POST */}
-            <div className="flex items-center mt-5 justify-between      /ml-test /mr-6  w-5/6 mx-auto pb-2 ">
+            <div className="flex items-center mt-5 justify-between      ml-postPrimaryDivSpacing /mr-6 pr-6  w-5/6 mx-auto pb-2 ">
               <div
                 onClick={handleOnChatIconClick}
                 className="flex items-center space-x-1.5 cursor-pointer  transform transition duration-100 ease-in hover:scale-110"
@@ -243,7 +245,7 @@ const Post = forwardRef(({ item }, ref) => {
                 </p>
               </div>
               {/* <PencilIcon className="postIcon opacity-50 !cursor-default" /> */}
-              <SwitchHorizontalIcon className="postIcon opacity-50 !cursor-default" />
+              {/* <SwitchHorizontalIcon className="postIcon opacity-50 !cursor-default" /> */}
               {/*  <RefreshIcon className="postIcon" /> */}
               <TrashIcon
                 onClick={handleDeletePost}
@@ -259,7 +261,7 @@ const Post = forwardRef(({ item }, ref) => {
               {/* div for FireIcon + nr of likes */}
               <div
                 onClick={handleLikePost}
-                className={` flex group items-center space-x-0.5 cursor-pointer`}
+                className={` flex group items-center   cursor-pointer  `}
               >
                 <div className="flex  items-center justify-center group-hover:bg-orangeHover w-7 py-1 rounded-full ">
                   <FireIcon
@@ -288,12 +290,11 @@ const Post = forwardRef(({ item }, ref) => {
             </div>
 
             {/* COMMENT BOX LOGIC */}
-            <div className="relative">
-              {/* {commentBoxVisible && ( */}
+            <div className=" ml-postPrimaryDivSpacing /mr-6 pr-6 w-5/6 mx-auto  ">
               <form
                 onSubmit={handleSubmitComment}
-                className={`mt-2 flex space-x-2 w-10/12 mx-auto     ${
-                  commentBoxVisible ? "scale-y-100  " : "scale-y-0 absolute   "
+                className={`mt-1 flex space-x-2 /w-10/12 /mx-auto     ${
+                  commentBoxVisible ? " " : "hidden  "
                 }  `}
               >
                 <input
@@ -330,10 +331,10 @@ const Post = forwardRef(({ item }, ref) => {
       </InView>
 
       {/* COMMENT SECTION */}
-      {/* Blue line that is connecting comments -> for future builds dont need to do absolute positioning. (look at swtv comments, img + line wrapped in div, name plus text wrapped in div) */}
+      {/* Blue line that is connecting comments -> (look at swtv comments, img + line wrapped in div, name plus text wrapped in div) */}
       {comments?.length > 0 && (
-        <section className="flex w-5/6 mx-auto  ">
-          <div className="my-2 /mt-2.5 max-h-44 space-y-5 overflow-y-scroll border-t w-full border-gray-100 py-4 px-5  ">
+        <section className="flex /w-5/6 /mx-auto   ml-postPrimaryDivSpacing /mr-6 pr-6 w-5/6 mx-auto ">
+          <div className="my-2 /mt-2.5 max-h-44 space-y-5 overflow-y-scroll border-t w-full border-gray-100 py-4 px-2  ">
             {comments.map((comment, i) => (
               <PostComment
                 key={comment.commentId}

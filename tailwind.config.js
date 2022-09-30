@@ -27,7 +27,7 @@ module.exports = {
         mainFontHelv: "helvetica",
       },
       spacing: {
-        test: "70px",
+        postPrimaryDivSpacing: "70px",
         largeTest: "512px",
         xxxxxl: "1024px",
         widgetsPaddingWidthTemp: "88px",
