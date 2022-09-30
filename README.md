@@ -56,7 +56,7 @@ A hobby project built over a longer period of time, constantly implementing new 
   ![notifications2](https://user-images.githubusercontent.com/17027312/149807459-40c1612c-024c-4b63-bd8c-0554d704ff18.png)
  
  #### Profile page 
- ![profile-page](https://user-images.githubusercontent.com/17027312/193240546-2d4d68f8-0b40-4565-bc5a-9ae083a6bff7.png)
+ ![profile-benny](https://user-images.githubusercontent.com/17027312/193241554-ff57ab8f-6acb-4ace-b2ab-4abee7ef5249.png)
  
  #### Search page 
  ![search-nurrm](https://user-images.githubusercontent.com/17027312/193240518-8616f2c6-07a7-4736-8aee-ee924c9d1327.png)
