@@ -158,7 +158,7 @@ const Post = forwardRef(({ item }, ref) => {
     <div
       id={item.postId}
       ref={ref}
-      className={`flex flex-col w-full pb-3.5 font-mainFontHelv border-b border-gray-300  `}
+      className={`flex flex-col w-full pb-3 font-mainFontHelv border-b border-gray-300  `}
     >
       {/*MODAL TO DISPLAY LIKES */}
       <Modal
@@ -203,7 +203,7 @@ const Post = forwardRef(({ item }, ref) => {
             }          `}
           >
             {/* DIV FOR NAME USERNAME + TIMESTAMP */}
-            <div className="flex w-11/12 flex-grow mt-2.5 ml-1 ">
+            <div className="flex w-11/12  flex-grow mt-2.5 ml-1   ">
               <img
                 className="w-8 h-8 ml-5 mt-2 rounded-full object-cover"
                 src={item.avatar}
@@ -218,7 +218,7 @@ const Post = forwardRef(({ item }, ref) => {
                 <p className="text-gray-300 cursor-default text-xs ml-auto hidden widthForShowDate:inline ">
                   {item.timestamp?.toDate().toLocaleDateString()}
                 </p>
-                <p className="text-gray-300 cursor-default text-xs ml-1 hidden widthForShowDate:inline  ">
+                <p className="text-gray-300 cursor-default text-xs ml-1 hidden widthForShowDate:inline   pr-4">
                   {item.timestamp
                     ?.toDate()
                     .toLocaleTimeString()
@@ -235,7 +235,7 @@ const Post = forwardRef(({ item }, ref) => {
               alt=""
             />
             {/* DIV FOR ICONS ON BOTTOM OF (main)POST */}
-            <div className="flex items-center mt-5 justify-between   postDivAlignTemp       pb-2 ">
+            <div className="flex items-center mt-5 justify-between   postDivAlignTemp    ">
               <div
                 onClick={handleOnChatIconClick}
                 className="flex items-center space-x-1.5 cursor-pointer  transform transition duration-100 ease-in hover:scale-110"
@@ -294,7 +294,7 @@ const Post = forwardRef(({ item }, ref) => {
             <div className="postDivAlignTemp   ">
               <form
                 onSubmit={handleSubmitComment}
-                className={`mt-1 flex space-x-2 /w-10/12 /mx-auto     ${
+                className={`mt-2 flex space-x-2 /w-10/12 /mx-auto     ${
                   commentBoxVisible ? " " : "hidden  "
                 }  `}
               >
