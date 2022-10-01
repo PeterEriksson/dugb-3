@@ -18,7 +18,7 @@ function SidebarOption({ text, Icon }) {
     <div
       onClick={handleClick}
       /* remove/hide Profile Icon if Guest is logged in. */
-      className={`sidebarBtn group ${
+      className={`sidebarBtn group /w-min   ${
         text === "Profile" && userGuest && "hidden"
       }`}
     >
