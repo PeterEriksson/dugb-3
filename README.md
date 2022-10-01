@@ -90,6 +90,8 @@ The project is built for educational purposes. It is only being used by a small 
    - if a user is edited (for example user has updated his userImage) add cloud function that handles updating user's info in posts/lists/comments
 - Dark/light mode toggle button
    - Find colour palette for dark mode
+- Paginate posts data
+   - check: https://www.youtube.com/watch?v=poqTHxtDXwU
 
 ## Author
 
