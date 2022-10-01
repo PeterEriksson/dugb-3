@@ -27,7 +27,6 @@ function Sidebar({ children }) {
     setUser,
     loadingNotific,
     setElementIdToScrollTo,
-
     setProfile,
     setSearchOk,
   } = useContext(Context);
@@ -59,7 +58,6 @@ function Sidebar({ children }) {
           aria-label="entire-app-loggedIn-container"
           className="flex /justify-center      /flex-row max-w-6xl w-full mx-auto"
         >
-          {/* <div className="flex /flex-row /max-w-6xl /w-full"> */}
           <div
             aria-label="SIDEBAR-OUTER-CONTAINER"
             className="/bg-red-500  h-screen font-mainFontHelv sm:px-4   sm:pt-2  border-grayish sticky top-0 z-50"
@@ -69,42 +67,27 @@ function Sidebar({ children }) {
               className="flex flex-col /bg-green-400 space-y-2 sm:space-y-4"
             >
               <LazyLoadImage
+                aria-aria-label="COD-IMAGE"
                 onClick={handleHomeClick}
                 className="    (smaller/larger👉) h-12 mx-1 sm:mx-0 mt-2 sm:mt-0 object-contain          sm:object-cover sm:h-16 shadow-lg cursor-pointer"
                 alt=""
                 src="https://i.pinimg.com/236x/b4/7f/6c/b47f6c1f5324411fb9a3c8d730b93ece.jpg"
               />
-
-              <div onClick={handleHomeClick} className={`sidebarBtn group`}>
-                <HomeIcon
-                  className={`icon ${asPath === "/" && "text-blueish"}`}
-                />
-                <a
-                  className={`iconText hidden smallerTest:inline-flex ${
-                    asPath === "/" && "text-blueish"
-                  }`}
-                >
-                  Home
-                </a>
-              </div>
-              <SidebarOption text="Profile" Icon={UserIcon} />
+              <SidebarOption text="Home" Icon={HomeIcon} />
+              {!userGuest && <SidebarOption text="Profile" Icon={UserIcon} />}
               <SidebarOption text="Search" Icon={SearchIcon} />
               <SidebarOption text="Lists" Icon={ClipboardListIcon} />
-
               {!userGuest && <SidebarNotificationOption />}
-
               <SidebarOption text="Loadouts" Icon={GiftIcon} />
               <SidebarOption text="About" Icon={InformationCircleIcon} />
-              <div onClick={() => handleLogout()} className="sidebarBtn group">
-                <LogoutIcon className="icon" />
-                <p className="iconText hidden smallerTest:inline-flex">
-                  Log out
-                </p>
-              </div>
+              <SidebarOption
+                text="Log out"
+                Icon={LogoutIcon}
+                handleLogout={handleLogout}
+              />
             </div>
           </div>
           {children}
-          {/* </div> */}
         </div>
       ) : (
         /*  user/guest has not logged in -> */
