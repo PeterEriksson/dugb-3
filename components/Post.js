@@ -158,7 +158,7 @@ const Post = forwardRef(({ item }, ref) => {
     <div
       id={item.postId}
       ref={ref}
-      className={`flex flex-col w-full pb-3 font-mainFontHelv border-b border-gray-300  `}
+      className={`flex flex-col w-full font-mainFontHelv border-b border-gray-300  `}
     >
       {/*MODAL TO DISPLAY LIKES */}
       <Modal
@@ -200,7 +200,7 @@ const Post = forwardRef(({ item }, ref) => {
               elementIdToScrollTo == item.postId &&
               !loadingNotific &&
               styles.animateHighlight
-            }          `}
+            }      pb-3    `}
           >
             {/* DIV FOR NAME USERNAME + TIMESTAMP */}
             <div className="flex w-11/12  flex-grow mt-2.5 ml-1   ">
