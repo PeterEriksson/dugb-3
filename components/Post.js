@@ -202,6 +202,7 @@ const Post = forwardRef(({ item }, ref) => {
               styles.animateHighlight
             }          `}
           >
+            {/* DIV FOR NAME USERNAME + TIMESTAMP */}
             <div className="flex w-11/12 flex-grow mt-2.5 ml-1 ">
               <img
                 className="w-8 h-8 ml-5 mt-2 rounded-full object-cover"
@@ -225,7 +226,7 @@ const Post = forwardRef(({ item }, ref) => {
                 </p>
               </div>
             </div>
-            <p className=" -mt-1.5 /mr-5 pr-6  ml-postPrimaryDivSpacing ">
+            <p className=" -mt-1.5 //mr-5 pr-6  ml-postPrimaryDivSpacing ">
               {item.postText}
             </p>
             <img
@@ -234,7 +235,7 @@ const Post = forwardRef(({ item }, ref) => {
               alt=""
             />
             {/* DIV FOR ICONS ON BOTTOM OF (main)POST */}
-            <div className="flex items-center mt-5 justify-between      ml-postPrimaryDivSpacing /mr-6 pr-6  w-5/6 mx-auto pb-2 ">
+            <div className="flex items-center mt-5 justify-between   postDivAlignTemp       pb-2 ">
               <div
                 onClick={handleOnChatIconClick}
                 className="flex items-center space-x-1.5 cursor-pointer  transform transition duration-100 ease-in hover:scale-110"
@@ -289,8 +290,8 @@ const Post = forwardRef(({ item }, ref) => {
               </div>
             </div>
 
-            {/* COMMENT BOX LOGIC */}
-            <div className=" ml-postPrimaryDivSpacing /mr-6 pr-6 w-5/6 mx-auto  ">
+            {/* COMMENT BOX */}
+            <div className="postDivAlignTemp   ">
               <form
                 onSubmit={handleSubmitComment}
                 className={`mt-1 flex space-x-2 /w-10/12 /mx-auto     ${
@@ -323,7 +324,6 @@ const Post = forwardRef(({ item }, ref) => {
                   Submit
                 </button>
               </form>
-              {/* )} */}
             </div>
             {/* --- */}
           </div>
@@ -333,8 +333,8 @@ const Post = forwardRef(({ item }, ref) => {
       {/* COMMENT SECTION */}
       {/* Blue line that is connecting comments -> (look at swtv comments, img + line wrapped in div, name plus text wrapped in div) */}
       {comments?.length > 0 && (
-        <section className="flex /w-5/6 /mx-auto   ml-postPrimaryDivSpacing /mr-6 pr-6 w-5/6 mx-auto ">
-          <div className="my-2 /mt-2.5 max-h-44 space-y-5 overflow-y-scroll border-t w-full border-gray-100 py-4 px-2  ">
+        <section className="flex   postDivAlignTemp   ">
+          <div className="my-2  max-h-44 space-y-5 overflow-y-scroll border-t w-full border-gray-100 py-4 px-2  ">
             {comments.map((comment, i) => (
               <PostComment
                 key={comment.commentId}

@@ -21,4 +21,11 @@
   .profileEditIconEffects {
     @apply ml-3 group-hover:opacity-100 opacity-0 transition duration-150 ease-in;
   }
+
+  .postDivAlignTemp {
+    @apply ml-postPrimaryDivSpacing pr-6 w-5/6 mx-auto;
+  }
+  /* .postDivAlignTemp {
+    @apply w-5/6 mx-auto ml-postPrimaryDivSpacing;
+  } */
 }
