@@ -79,7 +79,6 @@ The project is built for educational purposes. It is only being used by a small 
 - In profile page see trend for k/d. ↘ or ↗ or  ➡️. Ok ✅
 - Personal notification after being reviewed by another player OR when a player has updated his ***favorite saying*** 
 - Come up with a better design for lists
-- Refactor SidebarOption(lives in Siebar), pass props that determine which functions should be called inside SidebarOption. -> Cleaner code inside Sidebar
 - Come up with what Loadouts page should be
 - Automatic scroll down to the corresponding post/list when user clicks on a notification + css animation highlighting the corresponding post. Ok ✅ 
 - Comments on Posts? Ok ✅
