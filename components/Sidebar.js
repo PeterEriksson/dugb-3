@@ -10,40 +10,17 @@ import {
   HomeIcon,
 } from "@heroicons/react/outline";
 import { useRouter } from "next/router";
-import router from "next/router";
 import SidebarOption from "./SidebarOption";
 import { useContext } from "react";
 import { Context } from "../Context";
 import Login from "./Login";
-import { auth } from "../firebase";
 import SidebarNotificationOption from "./SidebarNotificationOption";
 
 function Sidebar({ children }) {
-  const { asPath } = useRouter();
-  const {
-    userGuest,
-    setUserGuest,
-    user,
-    setUser,
-    loadingNotific,
-    setElementIdToScrollTo,
-    setProfile,
-    setSearchOk,
-  } = useContext(Context);
+  const { userGuest, user, loadingNotific, setElementIdToScrollTo } =
+    useContext(Context);
 
   const router = useRouter();
-
-  const handleLogout = () => {
-    if (loadingNotific) return;
-    setElementIdToScrollTo("");
-    userGuest && setUserGuest(false);
-
-    router.push("/");
-    auth?.signOut();
-    setUser(null);
-    setProfile(null);
-    setSearchOk(false);
-  };
 
   const handleHomeClick = () => {
     if (loadingNotific) return;
@@ -80,11 +57,7 @@ function Sidebar({ children }) {
               {!userGuest && <SidebarNotificationOption />}
               <SidebarOption text="Loadouts" Icon={GiftIcon} />
               <SidebarOption text="About" Icon={InformationCircleIcon} />
-              <SidebarOption
-                text="Log out"
-                Icon={LogoutIcon}
-                handleLogout={handleLogout}
-              />
+              <SidebarOption text="Log out" Icon={LogoutIcon} handleLogout />
             </div>
           </div>
           {children}

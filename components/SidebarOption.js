@@ -19,6 +19,7 @@ function SidebarOption({ text, Icon, handleLogout }) {
   const handleClick = () => {
     if (loadingNotific) return;
     setElementIdToScrollTo("");
+
     if (handleLogout) {
       userGuest && setUserGuest(false);
       router.push("/");

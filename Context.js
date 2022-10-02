@@ -60,6 +60,7 @@ function ContextProvider({ children }) {
     const unsubscribe = db
       .collection("posts")
       .orderBy("timestamp", "desc")
+      /* .limit(3) */
       .onSnapshot((snapshot) =>
         setPosts(
           snapshot.docs.map((doc) => ({ ...doc.data(), postId: doc.id }))
