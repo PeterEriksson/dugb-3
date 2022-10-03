@@ -48,6 +48,7 @@ module.exports = {
       },
       minWidth: {
         "min-width": "fit-content",
+        widgetsMinWidth: "270px",
       },
       maxWidth: {
         detailsAboutLogin: "285px",

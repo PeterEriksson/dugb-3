@@ -140,9 +140,14 @@ function Profile() {
   };
 
   const handleUpdateData = () => {
-    /* e.preventDefault(); */
+    //Don't have to call Firestore IF we don't need to update kd or wins.
+    if (
+      Number(profile?.kdRatio.toFixed(4)) ==
+        Number(userInfo.lastKd.toFixed(4)) &&
+      profile?.wins == userInfo.lastWins
+    )
+      return;
 
-    /* ok */
     db.collection("users")
       .doc(users.find((item) => item.displayName === user?.displayName).id)
       .set({
@@ -181,6 +186,7 @@ function Profile() {
                   {Number(profile?.kdRatio).toFixed(4)}
                 </p>
                 <p className={`font-light ml-2    `}>
+                  {/* IF KD EQUALS LASTKD -> display gray arrow forward */}
                   {Number(profile?.kdRatio.toFixed(4)) ==
                     Number(userInfo.lastKd.toFixed(4)) && (
                     <ArrowCircleUpIcon className="w-5 h-5 ml-0.5 rotate-90 text-gray-500  " />
@@ -226,19 +232,14 @@ function Profile() {
                     </p>
                   </div>
                 )}
-                {/* WINS CAN'T GO DOWN SO NO NEED TO DISPLAY THE RED ARROW...(as in k/d) */}
               </div>
 
-              {/* old wins */}
-              {/*  <div className="flex">
-                <h3 className="font-semibold">Wins:&nbsp;</h3>
-                <p className="font-light">{profile?.wins}</p>
-              </div> */}
-              {/* end of old wins info div */}
-              <div className="flex">
+              {/* TOP FIVE */}
+              {/* <div className="flex">
                 <h3 className="font-semibold">Top five:&nbsp;</h3>
                 <p className="font-light">{profile?.topFive}</p>
-              </div>
+              </div> */}
+              {/* CLANS */}
               <div className="flex items-center group">
                 <h3 className="font-semibold">Clans:&nbsp;</h3>
                 <p className="font-light">...</p>
