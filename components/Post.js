@@ -202,8 +202,8 @@ const Post = forwardRef(({ item }, ref) => {
               styles.animateHighlight
             }      pb-3    `}
           >
-            {/* DIV FOR NAME USERNAME + TIMESTAMP */}
-            <div className="flex w-11/12  flex-grow mt-2.5 ml-1   ">
+            {/* DIV FOR IMG NAME USERNAME + TIMESTAMP */}
+            <div className="flex w-11/12  flex-grow xs:mt-2.5 mt-1 ml-1   ">
               <img
                 className="w-8 h-8 ml-5 mt-2 rounded-full object-cover"
                 src={item.avatar}
@@ -211,9 +211,11 @@ const Post = forwardRef(({ item }, ref) => {
               />
               <div className="flex /ml-5 ml-3 items-center w-full ">
                 {/* fullName + shield + userName */}
-                <p className="font-bold ">{item.fullName}</p>
+                <p className="font-bold  xs:text-base text-sm">
+                  {item.fullName}
+                </p>
                 <ShieldCheckIcon className="h-4 w-4 text-blueish " />
-                <p className="text-sm  text-gray-400 ">@{item.userName}</p>
+                <p className=" text-gray-400 text-sm">@{item.userName}</p>
 
                 <p className="text-gray-300 cursor-default text-xs ml-auto hidden widthForShowDate:inline ">
                   {item.timestamp?.toDate().toLocaleDateString()}
@@ -226,7 +228,7 @@ const Post = forwardRef(({ item }, ref) => {
                 </p>
               </div>
             </div>
-            <p className=" -mt-1.5 //mr-5 pr-6  ml-postPrimaryDivSpacing ">
+            <p className=" -mt-1.5  pr-6  ml-postPrimaryDivSpacing  xs:text-base text-sm">
               {item.postText}
             </p>
             <img
@@ -235,7 +237,7 @@ const Post = forwardRef(({ item }, ref) => {
               alt=""
             />
             {/* DIV FOR ICONS ON BOTTOM OF (main)POST */}
-            <div className="flex items-center mt-5 justify-between   postDivAlignTemp    ">
+            <div className="flex items-center xs:mt-4 mt-2 justify-between   postDivAlignTemp    ">
               <div
                 onClick={handleOnChatIconClick}
                 className="flex items-center space-x-1.5 cursor-pointer  transform transition duration-100 ease-in hover:scale-110"

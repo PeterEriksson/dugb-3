@@ -44,7 +44,7 @@ function Sidebar({ children }) {
               className="flex flex-col /bg-green-400 space-y-2 sm:space-y-4"
             >
               <LazyLoadImage
-                aria-aria-label="COD-IMAGE ON TOP OF SIDEBAR"
+                aria-label="COD-IMAGE ON TOP OF SIDEBAR"
                 onClick={handleHomeClick}
                 className="    (smaller/larger👉) h-12 mx-1 sm:mx-0 mt-2 sm:mt-0 object-contain          sm:object-cover sm:h-16 shadow-lg cursor-pointer"
                 alt=""

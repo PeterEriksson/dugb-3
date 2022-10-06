@@ -33,8 +33,10 @@ function PostComment({
       <div className="flex-1">
         <div className="flex items-center justify-between /space-x-1 ">
           <div className="flex items-center">
-            <p className="mr-1 font-semibold text-sm">{fullName}</p>
-            <p className="text-sm text-gray-500 ">@{userName}</p>
+            <p className="mr-1 font-semibold xs:text-base text-sm">
+              {fullName}
+            </p>
+            <p className="text-gray-400 text-sm">@{userName}</p>
           </div>
           <Moment fromNow className="text-sm text-gray-500 hidden lg:inline">
             {timestamp?.toDate()}

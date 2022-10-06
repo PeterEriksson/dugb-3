@@ -42,7 +42,7 @@ function Tweetbox() {
 
   return (
     <div className="w-full font-mainFontHelv border-t border-grayish flex flex-col ">
-      <div className="flex w-11/12  mb-3 flex-grow space-x-4 py-8 ml-6">
+      <div className="flex w-11/12  mb-3 flex-grow space-x-4 xs:py-8 py-6 ml-6">
         <img
           className="w-9 h-8 rounded-full object-cover"
           src={` ${userGuest ? `${tempGuest?.avatar}` : `${user?.photoURL}`}  `}
@@ -54,7 +54,7 @@ function Tweetbox() {
           id=""
           cols=""
           rows=""
-          className="w-full text-xl  focus:ring-transparent font-light border-none outline-none resize-none"
+          className="w-full /text-xl xs:text-xl text-base focus:ring-transparent font-light border-none outline-none resize-none"
           type="text"
           placeholder={`${
             userGuest
@@ -69,7 +69,7 @@ function Tweetbox() {
           value={postImg}
           onChange={(e) => setPostImg(e.target.value)}
           type="text"
-          className=" ml-20 focus:ring-gray-600 focus:border-gray-600  w-40 sm:text-xs border-gray-200 rounded-md"
+          className=" ml-20 focus:ring-gray-600 focus:border-gray-600  w-40 text-xs border-gray-200 rounded-md"
           placeholder="optional: enter img url"
         />
         <p
@@ -86,11 +86,12 @@ function Tweetbox() {
       <button
         onClick={(e) => handleNewPost(e)}
         disabled={!postText.trim() || userGuest}
-        className="py-3 w-32 mx-auto px-6 cursor-pointer mb-3 hover:bg-hoverBluish transition transform duration-100 bg-blueish rounded-full"
+        className="xs:py-3 py-2.5 mx-auto px-9 xs:px-12 cursor-pointer mb-3 hover:bg-hoverBluish transition transform duration-100 bg-blueish rounded-full"
       >
         <p className="text-white text-sm">Post</p>
       </button>
 
+      {/* LARGE GRAY BORDER SEPERATING TWEETBOX AND FEED  */}
       <div className="bg-grayish h-2 w-full" />
     </div>
   );
