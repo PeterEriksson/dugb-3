@@ -263,12 +263,12 @@ const Post = forwardRef(({ item }, ref) => {
 
               {/* div for FireIcon + nr of likes */}
               <div
-                onClick={handleLikePost}
-                className={` flex group items-center   cursor-pointer  `}
+                /*  onClick={handleLikePost} */
+                className={` flex   items-center  group   relative   mr-2 `}
               >
-                <div className="flex  items-center justify-center group-hover:bg-orangeHover w-7 py-1 rounded-full ">
-                  <FireIcon
-                    className={`postIcon
+                <FireIcon
+                  onClick={handleLikePost}
+                  className={`postIcon  transform transition duration-125 ease-in hover:!text-red-900  cursor-pointer
 
                     ${userHasNotLikedPost() ? "text-gray-800" : "text-orange"}
                     ${
@@ -277,15 +277,17 @@ const Post = forwardRef(({ item }, ref) => {
                       styles.animateFireIcon
                     }
                     
-                       group-hover:bg-orangeHover group-hover:text-orange `}
-                  />
-                </div>
+                   `}
+                />
+
                 <p
                   className={`${
-                    userHasNotLikedPost() ? "text-gray-800" : "text-orange"
-                  } text-xs font-extralight group-hover:text-orange cursor-pointer ${
+                    userHasNotLikedPost()
+                      ? "text-gray-800 hover:!text-gray-800"
+                      : "text-orange hover:!text-orange"
+                  } text-sm font-extralight cursor-default  ${
                     postLikes.length === 0 && "opacity-0"
-                  }`}
+                  }  absolute left-5  group-hover:text-red-900`}
                 >
                   {postLikes.length}
                 </p>

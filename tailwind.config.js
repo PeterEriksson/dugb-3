@@ -62,6 +62,9 @@ module.exports = {
       height: {
         18: "76px",
       },
+      transitionDuration: {
+        125: "125ms",
+      },
     },
   },
   variants: {

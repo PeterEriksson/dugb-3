@@ -39,6 +39,7 @@
   }
   65% {
     /*  transform: scale(1.45); */
+
     color: red;
     transform: rotate(14deg);
   }
