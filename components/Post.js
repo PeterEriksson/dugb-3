@@ -268,7 +268,7 @@ const Post = forwardRef(({ item }, ref) => {
               >
                 <FireIcon
                   onClick={handleLikePost}
-                  className={`postIcon  transform transition duration-125 ease-in hover:!text-red-900  cursor-pointer
+                  className={`postIcon  transform transition duration-125 ease-in group-hover:!text-red-900  cursor-pointer
 
                     ${userHasNotLikedPost() ? "text-gray-800" : "text-orange"}
                     ${
@@ -281,21 +281,18 @@ const Post = forwardRef(({ item }, ref) => {
                 />
 
                 <p
+                  onClick={handleLikePost}
                   className={`${
-                    userHasNotLikedPost()
-                      ? "text-gray-800 hover:!text-gray-800"
-                      : "text-orange hover:!text-orange"
-                  } text-sm font-extralight cursor-default  ${
-                    postLikes.length === 0 && "opacity-0"
-                  }  absolute left-5  group-hover:text-red-900`}
+                    userHasNotLikedPost() ? "text-gray-800 " : "text-orange "
+                  } text-sm font-extralight cursor-pointer   absolute pl-5  group-hover:!text-red-900     transform transition duration-125 `}
                 >
-                  {postLikes.length}
+                  {postLikes.length > 0 && postLikes.length}
                 </p>
               </div>
             </div>
 
             {/* COMMENT BOX */}
-            <div className="postDivAlignTemp   ">
+            <div className="postDivAlignTemp  pt-1 ">
               <form
                 onSubmit={handleSubmitComment}
                 className={`mt-2 flex space-x-2 /w-10/12 /mx-auto     ${
