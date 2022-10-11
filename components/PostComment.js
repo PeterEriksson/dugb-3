@@ -38,7 +38,7 @@ function PostComment({
             </p>
             <p className="text-gray-400 text-sm">@{userName}</p>
           </div>
-          <Moment fromNow className="text-sm text-gray-500 hidden lg:inline">
+          <Moment fromNow className="text-xs text-gray-300 hidden lg:inline">
             {timestamp?.toDate()}
           </Moment>
         </div>

@@ -56,3 +56,139 @@
 }
 
 /* ------------------------------------ */
+
+.balloonsParent {
+  position: absolute;
+  display: flex;
+  /* background-color: red; */
+  width: 100%;
+  justify-content: space-between;
+}
+
+.postCelebColors {
+  animation: postCelebrationColorsEffect 6s ease-in-out /* infinite */ forwards;
+}
+/* @keyframes postCelebrationColorsEffect {
+  20% {
+    background-color: rgb(211, 87, 87, 0.3);
+  }
+  40% {
+    background-color: rgba(128, 157, 209, 0.3);
+  }
+  60% {
+    background-color: rgba(201, 186, 55, 0.3);
+  }
+  80% {
+    background-color: rgba(106, 190, 124, 0.3);
+  }
+  100% {
+    background-color: white;
+  }
+} */
+
+.balloon {
+  display: inline-block;
+  width: 55px;
+  height: 40px;
+  background: hsl(215, 50%, 65%);
+  border-radius: 80%;
+  position: relative;
+  box-shadow: inset -10px -10px 0 rgba(0, 0, 0, 0.07);
+
+  transition: transform 0.5s ease;
+  z-index: 10;
+  animation: balloons 6s ease-in-out forwards;
+  transform-origin: bottom center;
+
+  /* margin: 35px 5px 0 5px; */
+  margin: 60px 5px 0 5px;
+}
+
+@keyframes balloons {
+  0%,
+  50%
+  /* 100% */ {
+    transform: translateY(0) rotate(-4deg);
+  }
+  25%,
+  75% {
+    transform: translateY(-25px) rotate(4deg);
+  }
+  100% {
+    transform: scale(0.8);
+  }
+}
+
+/* @keyframes balloons {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-4deg);
+  }
+  50% {
+    transform: translateY(-25px) rotate(4deg);
+  }
+} */
+
+.balloon:before {
+  content: "▲";
+  font-size: 20px;
+  color: hsl(215, 30%, 50%);
+  display: block;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  bottom: -12px;
+  z-index: -100;
+}
+
+.balloon:after {
+  display: inline-block;
+  position: absolute;
+
+  width: 1px;
+  margin: 0 auto;
+  content: "";
+  background: rgba(0, 0, 0, 0.2);
+  /* top: 48px; */
+  top: 42px;
+  height: 15px;
+  right: 27px;
+
+  /* stretch out the thin line */
+  /* padding-bottom: 8px; */
+  padding-bottom: 25px;
+}
+
+.balloon:nth-child(2) {
+  background: hsl(245, 40%, 65%);
+  animation-duration: 3.5s;
+
+  margin-top: 75px;
+}
+.balloon:nth-child(2):before {
+  color: hsl(245, 40%, 65%);
+}
+
+.balloon:nth-child(3) {
+  background: hsl(139, 50%, 60%);
+  animation-duration: 3s;
+}
+.balloon:nth-child(3):before {
+  color: hsl(139, 30%, 50%);
+}
+
+.balloon:nth-child(4) {
+  background: hsl(59, 50%, 58%);
+  animation-duration: 4.5s;
+}
+.balloon:nth-child(4):before {
+  color: hsl(59, 30%, 52%);
+}
+
+.balloon:nth-child(5) {
+  background: hsl(23, 55%, 57%);
+  animation-duration: 5s;
+}
+.balloon:nth-child(5):before {
+  color: hsl(23, 44%, 46%);
+}

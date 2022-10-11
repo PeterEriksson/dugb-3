@@ -72,11 +72,11 @@ exports.createNotificationOnPost = functions.firestore
     /* const newValue = snap.data(); */
     const postText = snap.data().postText;
     const postAuthor = snap.data().userName;
-
     const postAuthorAvatar = snap.data().avatar;
     const postTimestamp = snap.data().timestamp;
-
     const postId = context.params.postId;
+
+    const postIsRewardPost = snap.data().isRewardPost;
 
     /* get hold of postAuthors uid. ok....but --> */
     /* const postAuthorUid = usersData.docs.find(
@@ -91,7 +91,11 @@ exports.createNotificationOnPost = functions.firestore
       : null;
 
     const notificationContent = {
-      message: `${postAuthor} has posted`,
+      message: `${
+        postIsRewardPost
+          ? postAuthor + " has new stats!"
+          : postAuthor + " has posted"
+      }   `,
       text: postText,
       avatar: postAuthorAvatar, //delete for emu-testing
       timestamp: postTimestamp, //delete for emu-testing

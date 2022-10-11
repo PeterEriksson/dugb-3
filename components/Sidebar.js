@@ -50,7 +50,7 @@ function Sidebar({ children }) {
                 alt=""
                 src="https://i.pinimg.com/236x/b4/7f/6c/b47f6c1f5324411fb9a3c8d730b93ece.jpg"
               />
-              <SidebarOption text="Home" Icon={HomeIcon} />
+              <SidebarOption isHome text="Home" Icon={HomeIcon} />
               {!userGuest && <SidebarOption text="Profile" Icon={UserIcon} />}
               <SidebarOption text="Search" Icon={SearchIcon} />
               <SidebarOption text="Lists" Icon={ClipboardListIcon} />

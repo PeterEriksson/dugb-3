@@ -11,6 +11,7 @@ import { Context } from "../Context";
 import { db } from "../firebase";
 import LoadingSpinner from "./LoadingSpinner";
 import styles from "../styles/effects.module.css";
+import firebase from "firebase";
 
 function Profile() {
   /* TEMP TEST THIS SOLUTION -> SAVE API CALLS */
@@ -148,14 +149,46 @@ function Profile() {
     )
       return;
 
-    db.collection("users")
-      .doc(users.find((item) => item.displayName === user?.displayName).id)
-      .set({
-        ...userInfo,
-        lastKd: profile?.kdRatio,
-        lastWins: profile?.wins,
-      });
-    /* try react hot toast for notifyhing the user what happened */
+    /* if there are new wins we want to create a rewardPost AND update user stats */
+    if (profile?.wins > userInfo.lastWins) {
+      db.collection("posts")
+        .add({
+          isRewardPost: true,
+          avatar: userInfo.profileAvatar,
+          fullName: users.find((item) => item.displayName === user?.displayName)
+            .fullName,
+          userName: user?.displayName,
+          postText:
+            "We at DHGB would like to extend our warmest congratulations. Well done!",
+          postImg:
+            "https://i.pinimg.com/736x/99/e7/55/99e755bcd84c42a684c7f23a8679340e.jpg",
+          timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+          newWinsAmount: profile?.wins - userInfo.lastWins,
+        })
+        .then(() => {
+          db.collection("users")
+            .doc(
+              users.find((item) => item.displayName === user?.displayName).id
+            )
+            .set({
+              ...userInfo,
+              lastKd: profile?.kdRatio,
+              lastWins: profile?.wins,
+            });
+        });
+    } else {
+      /* else, just update the user with new stats */
+      db.collection("users")
+        .doc(users.find((item) => item.displayName === user?.displayName).id)
+        .set({
+          ...userInfo,
+          lastKd: profile?.kdRatio,
+          lastWins: profile?.wins,
+        });
+    }
+
+    /* try react hot toast for notifyhing the user what happened. Use Timeout and 
+    extend the loading time */
   };
 
   return (
