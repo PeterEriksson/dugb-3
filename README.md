@@ -86,12 +86,14 @@ The project is built for educational purposes. It is only being used by a small 
 - Make the mobile screen size more user firendly
 - Upgrade Firebase version so that we can install firebase-hooks in order to render loading indicator while verifying user.
 - Error in the console when refreshing the site on the profile page
+   - Refactor spaghetti code on profile-page and search-page
 - Add feature to edit user's info. 
    - if a user is edited (for example user has updated his userImage) add cloud function that handles updating user's info in posts/lists/comments
 - Dark/light mode toggle button
    - Find colour palette for dark mode
 - Paginate posts data
-   - check: https://www.youtube.com/watch?v=poqTHxtDXwU
+- Add a special celebration Post when a user has a new win. Ok ✅
+
 
 ## Author
 
