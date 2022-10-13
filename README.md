@@ -49,7 +49,8 @@ The project is built for educational purposes. It is only being used by a small 
 
 ## Screenshots
 #### Home page 
- ![homePage2](https://user-images.githubusercontent.com/17027312/149806666-d75845c1-04a8-4405-9bd2-ab15e731d3ab.png)
+ ![Home1](https://user-images.githubusercontent.com/17027312/195621196-c50bf266-befe-4f28-a55a-1b911f11b7ff.png)
+ ![Home 2](https://user-images.githubusercontent.com/17027312/195621252-b3579a62-006e-4cb0-a087-dceb2ab4cc01.png)
  
  #### Post liked by (when pressing information button)
  ![likedBy2](https://user-images.githubusercontent.com/17027312/149806642-3f404397-e5bc-4547-be1b-df34f7dda977.png)
