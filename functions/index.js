@@ -93,16 +93,17 @@ exports.createNotificationOnPost = functions.firestore
     const notificationContent = {
       message: `${
         postIsRewardPost
-          ? postAuthor + " has new stats!"
+          ? postAuthor + " has new stats🥳"
           : postAuthor + " has posted"
       }   `,
-      text: postText,
+      text: postIsRewardPost ? "Go check it out!" : postText,
       avatar: postAuthorAvatar, //delete for emu-testing
       timestamp: postTimestamp, //delete for emu-testing
       /* New. add 👇, for the user to be able to nav to that location */
       typeLocation: "/",
       hasSeen: false,
       idToScrollTo: postId,
+      isRewardNotification: postIsRewardPost ? true : false,
     };
 
     // WARNING: Limited to 500 writes at once. - not a problem for now lol.

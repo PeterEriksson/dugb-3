@@ -36,7 +36,9 @@ function PostComment({
             <p className="mr-1 font-semibold xs:text-base text-sm">
               {fullName}
             </p>
-            <p className="text-gray-400 text-sm">@{userName}</p>
+            <p className="text-gray-400 text-sm   hidden xs:inline">
+              @{userName}
+            </p>
           </div>
           <Moment fromNow className="text-xs text-gray-300 hidden lg:inline">
             {timestamp?.toDate()}

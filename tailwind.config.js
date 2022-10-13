@@ -55,6 +55,8 @@ module.exports = {
         notificationHeader: "190px",
         notificationText: "175px",
         profileAvatar: "170px",
+        /* postImageTest: "222px", */
+        postImageTest: "70%",
       },
       fontSize: {
         verySmall: "11px",

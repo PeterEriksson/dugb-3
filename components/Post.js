@@ -213,14 +213,14 @@ const Post = forwardRef(({ item }, ref) => {
               }      pb-3    `}
             >
               {/* DIV FOR PROFILE-IMG, USERNAME + TIMESTAMP */}
-              <div className="flex w-11/12  flex-grow xs:mt-2.5 mt-1 ml-1   ">
+              <div className="flex w-11/12  flex-grow mt-2.5 ml-1   ">
                 <img
                   className="w-8 h-8  ml-5 mt-2 rounded-full object-cover"
                   src={item.avatar}
                   alt=""
                 />
                 <div className="flex /ml-5 ml-3 items-center w-full ">
-                  <p className=" font-bold text-base">
+                  <p className=" font-bold xs:text-base text-sm">
                     {item.userName} has {item.newWinsAmount} new win
                     {item.newWinsAmount > 1 && "s"} on Caldera!
                   </p>
@@ -236,12 +236,12 @@ const Post = forwardRef(({ item }, ref) => {
                   </p>
                 </div>
               </div>
-              {/* POSTTEXT + POST-IMAGE */}
+              {/* POSTTEXT + POST-IMAGE (isRewardPost) */}
               <p className=" -mt-1.5  pr-6  ml-postPrimaryDivSpacing  xs:text-base text-sm font-light">
                 {item.postText}
               </p>
               <img
-                className="rounded-lg max-w-xs ml-postPrimaryDivSpacing mt-3"
+                className="rounded-lg xs:max-w-xs ml-postPrimaryDivSpacing mt-3   max-w-postImageTest  "
                 src={item?.postImg}
                 alt=""
               />
@@ -273,7 +273,7 @@ const Post = forwardRef(({ item }, ref) => {
                 {/* div for FireIcon + nr of likes */}
                 <div
                   /*  onClick={handleLikePost} */
-                  className={` flex   items-center  group   relative   mr-2 `}
+                  className={` flex items-center group relative  /mr-2 mr-4 xs:mr-0 `}
                 >
                   <FireIcon
                     onClick={handleLikePost}
@@ -427,7 +427,9 @@ const Post = forwardRef(({ item }, ref) => {
                   {item.fullName}
                 </p>
                 <ShieldCheckIcon className="h-4 w-4 text-blueish " />
-                <p className=" text-gray-400 text-sm">@{item.userName}</p>
+                <p className=" text-gray-400 xs:text-sm  text-xs">
+                  @{item.userName}
+                </p>
 
                 <p className="text-gray-300 cursor-default text-xs ml-auto hidden widthForShowDate:inline ">
                   {item.timestamp?.toDate().toLocaleDateString()}
@@ -444,7 +446,7 @@ const Post = forwardRef(({ item }, ref) => {
               {item.postText}
             </p>
             <img
-              className="rounded-lg max-w-xs ml-postPrimaryDivSpacing mt-3"
+              className="rounded-lg xs:max-w-xs ml-postPrimaryDivSpacing mt-3 max-w-postImageTest"
               src={item?.postImg}
               alt=""
             />
@@ -476,7 +478,7 @@ const Post = forwardRef(({ item }, ref) => {
               {/* div for FireIcon + nr of likes */}
               <div
                 /*  onClick={handleLikePost} */
-                className={` flex   items-center  group   relative   mr-2 `}
+                className={` flex items-center group relative   /mr-2 mr-4 xs:mr-0  `}
               >
                 <FireIcon
                   onClick={handleLikePost}
@@ -543,7 +545,7 @@ const Post = forwardRef(({ item }, ref) => {
         )}
       </InView>
 
-      {/* COMMENT SECTION */}
+      {/* COMMENTS SECTION */}
       {/* Blue line that is connecting comments -> (look at swtv comments, img + line wrapped in div, name plus text wrapped in div) */}
       {comments?.length > 0 && (
         <section className="flex   postDivAlignTemp   ">

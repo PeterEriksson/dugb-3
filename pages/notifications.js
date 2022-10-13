@@ -43,6 +43,7 @@ function notifications() {
           notifications={notifications}
           notification={item}
           idToScrollTo={item.idToScrollTo}
+          isRewardNotification={item.isRewardNotification}
         />
       ))}
     </div>

@@ -177,13 +177,13 @@ function Profile() {
             });
         });
     } else {
-      /* else, just update the user with new stats */
+      /* else, just update the user with new kd stats */
       db.collection("users")
         .doc(users.find((item) => item.displayName === user?.displayName).id)
         .set({
           ...userInfo,
           lastKd: profile?.kdRatio,
-          lastWins: profile?.wins,
+          /* lastWins: profile?.wins, */
         });
     }
 

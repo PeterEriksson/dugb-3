@@ -51,7 +51,9 @@ function List() {
                             snapshot.isDragging && "bg-gray-400 z-50"
                           } mb-2 p-3.5 w-52 xs:w-60 rounded-2xl flex space-x-2 items-center group`}
                         >
-                          <p className="sm:mr-10 mr-3">{i + 1}</p>
+                          <p className="sm:mr-8 mr-3 ml-2  opacity-60">
+                            {i + 1}
+                          </p>
                           <img
                             src={profileItem.img}
                             alt="list-profile-image"

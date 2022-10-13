@@ -19,6 +19,7 @@ function Notification({
   notifications,
   notification,
   idToScrollTo,
+  isRewardNotification,
 }) {
   const router = useRouter();
   const { user, setElementIdToScrollTo, elementIdToScrollTo } =
@@ -88,10 +89,14 @@ function Notification({
       />
 
       <div className="flex flex-col ml-3 mr-2">
-        <h3 className="font-semibold text-sm max-w-notificationHeader //bg-red-400 truncate">
+        <h3 className="font-semibold text-sm max-w-notificationHeader   truncate">
           {message}
         </h3>
-        <p className="text-xs font-light max-w-notificationText //bg-blue-400 truncate">
+        <p
+          className={`text-xs font-light max-w-notificationText truncate  ${
+            hasSeen && isRewardNotification && "line-through text-gray-400 "
+          }`}
+        >
           {text}
         </p>
         <Moment fromNow className="font-extralight text-verySmall">
