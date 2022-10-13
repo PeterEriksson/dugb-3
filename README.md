@@ -27,7 +27,6 @@ The project is built for educational purposes. It is only being used by a small 
 - Tailwind Modals
 - Firebase
 - Node.js (writing cloud functions)
-   - For generating personal notifications when a user has posted/liked/created list. Theoratically possible to implement on client side, but after researching the topic I found that cloud functions should be used. 
 - Context api (state management)
 - Netlify (hosting)
 - Rapid api (fetching player statistics)
