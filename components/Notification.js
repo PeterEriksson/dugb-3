@@ -89,13 +89,22 @@ function Notification({
       />
 
       <div className="flex flex-col ml-3 mr-2">
-        <h3 className="font-semibold text-sm max-w-notificationHeader   truncate">
+        <h3
+          className={`font-semibold text-sm /max-w-notificationHeader ${
+            isRewardNotification
+              ? "max-w-notificationHeaderReward"
+              : "max-w-notificationHeader"
+          }  truncate`}
+        >
           {message}
+          {isRewardNotification && "🥳🎈"}
         </h3>
         <p
-          className={`text-xs font-light max-w-notificationText truncate  ${
-            hasSeen && isRewardNotification && "line-through text-gray-400 "
-          }`}
+          className={`text-xs font-light /max-w-notificationText ${
+            isRewardNotification
+              ? "max-w-notificationTextReward"
+              : "max-w-notificationText"
+          } truncate   `}
         >
           {text}
         </p>

@@ -53,7 +53,10 @@ module.exports = {
       maxWidth: {
         detailsAboutLogin: "285px",
         notificationHeader: "190px",
+        notificationHeaderReward: "210px",
         notificationText: "175px",
+        notificationTextReward: "130px",
+
         profileAvatar: "170px",
         /* postImageTest: "222px", */
         postImageTest: "70%",

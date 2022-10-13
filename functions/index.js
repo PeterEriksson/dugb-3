@@ -90,13 +90,18 @@ exports.createNotificationOnPost = functions.firestore
       ? usersData.docs.find((doc) => doc.data().displayName === postAuthor).id
       : null;
 
+    /* get hold of the user's win-stats...not using anymore.. */
+    /* const userWinStats = usersData.docs
+      .find((doc) => doc.data().displayName === postAuthor)
+      .data().lastWins; */
+
     const notificationContent = {
       message: `${
         postIsRewardPost
-          ? postAuthor + " has new stats🥳"
+          ? postAuthor + " has new stats"
           : postAuthor + " has posted"
       }   `,
-      text: postIsRewardPost ? "Go check it out!" : postText,
+      text: postText,
       avatar: postAuthorAvatar, //delete for emu-testing
       timestamp: postTimestamp, //delete for emu-testing
       /* New. add 👇, for the user to be able to nav to that location */
