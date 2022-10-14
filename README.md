@@ -94,6 +94,7 @@ The project is built for educational purposes. It is only being used by a small 
 - Paginate posts data
 - Add a special celebration Post when a user has a new win. Ok ✅
    - Implement same feature but when user has increased(significantly) his k/d
+-Database sanitation (use cloud functions)
 
 
 ## Author
