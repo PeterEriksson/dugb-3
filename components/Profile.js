@@ -158,7 +158,7 @@ function Profile() {
           fullName: users.find((item) => item.displayName === user?.displayName)
             .fullName,
           userName: user?.displayName,
-          postText: `His total wins is now ${profile?.wins}. Congratulations!`,
+          postText: `His total wins on that map is now ${profile?.wins}. Congratulations!`,
           postImg:
             "https://i.pinimg.com/736x/99/e7/55/99e755bcd84c42a684c7f23a8679340e.jpg",
           timestamp: firebase.firestore.FieldValue.serverTimestamp(),

@@ -6,6 +6,7 @@ admin.initializeApp();
 const db = admin.firestore();
 
 /* firebase deploy --only functions */
+/* make sure to cd in to functions */
 
 /* TEST (DON'T use -> user ex further down instead) fcn to get started */
 /* exports.createUserDocument = functions.auth.user().onCreate((user) => {
@@ -349,7 +350,7 @@ exports.deleteNotificationOnPostDelete = functions.firestore
     //get the uids
     const userUids = users.docs.map((item) => item.id);
 
-    //postId same as notificationId👇
+    //assign postId to same as notificationId👇
     const notificationId = context.params.postId;
 
     userUids.forEach(async (uid) => {

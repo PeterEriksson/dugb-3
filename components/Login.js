@@ -13,7 +13,7 @@ function Login() {
     <div className="bg-loginPic bg-cover bg-center h-screen">
       <div className="flex flex-col h-full items-center">
         <h1 className="sm:text-5xl text-2xl mt-10 font-bold text-white tracking-wider">
-          HELIGA GIBBLOCKET 3.0
+          HELIGA GIBBLOCKET
         </h1>
         <h2 className="italic sm:text-xl text-base mt-8 font-normal text-white">
           Statistik, fakta, skvaller

@@ -228,7 +228,7 @@ const Post = forwardRef(({ item }, ref) => {
                   <p className="text-gray-300 cursor-default text-xs ml-auto hidden widthForShowDate:inline ">
                     {item.timestamp?.toDate().toLocaleDateString()}
                   </p>
-                  <p className="text-gray-300 cursor-default text-xs ml-1 hidden widthForShowDate:inline   pr-4">
+                  <p className="text-gray-300 cursor-default text-xs ml-1 hidden widthForShowDate:inline   pr-2">
                     {item.timestamp
                       ?.toDate()
                       .toLocaleTimeString()
@@ -340,10 +340,10 @@ const Post = forwardRef(({ item }, ref) => {
           )}
         </InView>
 
-        {/* COMMENT SECTION */}
+        {/* COMMENT SECTION  */}
         {/* Blue line that is connecting comments -> (look at swtv comments, img + line wrapped in div, name plus text wrapped in div) */}
         {comments?.length > 0 && (
-          <section className="flex   postDivAlignTemp   ">
+          <section className={`flex   postDivAlignTemp  `}>
             <div className="my-2  max-h-44 space-y-5 overflow-y-scroll border-t w-full border-gray-100 py-4 px-2  ">
               {comments.map((comment, i) => (
                 <PostComment
@@ -434,7 +434,7 @@ const Post = forwardRef(({ item }, ref) => {
                 <p className="text-gray-300 cursor-default text-xs ml-auto hidden widthForShowDate:inline ">
                   {item.timestamp?.toDate().toLocaleDateString()}
                 </p>
-                <p className="text-gray-300 cursor-default text-xs ml-1 hidden widthForShowDate:inline   pr-4">
+                <p className="text-gray-300 cursor-default text-xs ml-1 hidden widthForShowDate:inline   pr-2">
                   {item.timestamp
                     ?.toDate()
                     .toLocaleTimeString()
