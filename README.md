@@ -13,8 +13,6 @@ The project is created for educational purposes. It is only being used by a smal
 - [Screenshots](#screenshots)
 - [Todo](#todo)
 - [Author](#author)
-- [Setup](#setup)
-
  
 
 ## Technologies
