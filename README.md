@@ -71,8 +71,8 @@ The project is built for educational purposes. It is only being used by a small 
  #### List create modal
  ![listModal](https://user-images.githubusercontent.com/17027312/149804003-bfda1f3b-efe5-42a0-80de-de01a284651d.png)
 
-#### Login/Register/Guest screen
- ![Login](https://user-images.githubusercontent.com/17027312/149804056-3cd127c9-35be-42cb-a05e-c109e54d99e1.png)
+#### Login screen
+![login2](https://user-images.githubusercontent.com/17027312/196694811-fd299e19-6fe7-48d0-b6b2-e53681b93ce4.png)
 
 
 ## Todo
