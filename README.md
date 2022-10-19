@@ -53,7 +53,8 @@ The project is built for educational purposes. It is only being used by a small 
 ![home2 3](https://user-images.githubusercontent.com/17027312/196687958-8f38d8b3-5d52-4141-84b8-21473fa56946.png)
 
  #### Post liked by (when pressing information button)
- ![likedBy2](https://user-images.githubusercontent.com/17027312/149806642-3f404397-e5bc-4547-be1b-df34f7dda977.png)
+ ![postLikedBy2](https://user-images.githubusercontent.com/17027312/196688375-4125d5e7-807a-4963-8605-570d220252b8.png)
+
  
  #### Notifications page
   ![notification-screenshot](https://user-images.githubusercontent.com/17027312/195619786-d6b11d50-d80a-4de6-a816-95701cae60e1.png)
