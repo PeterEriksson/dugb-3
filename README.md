@@ -57,8 +57,8 @@ The project is built for educational purposes. It is only being used by a small 
 
  
  #### Notifications page
-  ![notification-screenshot](https://user-images.githubusercontent.com/17027312/195619786-d6b11d50-d80a-4de6-a816-95701cae60e1.png)
- 
+ ![notifications2 0](https://user-images.githubusercontent.com/17027312/196689717-03698d3e-9b4f-4823-992c-f3bbc5efc11a.png)
+
  #### Profile page 
  ![profile-benny](https://user-images.githubusercontent.com/17027312/193241554-ff57ab8f-6acb-4ace-b2ab-4abee7ef5249.png)
  
