@@ -4,7 +4,7 @@ Full-stack web app for Call of Duty gamers. Design is inspired by Twitter. Welco
 
 A hobby project built over a longer period of time, constantly implementing new features as I progress in my coding journey.
 
-The project is built for educational purposes. It is only being used by a small group of users.
+The project is created for educational purposes. It is only being used by a small group of users.
 
 ## Table of contents
 
