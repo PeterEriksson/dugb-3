@@ -60,6 +60,7 @@ module.exports = {
         profileAvatar: "170px",
         /* postImageTest: "222px", */
         postImageTest: "70%",
+        avatarField: "80px",
       },
       fontSize: {
         verySmall: "11px",

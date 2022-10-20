@@ -19,37 +19,28 @@
   }
 }
 
+/* ------------------------------------ */
+
 .animateFireIcon {
-  animation-duration: 2.5s;
+  animation-duration: 2.1s;
   animation-name: _fire;
-  animation-fill-mode: forwards;
+  /* animation-fill-mode: forwards; */
 }
 
 @keyframes _fire {
   0% {
-    transform: scale(1);
-    color: red;
+    color: #ff6600;
   }
-  25% {
-    transform: rotate(14deg);
-    /* color: #e76b6b; */
-    color: #380000;
+  20%,
+  60% {
+    transform: rotate(-13deg);
   }
-  45% {
-    transform: rotate(-14deg);
-  }
-  65% {
-    /*  transform: scale(1.45); */
-
-    transform: rotate(14deg);
-  }
-
+  40%,
   80% {
-    transform: rotate(-14deg);
+    transform: rotate(13deg);
   }
 
   100% {
-    transform: scale(1);
     color: #ff6600;
     transform: rotate(0deg);
   }

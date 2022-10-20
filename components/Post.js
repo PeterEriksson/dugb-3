@@ -222,7 +222,7 @@ const Post = forwardRef(({ item }, ref) => {
                 <div className="flex /ml-5 ml-3 items-center w-full ">
                   <p className=" font-bold xs:text-base text-sm">
                     {item.userName} has {item.newWinsAmount} new win
-                    {item.newWinsAmount > 1 && "s"} on Caldera!
+                    {item.newWinsAmount > 1 && "s"} 🎉
                   </p>
 
                   <p className="text-gray-300 cursor-default text-xs ml-auto hidden widthForShowDate:inline ">
@@ -237,7 +237,7 @@ const Post = forwardRef(({ item }, ref) => {
                 </div>
               </div>
               {/* POSTTEXT + POST-IMAGE (isRewardPost) */}
-              <p className=" -mt-1.5  pr-6  ml-postPrimaryDivSpacing  xs:text-base text-sm font-light">
+              <p className=" -mt-1.5  pr-6  ml-postPrimaryDivSpacing  xs:text-base text-sm /font-light">
                 {item.postText}
               </p>
               <img
@@ -340,10 +340,15 @@ const Post = forwardRef(({ item }, ref) => {
           )}
         </InView>
 
-        {/* COMMENT SECTION  */}
+        {/* COMMENT SECTION (REWARD-POST)  */}
         {/* Blue line that is connecting comments -> (look at swtv comments, img + line wrapped in div, name plus text wrapped in div) */}
+
         {comments?.length > 0 && (
-          <section className={`flex   postDivAlignTemp  `}>
+          <section
+            className={`flex   postDivAlignTemp  ${
+              !commentBoxVisible && "hidden"
+            } `}
+          >
             <div className="my-2  max-h-44 space-y-5 overflow-y-scroll border-t w-full border-gray-100 py-4 px-2  ">
               {comments.map((comment, i) => (
                 <PostComment
@@ -548,7 +553,7 @@ const Post = forwardRef(({ item }, ref) => {
       {/* COMMENTS SECTION */}
       {/* Blue line that is connecting comments -> (look at swtv comments, img + line wrapped in div, name plus text wrapped in div) */}
       {comments?.length > 0 && (
-        <section className="flex   postDivAlignTemp   ">
+        <section className={`flex   postDivAlignTemp   `}>
           <div className="my-2  max-h-44 space-y-5 overflow-y-scroll border-t w-full border-gray-100 py-4 px-2  ">
             {comments.map((comment, i) => (
               <PostComment

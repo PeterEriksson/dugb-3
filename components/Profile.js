@@ -158,7 +158,7 @@ function Profile() {
           fullName: users.find((item) => item.displayName === user?.displayName)
             .fullName,
           userName: user?.displayName,
-          postText: `His total wins on that map is now ${profile?.wins}. Congratulations!`,
+          postText: `His total BR-wins is now ${profile?.wins}. Congrats!`,
           postImg:
             "https://i.pinimg.com/736x/99/e7/55/99e755bcd84c42a684c7f23a8679340e.jpg",
           timestamp: firebase.firestore.FieldValue.serverTimestamp(),
@@ -326,7 +326,7 @@ function Profile() {
                 <h3 className="font-semibold flex items-center ">
                   Avatar:&nbsp;
                   <p
-                    className={`font-light text-xs italic truncate max-w-profileAvatar mt-1`}
+                    className={`font-light text-xs italic truncate max-w-avatarField mt-1`}
                   >
                     {!avatarEditing &&
                       users?.find(
@@ -351,7 +351,7 @@ function Profile() {
                         onChange={(e) => setAvatar(e.target.value)}
                         placeholder="Enter your avatar url"
                         type="text"
-                        className={` w-full text-xs h-4 outline-none border-gray-400 rounded-md focus:ring-gray-500 focus:border-gray-500     font-light `}
+                        className={`w-full text-xs h-4 outline-none border-gray-400 rounded-md focus:ring-gray-500 focus:border-gray-500     font-light `}
                       />
                     </form>
                     {avatarEditing && (
