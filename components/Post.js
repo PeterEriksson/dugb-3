@@ -375,7 +375,7 @@ const Post = forwardRef(({ item }, ref) => {
     <div
       id={item.postId}
       ref={ref}
-      className={`flex flex-col w-full font-mainFontHelv border-b border-gray-300  `}
+      className={`flex flex-col w-full font-mainFontHelv border-b border-gray-300 `}
     >
       {/*MODAL TO DISPLAY LIKES */}
       <Modal
@@ -553,7 +553,11 @@ const Post = forwardRef(({ item }, ref) => {
       {/* COMMENTS SECTION */}
       {/* Blue line that is connecting comments -> (look at swtv comments, img + line wrapped in div, name plus text wrapped in div) */}
       {comments?.length > 0 && (
-        <section className={`flex   postDivAlignTemp   `}>
+        <section
+          className={`flex   postDivAlignTemp   ${
+            !commentBoxVisible && "hidden"
+          } `}
+        >
           <div className="my-2  max-h-44 space-y-5 overflow-y-scroll border-t w-full border-gray-100 py-4 px-2  ">
             {comments.map((comment, i) => (
               <PostComment
