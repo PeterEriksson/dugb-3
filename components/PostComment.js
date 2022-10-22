@@ -22,7 +22,7 @@ function PostComment({
         ${
           commentText.length >= 40 && commentText.length < 75 && "xs:h-18 h-24"
         } 
-        ${commentText.length >= 75 && " xs:h-18 h-28 "}   `}
+        ${commentText.length >= 75 && " xs:h-18 h-36 "}   `}
         />
       ) : (
         /* ELSE: last comment should not have a blueish line  */

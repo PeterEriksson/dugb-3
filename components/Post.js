@@ -210,10 +210,10 @@ const Post = forwardRef(({ item }, ref) => {
                 elementIdToScrollTo == item.postId &&
                 !loadingNotific &&
                 styles.animateHighlight
-              }      pb-3    `}
+              }      pb-3     pr-2 xs:pr-0  `}
             >
               {/* DIV FOR PROFILE-IMG, USERNAME + TIMESTAMP */}
-              <div className="flex w-11/12  flex-grow mt-2.5 ml-1   ">
+              <div className="flex w-11/12  flex-grow mt-2.5 ml-1    ">
                 <img
                   className="w-8 h-8  ml-5 mt-2 rounded-full object-cover"
                   src={item.avatar}
@@ -417,7 +417,7 @@ const Post = forwardRef(({ item }, ref) => {
               elementIdToScrollTo == item.postId &&
               !loadingNotific &&
               styles.animateHighlight
-            }      pb-3    `}
+            }      pb-3   pr-2 xs:pr-0 `}
           >
             {/* DIV FOR IMG NAME USERNAME + TIMESTAMP */}
             <div className="flex w-11/12  flex-grow xs:mt-2.5 mt-1 ml-1   ">
