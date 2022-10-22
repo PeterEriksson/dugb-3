@@ -241,7 +241,7 @@ const Post = forwardRef(({ item }, ref) => {
                 {item.postText}
               </p>
               <img
-                className="rounded-lg xs:max-w-xs ml-postPrimaryDivSpacing mt-3   max-w-postImageTest  "
+                className="rounded-lg xs:max-w-xs ml-postPrimaryDivSpacing my-3   max-w-postImageTest  "
                 src={item?.postImg}
                 alt=""
               />
@@ -451,7 +451,7 @@ const Post = forwardRef(({ item }, ref) => {
               {item.postText}
             </p>
             <img
-              className="rounded-lg xs:max-w-xs ml-postPrimaryDivSpacing mt-3 max-w-postImageTest"
+              className="rounded-lg xs:max-w-xs ml-postPrimaryDivSpacing my-3 max-w-postImageTest"
               src={item?.postImg}
               alt=""
             />

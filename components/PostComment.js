@@ -13,15 +13,18 @@ function PostComment({
 }) {
   return (
     <div className="relative flex space-x-2  /bg-red-400" key={i}>
-      {/* Only render a blue line downwards if someone is answering. i.e the last comment should not have a line */}
+      {/* ONLY render a blue line downwards if someone is answering. */}
       {comments.length !== i + 1 ? (
         <hr
-          className={`absolute left-5   top-8 ${
-            commentText.length > 75 ? " h-18" : "h-14"
-          }  border-r-2 border-blueish/50 `}
+          className={`absolute left-5 top-8 border-r-2 border-blueish/50     h-14
+          ${
+            commentText.length > 20 && commentText.length < 75 && "xs:h-18 h-24"
+          } 
+          ${commentText.length > 75 && " xs:h-18 h-28 /h-18"}         `}
         />
       ) : (
-        <hr className="  /opacity-0" />
+        /* ELSE: last comment should not have a blueish line  */
+        <hr className=" " />
       )}
       {/* <hr className="absolute left-5 top-10 h-8 border-x border-blueish" /> */}
       <img

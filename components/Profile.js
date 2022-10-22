@@ -193,21 +193,21 @@ function Profile() {
   return (
     <div className="ml-4 ">
       {searchOk ? (
-        <div className="border border-gray-300 drop-shadow-lg   flex flex-row p-5 mt-1.5 bg-grayish rounded-2xl max-w-2xl mr-5 mdLgTest:mr-0 ">
+        <div className="border border-gray-300 drop-shadow-lg   flex flex-col  xs:flex-row p-5 mt-1.5 bg-grayish rounded-2xl max-w-2xl mr-5 mdLgTest:mr-0 ">
           <img
             alt=""
             /* src="https://i.pinimg.com/236x/79/44/69/794469d92431bd6d291755f35a4a6530.jpg" */
             src={userInfo.profileAvatar}
-            className="rounded-2xl max-w-profileAvatar object-cover h-72"
+            className="  rounded-xl max-w-profileAvatar object-cover xs:h-64 xs:w-40 h-28 w-40  mx-auto xs:mx-0   xs:mb-0 mb-1.5"
           />
-          <div className="ml-8 flex flex-col justify-center  mb-2">
-            <div className="flex items-center justify-between /bg-red-300">
+          <div className="ml-8  flex flex-col justify-center  mb-2">
+            <div className="flex items-center xs:justify-between /bg-red-300">
               <h2 className="font-bold text-xl underline">
                 {user?.displayName}
               </h2>
               <RefreshIcon
                 onClick={handleUpdateData}
-                className="h-5 w-5 text-gray-600 transform ease-out transition duration-150 hover:rotate-90 cursor-pointer"
+                className="xs:ml-0 ml-3   h-5 w-5 text-gray-600 transform ease-out transition duration-150 hover:rotate-90 cursor-pointer"
               />
             </div>
             <div className="flex flex-col space-y-1.5">
@@ -272,11 +272,10 @@ function Profile() {
                 <p className="font-light">{profile?.topFive}</p>
               </div> */}
               {/* CLANS */}
-              <div className="flex items-center group">
+              {/* <div className=" items-center group xs:flex hidden">
                 <h3 className="font-semibold">Clans:&nbsp;</h3>
                 <p className="font-light">...</p>
-                {/* <PencilIcon className="postIcon profileEditIconEffects" /> */}
-              </div>
+              </div> */}
               <div className="flex items-center group ">
                 <h3 className="font-semibold flex items-center">
                   Favorite saying:&nbsp;

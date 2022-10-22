@@ -19,7 +19,7 @@
     @apply w-4 h-4 cursor-pointer text-gray-800;
   }
   .profileEditIconEffects {
-    @apply ml-3 group-hover:opacity-100 opacity-0 transition duration-150 ease-in;
+    @apply ml-3 xs:group-hover:opacity-100 xs:opacity-0 opacity-60 transition duration-150 ease-in;
   }
 
   .postDivAlignTemp {
