@@ -33,7 +33,7 @@ function Sidebar({ children }) {
       {userGuest || user ? (
         <div
           aria-label="entire-app-loggedIn-container"
-          className="flex /justify-center      /flex-row max-w-6xl w-full mx-auto"
+          className="flex max-w-6xl w-full mx-auto"
         >
           <div
             aria-label="SIDEBAR-OUTER-CONTAINER"

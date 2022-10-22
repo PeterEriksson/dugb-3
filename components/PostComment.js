@@ -16,17 +16,18 @@ function PostComment({
       {/* ONLY render a blue line downwards if someone is answering. */}
       {comments.length !== i + 1 ? (
         <hr
-          className={`absolute left-5 top-8 border-r-2 border-blueish/50     h-14
-          ${
-            commentText.length > 20 && commentText.length < 75 && "xs:h-18 h-24"
-          } 
-          ${commentText.length > 75 && " xs:h-18 h-28 /h-18"}         `}
+          /*SOME TEMP css for dealing with the blue line(different length for different postComment lengt, plus screen-size..)...use cleaner(?)solution next time */
+          className={`absolute left-5 top-8 border-r-2 border-blueish/50    h-14    
+        ${commentText.length > 20 && commentText.length < 40 && "h-18 xs:h-14"}
+        ${
+          commentText.length >= 40 && commentText.length < 75 && "xs:h-18 h-24"
+        } 
+        ${commentText.length >= 75 && " xs:h-18 h-28 "}   `}
         />
       ) : (
         /* ELSE: last comment should not have a blueish line  */
         <hr className=" " />
       )}
-      {/* <hr className="absolute left-5 top-10 h-8 border-x border-blueish" /> */}
       <img
         className="mt-1 h-7 w-7 rounded-full object-cover "
         src={avatar}
