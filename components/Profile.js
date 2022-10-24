@@ -23,7 +23,7 @@ function Profile() {
   const [avatar, setAvatar] = useState("");
 
   //temp dummyData
-  /* const [searchOk, setSearchOk] = useState(!false);
+  /* const [searchOk, setSearchOk] = useState(true);
   const [profile, setProfile] = useState({
     kdRatio: 3.256,
     wins: 179,
@@ -51,7 +51,7 @@ function Profile() {
               users.find((item) => item.displayName === user?.displayName)
                 .profileAvatar
             );
-            /* move firestore set to here!? NO, must be when we log out */
+            //move firestore set to here!? NO, must be when we log out
             setSearchOk(true);
           } else {
             setSearchOk(false);
@@ -191,25 +191,30 @@ function Profile() {
   };
 
   return (
-    <div className="ml-4 ">
+    <div className="mx-2.5 mt-1.5">
       {searchOk ? (
-        <div className="border border-gray-300 drop-shadow-lg   flex flex-col  xs:flex-row p-5 mt-1.5 bg-grayish rounded-2xl max-w-2xl mr-5 mdLgTest:mr-0 ">
+        <div className="border border-gray-300 drop-shadow-lg   flex flex-col  xs:flex-row xs:p-5 p-3.5 mt-1.5 bg-grayish rounded-2xl max-w-lg  !mx-auto ">
           <img
             alt=""
             /* src="https://i.pinimg.com/236x/79/44/69/794469d92431bd6d291755f35a4a6530.jpg" */
             src={userInfo.profileAvatar}
-            className="  rounded-xl max-w-profileAvatar object-cover xs:h-64 xs:w-40 h-28 w-40  mx-auto xs:mx-0   xs:mb-0 mb-1.5"
+            className="/border-3 border-blueish/40 xs:border-0  rounded-lg max-w-profileAvatar xs:object-cover xs:h-64 xs:w-40 h-32   mx-auto xs:mx-0   xs:mb-0 mb-1.5"
           />
-          <div className="ml-8  flex flex-col justify-center  mb-2">
-            <div className="flex items-center xs:justify-between /bg-red-300">
-              <h2 className="font-bold text-xl underline">
+
+          <div className="/ml-8 ml-9  flex flex-col justify-center  mb-2 ">
+            <div className="flex items-center xs:justify-between     /bg-red-400  mb-1">
+              <h2 className="font-bold text-lg xs:text-xl /underline">
                 {user?.displayName}
               </h2>
+
               <RefreshIcon
                 onClick={handleUpdateData}
-                className="xs:ml-0 ml-3   h-5 w-5 text-gray-600 transform ease-out transition duration-150 hover:rotate-90 cursor-pointer"
+                className="xs:ml-0 ml-auto mr-9 xs:mr-0   h-5 w-5 text-gray-600 transform ease-out transition duration-150 hover:rotate-90 cursor-pointer"
               />
             </div>
+            {/* underline gray ... */}
+            <div className=" bg-gray-400 h-0.5 mb-2 w-5/6 xs:w-full " />
+
             <div className="flex flex-col space-y-1.5">
               {/* KD INFO DIV */}
               <div className="flex items-center">
@@ -369,7 +374,7 @@ function Profile() {
                 <PencilIcon className="postIcon profileEditIconEffects" />
               </div> */}
               <div className="flex ">
-                <h3 className="font-semibold">Stengths:&nbsp;</h3>
+                <h3 className="font-semibold">Strengths:&nbsp;</h3>
                 <p className="font-light">...</p>
                 {/* <PencilIcon className="postIcon profileEditIconEffects" /> */}
               </div>
@@ -384,7 +389,6 @@ function Profile() {
       ) : (
         <LoadingSpinner />
       )}
-      <h2 className="text-lg font-bold mt-3">Friends ...</h2>
     </div>
   );
 }

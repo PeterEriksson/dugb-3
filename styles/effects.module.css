@@ -10,7 +10,7 @@
   }
   65% {
     transform: scale(1.05);
-    background-color: lightgray;
+    background-color: #e6ecf0;
   }
 
   100% {
