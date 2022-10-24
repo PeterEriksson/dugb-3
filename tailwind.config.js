@@ -12,6 +12,7 @@ module.exports = {
     extend: {
       colors: {
         grayish: "#e6ecf0",
+        navMobile: "#d8e0e8",
         blueish: "#50b7f5",
         hoverBluish: "#3799d4",
         orange: "#FF6600",

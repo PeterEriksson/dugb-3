@@ -37,7 +37,7 @@ function SidebarOption({ text, Icon, handleLogout, isHome, hideOnMobile }) {
   return (
     <div
       onClick={handleClick}
-      className={`sidebarBtn group /w-min   ${
+      className={`sidebarBtn group   ${
         isHome && asPath === "/" && "text-blueish"
       } ${asPath === `/${text.toLowerCase()}` && "text-blueish"} ${
         hideOnMobile && "hidden xs:inline-flex"

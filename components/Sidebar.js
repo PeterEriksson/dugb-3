@@ -22,7 +22,7 @@ function Sidebar({ children }) {
 
   const router = useRouter();
 
-  const handleHomeClick = () => {
+  const handleCodImageClick = () => {
     if (loadingNotific) return;
     setElementIdToScrollTo("");
     router.push("/");
@@ -37,15 +37,15 @@ function Sidebar({ children }) {
         >
           <div
             aria-label="SIDEBAR-OUTER-CONTAINER"
-            className="bottom-0    xs:top-0  xs:h-screen font-mainFontHelv sm:px-4   sm:pt-2  border-grayish sticky z-50"
+            className="bottom-0  xs:top-0  xs:h-screen font-mainFontHelv sm:px-4   sm:pt-2  border-grayish sticky z-50"
           >
             <div
               aria-label="SIDEBAR-INNER-CONTAINER"
-              className="bg-grayish xs:bg-white  flex  flex-row  justify-center space-x-2 xs:space-x-0  xs:flex-col  py-1 xs:py-0 sm:space-y-4 shadow-inner xs:shadow-none"
+              className="/bg-grayish /bg-navMobile bg-white border-t-2 border-gray-300 xs:border-0 xs:bg-white  flex  flex-row  justify-center space-x-2 xs:space-x-0  xs:flex-col  py-1 xs:py-0 sm:space-y-4 shadow-inner xs:shadow-none"
             >
               <LazyLoadImage
                 aria-label="COD-IMAGE ON TOP OF SIDEBAR"
-                onClick={handleHomeClick}
+                onClick={handleCodImageClick}
                 className="hidden xs:inline    (smaller/larger👉) h-12 mx-1 sm:mx-0 mt-2 sm:mt-0 object-contain      sm:object-cover sm:h-16 shadow-lg cursor-pointer"
                 alt=""
                 src="https://i.pinimg.com/236x/b4/7f/6c/b47f6c1f5324411fb9a3c8d730b93ece.jpg"
