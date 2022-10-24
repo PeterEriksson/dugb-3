@@ -20,7 +20,7 @@ function Login() {
         </h2>
 
         {/* top buttons section */}
-        <section className="flex flex-row mt-auto mb-4    ">
+        <section className="flex flex-row mt-auto xs:mb-4   mb-6 ">
           <button
             onClick={() => setOpenLoginModal((prev) => !prev)}
             className="text-white py-2     w-24 sm:w-36 sm:py-4   border border-white hover:bg-white hover:text-black"
@@ -44,7 +44,7 @@ function Login() {
         />
         <button
           /* onClick={() => setUserGuest((prev) => !prev)} */
-          className="text-white rounded-md border border-white px-4 mb-6 hover:bg-white hover:text-black      "
+          className="text-white rounded-md border border-white px-4 xs:mb-6 mb-14  hover:bg-white hover:text-black      "
         >
           Guest
         </button>

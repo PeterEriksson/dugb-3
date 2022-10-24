@@ -5,7 +5,7 @@ import Tweetbox from "../components/Tweetbox";
 
 export default function Home() {
   return (
-    <div className=" border-r border-t border-l mdLgTest:mr-0 w-full   Mobile-Size-Hide-Scroll: overflow-scroll Notific-Highlight: xs:overflow-visible">
+    <div className=" border-r border-t border-l mdLgTest:mr-0 w-full   Mobile-Size-Hide-Scroll: overflow-scroll Notific-Highlight: xs:overflow-visible    //notificScrollIssue... /h-screen h-auto xs:h-auto">
       <Head>
         <title>Heliga Gibblocket</title>
         <link rel="icon" href="/favicon.ico" />

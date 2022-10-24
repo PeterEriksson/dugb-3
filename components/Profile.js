@@ -30,7 +30,7 @@ function Profile() {
     topFive: 1598,
   }); */
 
-  /* TEMP COMMENT OUT, WORK DITH DUMMY DATA (save api calls) */
+  /* TEMP COMMENT OUT WHEN WORKING DITH DUMMY DATA (save api calls) */
   useEffect(() => {
     const getProfile = async () => {
       await fetch(
@@ -190,6 +190,8 @@ function Profile() {
     extend the loading time */
   };
 
+  /* TODO: research cool Profile-Card desgins */
+
   return (
     <div className="mx-2.5 mt-1.5">
       {searchOk ? (
@@ -209,7 +211,8 @@ function Profile() {
 
               <RefreshIcon
                 onClick={handleUpdateData}
-                className="xs:ml-0 ml-auto mr-9 xs:mr-0   h-5 w-5 text-gray-600 transform ease-out transition duration-150 hover:rotate-90 cursor-pointer"
+                /* fix cleaner solution for refreshIcon spacing */
+                className="xs:ml-0 ml-auto mr-12 xs:mr-0   h-5 w-5 text-gray-600 transform ease-out transition duration-150 hover:rotate-90 cursor-pointer"
               />
             </div>
             {/* underline gray ... */}

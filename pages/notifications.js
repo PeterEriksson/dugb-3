@@ -25,7 +25,7 @@ function notifications() {
   }, []);
 
   return (
-    <div className="w-full flex flex-col border-l border-r border-grayish">
+    <div className="w-full flex flex-col border-l border-r border-grayish     h-screen">
       <p className="text-2xl font-bold  mt-3 pb-2 text-center  border-b border-grayish">
         Notifications
       </p>

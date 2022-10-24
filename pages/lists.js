@@ -38,9 +38,9 @@ function lists() {
   }, []);
 
   return (
-    <div className="//w-full //h-screen border-l border-grayish flex flex-col">
-      <h1 className="mt-3 ml-3 font-bold text-2xl text-center">Lists</h1>
-      <p className="font-light ml-3 text-center pb-4">
+    <div className=" border-l border-r border-grayish flex flex-col    h-screen xs:h-auto">
+      <h1 className="mt-3 font-bold text-2xl text-center">Lists</h1>
+      <p className="font-light px-3 text-center pb-4">
         Who is best at what? Customize your own lists and rank your team. Hot
         tip: it's probably not Norman. Hot tip 2: it's probably neither Martin.
       </p>

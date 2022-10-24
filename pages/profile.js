@@ -4,7 +4,7 @@ import Head from "next/head";
 
 function profile() {
   return (
-    <div className="flex flex-col h-screen border-l border-r border-grayish w-full">
+    <div className="flex flex-col border-l border-r border-grayish w-full    h-screen">
       <Head>
         <title>DUGB3 Profile</title>
         <link rel="icon" href="/favicon.ico" />

@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { Context } from "../Context";
 import { auth } from "../firebase";
 
-function SidebarOption({ text, Icon, handleLogout, isHome }) {
+function SidebarOption({ text, Icon, handleLogout, isHome, hideOnMobile }) {
   const router = useRouter();
   const { asPath } = useRouter();
   const {
@@ -39,7 +39,9 @@ function SidebarOption({ text, Icon, handleLogout, isHome }) {
       onClick={handleClick}
       className={`sidebarBtn group /w-min   ${
         isHome && asPath === "/" && "text-blueish"
-      } ${asPath === `/${text.toLowerCase()}` && "text-blueish"}  `}
+      } ${asPath === `/${text.toLowerCase()}` && "text-blueish"} ${
+        hideOnMobile && "hidden xs:inline-flex"
+      }  `}
     >
       <Icon className={`icon  `} />
       <a className={`iconText hidden smallerTest:inline-flex   `}>{text}</a>

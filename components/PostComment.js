@@ -16,13 +16,15 @@ function PostComment({
       {/* ONLY render a blue line downwards if someone is answering. */}
       {comments.length !== i + 1 ? (
         <hr
-          /*SOME TEMP css for dealing with the blue line(different length for different postComment lengt, plus screen-size..)...use cleaner(?)solution next time */
+          /*SOME TEMP css for dealing with the blue line(different length for different postComment.length, plus screen-size..)...use cleaner(?)layout next time */
           className={`absolute left-5 top-8 border-r-2 border-blueish/50    h-14    
         ${commentText.length > 20 && commentText.length < 40 && "h-18 xs:h-14"}
         ${
-          commentText.length >= 40 && commentText.length < 75 && "xs:h-18 h-24"
+          commentText.length >= 40 &&
+          commentText.length < 75 &&
+          "xs:h-18 h-20 /h-24"
         } 
-        ${commentText.length >= 75 && " xs:h-18 h-36 "}   `}
+        ${commentText.length >= 75 && " xs:h-18 /h-36 h-28 "}   `}
         />
       ) : (
         /* ELSE: last comment should not have a blueish line  */

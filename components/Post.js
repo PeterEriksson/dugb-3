@@ -147,7 +147,7 @@ const Post = forwardRef(({ item }, ref) => {
   };
 
   const handleOnChatIconClick = () => {
-    /* for the input to be focused after we click chatIcon -> we need to do a setTimeout */
+    /* for the input to be focused after we click chatIcon -> do a setTimeout */
     setTimeout(() => {
       setCommentBoxVisible((prev) => !prev);
       commentInputRef?.current?.focus();

@@ -32,31 +32,35 @@ function Sidebar({ children }) {
     <>
       {userGuest || user ? (
         <div
-          aria-label="entire-app-loggedIn-container"
-          className="flex max-w-6xl w-full mx-auto"
+          aria-label="APP LOGGED IN CONTAINER"
+          className="flex flex-col-reverse    xs:flex-row max-w-6xl w-full mx-auto"
         >
           <div
             aria-label="SIDEBAR-OUTER-CONTAINER"
-            className="/bg-red-500  h-screen font-mainFontHelv sm:px-4   sm:pt-2  border-grayish sticky top-0 z-50"
+            className="bottom-0    xs:top-0  xs:h-screen font-mainFontHelv sm:px-4   sm:pt-2  border-grayish sticky z-50"
           >
             <div
               aria-label="SIDEBAR-INNER-CONTAINER"
-              className="flex flex-col /bg-green-400 space-y-2 sm:space-y-4"
+              className="bg-grayish xs:bg-white  flex  flex-row  justify-center space-x-2 xs:space-x-0  xs:flex-col  py-1 xs:py-0 sm:space-y-4 shadow-inner xs:shadow-none"
             >
               <LazyLoadImage
                 aria-label="COD-IMAGE ON TOP OF SIDEBAR"
                 onClick={handleHomeClick}
-                className="    (smaller/larger👉) h-12 mx-1 sm:mx-0 mt-2 sm:mt-0 object-contain          sm:object-cover sm:h-16 shadow-lg cursor-pointer"
+                className="hidden xs:inline    (smaller/larger👉) h-12 mx-1 sm:mx-0 mt-2 sm:mt-0 object-contain      sm:object-cover sm:h-16 shadow-lg cursor-pointer"
                 alt=""
                 src="https://i.pinimg.com/236x/b4/7f/6c/b47f6c1f5324411fb9a3c8d730b93ece.jpg"
               />
               <SidebarOption isHome text="Home" Icon={HomeIcon} />
               {!userGuest && <SidebarOption text="Profile" Icon={UserIcon} />}
-              <SidebarOption text="Search" Icon={SearchIcon} />
+              <SidebarOption hideOnMobile text="Search" Icon={SearchIcon} />
               <SidebarOption text="Lists" Icon={ClipboardListIcon} />
               {!userGuest && <SidebarNotificationOption />}
-              <SidebarOption text="Loadouts" Icon={GiftIcon} />
-              <SidebarOption text="About" Icon={InformationCircleIcon} />
+              <SidebarOption hideOnMobile text="Loadouts" Icon={GiftIcon} />
+              <SidebarOption
+                hideOnMobile
+                text="About"
+                Icon={InformationCircleIcon}
+              />
               <SidebarOption text="Log out" Icon={LogoutIcon} handleLogout />
             </div>
           </div>

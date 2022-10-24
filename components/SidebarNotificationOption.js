@@ -30,16 +30,13 @@ function SidebarNotificationOption() {
   };
 
   return (
-    <div
-      onClick={handleClick}
-      className={`sidebarBtn group    //TESTtemp for notify-btn: //relative ->create-new-div-below-instead`}
-    >
+    <div onClick={handleClick} className={`sidebarBtn group    `}>
       <div className="relative">
         <BellIcon
           className={`icon ${asPath === "/notifications" && "text-blueish"}`}
         />
         {notificationsNotChecked.length > 0 && (
-          <div className="absolute -top-1 right-1 text-xs w-5 h-5 bg-red-500 rounded-full flex items-center justify-center //animate-pulse text-white">
+          <div className="absolute -top-1 xs:right-1 -right-1    text-xs w-5 h-5 bg-red-500 rounded-full flex items-center justify-center //animate-pulse text-white">
             {notificationsNotChecked.length}
           </div>
         )}
