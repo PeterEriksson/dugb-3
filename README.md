@@ -51,8 +51,10 @@ The project is created for educational purposes. It is only being used by a smal
 ![home2 3](https://user-images.githubusercontent.com/17027312/196687958-8f38d8b3-5d52-4141-84b8-21473fa56946.png)
 
 ### Home page mobile size
-![homemob1](https://user-images.githubusercontent.com/17027312/197577811-7261aa88-2f95-43f2-8cfa-ad21172d002c.png)
-![homemob2](https://user-images.githubusercontent.com/17027312/197577831-d364493a-e61a-4e49-b050-02dc808ffcfc.png)
+![navmob1](https://user-images.githubusercontent.com/17027312/197584402-f5327c9c-81af-48fd-80df-70557886e8
+![navmob2](https://user-images.githubusercontent.com/17027312/197584516-41407cd7-e023-4fa9-985f-eef5ecdc239e.png)
+5e.png)
+
 
  #### Post liked by (when pressing post-information button)
  ![postLikedBy2](https://user-images.githubusercontent.com/17027312/196688375-4125d5e7-807a-4963-8605-570d220252b8.png)
