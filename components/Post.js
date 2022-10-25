@@ -42,13 +42,11 @@ const Post = forwardRef(({ item }, ref) => {
   const [postLikes, setPostLikes] = useState([]);
 
   /* Comments */
-  /* variable for max amount of comment characters, ought to be a bit shorter then post-max-length(200) */
-  const commentMaxLength = 120;
+  const commentMaxLength = 100;
   const [commentBoxVisible, setCommentBoxVisible] = useState(false);
   const [commentInput, setCommentInput] = useState("");
   const [comments, setComments] = useState([]);
   const commentInputRef = useRef(null);
-  //timeout..fcn
 
   /* react-responsive-modal */
   const [open, setOpen] = useState(false);
@@ -213,13 +211,13 @@ const Post = forwardRef(({ item }, ref) => {
               }      pb-3     pr-2 xs:pr-0  `}
             >
               {/* DIV FOR PROFILE-IMG, USERNAME + TIMESTAMP */}
-              <div className="flex w-11/12  flex-grow mt-2.5 ml-1    ">
+              <div className="flex w-11/12  flex-grow mt-2.5 ml-1  ">
                 <img
-                  className="w-8 h-8  ml-5 mt-2 rounded-full object-cover"
+                  className="/w-8 /h-8 w-10 h-10  ml-5 mt-2 rounded-full object-cover"
                   src={item.avatar}
                   alt=""
                 />
-                <div className="flex /ml-5 ml-3 items-center w-full ">
+                <div className="/ml-3 ml-3   flex  items-center w-full">
                   <p className=" font-bold xs:text-base text-sm">
                     {item.userName} has {item.newWinsAmount} new win
                     {item.newWinsAmount > 1 && "s"} 🎉
@@ -237,7 +235,7 @@ const Post = forwardRef(({ item }, ref) => {
                 </div>
               </div>
               {/* POSTTEXT + POST-IMAGE (isRewardPost) */}
-              <p className=" -mt-1.5  pr-6  ml-postPrimaryDivSpacing  xs:text-base text-sm /font-light">
+              <p className=" /-mt-1.5 -mt-2.5  pr-6  ml-postPrimaryDivSpacing  xs:text-base text-sm /font-light">
                 {item.postText}
               </p>
               <img
@@ -314,7 +312,7 @@ const Post = forwardRef(({ item }, ref) => {
                     onChange={(e) => setCommentInput(e.target.value)}
                     className="flex-1 text-sm rounded-lg bg-gray-100 p-2 border-gray-300  focus:border-gray-400 focus:ring-0"
                     type="text"
-                    placeholder="Write a comment"
+                    placeholder={`Write a comment (max ${commentMaxLength}ch)`}
                   />
                   <button
                     type="submit"
@@ -422,7 +420,7 @@ const Post = forwardRef(({ item }, ref) => {
             {/* DIV FOR IMG NAME USERNAME + TIMESTAMP */}
             <div className="flex w-11/12  flex-grow xs:mt-2.5 mt-1 ml-1   ">
               <img
-                className="w-8 h-8 ml-5 mt-2 rounded-full object-cover"
+                className="/w-8 /h-8 h-10 w-10 ml-5 mt-2 rounded-full object-cover"
                 src={item.avatar}
                 alt=""
               />
@@ -447,7 +445,7 @@ const Post = forwardRef(({ item }, ref) => {
                 </p>
               </div>
             </div>
-            <p className=" -mt-1.5  pr-6  ml-postPrimaryDivSpacing  xs:text-base text-sm">
+            <p className=" /-mt-1.5 -mt-2.5  pr-6  ml-postPrimaryDivSpacing  xs:text-base text-sm">
               {item.postText}
             </p>
             <img
@@ -524,7 +522,7 @@ const Post = forwardRef(({ item }, ref) => {
                   onChange={(e) => setCommentInput(e.target.value)}
                   className="flex-1 text-sm rounded-lg bg-gray-100 p-2 border-gray-300  focus:border-gray-400 focus:ring-0"
                   type="text"
-                  placeholder="Write a comment"
+                  placeholder={`Write a comment (max ${commentMaxLength}ch)`}
                 />
                 <button
                   type="submit"

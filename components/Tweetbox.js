@@ -42,9 +42,9 @@ function Tweetbox() {
 
   return (
     <div className="w-full font-mainFontHelv border-t border-grayish flex flex-col ">
-      <div className="flex  mb-1  space-x-4 xs:py-7  py-5 ml-6   ">
+      <div className="flex  mb-1  space-x-1.5 xs:py-7  py-5 ml-6   ">
         <img
-          className="w-9 h-8 rounded-full object-cover"
+          className="w-10 h-10 rounded-full object-cover"
           src={` ${userGuest ? `${tempGuest?.avatar}` : `${user?.photoURL}`}  `}
         />
         <textarea
@@ -54,7 +54,7 @@ function Tweetbox() {
           id=""
           cols=""
           rows={3}
-          className="w-full xs:text-xl text-base focus:ring-transparent font-light border-none outline-none resize-none"
+          className="  w-full xs:text-xl text-base focus:ring-transparent font-light border-none outline-none resize-none"
           type="text"
           placeholder={`${
             userGuest

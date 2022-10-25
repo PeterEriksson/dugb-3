@@ -41,8 +41,8 @@ function lists() {
     <div className=" border-l border-r border-grayish flex flex-col    h-screen xs:h-auto">
       <h1 className="mt-3 font-bold text-2xl text-center">Lists</h1>
       <p className="font-light px-3 text-center pb-4">
-        Who is best at what? Customize your own lists and rank your team. Hot
-        tip: it's probably not Norman. Hot tip 2: it's probably neither Martin.
+        Who is best at what? Customize your own lists and rank your friends. Hot
+        tip: it's probably not Norman. Hot tip 2: it's probably not Martin.
       </p>
       <div className="border-b border-grayish " />
 
