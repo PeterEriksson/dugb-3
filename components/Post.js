@@ -42,7 +42,7 @@ const Post = forwardRef(({ item }, ref) => {
   const [postLikes, setPostLikes] = useState([]);
 
   /* Comments */
-  const commentMaxLength = 100;
+  const commentMaxLength = 120;
   const [commentBoxVisible, setCommentBoxVisible] = useState(false);
   const [commentInput, setCommentInput] = useState("");
   const [comments, setComments] = useState([]);
@@ -141,7 +141,9 @@ const Post = forwardRef(({ item }, ref) => {
       .add(newCommentObj);
 
     setCommentInput("");
-    setCommentBoxVisible(false);
+    /* setCommentBoxVisible(false); */
+    /* unfocus input field */
+    commentInputRef?.current?.blur();
   };
 
   const handleOnChatIconClick = () => {
@@ -347,7 +349,7 @@ const Post = forwardRef(({ item }, ref) => {
               !commentBoxVisible && "hidden"
             } `}
           >
-            <div className="my-2  max-h-44 space-y-5 overflow-y-scroll border-t w-full border-gray-100 py-4 px-2  ">
+            <div className="my-2  max-h-44 /space-y-5 overflow-y-scroll border-t w-full border-gray-100 py-4 px-2  ">
               {comments.map((comment, i) => (
                 <PostComment
                   key={comment.commentId}
@@ -556,7 +558,7 @@ const Post = forwardRef(({ item }, ref) => {
             !commentBoxVisible && "hidden"
           } `}
         >
-          <div className="my-2  max-h-44 space-y-5 overflow-y-scroll border-t w-full border-gray-100 py-4 px-2  ">
+          <div className="my-2  max-h-44 /space-y-5 overflow-y-scroll border-t w-full border-gray-100 py-4 px-2  ">
             {comments.map((comment, i) => (
               <PostComment
                 key={comment.commentId}

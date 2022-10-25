@@ -34,6 +34,8 @@ module.exports = {
         xxxxxl: "1024px",
         widgetsPaddingWidthTemp: "88px",
         notificationWidth: "350px",
+
+        3.25: "13px",
       },
       screens: {
         widthForShowDate: "998px",
@@ -64,10 +66,14 @@ module.exports = {
         postImageTest: "70%",
         avatarField: "80px",
       },
+      width: {
+        0.5: "2px",
+      },
       fontSize: {
         verySmall: "11px",
       },
       height: {
+        4.5: "18px",
         18: "76px",
       },
       transitionDuration: {
