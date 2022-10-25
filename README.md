@@ -87,10 +87,10 @@ The project is created for educational purposes. It is only being used by a smal
 - Automatic scroll down to the corresponding post/list when user clicks on a notification + css animation highlighting the corresponding post. Ok ✅ 
 - Comments on Posts? Ok ✅
 - Use grid instead of flex for parent containers(Sidebar, Feed, Widgets)? -> cleaner.
-- Make the mobile screen size more user firendly
+- Make the mobile screen size more user firendly. Ok ✅
 - Upgrade Firebase version so that we can install firebase-hooks in order to render loading indicator while verifying user.
 - Error in the console when refreshing the site on the profile page
-   - Refactor spaghetti code on profile-page and search-page
+   - Refactor spaghetti code on profile-page and search-page. Make use of next dynamic routing for searching.
 - Add feature to edit user's info. 
    - if a user is edited (for example user has updated his userImage) add cloud function that handles updating user's info in posts/lists/comments
 - Dark/light mode toggle button
