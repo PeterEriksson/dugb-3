@@ -61,9 +61,10 @@ module.exports = {
         notificationText: "175px",
         notificationTextReward: "130px",
 
-        profileAvatar: "170px",
-        /* postImageTest: "222px", */
-        postImageTest: "70%",
+        /*  profileAvatar: "170px", */
+        profileAvatar: "85%",
+        postImageMobile: "75%",
+        postImageDesktop: "80%",
         avatarField: "80px",
       },
       width: {

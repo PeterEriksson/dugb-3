@@ -154,222 +154,6 @@ const Post = forwardRef(({ item }, ref) => {
     }, 50);
   };
 
-  /* REWARD POST:-> */
-  if (item.isRewardPost) {
-    return (
-      <div
-        id={item.postId}
-        ref={ref}
-        className={`flex flex-col w-full font-mainFontHelv border-b border-gray-300  ${styles.postCelebColors}`}
-      >
-        <div className={styles.balloonsParent}>
-          <p className={styles.balloon}></p>
-          <p className={styles.balloon}></p>
-          <p className={styles.balloon}></p>
-        </div>
-
-        {/*MODAL TO DISPLAY LIKES */}
-        <Modal
-          /* center */
-          showCloseIcon={false}
-          open={open}
-          onClose={() => setOpen(false)}
-        >
-          <div className="flex //bg-blue-500 flex-col space-y-3 items-center px-16">
-            <h2 className="font-bold text-lg underline ">Liked by</h2>
-            {postLikes.length === 0 && (
-              <p className="font-light">no likes yet</p>
-            )}
-
-            {postLikes.map((item) => (
-              <div
-                key={item.postLikeId}
-                className="flex w-full items-center //w-40 //bg-red-400"
-              >
-                <img
-                  className="h-8 w-8 rounded-full object-cover"
-                  src={item.photoURL}
-                  alt=""
-                />
-                <p className="ml-2 truncate ">{item.userName}</p>
-              </div>
-            ))}
-          </div>
-        </Modal>
-
-        <InView triggerOnce>
-          {({
-            inView: myNotificElementIsVisible,
-            ref: myNotificElementRef,
-            entry,
-          }) => (
-            <div
-              ref={myNotificElementRef}
-              className={` ${
-                myNotificElementIsVisible &&
-                elementIdToScrollTo == item.postId &&
-                !loadingNotific &&
-                styles.animateHighlight
-              }      pb-3     pr-2 xs:pr-0  `}
-            >
-              {/* DIV FOR PROFILE-IMG, USERNAME + TIMESTAMP */}
-              <div className="flex w-11/12  flex-grow mt-2.5 ml-1  ">
-                <img
-                  className="/w-8 /h-8 w-10 h-10  ml-5 mt-2 rounded-full object-cover"
-                  src={item.avatar}
-                  alt=""
-                />
-                <div className="/ml-3 ml-3   flex  items-center w-full">
-                  <p className=" font-bold xs:text-base text-sm">
-                    {item.userName} has {item.newWinsAmount} new win
-                    {item.newWinsAmount > 1 && "s"} 🎉
-                  </p>
-
-                  <p className="text-gray-300 cursor-default text-xs ml-auto hidden widthForShowDate:inline ">
-                    {item.timestamp?.toDate().toLocaleDateString()}
-                  </p>
-                  <p className="text-gray-300 cursor-default text-xs ml-1 hidden widthForShowDate:inline pr-1">
-                    {item.timestamp
-                      ?.toDate()
-                      .toLocaleTimeString()
-                      .substring(0, 5)}
-                  </p>
-                </div>
-              </div>
-              {/* POSTTEXT + POST-IMAGE (isRewardPost) */}
-              <p className=" /-mt-1.5 -mt-3.5 pr-6  ml-postPrimaryDivSpacing  xs:text-base text-sm /font-light">
-                {item.postText}
-              </p>
-              <img
-                className="rounded-lg xs:max-w-xs ml-postPrimaryDivSpacing my-3   max-w-postImageTest  "
-                src={item?.postImg}
-                alt=""
-              />
-              {/* DIV FOR ICONS ON BOTTOM OF (main)POST */}
-              <div className="flex items-center xs:mt-4 mt-2 justify-between   postDivAlignTemp    ">
-                <div
-                  onClick={handleOnChatIconClick}
-                  className="flex items-center space-x-1.5 cursor-pointer  transform transition duration-100 ease-in hover:scale-110"
-                >
-                  <ChatIcon className="postIcon " />
-                  <p className="text-sm opacity-70  ">
-                    {comments.length > 0 && comments.length}
-                  </p>
-                </div>
-                {/* <PencilIcon className="postIcon opacity-50 !cursor-default" /> */}
-                {/* <SwitchHorizontalIcon className="postIcon opacity-50 !cursor-default" /> */}
-                {/*  <RefreshIcon className="postIcon" /> */}
-                <TrashIcon
-                  onClick={handleDeletePost}
-                  className={`postIcon hover:text-black ${
-                    user?.displayName !== item.userName && "hidden"
-                  }`}
-                />
-                <InformationCircleIcon
-                  onClick={() => setOpen(true)}
-                  className="postIcon hover:text-black"
-                />
-
-                {/* div for FireIcon + nr of likes */}
-                <div
-                  /*  onClick={handleLikePost} */
-                  className={` flex items-center group relative  /mr-2 mr-4 xs:mr-0 `}
-                >
-                  <FireIcon
-                    onClick={handleLikePost}
-                    className={`postIcon  transform transition duration-125 ease-in group-hover:!text-red-900  cursor-pointer
-
-                    ${userHasNotLikedPost() ? "text-gray-800" : "text-orange"}
-                    ${
-                      !userHasNotLikedPost() &&
-                      triggerLikeEffect &&
-                      styles.animateFireIcon
-                    }
-                    
-                   `}
-                  />
-
-                  <p
-                    onClick={handleLikePost}
-                    className={`${
-                      userHasNotLikedPost() ? "text-gray-800 " : "text-orange "
-                    } text-sm font-extralight cursor-pointer   absolute pl-5  group-hover:!text-red-900     transform transition duration-125 `}
-                  >
-                    {postLikes.length > 0 && postLikes.length}
-                  </p>
-                </div>
-              </div>
-
-              {/* COMMENT BOX */}
-              <div className="postDivAlignTemp  pt-1 ">
-                <form
-                  onSubmit={handleSubmitComment}
-                  className={`mt-2 flex space-x-2 /w-10/12 /mx-auto     ${
-                    commentBoxVisible ? " " : "hidden  "
-                  }  `}
-                >
-                  <input
-                    ref={commentInputRef}
-                    value={commentInput}
-                    onChange={(e) => setCommentInput(e.target.value)}
-                    className="flex-1 text-sm rounded-lg bg-gray-100 p-2 border-gray-300  focus:border-gray-400 focus:ring-0"
-                    type="text"
-                    placeholder={`Write a comment (max ${commentMaxLength}ch)`}
-                  />
-                  <button
-                    type="submit"
-                    disabled={
-                      !commentInput.trim() ||
-                      commentInput.length > commentMaxLength
-                    }
-                    className={`text-blueish text-sm ${
-                      commentInput.trim() && "hover:opacity-70"
-                    }    disabled:text-gray-300 ${
-                      !commentInput.trim() && "cursor-default"
-                    } ${
-                      commentInput.length > commentMaxLength &&
-                      "cursor-default !text-red-400 hover:!opacity-100"
-                    } `}
-                  >
-                    Submit
-                  </button>
-                </form>
-              </div>
-              {/* --- */}
-            </div>
-          )}
-        </InView>
-
-        {/* COMMENT SECTION (REWARD-POST)  */}
-        {/* Blue line that is connecting comments -> (look at swtv comments, img + line wrapped in div, name plus text wrapped in div) */}
-
-        {comments?.length > 0 && (
-          <section
-            className={`flex   postDivAlignTemp  ${
-              !commentBoxVisible && "hidden"
-            } `}
-          >
-            <div className="my-2  max-h-44 /space-y-5 overflow-y-scroll border-t w-full border-gray-100 py-4 px-2  ">
-              {comments.map((comment, i) => (
-                <PostComment
-                  key={comment.commentId}
-                  commentText={comment.commentText}
-                  avatar={comment.avatar}
-                  fullName={comment.fullName}
-                  userName={comment.userName}
-                  timestamp={comment.timestamp}
-                  commentId={comment.commentId}
-                  comments={comments}
-                  i={i}
-                />
-              ))}
-            </div>
-          </section>
-        )}
-      </div>
-    );
-  }
-
   /* NORMAL POST:-> */
   return (
     <div
@@ -377,6 +161,14 @@ const Post = forwardRef(({ item }, ref) => {
       ref={ref}
       className={`flex flex-col w-full font-mainFontHelv border-b border-gray-300 `}
     >
+      {item.isRewardPost && (
+        <div className={styles.balloonsParent}>
+          <p className={styles.balloon}></p>
+          <p className={styles.balloon}></p>
+          <p className={styles.balloon}></p>
+        </div>
+      )}
+
       {/*MODAL TO DISPLAY LIKES */}
       <Modal
         /* center */
@@ -420,7 +212,7 @@ const Post = forwardRef(({ item }, ref) => {
             }    pb-2.5   pr-2 xs:pr-0 `}
           >
             {/* DIV FOR AVATAR NAME USERNAME + TIMESTAMP */}
-            <div className="flex w-11/12  flex-grow xs:mt-2.5 mt-0.5 ml-1   ">
+            <div className="flex w-11/12  flex-grow xs:mt-1 mt-0.5 ml-1   ">
               <img
                 className=" h-10 w-10 ml-5 mt-2 rounded-full object-cover"
                 src={item.avatar}
@@ -428,18 +220,40 @@ const Post = forwardRef(({ item }, ref) => {
               />
               <div className="flex ml-3 items-center w-full ">
                 {/* fullName + shield + userName */}
-                <p className="font-bold  xs:text-base text-sm">
+                <p
+                  className={`font-bold  xs:text-base text-sm  ${
+                    item.isRewardPost && "hidden"
+                  }`}
+                >
                   {item.fullName}
                 </p>
-                <ShieldCheckIcon className="h-4 w-4 text-blueish " />
-                <p className=" text-gray-400 xs:text-sm  text-xs">
-                  @{item.userName}
+                <ShieldCheckIcon
+                  className={`h-4 w-4 text-blueish   ${
+                    item.isRewardPost && "hidden"
+                  }`}
+                />
+                <p
+                  className={`${
+                    item.isRewardPost
+                      ? "font-bold xs:text-base text-sm"
+                      : "text-gray-400 xs:text-sm  text-xs"
+                  } `}
+                >
+                  {item.isRewardPost
+                    ? item.userName +
+                      " has " +
+                      item.newWinsAmount +
+                      " new win" +
+                      (item.newWinsAmount > 1 ? "s" : "") +
+                      " 🎉"
+                    : /* post is NORMAL post ->  */
+                      "@" + item.userName}
                 </p>
 
                 <p className="text-gray-300 cursor-default text-xs ml-auto hidden widthForShowDate:inline ">
                   {item.timestamp?.toDate().toLocaleDateString()}
                 </p>
-                <p className="text-gray-300 cursor-default text-xs ml-1 hidden widthForShowDate:inline  pr-1">
+                <p className="text-gray-300 cursor-default text-xs ml-1 hidden widthForShowDate:inline  /pr-1">
                   {item.timestamp
                     ?.toDate()
                     .toLocaleTimeString()
@@ -447,11 +261,11 @@ const Post = forwardRef(({ item }, ref) => {
                 </p>
               </div>
             </div>
-            <p className=" -mt-3.5  pr-6  ml-postPrimaryDivSpacing  xs:text-base text-sm">
+            <p className=" -mt-3  pr-6  ml-postPrimaryDivSpacing  xs:text-base text-sm">
               {item.postText}
             </p>
             <img
-              className="rounded-lg xs:max-w-xs ml-postPrimaryDivSpacing /my-2 mt-2 mb-2.5 max-w-postImageTest "
+              className="rounded-lg xs:max-w-postImageDesktop ml-postPrimaryDivSpacing mt-2 mb-2.5 max-w-postImageMobile "
               src={item?.postImg}
               alt=""
             />
@@ -466,9 +280,10 @@ const Post = forwardRef(({ item }, ref) => {
                   {comments.length > 0 && comments.length}
                 </p>
               </div>
-              {/* <PencilIcon className="postIcon opacity-50 !cursor-default" /> */}
+
+              {/* Future retweet functionality? -> */}
               {/* <SwitchHorizontalIcon className="postIcon opacity-50 !cursor-default" /> */}
-              {/*  <RefreshIcon className="postIcon" /> */}
+              {/* <RefreshIcon className="postIcon" /> */}
               <TrashIcon
                 onClick={handleDeletePost}
                 className={`postIcon hover:text-black ${

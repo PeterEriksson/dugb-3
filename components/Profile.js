@@ -200,7 +200,7 @@ function Profile() {
             alt=""
             /* src="https://i.pinimg.com/236x/79/44/69/794469d92431bd6d291755f35a4a6530.jpg" */
             src={userInfo.profileAvatar}
-            className="/border-3 border-blueish/40 xs:border-0  rounded-lg max-w-profileAvatar xs:object-cover xs:h-64 xs:w-40 h-32   mx-auto xs:mx-0   xs:mb-0 mb-1.5"
+            className=" rounded-lg max-w-profileAvatar  xs:object-cover xs:h-64 xs:w-40   mx-auto xs:mx-0   xs:mb-0 mb-1.5"
           />
 
           <div className="/ml-8 ml-9  flex flex-col justify-center  mb-2 ">
