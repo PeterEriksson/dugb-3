@@ -228,7 +228,7 @@ const Post = forwardRef(({ item }, ref) => {
                   <p className="text-gray-300 cursor-default text-xs ml-auto hidden widthForShowDate:inline ">
                     {item.timestamp?.toDate().toLocaleDateString()}
                   </p>
-                  <p className="text-gray-300 cursor-default text-xs ml-1 hidden widthForShowDate:inline   pr-2">
+                  <p className="text-gray-300 cursor-default text-xs ml-1 hidden widthForShowDate:inline pr-1">
                     {item.timestamp
                       ?.toDate()
                       .toLocaleTimeString()
@@ -237,7 +237,7 @@ const Post = forwardRef(({ item }, ref) => {
                 </div>
               </div>
               {/* POSTTEXT + POST-IMAGE (isRewardPost) */}
-              <p className=" /-mt-1.5 -mt-2.5  pr-6  ml-postPrimaryDivSpacing  xs:text-base text-sm /font-light">
+              <p className=" /-mt-1.5 -mt-3.5 pr-6  ml-postPrimaryDivSpacing  xs:text-base text-sm /font-light">
                 {item.postText}
               </p>
               <img
@@ -417,16 +417,16 @@ const Post = forwardRef(({ item }, ref) => {
               elementIdToScrollTo == item.postId &&
               !loadingNotific &&
               styles.animateHighlight
-            }      pb-3   pr-2 xs:pr-0 `}
+            }    pb-2.5   pr-2 xs:pr-0 `}
           >
-            {/* DIV FOR IMG NAME USERNAME + TIMESTAMP */}
-            <div className="flex w-11/12  flex-grow xs:mt-2.5 mt-1 ml-1   ">
+            {/* DIV FOR AVATAR NAME USERNAME + TIMESTAMP */}
+            <div className="flex w-11/12  flex-grow xs:mt-2.5 mt-0.5 ml-1   ">
               <img
-                className="/w-8 /h-8 h-10 w-10 ml-5 mt-2 rounded-full object-cover"
+                className=" h-10 w-10 ml-5 mt-2 rounded-full object-cover"
                 src={item.avatar}
                 alt=""
               />
-              <div className="flex /ml-5 ml-3 items-center w-full ">
+              <div className="flex ml-3 items-center w-full ">
                 {/* fullName + shield + userName */}
                 <p className="font-bold  xs:text-base text-sm">
                   {item.fullName}
@@ -439,7 +439,7 @@ const Post = forwardRef(({ item }, ref) => {
                 <p className="text-gray-300 cursor-default text-xs ml-auto hidden widthForShowDate:inline ">
                   {item.timestamp?.toDate().toLocaleDateString()}
                 </p>
-                <p className="text-gray-300 cursor-default text-xs ml-1 hidden widthForShowDate:inline   pr-2">
+                <p className="text-gray-300 cursor-default text-xs ml-1 hidden widthForShowDate:inline  pr-1">
                   {item.timestamp
                     ?.toDate()
                     .toLocaleTimeString()
@@ -447,16 +447,16 @@ const Post = forwardRef(({ item }, ref) => {
                 </p>
               </div>
             </div>
-            <p className=" /-mt-1.5 -mt-2.5  pr-6  ml-postPrimaryDivSpacing  xs:text-base text-sm">
+            <p className=" -mt-3.5  pr-6  ml-postPrimaryDivSpacing  xs:text-base text-sm">
               {item.postText}
             </p>
             <img
-              className="rounded-lg xs:max-w-xs ml-postPrimaryDivSpacing my-3 max-w-postImageTest"
+              className="rounded-lg xs:max-w-xs ml-postPrimaryDivSpacing /my-2 mt-2 mb-2.5 max-w-postImageTest "
               src={item?.postImg}
               alt=""
             />
             {/* DIV FOR ICONS ON BOTTOM OF (main)POST */}
-            <div className="flex items-center xs:mt-4 mt-2 justify-between   postDivAlignTemp    ">
+            <div className=" flex items-center xs:mt-2 -mt-0.5 justify-between   postDivAlignTemp    ">
               <div
                 onClick={handleOnChatIconClick}
                 className="flex items-center space-x-1.5 cursor-pointer  transform transition duration-100 ease-in hover:scale-110"

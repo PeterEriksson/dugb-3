@@ -90,9 +90,6 @@ function Tweetbox() {
       >
         <p className="text-white text-sm">Post</p>
       </button>
-
-      {/* LARGE GRAY BORDER SEPERATING TWEETBOX AND FEED  */}
-      <div className="bg-grayish h-2 w-full" />
     </div>
   );
 }
