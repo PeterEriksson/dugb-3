@@ -54,7 +54,6 @@ If you like it, please drop a star 🙂
 
 ### Home page mobile size
 ![navmob1](https://user-images.githubusercontent.com/17027312/197584779-313cc16b-22a9-47df-9a67-606df87399d1.png)
-
 ![navmob2](https://user-images.githubusercontent.com/17027312/197584797-c09c5316-6bbb-4dfd-82c8-eb8eb7c1d85c.png)
 
  #### Post liked by (when pressing post-information button)
