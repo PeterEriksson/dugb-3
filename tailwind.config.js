@@ -28,8 +28,8 @@ module.exports = {
         mainFontHelv: "helvetica",
       },
       spacing: {
-        /* postPrimaryDivSpacing: "70px", */
-        postPrimaryDivSpacing: "78px",
+        postPrimaryDivSpacing: "66px",
+
         largeTest: "512px",
         xxxxxl: "1024px",
         widgetsPaddingWidthTemp: "88px",
@@ -61,14 +61,14 @@ module.exports = {
         notificationText: "175px",
         notificationTextReward: "130px",
 
-        /*  profileAvatar: "170px", */
         profileAvatar: "85%",
-        postImageMobile: "75%",
+        postImageMobile: "78%",
         postImageDesktop: "80%",
         avatarField: "80px",
       },
       width: {
         0.5: "2px",
+        "85%": "85%",
       },
       fontSize: {
         verySmall: "11px",
