@@ -211,7 +211,7 @@ const Post = forwardRef(({ item }, ref) => {
               styles.animateHighlight
             }    pb-2.5   pr-2 xs:pr-0 `}
           >
-            {/* DIV FOR AVATAR NAME USERNAME + TIMESTAMP (different widths to make timestamp align with rest of post)*/}
+            {/* DIV FOR AVATAR NAME USERNAME + TIMESTAMP (different widths to make timestamp align with rest of post. also used in icons-div)*/}
             <div className="flex      w-11/12 mdLgTest:w-10/12 widthForShowDate:!w-11/12            xs:mt-1 mt-0.5 ">
               <img
                 className=" h-10 w-10       ml-3    mt-2 rounded-full object-cover"
@@ -261,7 +261,7 @@ const Post = forwardRef(({ item }, ref) => {
                 </p>
               </div>
             </div>
-            <p className=" -mt-3  ml-postPrimaryDivSpacing  xs:text-base text-sm       mr-1.5">
+            <p className=" -mt-3  ml-postPrimaryDivSpacing  xs:text-base text-sm       mr-1.5/ mr-2">
               {item.postText}
             </p>
             <img
@@ -270,7 +270,7 @@ const Post = forwardRef(({ item }, ref) => {
               alt=""
             />
             {/* DIV FOR ICONS ON BOTTOM OF (main)POST */}
-            <div className=" flex items-center xs:mt-2 -mt-0.5 justify-between   postDivAlignTemp      w-11/12     mdLgTest:w-10/12  widthForShowDate:!w-85% ">
+            <div className="flex items-center xs:mt-2 -mt-0.5 justify-between   postDivAlignTemp      w-11/12     mdLgTest:w-10/12  widthForShowDate:!w-85% ">
               <div
                 onClick={handleOnChatIconClick}
                 className="flex items-center space-x-1.5 cursor-pointer  transform transition duration-100 ease-in hover:scale-110"

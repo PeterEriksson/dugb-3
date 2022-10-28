@@ -46,6 +46,9 @@ module.exports = {
       borderRadius: {
         widgetsBorder: "20px",
       },
+      borderWidth: {
+        3: "3px",
+      },
       backgroundImage: {
         loginPic:
           "url(https://images.unsplash.com/photo-1593305841991-05c297ba4575?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=953&q=80)",
@@ -61,14 +64,15 @@ module.exports = {
         notificationText: "175px",
         notificationTextReward: "130px",
 
-        profileAvatar: "85%",
+        profileAvatar: "255px",
         postImageMobile: "78%",
         postImageDesktop: "80%",
         avatarField: "80px",
       },
       width: {
         0.5: "2px",
-        "85%": "85%",
+        "89%": "89%",
+        22: "88px",
       },
       fontSize: {
         verySmall: "11px",
@@ -76,6 +80,7 @@ module.exports = {
       height: {
         4.5: "18px",
         18: "76px",
+        22: "88px",
       },
       transitionDuration: {
         125: "125ms",

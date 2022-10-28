@@ -12,9 +12,10 @@ import { db } from "../firebase";
 import LoadingSpinner from "./LoadingSpinner";
 import styles from "../styles/effects.module.css";
 import firebase from "firebase";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 function Profile() {
-  /* TEMP TEST THIS SOLUTION -> SAVE API CALLS */
+  /* Comment out when working with dummy data (testing) */
   const { searchOk, setSearchOk } = useContext(Context);
   const { profile, setProfile } = useContext(Context);
 
@@ -23,11 +24,11 @@ function Profile() {
   const [avatar, setAvatar] = useState("");
 
   //temp dummyData
-  /* const [searchOk, setSearchOk] = useState(true);
+  /*  const [searchOk, setSearchOk] = useState(true);
   const [profile, setProfile] = useState({
-    kdRatio: 3.256,
-    wins: 179,
-    topFive: 1598,
+    kdRatio: 1.1,
+    wins: 8,
+    topFive: 122,
   }); */
 
   /* TEMP COMMENT OUT WHEN WORKING DITH DUMMY DATA (save api calls) */
@@ -51,7 +52,7 @@ function Profile() {
               users.find((item) => item.displayName === user?.displayName)
                 .profileAvatar
             );
-            //move firestore set to here!? NO, must be when we log out
+
             setSearchOk(true);
           } else {
             setSearchOk(false);
@@ -190,33 +191,49 @@ function Profile() {
     extend the loading time */
   };
 
-  /* TODO: research cool Profile-Card desgins */
+  const [tempEffect, setTempEffect] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      setTempEffect(true);
+    }, 1000);
+  }, []);
 
   return (
     <div className="mx-2.5 mt-1.5">
       {searchOk ? (
-        <div className="border border-gray-300 drop-shadow-lg   flex flex-col  xs:flex-row xs:p-5 p-3.5 mt-1.5 bg-grayish rounded-2xl max-w-lg  !mx-auto ">
-          <img
-            alt=""
-            /* src="https://i.pinimg.com/236x/79/44/69/794469d92431bd6d291755f35a4a6530.jpg" */
-            src={userInfo.profileAvatar}
-            className=" rounded-lg max-w-profileAvatar  xs:object-cover xs:h-64 xs:w-40   mx-auto xs:mx-0   xs:mb-0 mb-1.5"
-          />
+        <div
+          className={` ${!tempEffect && "opacity-0"} ${
+            tempEffect && "transform transition duration-500 ease-in-out"
+          } xs:p-5     bg-gray-100 border border-gray-300 drop-shadow-lg   flex flex-col  xs:flex-row  mt-1.5 rounded-2xl max-w-lg  !mx-auto `}
+        >
+          <div className={`relative flex justify-center     `}>
+            <img
+              alt=""
+              /* src="https://i.pinimg.com/236x/79/44/69/794469d92431bd6d291755f35a4a6530.jpg" */
+              /* src={avatar} */
+              src={userInfo?.profileAvatar}
+              className=" rounded-t-2xl rounded-b-none xs:rounded-lg  w-full xs:mr-3 xs:max-w-profileAvatar  xs:object-cover  xs:mb-0 mb-1.5"
+            />
+            <LazyLoadImage
+              src={user?.photoURL}
+              alt=""
+              className={`  xs:hidden -bottom-4 absolute z-50 rounded-full h-22 w-22 border-3 border-blueish/80/ border-blue-200`}
+            />
+          </div>
 
-          <div className="/ml-8 ml-9  flex flex-col justify-center  mb-2 ">
-            <div className="flex items-center xs:justify-between     /bg-red-400  mb-1">
-              <h2 className="font-bold text-lg xs:text-xl /underline">
+          <div className=" w-89% /w-11/12 flex// flex-col// mx-auto xs:!ml-2.5   mb-2      ">
+            <div className="flex items-center xs:justify-between     mb-1">
+              <h2 className="font-bold text-lg xs:text-xl ">
                 {user?.displayName}
               </h2>
 
               <RefreshIcon
                 onClick={handleUpdateData}
-                /* fix cleaner solution for refreshIcon spacing */
-                className="xs:ml-0 ml-auto mr-12 xs:mr-0   h-5 w-5 text-gray-600 transform ease-out transition duration-150 hover:rotate-90 cursor-pointer"
+                className=" ml-auto   h-5 w-5 text-gray-600 transform ease-out transition duration-150 hover:rotate-90 cursor-pointer"
               />
             </div>
             {/* underline gray ... */}
-            <div className=" bg-gray-400 h-0.5 mb-2 w-5/6 xs:w-full " />
+            <div className=" bg-gray-300 h-0.5 mb-2 w-full " />
 
             <div className="flex flex-col space-y-1.5">
               {/* KD INFO DIV */}
@@ -228,13 +245,13 @@ function Profile() {
                 <p className={`font-light ml-2    `}>
                   {/* IF KD EQUALS LASTKD -> display gray arrow forward */}
                   {Number(profile?.kdRatio.toFixed(4)) ==
-                    Number(userInfo.lastKd.toFixed(4)) && (
+                    Number(userInfo?.lastKd.toFixed(4)) && (
                     <ArrowCircleUpIcon className="w-5 h-5 ml-0.5 rotate-90 text-gray-500  " />
                   )}
                 </p>
                 {/* IF KD IS UP->display green text(the diff) */}
                 {Number(profile?.kdRatio.toFixed(4)) >
-                  Number(userInfo.lastKd.toFixed(4)) && (
+                  Number(userInfo?.lastKd.toFixed(4)) && (
                   <div className="flex items-center space-x-0.5 text-green-500">
                     <ArrowCircleUpIcon className="w-5 h-5 ml-0.5 rotate-45   " />
                     <p className="font-light text-sm  italic">
@@ -244,7 +261,7 @@ function Profile() {
                 )}
                 {/* IF KD IS DOWN->display red text(the diff) */}
                 {Number(profile?.kdRatio.toFixed(4)) <
-                  Number(userInfo.lastKd.toFixed(4)) && (
+                  Number(userInfo?.lastKd.toFixed(4)) && (
                   <div className="flex items-center space-x-0.5 text-red-500">
                     <ArrowCircleDownIcon className="w-5 h-5 ml-0.5 -rotate-45  " />
                     <p className="font-light text-sm italic">
@@ -259,16 +276,16 @@ function Profile() {
                 <h3 className="font-semibold">Wins:&nbsp;</h3>
                 <p className={`font-light`}>{profile?.wins}</p>
                 <p className={`font-light ml-2    `}>
-                  {profile?.wins == userInfo.lastWins && (
+                  {profile?.wins == userInfo?.lastWins && (
                     <ArrowCircleUpIcon className="w-5 h-5 ml-0.5 rotate-90 text-gray-500  " />
                   )}
                 </p>
                 {/* IF WINS ARE UP->display green text(the diff) */}
-                {profile?.wins > userInfo.lastWins && (
+                {profile?.wins > userInfo?.lastWins && (
                   <div className="flex items-center space-x-0.5 text-green-500">
                     <ArrowCircleUpIcon className="w-5 h-5 ml-0.5 rotate-45  " />
                     <p className="font-light text-sm  italic">
-                      ({profile?.wins - userInfo.lastWins})
+                      ({profile?.wins - userInfo?.lastWins})
                     </p>
                   </div>
                 )}
@@ -371,11 +388,6 @@ function Profile() {
                 )}
               </div>
 
-              {/* <div className="flex items-center group">
-                <h3 className="font-semibold">Avatar:&nbsp;</h3>
-                <p className="font-light truncate"></p>
-                <PencilIcon className="postIcon profileEditIconEffects" />
-              </div> */}
               <div className="flex ">
                 <h3 className="font-semibold">Strengths:&nbsp;</h3>
                 <p className="font-light">...</p>

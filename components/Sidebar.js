@@ -41,7 +41,7 @@ function Sidebar({ children }) {
           >
             <div
               aria-label="SIDEBAR-INNER-CONTAINER"
-              className="/bg-grayish /bg-navMobile bg-white border-t border-gray-300 xs:border-0 xs:bg-white  flex  flex-row  justify-center space-x-2 xs:space-x-0  xs:flex-col  py-1 xs:py-0 sm:space-y-4 shadow-inner xs:shadow-none"
+              className=" bg-white border-t border-gray-300 xs:border-0 xs:bg-white  flex  flex-row  justify-center space-x-2 xs:space-x-0  xs:flex-col  py-1 xs:py-0 sm:space-y-4 shadow-inner xs:shadow-none"
             >
               <LazyLoadImage
                 aria-label="COD-IMAGE ON TOP OF SIDEBAR"

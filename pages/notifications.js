@@ -25,7 +25,8 @@ function notifications() {
   }, []);
 
   return (
-    <div className="w-full flex flex-col border-l border-r border-grayish     h-screen">
+    /* if many notifics...can't see last one. Add mb */
+    <div className="w-full flex flex-col border-l border-r border-grayish  h-screen   mb-16">
       <p className="text-2xl font-bold  mt-3 pb-2 text-center  border-b border-grayish">
         Notifications
       </p>

@@ -42,7 +42,7 @@ function Tweetbox() {
 
   return (
     <div className="w-full font-mainFontHelv border-t border-grayish flex flex-col ">
-      <div className="flex  mb-1  space-x-1.5 xs:py-7  py-5 ml-6   ">
+      <div className="flex  mb-1  space-x-1.5 xs:py-7  py-5 ml-6/ ml-3   ">
         <img
           className="w-10 h-10 rounded-full object-cover"
           src={` ${userGuest ? `${tempGuest?.avatar}` : `${user?.photoURL}`}  `}
@@ -63,7 +63,7 @@ function Tweetbox() {
           }  `}
         />
       </div>
-      {/* img + chars div */}
+      {/* imgInput + chars div */}
       <div className="flex mb-3  items-center">
         <input
           value={postImg}
