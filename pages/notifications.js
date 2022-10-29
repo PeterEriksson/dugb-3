@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useContext, useEffect, useState } from "react";
 import Notification from "../components/Notification";
 import { Context } from "../Context";
@@ -27,6 +28,10 @@ function notifications() {
   return (
     /* if many notifics...can't see last one. Add mb */
     <div className="w-full flex flex-col border-l border-r border-grayish  h-screen   mb-16">
+      <Head>
+        <title>Notifications</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <p className="text-2xl font-bold  mt-3 pb-2 text-center  border-b border-grayish">
         Notifications
       </p>

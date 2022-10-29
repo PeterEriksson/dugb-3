@@ -9,6 +9,7 @@ function SidebarOption({ text, Icon, handleLogout, isHome, hideOnMobile }) {
   const {
     userGuest,
     setUserGuest,
+    user,
     setUser,
     setProfile,
     loadingNotific,
@@ -27,6 +28,8 @@ function SidebarOption({ text, Icon, handleLogout, isHome, hideOnMobile }) {
       setUser(null);
       setProfile(null);
       setSearchOk(false);
+    } else if (text === "Profile") {
+      router.push(`/${user?.displayName}`);
     } else {
       text === "Home"
         ? router.push("/")
@@ -37,11 +40,19 @@ function SidebarOption({ text, Icon, handleLogout, isHome, hideOnMobile }) {
   return (
     <div
       onClick={handleClick}
-      className={`sidebarBtn group   ${
-        isHome && asPath === "/" && "text-blueish"
-      } ${asPath === `/${text.toLowerCase()}` && "text-blueish"} ${
-        hideOnMobile && "hidden xs:inline-flex"
-      }  `}
+      className={`sidebarBtn group
+       ${
+         /* Handle Profile link active */ text === "Profile" &&
+         asPath === `/${user?.displayName}` &&
+         "text-blueish"
+       } 
+      ${
+        /* Handle Home Link active */ isHome && asPath === "/" && "text-blueish"
+      } 
+      ${
+        /* Handle rest of Links active */ asPath === `/${text.toLowerCase()}` &&
+        "text-blueish"
+      } ${hideOnMobile && "hidden xs:inline-flex"}  `}
     >
       <Icon className={`icon  `} />
       <a className={`iconText hidden smallerTest:inline-flex   `}>{text}</a>

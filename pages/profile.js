@@ -1,12 +1,11 @@
 import Profile from "../components/Profile";
 import Head from "next/head";
-/* import { useEffect } from "react"; */
 
 function profile() {
   return (
     <div className="flex flex-col border-l border-r border-grayish w-full    h-screen">
       <Head>
-        <title>DUGB3 Profile</title>
+        <title>Profile</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -14,7 +13,7 @@ function profile() {
         Profile
       </p>
 
-      <Profile />
+      {/*  <Profile /> */}
     </div>
   );
 }

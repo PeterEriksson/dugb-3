@@ -8,6 +8,7 @@ import ListPublishedExample from "../components/ListPublishedExample";
 import { db } from "../firebase";
 import FlipMove from "react-flip-move";
 import LoadingSpinnerNotific from "../components/LoadingSpinnerNotific";
+import Head from "next/head";
 
 function lists() {
   const [openNewListModal, setOpenNewListModal] = useState(false);
@@ -39,6 +40,10 @@ function lists() {
 
   return (
     <div className=" border-l border-r border-grayish flex flex-col    h-screen xs:h-auto">
+      <Head>
+        <title>Lists</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <h1 className="mt-3 font-bold text-2xl text-center">Lists</h1>
       <p className="font-light px-3 text-center pb-4">
         Who is best at what? Customize your own lists and rank your friends. Hot

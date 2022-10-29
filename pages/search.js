@@ -122,7 +122,7 @@ function search() {
   return (
     <div className="flex border-l border-grayish flex-col w-full">
       <Head>
-        <title>DUGB3 search</title>
+        <title>Search</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <p className="font-bold   border-b border-grayish text-2xl py-3 text-center">

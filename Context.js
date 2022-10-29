@@ -8,11 +8,11 @@ function ContextProvider({ children }) {
   const [users, setUsers] = useState([]);
   const [userGuest, setUserGuest] = useState(false);
   /*SAVE rapidAPI CALLS for profile page. Once a user has loaded it, the data is saved in state -> */
-  const [profile, setProfile] = useState(null);
+  const [profileWzData, setProfileWzData] = useState(null);
   const [searchOk, setSearchOk] = useState(false);
 
+  /* for list page */
   const [_profiles, _setProfiles] = useState([]);
-
   const [listOfProfiles, setListOfProfiles] = useState([
     {
       userName: "schmetir",
@@ -137,8 +137,8 @@ function ContextProvider({ children }) {
         /* save api calls👇 after 1 render the profile is always there, no need to call api again */
         searchOk,
         setSearchOk,
-        profile,
-        setProfile,
+        profileWzData,
+        setProfileWzData,
       }}
     >
       {children}
