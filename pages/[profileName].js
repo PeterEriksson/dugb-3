@@ -6,10 +6,10 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 /* COMMENT OUT fetch request if working with design ...or not using.*/
-/* export async function getServerSideProps({ params }) {
+export async function getServerSideProps({ params }) {
   const { profileName } = params;
 
-  const res = await fetch(
+  /* const res = await fetch(
     //`https://call-of-duty-modern-warfare.p.rapidapi.com/weekly-stats/${profileName}/psn`,
     `https://call-of-duty-modern-warfare.p.rapidapi.com/warzone/${profileName}/psn`,
     {
@@ -20,19 +20,19 @@ import { useEffect } from "react";
       },
     }
   );
-  const data = await res.json();
+  const data = await res.json(); */
   //const { br } = await res.json();
 
   return {
     props: {
-      data,
+      //data,
       //br,
       profileName,
     },
   };
-} */
+}
 
-function profileName({ /* data: wzData, */ /* br: wzData, */ profileName }) {
+function profileName({ /*  data: wzData, */ /* br: wzData, */ profileName }) {
   /* console.log(wzData);
   console.log(profileName); */
 
