@@ -6,10 +6,10 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 /* COMMENT OUT fetch request if working with design ...or not using.*/
-export async function getServerSideProps({ params }) {
+/* export async function getServerSideProps({ params }) {
   const { profileName } = params;
 
-  /* const res = await fetch(
+  const res = await fetch(
     //`https://call-of-duty-modern-warfare.p.rapidapi.com/weekly-stats/${profileName}/psn`,
     `https://call-of-duty-modern-warfare.p.rapidapi.com/warzone/${profileName}/psn`,
     {
@@ -20,17 +20,17 @@ export async function getServerSideProps({ params }) {
       },
     }
   );
-  //const data = await res.json();
+  const data = await res.json();
   //const { br } = await res.json();
- */
+
   return {
     props: {
-      //data,
+      data,
       //br,
       profileName,
     },
   };
-}
+} */
 
 function profileName({ /* data: wzData, */ /* br: wzData, */ profileName }) {
   /* console.log(wzData);
@@ -56,8 +56,10 @@ function profileName({ /* data: wzData, */ /* br: wzData, */ profileName }) {
       setProfileWzData((prev) => ({
         ...prev,
         gulagKd:
-          dataWeekly.wz.all.properties.gulagKills /
-          dataWeekly.wz.all.properties.gulagDeaths,
+          dataWeekly?.wz?.all?.properties?.gulagKills /
+          dataWeekly?.wz?.all?.properties?.gulagDeaths,
+        gulagKills: dataWeekly?.wz?.all?.properties?.gulagKills,
+        gulagDeaths: dataWeekly?.wz?.all?.properties?.gulagDeaths,
       })); //ok
 
     dataWeekly && setLoadingAdditionalStats(false);
@@ -66,29 +68,33 @@ function profileName({ /* data: wzData, */ /* br: wzData, */ profileName }) {
   /* Solution for: call api limited times. Called via Load Stats button. Avoid calling every time we enter Profile-page.. Save api calls... */
   const getStats = async () => {
     if (profileWzData) return;
-    setLoadingStats(true);
-    const res = await fetch(
-      `https://call-of-duty-modern-warfare.p.rapidapi.com/warzone/${profileName}/psn`,
-      {
-        method: "GET",
-        headers: {
-          "x-rapidapi-key": process.env.NEXT_PUBLIC_RAPID_KEY,
+    try {
+      setLoadingStats(true);
+      const res = await fetch(
+        `https://call-of-duty-modern-warfare.p.rapidapi.com/warzone/${profileName}/psn`,
+        {
+          method: "GET",
+          headers: {
+            "x-rapidapi-key": process.env.NEXT_PUBLIC_RAPID_KEY,
 
-          "x-rapidapi-host": "call-of-duty-modern-warfare.p.rapidapi.com",
-        },
-      }
-    );
+            "x-rapidapi-host": "call-of-duty-modern-warfare.p.rapidapi.com",
+          },
+        }
+      );
 
-    const { br } = await res.json();
-    br && setProfileWzData(br);
-    br && setLoadingStats(false);
-    br && setLoadingAdditionalStats(true);
-    //only fetch if first api call worked
-    //Rate Limit Basic:	one request per second
-    br &&
-      setTimeout(() => {
-        getWeeklyStats();
-      }, 2700);
+      const { br } = await res.json();
+      br && setProfileWzData(br);
+      br && setLoadingStats(false);
+      br && setLoadingAdditionalStats(true);
+      //only fetch if first api call worked
+      //Rate Limit Basic:	one request per second
+      br &&
+        setTimeout(() => {
+          getWeeklyStats();
+        }, 2700);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const [tempEffect, setTempEffect] = useState(false);

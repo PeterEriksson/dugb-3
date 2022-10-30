@@ -205,7 +205,7 @@ function Profile({ loadingStats, loadingAdditionalStats }) {
           <div className="flex flex-col space-y-1.5">
             {/* KD INFO DIV */}
             <div className="flex items-center">
-              <h4 className="font-semibold">K/D:&nbsp;</h4>
+              <h4 className="font-semibold">K/D Caldera:&nbsp;</h4>
 
               {!profileWzData ? (
                 <p
@@ -306,9 +306,7 @@ function Profile({ loadingStats, loadingAdditionalStats }) {
                     : ""}
                 </p>
               ) : (
-                <p className={`font-light`}>
-                  {Number(profileWzData?.gulagKd)?.toFixed(2)}
-                </p>
+                <p className={`font-light`}>{profileWzData?.gulagKd}</p>
               )}
             </div>
 

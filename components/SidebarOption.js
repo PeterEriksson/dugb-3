@@ -11,7 +11,7 @@ function SidebarOption({ text, Icon, handleLogout, isHome, hideOnMobile }) {
     setUserGuest,
     user,
     setUser,
-    setProfile,
+    setProfileWzData,
     loadingNotific,
     setSearchOk,
     setElementIdToScrollTo,
@@ -26,7 +26,7 @@ function SidebarOption({ text, Icon, handleLogout, isHome, hideOnMobile }) {
       router.push("/");
       auth?.signOut();
       setUser(null);
-      setProfile(null);
+      setProfileWzData(null);
       setSearchOk(false);
     } else if (text === "Profile") {
       router.push(`/${user?.displayName}`);
