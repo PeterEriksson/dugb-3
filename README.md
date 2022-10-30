@@ -52,7 +52,7 @@ If you like it, please drop a star 🙂
 ![home2 1](https://user-images.githubusercontent.com/17027312/196687940-32991349-15d8-4ea6-9f7e-a19509df4b41.png)
 ![home2 3](https://user-images.githubusercontent.com/17027312/196687958-8f38d8b3-5d52-4141-84b8-21473fa56946.png)
 
-### Home page mobile size
+### Home page mobile screen
 ![navmob1](https://user-images.githubusercontent.com/17027312/197584779-313cc16b-22a9-47df-9a67-606df87399d1.png)
 ![navmob2](https://user-images.githubusercontent.com/17027312/197584797-c09c5316-6bbb-4dfd-82c8-eb8eb7c1d85c.png)
 
@@ -63,7 +63,11 @@ If you like it, please drop a star 🙂
  ![notifications2 0](https://user-images.githubusercontent.com/17027312/196689717-03698d3e-9b4f-4823-992c-f3bbc5efc11a.png)
 
  #### Profile page 
- ![profile-benny](https://user-images.githubusercontent.com/17027312/193241554-ff57ab8f-6acb-4ace-b2ab-4abee7ef5249.png)
+  ![profile benny desktop](https://user-images.githubusercontent.com/17027312/198875385-30ffc922-93be-4fe4-9b5a-74dc2198cacd.png)
+  ![profile desktop](https://user-images.githubusercontent.com/17027312/198875613-563e82b5-3149-46be-a44a-caadde90e17a.png)
+
+ ### Profile mobile screen
+  ![profile mobile](https://user-images.githubusercontent.com/17027312/198875628-4501354e-4dde-488d-a3e9-21dda051839e.png)
  
  #### Search page 
  ![search-nurrm](https://user-images.githubusercontent.com/17027312/193240518-8616f2c6-07a7-4736-8aee-ee924c9d1327.png)
