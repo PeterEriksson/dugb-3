@@ -14,7 +14,7 @@ import styles from "../styles/effects.module.css";
 import firebase from "firebase";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
-function Profile() {
+function Profile({ loadingStats, loadingAdditionalStats }) {
   const { profileWzData } = useContext(Context);
 
   const { users, user } = useContext(Context);
@@ -99,9 +99,9 @@ function Profile() {
   const handleUpdateData = () => {
     //Don't have to call Firestore IF we don't need to update kd or wins.
     if (
-      Number(profileWzData?.br.kdRatio.toFixed(4)) ==
+      Number(profileWzData?.kdRatio.toFixed(4)) ==
         Number(userInfo.lastKd.toFixed(4)) &&
-      profileWzData?.br.wins == userInfo.lastWins
+      profileWzData?.wins == userInfo.lastWins
     )
       return;
 
@@ -109,7 +109,7 @@ function Profile() {
     if (profileWzData === null) return;
 
     /* if there are new wins we want to create a rewardPost AND update user stats */
-    if (profileWzData?.br.wins > userInfo.lastWins) {
+    if (profileWzData?.wins > userInfo.lastWins) {
       db.collection("posts")
         .add({
           isRewardPost: true,
@@ -117,11 +117,11 @@ function Profile() {
           fullName: users.find((item) => item.displayName === user?.displayName)
             .fullName,
           userName: user?.displayName,
-          postText: `His total BR-wins is now ${profileWzData?.br.wins}. Congrats!`,
+          postText: `His total BR-wins is now ${profileWzData?.wins}. Congrats!`,
           postImg:
             "https://i.pinimg.com/736x/99/e7/55/99e755bcd84c42a684c7f23a8679340e.jpg",
           timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-          newWinsAmount: profileWzData?.br.wins - userInfo.lastWins,
+          newWinsAmount: profileWzData?.wins - userInfo.lastWins,
         })
         .then(() => {
           db.collection("users")
@@ -130,8 +130,8 @@ function Profile() {
             )
             .set({
               ...userInfo,
-              lastKd: profileWzData?.br.kdRatio,
-              lastWins: profileWzData?.br.wins,
+              lastKd: profileWzData?.kdRatio,
+              lastWins: profileWzData?.wins,
             });
         });
     } else {
@@ -140,7 +140,7 @@ function Profile() {
         .doc(users.find((item) => item.displayName === user?.displayName).id)
         .set({
           ...userInfo,
-          lastKd: profileWzData?.br.kdRatio,
+          lastKd: profileWzData?.kdRatio,
           /* lastWins: profile?.wins, */
         });
     }
@@ -164,18 +164,28 @@ function Profile() {
         } xs:p-5     bg-gray-100 border border-gray-300 drop-shadow-lg   flex flex-col  xs:flex-row  mt-1.5 rounded-2xl max-w-lg  !mx-auto `}
       >
         <div className={`relative flex justify-center     `}>
-          <img
+          <LazyLoadImage
+            loading="lazy" /* ..? */
             alt=""
-            /* src="https://i.pinimg.com/236x/79/44/69/794469d92431bd6d291755f35a4a6530.jpg" */
             /* src={avatar} */
             src={userInfo?.profileAvatar}
             className=" rounded-t-2xl rounded-b-none xs:rounded-lg  w-full xs:mr-3 xs:max-w-profileAvatar  xs:object-cover  xs:mb-0 mb-1.5"
           />
           <LazyLoadImage
-            src={user?.photoURL}
+            loading="lazy" /* ..? */
+            src={userInfo?.photoURL}
             alt=""
-            className={`  xs:hidden -bottom-4 absolute z-50 rounded-full h-22 w-22 border-3 border-blueish/80/ border-blue-200`}
+            className={`  xs:hidden -bottom-4 absolute z-50 rounded-full h-22 w-22 ${
+              userInfo && "border-3"
+            } border-blueish/80/ border-blue-200`}
           />
+          {/* <img
+            src={userInfo?.photoURL}
+            alt=""
+            className={`  xs:hidden -bottom-4 absolute z-50 rounded-full h-22 w-22 ${
+              userInfo && "border-3"
+            } border-blueish/80/ border-blue-200`}
+          /> */}
         </div>
 
         <div className=" w-89% /w-11/12 flex// flex-col// mx-auto xs:!ml-2.5   mb-2      ">
@@ -195,41 +205,53 @@ function Profile() {
           <div className="flex flex-col space-y-1.5">
             {/* KD INFO DIV */}
             <div className="flex items-center">
-              <h3 className="font-semibold">K/D:&nbsp;</h3>
-              <p className={`font-light`}>
-                {Number(profileWzData?.br?.kdRatio).toFixed(4)}
-              </p>
+              <h4 className="font-semibold">K/D:&nbsp;</h4>
+
+              {!profileWzData ? (
+                <p
+                  className={`font-extralight text-sm italic   ${
+                    loadingStats && "animate-pulse font-normal"
+                  }`}
+                >
+                  {loadingStats ? "Loading Stats" : "    stats not loaded"}
+                </p>
+              ) : (
+                <p className={`font-light`}>
+                  {Number(profileWzData?.kdRatio)?.toFixed(4)}
+                </p>
+              )}
+
               <p className={`font-light ml-2    `}>
                 {/* IF KD EQUALS LASTKD -> display gray arrow forward */}
-                {Number(profileWzData?.br?.kdRatio.toFixed(4)) ==
+                {Number(profileWzData?.kdRatio?.toFixed(4)) ==
                   Number(userInfo?.lastKd?.toFixed(4)) && (
                   <ArrowCircleUpIcon className="w-5 h-5 ml-0.5 rotate-90 text-gray-500  " />
                 )}
               </p>
               {/* IF KD IS UP->display green text(the diff) */}
-              {Number(profileWzData?.br?.kdRatio.toFixed(4)) >
+              {Number(profileWzData?.kdRatio?.toFixed(4)) >
                 Number(userInfo?.lastKd?.toFixed(4)) && (
                 <div className="flex items-center space-x-0.5 text-green-500">
                   <ArrowCircleUpIcon className="w-5 h-5 ml-0.5 rotate-45   " />
                   <p className="font-light text-sm  italic">
                     (
-                    {Number(
-                      profileWzData?.br?.kdRatio - userInfo.lastKd
-                    ).toFixed(4)}
+                    {Number(profileWzData?.kdRatio - userInfo.lastKd).toFixed(
+                      4
+                    )}
                     )
                   </p>
                 </div>
               )}
               {/* IF KD IS DOWN->display red text(the diff) */}
-              {Number(profileWzData?.br?.kdRatio.toFixed(4)) <
-                Number(userInfo?.lastKd.toFixed(4)) && (
+              {Number(profileWzData?.kdRatio?.toFixed(4)) <
+                Number(userInfo?.lastKd?.toFixed(4)) && (
                 <div className="flex items-center space-x-0.5 text-red-500">
                   <ArrowCircleDownIcon className="w-5 h-5 ml-0.5 -rotate-45  " />
                   <p className="font-light text-sm italic">
                     (
-                    {Number(
-                      profileWzData?.br?.kdRatio - userInfo.lastKd
-                    ).toFixed(4)}
+                    {Number(profileWzData?.kdRatio - userInfo.lastKd).toFixed(
+                      4
+                    )}
                     )
                   </p>
                 </div>
@@ -238,28 +260,81 @@ function Profile() {
             {/* END OF KD INFO DIV */}
             {/* WINS INFO DIV */}
             <div className="flex items-center">
-              <h3 className="font-semibold">Wins:&nbsp;</h3>
-              <p className={`font-light`}>{profileWzData?.br?.wins}</p>
+              <h4 className="font-semibold">Wins:&nbsp;</h4>
+
+              {!profileWzData ? (
+                <p
+                  className={`font-extralight text-sm italic   ${
+                    loadingStats && "animate-pulse font-normal"
+                  }`}
+                >
+                  {loadingStats ? "Loading Stats" : ""}
+                </p>
+              ) : (
+                <p className={`font-light`}>{profileWzData?.wins}</p>
+              )}
+
               <p className={`font-light ml-2  `}>
-                {profileWzData?.br?.wins == userInfo?.lastWins && (
+                {profileWzData?.wins == userInfo?.lastWins && (
                   <ArrowCircleUpIcon className="w-5 h-5 ml-0.5 rotate-90 text-gray-500  " />
                 )}
               </p>
               {/* IF WINS ARE UP->display green text(the diff) */}
-              {profileWzData?.br?.wins > userInfo?.lastWins && (
+              {profileWzData?.wins > userInfo?.lastWins && (
                 <div className="flex items-center space-x-0.5 text-green-500">
                   <ArrowCircleUpIcon className="w-5 h-5 ml-0.5 rotate-45  " />
                   <p className="font-light text-sm  italic">
-                    ({profileWzData?.br?.wins - userInfo?.lastWins})
+                    ({profileWzData?.wins - userInfo?.lastWins})
                   </p>
                 </div>
               )}
             </div>
 
+            {/* GULAG TESTING TEMP STATS */}
+            <div className="flex items-center">
+              <h4 className="font-semibold">Weekly Gulag K/D:&nbsp;</h4>
+
+              {!profileWzData?.gulagKd ? (
+                <p
+                  className={`font-extralight text-sm italic   ${
+                    (loadingAdditionalStats || loadingStats) &&
+                    "animate-pulse font-normal"
+                  }`}
+                >
+                  {loadingAdditionalStats || loadingStats
+                    ? "Loading Stats"
+                    : ""}
+                </p>
+              ) : (
+                <p className={`font-light`}>
+                  {Number(profileWzData?.gulagKd)?.toFixed(2)}
+                </p>
+              )}
+            </div>
+
+            {/* REBIRTH stats */}
+            {/* <div className="flex items-center">
+                <h4 className="font-semibold">Weekly Rebirth Quads:&nbsp;</h4>
+                
+                {!profileWzData?... ? (
+                <p
+                  className={`font-extralight text-sm italic   ${
+                    loadingAdditionalStats && "animate-pulse font-normal"
+                  }`}
+                >
+                  {loadingAdditionalStats ? "Loading Stats" : ""}
+                </p>
+              ) : (
+                <p className={`font-light`}>
+                  {Number(profileWzData?....)?.toFixed(2)}
+                </p>
+              )}
+              </div>  */}
+
             {/* TOP FIVE */}
             {/* <div className="flex">
                 <h3 className="font-semibold">Top five:&nbsp;</h3>
-                <p className="font-light">{profileWzData?.br.topFive}</p>
+                <p className="font-light">{profileWzData?.topFive}</p>
               </div> */}
             {/* CLANS */}
             {/* <div className=" items-center group xs:flex hidden">

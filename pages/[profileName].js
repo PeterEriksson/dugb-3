@@ -5,12 +5,12 @@ import { Context } from "../Context";
 import { useState } from "react";
 import { useEffect } from "react";
 
-/* COMMENT OUT if working with design */
-
+/* COMMENT OUT fetch request if working with design ...or not using.*/
 export async function getServerSideProps({ params }) {
   const { profileName } = params;
 
   /* const res = await fetch(
+    //`https://call-of-duty-modern-warfare.p.rapidapi.com/weekly-stats/${profileName}/psn`,
     `https://call-of-duty-modern-warfare.p.rapidapi.com/warzone/${profileName}/psn`,
     {
       method: "GET",
@@ -20,21 +20,50 @@ export async function getServerSideProps({ params }) {
       },
     }
   );
-  const data = await res.json(); */
-
+  //const data = await res.json();
+  //const { br } = await res.json();
+ */
   return {
     props: {
-      /* data, */
+      //data,
+      //br,
       profileName,
     },
   };
 }
 
-function profileName({ /* data: wzData, */ profileName }) {
-  const { setProfileWzData, profileWzData } = useContext(Context);
+function profileName({ /* data: wzData, */ /* br: wzData, */ profileName }) {
+  /* console.log(wzData);
+  console.log(profileName); */
 
+  const { setProfileWzData, profileWzData } = useContext(Context);
   const [loadingStats, setLoadingStats] = useState(false);
-  /* Solution for: call api only once. Not on every time we enter Profile-page. Save api calls... */
+  const [loadingAdditionalStats, setLoadingAdditionalStats] = useState(false);
+
+  const getWeeklyStats = async () => {
+    const resWeekly = await fetch(
+      `https://call-of-duty-modern-warfare.p.rapidapi.com/weekly-stats/${profileName}/psn`,
+      {
+        method: "GET",
+        headers: {
+          "x-rapidapi-key": process.env.NEXT_PUBLIC_RAPID_KEY,
+          "x-rapidapi-host": "call-of-duty-modern-warfare.p.rapidapi.com",
+        },
+      }
+    );
+    const dataWeekly = await resWeekly.json();
+    dataWeekly &&
+      setProfileWzData((prev) => ({
+        ...prev,
+        gulagKd:
+          dataWeekly.wz.all.properties.gulagKills /
+          dataWeekly.wz.all.properties.gulagDeaths,
+      })); //ok
+
+    dataWeekly && setLoadingAdditionalStats(false);
+  };
+
+  /* Solution for: call api limited times. Called via Load Stats button. Avoid calling every time we enter Profile-page.. Save api calls... */
   const getStats = async () => {
     if (profileWzData) return;
     setLoadingStats(true);
@@ -49,13 +78,17 @@ function profileName({ /* data: wzData, */ profileName }) {
         },
       }
     );
-    const data = await res.json();
 
-    data && setProfileWzData(data);
-    console.log(data);
-
-    data && setLoadingStats(false);
-    console.log(loadingStats);
+    const { br } = await res.json();
+    br && setProfileWzData(br);
+    br && setLoadingStats(false);
+    br && setLoadingAdditionalStats(true);
+    //only fetch if first api call worked
+    //Rate Limit Basic:	one request per second
+    br &&
+      setTimeout(() => {
+        getWeeklyStats();
+      }, 2700);
   };
 
   const [tempEffect, setTempEffect] = useState(false);
@@ -76,10 +109,13 @@ function profileName({ /* data: wzData, */ profileName }) {
         Profile
       </p>
 
-      <Profile />
+      <Profile
+        loadingStats={loadingStats}
+        loadingAdditionalStats={loadingAdditionalStats}
+      />
 
       <button
-        disabled={profileWzData || loadingStats}
+        disabled={profileWzData || loadingStats || loadingAdditionalStats}
         className={` ${
           !tempEffect
             ? "!opacity-0"
