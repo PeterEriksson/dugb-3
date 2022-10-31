@@ -204,7 +204,7 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
           <div className="flex flex-col space-y-1.5">
             {/* KD INFO DIV */}
             <div className="flex items-center">
-              <h4 className="font-semibold">K/D (Caldera+Verdansk):&nbsp;</h4>
+              <h4 className="font-semibold">K/D:&nbsp;</h4>
 
               {!profileWzData ? (
                 <p
@@ -257,6 +257,7 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
               )}
             </div>
             {/* END OF KD INFO DIV */}
+
             {/* WINS INFO DIV */}
             <div className="flex items-center">
               <h4 className="font-semibold">Wins:&nbsp;</h4>
@@ -306,14 +307,14 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
                 </p>
               ) : (
                 <p className={`font-light`}>
-                  {profileWzData?.gulagKd} ({profileWzData?.gulagKills}/
-                  {profileWzData?.gulagDeaths})
+                  {Number(profileWzData?.gulagKd).toFixed(2)} (
+                  {profileWzData?.gulagKills}/{profileWzData?.gulagDeaths})
                 </p>
               )}
             </div>
 
             {/* EXECUTIONS TEMP TEST */}
-            <div className="flex items-center">
+            {/* <div className="flex items-center">
               <h4 className="font-semibold">Weekly executions:&nbsp;</h4>
 
               {!profileWzData?.executionsWeekly ? (
@@ -332,13 +333,13 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
                   {profileWzData?.executionsWeekly}
                 </p>
               )}
-            </div>
+            </div> */}
 
-            {/* REBIRTH stats */}
-            {/* <div className="flex items-center">
-                <h4 className="font-semibold">Weekly Rebirth Quads:&nbsp;</h4>
-                
-                {!profileWzData?... ? (
+            {/* REBIRTH(???) stats */}
+            <div className="flex items-center">
+              <h4 className="font-semibold">Weekly Rebirth Quads K/D:&nbsp;</h4>
+
+              {!profileWzData?.rebirthQuadWeeklyKd ? (
                 <p
                   className={`font-extralight text-sm italic   ${
                     loadingAdditionalStats && "animate-pulse font-normal"
@@ -348,21 +349,14 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
                 </p>
               ) : (
                 <p className={`font-light`}>
-                  {Number(profileWzData?....)?.toFixed(2)}
+                  {Number(profileWzData?.rebirthQuadWeeklyKd).toFixed(2)}
                 </p>
               )}
-              </div>  */}
+            </div>
 
-            {/* TOP FIVE */}
-            {/* <div className="flex">
-                <h3 className="font-semibold">Top five:&nbsp;</h3>
-                <p className="font-light">{profileWzData?.topFive}</p>
-              </div> */}
-            {/* CLANS */}
-            {/* <div className=" items-center group xs:flex hidden">
-                <h3 className="font-semibold">Clans:&nbsp;</h3>
-                <p className="font-light">...</p>
-              </div> */}
+            {/* TEST TEMP GRAY LINE seperating stats from user info */}
+            <div className=" bg-gray-200 h-0.5 mb-2 w-full " />
+
             <div className="flex items-center group ">
               <h3 className="font-semibold flex items-center">
                 Favorite saying:&nbsp;
