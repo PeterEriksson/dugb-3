@@ -41,6 +41,7 @@ function profileName({ /*  data: wzData, */ /* br: wzData, */ profileName }) {
   const [loadingAdditionalStats, setLoadingAdditionalStats] = useState(false);
 
   const getWeeklyStats = async () => {
+    setLoadingAdditionalStats(true);
     const resWeekly = await fetch(
       `https://call-of-duty-modern-warfare.p.rapidapi.com/weekly-stats/${profileName}/psn`,
       {
@@ -85,15 +86,18 @@ function profileName({ /*  data: wzData, */ /* br: wzData, */ profileName }) {
       const { br } = await res.json();
       br && setProfileWzData(br);
       br && setLoadingStats(false);
-      br && setLoadingAdditionalStats(true);
+
       //only fetch if first api call worked
-      //Rate Limit Basic:	one request per second
+      //Rate Limit Basic: one request per second
+      br && setLoadingAdditionalStats(true);
       br &&
         setTimeout(() => {
           getWeeklyStats();
         }, 2700);
     } catch (err) {
       console.log(err);
+      setLoadingStats(false);
+      set;
     }
   };
 
@@ -118,6 +122,7 @@ function profileName({ /*  data: wzData, */ /* br: wzData, */ profileName }) {
       <Profile
         loadingStats={loadingStats}
         loadingAdditionalStats={loadingAdditionalStats}
+        profileName={profileName}
       />
 
       <button

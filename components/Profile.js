@@ -9,12 +9,10 @@ import {
 import { useContext, useEffect, useState, useRef } from "react";
 import { Context } from "../Context";
 import { db } from "../firebase";
-import LoadingSpinner from "./LoadingSpinner";
-import styles from "../styles/effects.module.css";
 import firebase from "firebase";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
-function Profile({ loadingStats, loadingAdditionalStats }) {
+function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
   const { profileWzData } = useContext(Context);
 
   const { users, user } = useContext(Context);
@@ -191,7 +189,8 @@ function Profile({ loadingStats, loadingAdditionalStats }) {
         <div className=" w-89% /w-11/12 flex// flex-col// mx-auto xs:!ml-2.5   mb-2      ">
           <div className="flex items-center xs:justify-between     mb-1">
             <h2 className="font-bold text-lg xs:text-xl ">
-              {user?.displayName}
+              {/* {user?.displayName} */}
+              {profileName}
             </h2>
 
             <RefreshIcon

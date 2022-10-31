@@ -53,7 +53,7 @@ function Tweetbox() {
           name=""
           id=""
           cols=""
-          rows={3}
+          rows={4}
           className="  w-full xs:text-xl text-base focus:ring-transparent font-light border-none outline-none resize-none"
           type="text"
           placeholder={`${
