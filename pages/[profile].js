@@ -7,11 +7,11 @@ import { useEffect } from "react";
 
 /* COMMENT OUT fetch request if working with design ...or not using.*/
 export async function getServerSideProps({ params }) {
-  const { profileName } = params;
+  const { profile } = params;
 
   /* const res = await fetch(
-    //`https://call-of-duty-modern-warfare.p.rapidapi.com/weekly-stats/${profileName}/psn`,
-    `https://call-of-duty-modern-warfare.p.rapidapi.com/warzone/${profileName}/psn`,
+    //`https://call-of-duty-modern-warfare.p.rapidapi.com/weekly-stats/${profile}/psn`,
+    `https://call-of-duty-modern-warfare.p.rapidapi.com/warzone/${profile}/psn`,
     {
       method: "GET",
       headers: {
@@ -27,14 +27,14 @@ export async function getServerSideProps({ params }) {
     props: {
       //data,
       //br,
-      profileName,
+      profile,
     },
   };
 }
 
-function profileName({ /*  data: wzData, */ /* br: wzData, */ profileName }) {
+function profile({ /*  data: wzData, */ /* br: wzData, */ profile }) {
   /* console.log(wzData);
-  console.log(profileName); */
+  console.log(profile); */
 
   const { setProfileWzData, profileWzData } = useContext(Context);
   const [loadingStats, setLoadingStats] = useState(false);
@@ -43,7 +43,7 @@ function profileName({ /*  data: wzData, */ /* br: wzData, */ profileName }) {
   const getWeeklyStats = async () => {
     setLoadingAdditionalStats(true);
     const resWeekly = await fetch(
-      `https://call-of-duty-modern-warfare.p.rapidapi.com/weekly-stats/${profileName}/psn`,
+      `https://call-of-duty-modern-warfare.p.rapidapi.com/weekly-stats/${profile}/psn`,
       {
         method: "GET",
         headers: {
@@ -53,6 +53,7 @@ function profileName({ /*  data: wzData, */ /* br: wzData, */ profileName }) {
       }
     );
     const dataWeekly = await resWeekly.json();
+    //dataWeekly && console.log(dataWeekly);
     dataWeekly &&
       setProfileWzData((prev) => ({
         ...prev,
@@ -61,6 +62,9 @@ function profileName({ /*  data: wzData, */ /* br: wzData, */ profileName }) {
           dataWeekly?.wz?.all?.properties?.gulagDeaths,
         gulagKills: dataWeekly?.wz?.all?.properties?.gulagKills,
         gulagDeaths: dataWeekly?.wz?.all?.properties?.gulagDeaths,
+        rebirthQuadWeeklyKd:
+          dataWeekly?.wz?.mode?.br_rebirth_rbrthquad?.properties?.kdRatio,
+        executionsWeekly: dataWeekly?.wz?.all?.properties?.executions,
       })); //ok
 
     dataWeekly && setLoadingAdditionalStats(false);
@@ -72,7 +76,7 @@ function profileName({ /*  data: wzData, */ /* br: wzData, */ profileName }) {
     try {
       setLoadingStats(true);
       const res = await fetch(
-        `https://call-of-duty-modern-warfare.p.rapidapi.com/warzone/${profileName}/psn`,
+        `https://call-of-duty-modern-warfare.p.rapidapi.com/warzone/${profile}/psn`,
         {
           method: "GET",
           headers: {
@@ -84,6 +88,7 @@ function profileName({ /*  data: wzData, */ /* br: wzData, */ profileName }) {
       );
 
       const { br } = await res.json();
+      //br && console.log(br);
       br && setProfileWzData(br);
       br && setLoadingStats(false);
 
@@ -97,7 +102,6 @@ function profileName({ /*  data: wzData, */ /* br: wzData, */ profileName }) {
     } catch (err) {
       console.log(err);
       setLoadingStats(false);
-      set;
     }
   };
 
@@ -111,7 +115,7 @@ function profileName({ /*  data: wzData, */ /* br: wzData, */ profileName }) {
   return (
     <div className="flex flex-col border-l border-r border-grayish w-full    h-screen">
       <Head>
-        <title>{profileName}</title>
+        <title>{profile}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -122,7 +126,7 @@ function profileName({ /*  data: wzData, */ /* br: wzData, */ profileName }) {
       <Profile
         loadingStats={loadingStats}
         loadingAdditionalStats={loadingAdditionalStats}
-        profileName={profileName}
+        profileName={profile}
       />
 
       <button
@@ -143,4 +147,4 @@ function profileName({ /*  data: wzData, */ /* br: wzData, */ profileName }) {
   );
 }
 
-export default profileName;
+export default profile;

@@ -155,11 +155,11 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
   }, []);
 
   return (
-    <div className="mx-2.5 mt-1.5">
+    <div className="mx-2.5 mt-1">
       <div
         className={` ${!tempEffect && "!opacity-0"} ${
           tempEffect && "!transform !transition !duration-500 !ease-in-out"
-        } xs:p-5     bg-gray-100 border border-gray-300 drop-shadow-lg   flex flex-col  xs:flex-row  mt-1.5 rounded-2xl max-w-lg  !mx-auto `}
+        } xs:p-5     bg-gray-100 border border-gray-300 drop-shadow-lg   flex flex-col  xs:flex-row   rounded-2xl max-w-lg  !mx-auto `}
       >
         <div className={`relative flex justify-center     `}>
           <LazyLoadImage
@@ -204,7 +204,7 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
           <div className="flex flex-col space-y-1.5">
             {/* KD INFO DIV */}
             <div className="flex items-center">
-              <h4 className="font-semibold">K/D Caldera:&nbsp;</h4>
+              <h4 className="font-semibold">K/D (Caldera+Verdansk):&nbsp;</h4>
 
               {!profileWzData ? (
                 <p
@@ -305,7 +305,32 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
                     : ""}
                 </p>
               ) : (
-                <p className={`font-light`}>{profileWzData?.gulagKd}</p>
+                <p className={`font-light`}>
+                  {profileWzData?.gulagKd} ({profileWzData?.gulagKills}/
+                  {profileWzData?.gulagDeaths})
+                </p>
+              )}
+            </div>
+
+            {/* EXECUTIONS TEMP TEST */}
+            <div className="flex items-center">
+              <h4 className="font-semibold">Weekly executions:&nbsp;</h4>
+
+              {!profileWzData?.executionsWeekly ? (
+                <p
+                  className={`font-extralight text-sm italic   ${
+                    (loadingAdditionalStats || loadingStats) &&
+                    "animate-pulse font-normal"
+                  }`}
+                >
+                  {loadingAdditionalStats || loadingStats
+                    ? "Loading Stats"
+                    : ""}
+                </p>
+              ) : (
+                <p className={`font-light`}>
+                  {profileWzData?.executionsWeekly}
+                </p>
               )}
             </div>
 
