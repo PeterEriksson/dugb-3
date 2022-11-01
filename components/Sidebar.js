@@ -35,12 +35,12 @@ function Sidebar({ children }) {
           aria-label="APP LOGGED IN CONTAINER"
           className="flex flex-col-reverse    xs:flex-row max-w-6xl w-full mx-auto"
         >
-          <div
-            aria-label="SIDEBAR-OUTER-CONTAINER"
+          <nav
+            aria-label="SIDEBAR-OUTER-CONTAINER" /* unnecessary, merge to 1... */
             className="bottom-0  xs:top-0  xs:h-screen font-mainFontHelv sm:px-4   sm:pt-2  border-grayish sticky z-50"
           >
-            <div
-              aria-label="SIDEBAR-INNER-CONTAINER"
+            <nav
+              aria-label="SIDEBAR-INNER-CONTAINER" /* merge to 1.. */
               className=" bg-white border-t border-gray-300 xs:border-0 xs:bg-white  flex  flex-row  justify-center space-x-2 xs:space-x-0  xs:flex-col  py-1 xs:py-0 sm:space-y-4 shadow-inner xs:shadow-none"
             >
               <LazyLoadImage
@@ -62,8 +62,8 @@ function Sidebar({ children }) {
                 Icon={InformationCircleIcon}
               />
               <SidebarOption text="Log out" Icon={LogoutIcon} handleLogout />
-            </div>
-          </div>
+            </nav>
+          </nav>
           {children}
         </div>
       ) : (

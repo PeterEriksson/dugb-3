@@ -202,18 +202,22 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
           <div className=" bg-gray-300 h-0.5 mb-2 w-full " />
 
           <div className="flex flex-col space-y-1.5">
-            {/* KD INFO DIV */}
-            <div className="flex items-center">
+            {/* KD INFO DIV/SECTION */}
+            <section className="flex items-center">
               <h4 className="font-semibold">K/D:&nbsp;</h4>
 
               {!profileWzData ? (
-                <p
-                  className={`font-extralight text-sm italic   ${
-                    loadingStats && "animate-pulse font-normal"
-                  }`}
+                <div
+                  className={`font-extralight text-sm italic  ${
+                    loadingStats && "font-normal h-4 w-4"
+                  } `}
                 >
-                  {loadingStats ? "Loading Stats" : "    stats not loaded"}
-                </p>
+                  {loadingStats ? (
+                    <LazyLoadImage className="" src="/spinner2.svg" alt="" />
+                  ) : (
+                    "stats not fetched"
+                  )}
+                </div>
               ) : (
                 <p className={`font-light`}>
                   {Number(profileWzData?.kdRatio)?.toFixed(4)}
@@ -255,21 +259,25 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
                   </p>
                 </div>
               )}
-            </div>
+            </section>
             {/* END OF KD INFO DIV */}
 
-            {/* WINS INFO DIV */}
-            <div className="flex items-center">
+            {/* WINS INFO DIV/SECTION */}
+            <section className="flex items-center">
               <h4 className="font-semibold">Wins:&nbsp;</h4>
 
               {!profileWzData ? (
-                <p
-                  className={`font-extralight text-sm italic   ${
-                    loadingStats && "animate-pulse font-normal"
-                  }`}
-                >
-                  {loadingStats ? "Loading Stats" : ""}
-                </p>
+                <>
+                  {loadingStats ? (
+                    <LazyLoadImage
+                      className="h-4 w-4"
+                      src="/spinner2.svg"
+                      alt=""
+                    />
+                  ) : (
+                    ""
+                  )}
+                </>
               ) : (
                 <p className={`font-light`}>{profileWzData?.wins}</p>
               )}
@@ -288,30 +296,31 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
                   </p>
                 </div>
               )}
-            </div>
+            </section>
 
             {/* GULAG TESTING TEMP STATS */}
-            <div className="flex items-center">
+            <section className="flex items-center">
               <h4 className="font-semibold">Weekly Gulag K/D:&nbsp;</h4>
 
               {!profileWzData?.gulagKd ? (
-                <p
-                  className={`font-extralight text-sm italic   ${
-                    (loadingAdditionalStats || loadingStats) &&
-                    "animate-pulse font-normal"
-                  }`}
-                >
-                  {loadingAdditionalStats || loadingStats
-                    ? "Loading Stats"
-                    : ""}
-                </p>
+                <>
+                  {loadingAdditionalStats || loadingStats ? (
+                    <LazyLoadImage
+                      className="h-4 w-4"
+                      src="/spinner2.svg"
+                      alt=""
+                    />
+                  ) : (
+                    ""
+                  )}
+                </>
               ) : (
                 <p className={`font-light`}>
                   {Number(profileWzData?.gulagKd).toFixed(2)} (
                   {profileWzData?.gulagKills}/{profileWzData?.gulagDeaths})
                 </p>
               )}
-            </div>
+            </section>
 
             {/* EXECUTIONS TEMP TEST */}
             {/* <div className="flex items-center">
@@ -335,29 +344,33 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
               )}
             </div> */}
 
-            {/* REBIRTH(???) stats */}
-            <div className="flex items-center">
+            {/* REBIRTH stats */}
+            <section className="flex items-center">
               <h4 className="font-semibold">Weekly Rebirth Quads K/D:&nbsp;</h4>
 
               {!profileWzData?.rebirthQuadWeeklyKd ? (
-                <p
-                  className={`font-extralight text-sm italic   ${
-                    loadingAdditionalStats && "animate-pulse font-normal"
-                  }`}
-                >
-                  {loadingAdditionalStats ? "Loading Stats" : ""}
-                </p>
+                <>
+                  {loadingAdditionalStats || loadingStats ? (
+                    <LazyLoadImage
+                      className="h-4 w-4"
+                      src="/spinner2.svg"
+                      alt=""
+                    />
+                  ) : (
+                    ""
+                  )}
+                </>
               ) : (
                 <p className={`font-light`}>
                   {Number(profileWzData?.rebirthQuadWeeklyKd).toFixed(2)}
                 </p>
               )}
-            </div>
+            </section>
 
             {/* TEST TEMP GRAY LINE seperating stats from user info */}
-            <div className=" bg-gray-200 h-0.5 mb-2 w-full " />
+            <div className=" bg-gray-200 h-0.5 mb-2 w-full" />
 
-            <div className="flex items-center group ">
+            <section className="flex items-center group ">
               <h3 className="font-semibold flex items-center">
                 Favorite saying:&nbsp;
                 <p className={`font-light `}>
@@ -398,9 +411,9 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
                   )}
                 </>
               )}
-            </div>
+            </section>
 
-            <div className="flex items-center group ">
+            <section className="flex items-center group ">
               <h3 className="font-semibold flex items-center ">
                 Avatar:&nbsp;
                 <p
@@ -440,18 +453,18 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
                   )}
                 </>
               )}
-            </div>
+            </section>
 
-            <div className="flex ">
+            <section className="flex items-center">
               <h3 className="font-semibold">Strengths:&nbsp;</h3>
               <p className="font-light">...</p>
               {/* <PencilIcon className="postIcon profileEditIconEffects" /> */}
-            </div>
-            <div className="flex ">
+            </section>
+            <section className="flex items-center">
               <h3 className="font-semibold">Weaknesses:&nbsp;</h3>
               <p className="font-light">...</p>
               {/* <PencilIcon className="postIcon profileEditIconEffects" /> */}
-            </div>
+            </section>
           </div>
         </div>
       </div>

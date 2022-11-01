@@ -141,7 +141,7 @@ function profile({ /*  data: wzData, */ /* br: wzData, */ profile }) {
         } mt-2  disabled:bg-gray-300  p-3 bg-blueish/90 flex w-24/ mx-auto text-white text-sm rounded-xl`}
         onClick={getStats}
       >
-        Load stats
+        Fetch stats
       </button>
     </div>
   );
