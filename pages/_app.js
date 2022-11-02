@@ -1,16 +1,13 @@
-/* import 'tailwindcss/tailwind.css' */
-import Sidebar from "../components/Sidebar";
-import Widgets from "../components/Widgets";
 import "../styles/globals.css";
 import { ContextProvider } from "../Context";
+import AppAuthComponent from "../components/AppAuthComponent";
 
 function MyApp({ Component, pageProps }) {
   return (
     <ContextProvider>
-      <Sidebar>
+      <AppAuthComponent>
         <Component {...pageProps} />
-        <Widgets />
-      </Sidebar>
+      </AppAuthComponent>
     </ContextProvider>
   );
 }

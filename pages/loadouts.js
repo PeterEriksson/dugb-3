@@ -4,7 +4,7 @@ function loadouts() {
       <p className="text-2xl font-bold mx-3 mt-3 text-center">Loadouts</p>
 
       <div className="border-b border-grayish" />
-      <p className="font-light mx-2 mt-2 text-center">
+      <p className="font-light mx-2 mt-1 text-center">
         Oklart vad denna sida ska vara! Kanske ett ställe där swimmerboi
         rekommenderar sina loadouts? Posta gärna era förslag i Home
       </p>
