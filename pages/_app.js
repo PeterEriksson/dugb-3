@@ -2,7 +2,7 @@
 import Sidebar from "../components/Sidebar";
 import Widgets from "../components/Widgets";
 import "../styles/globals.css";
-import { Context, ContextProvider } from "../Context";
+import { ContextProvider } from "../Context";
 
 function MyApp({ Component, pageProps }) {
   return (
