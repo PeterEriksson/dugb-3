@@ -154,12 +154,11 @@ const Post = forwardRef(({ item }, ref) => {
     }, 50);
   };
 
-  /* NORMAL POST:-> */
   return (
     <div
       id={item.postId}
       ref={ref}
-      className={`flex flex-col w-full font-mainFontHelv border-b border-gray-300 `}
+      className={`TEST-TEMP(heart-issue): overflow-hidden    flex flex-col w-full font-mainFontHelv border-b border-gray-300 `}
     >
       {item.isRewardPost && (
         <div className={styles.balloonsParent}>
@@ -270,7 +269,7 @@ const Post = forwardRef(({ item }, ref) => {
               alt=""
             />
             {/* DIV FOR ICONS ON BOTTOM OF (main)POST */}
-            <div className="flex items-center xs:mt-2 -mt-0.5 justify-between   postDivAlignTemp      w-11/12     mdLgTest:w-10/12  widthForShowDate:!w-85% ">
+            <div className="TEST-TEMP(heart-issue): -mb-4 !-mt-3     )        flex items-center xs:mt-2 -mt-0.5 justify-between   postDivAlignTemp      w-11/12     mdLgTest:w-10/12  widthForShowDate:!w-85% ">
               <div
                 onClick={handleOnChatIconClick}
                 className="flex items-center space-x-1.5 cursor-pointer  transform transition duration-100 ease-in hover:scale-110"
@@ -292,12 +291,12 @@ const Post = forwardRef(({ item }, ref) => {
               />
               <InformationCircleIcon
                 onClick={() => setOpen(true)}
-                className="postIcon hover:text-black"
+                className="postIcon hover:text-black   TEST-TEMP(using heart): !ml-3 xs:!ml-0"
               />
 
               {/* div for FireIcon + nr of likes */}
-              <div
-                /*  onClick={handleLikePost} */
+              {/* <div
+                onClick={handleLikePost}
                 className={` flex items-center group relative   mr-4 xs:mr-0  pr-2.5/  pr-3`}
               >
                 <FireIcon
@@ -313,7 +312,6 @@ const Post = forwardRef(({ item }, ref) => {
                     
                    `}
                 />
-
                 <p
                   onClick={handleLikePost}
                   className={`${
@@ -322,9 +320,42 @@ const Post = forwardRef(({ item }, ref) => {
                 >
                   {postLikes.length > 0 && postLikes.length}
                 </p>
-              </div>
-            </div>
+              </div> */}
 
+              {/* TEST TEMP TWITER LIKE HEART */}
+              <div
+                onClick={handleLikePost}
+                className="relative bg-green-300/            flex justify-center items-center overflow-visible  forWhenUsingHeart-TEST TEMP: mr-2 xs:mr-0"
+              >
+                <div
+                  className={` 
+                  ${userHasNotLikedPost() ? styles.heart : styles.heartRed}
+
+                  ${
+                    userHasNotLikedPost() &&
+                    triggerLikeEffect &&
+                    styles.animateUnlike
+                  }
+
+                  ${
+                    !userHasNotLikedPost() &&
+                    triggerLikeEffect &&
+                    styles.animate
+                  }
+                    `}
+                />
+
+                <p
+                  className={`${
+                    userHasNotLikedPost() ? "opacity-70 " : "!text-red-700 "
+                  }  text-sm font-extralight cursor-pointer   absolute pl-7  group-hover:!text-red-300     transform transition duration-125 ease-in `}
+                >
+                  {postLikes.length > 0 && postLikes.length}
+                </p>
+              </div>
+              {/* END OF TEST TEMP */}
+            </div>
+            {/* END OF ICONS DIV */}
             {/* COMMENT BOX */}
             <div className="postDivAlignTemp  pt-1 ">
               <form

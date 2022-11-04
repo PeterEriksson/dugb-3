@@ -1,3 +1,80 @@
+/* TEST TEMP twitter like btn */
+
+.heart {
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  /*  height: 45px;
+  width: 45px; */
+  background-image: url("https://abs.twimg.com/a/1446542199/img/t1/web_heart_animation.png");
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: 2900%;
+}
+
+.heartRed {
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  /* height: 45px;
+  width: 45px; */
+  background-image: url("https://abs.twimg.com/a/1446542199/img/t1/web_heart_animation.png");
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: 2900%;
+}
+
+/* .heart:hover {
+ 
+} */
+
+.animate {
+  animation: heart-burst 0.7s steps(28) 1;
+
+  /* make the heart stay red after animation is complete */
+  animation-fill-mode: forwards;
+}
+
+.animateUnlike {
+  animation: heart-unlike 0.35s /* steps(28) 1 */;
+  animation-fill-mode: forwards;
+}
+
+@keyframes heart-unlike {
+  0% {
+    background-position: left;
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+    background-position: left;
+  }
+}
+
+@keyframes heart-burst {
+  /* from {
+    background-position: left;
+  }
+  to {
+    background-position: right;
+  } */
+
+  0% {
+    background-position: left;
+  }
+  60% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+    background-position: right;
+  }
+}
+
+/*------------ END TEST TEMP twitter like btn ------------*/
+
 .animateHighlight {
   animation-duration: 2.5s;
   animation-name: _highlight;

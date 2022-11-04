@@ -1,6 +1,6 @@
 function About() {
   return (
-    <>
+    <section className="flex justify-center flex-col">
       <h1 className="font-bold text-2xl mt-3 text-center">About</h1>
       <div className="border-b border-grayish " />
       <h2 className="font-semibold  text-center mx-5 mt-1">
@@ -12,11 +12,11 @@ function About() {
         din och dina vänners statistik. Välkommen till det Heliga Gibblocket.
       </p>
       <img
-        className="rounded-2xl mx-5 mt-2"
+        className="rounded-2xl mx-5 mt-2 "
         alt=""
         src="https://i.pinimg.com/236x/21/15/0d/21150d9a9397a97c8d796e62214c907b.jpg"
       />
-    </>
+    </section>
   );
 }
 

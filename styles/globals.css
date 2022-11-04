@@ -16,7 +16,7 @@
   }
 
   .postIcon {
-    @apply w-4 h-4 cursor-pointer text-gray-800;
+    @apply w-4 h-4 cursor-pointer text-gray-700;
   }
   .profileEditIconEffects {
     @apply ml-3 xs:group-hover:opacity-100 xs:opacity-0 opacity-60 transition duration-150 ease-in;

@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { Context } from "../Context";
 import { auth } from "../firebase";
 
-function SidebarOption({ text, Icon, handleLogout, isHome, hideOnMobile }) {
+function NavbarOption({ text, Icon, handleLogout, isHome, hideOnMobile }) {
   const router = useRouter();
   const { asPath } = useRouter();
   const {
@@ -60,4 +60,4 @@ function SidebarOption({ text, Icon, handleLogout, isHome, hideOnMobile }) {
   );
 }
 
-export default SidebarOption;
+export default NavbarOption;

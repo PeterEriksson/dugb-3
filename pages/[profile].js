@@ -5,7 +5,7 @@ import { Context } from "../Context";
 import { useState } from "react";
 import { useEffect } from "react";
 
-/* COMMENT OUT fetch request if working with design ...or not using.*/
+/* COMMENT OUT fetch request if not testing api */
 export async function getServerSideProps({ params }) {
   const { profile } = params;
 

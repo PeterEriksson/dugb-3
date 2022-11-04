@@ -5,7 +5,7 @@ import { useState, useEffect, useContext } from "react";
 import { Context } from "../Context";
 import { db } from "../firebase";
 
-function SidebarNotificationOption() {
+function NavbarNotificationOption() {
   const { asPath } = useRouter();
   const { user, loadingNotific, setElementIdToScrollTo } = useContext(Context);
   const [notificationsNotChecked, setNotificationsNotChecked] = useState([]);
@@ -52,4 +52,4 @@ function SidebarNotificationOption() {
   );
 }
 
-export default SidebarNotificationOption;
+export default NavbarNotificationOption;
