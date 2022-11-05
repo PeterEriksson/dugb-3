@@ -302,7 +302,6 @@ const Post = forwardRef(({ item }, ref) => {
                 <FireIcon
                   onClick={handleLikePost}
                   className={`postIcon  transform transition duration-125 ease-in group-hover:!text-red-900  cursor-pointer
-
                     ${userHasNotLikedPost() ? "text-gray-800" : "text-orange"}
                     ${
                       !userHasNotLikedPost() &&
@@ -330,13 +329,11 @@ const Post = forwardRef(({ item }, ref) => {
                 <div
                   className={` 
                   ${userHasNotLikedPost() ? styles.heart : styles.heartRed}
-
                   ${
                     userHasNotLikedPost() &&
                     triggerLikeEffect &&
                     styles.animateUnlike
                   }
-
                   ${
                     !userHasNotLikedPost() &&
                     triggerLikeEffect &&
