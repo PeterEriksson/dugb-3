@@ -6,7 +6,7 @@ function loadouts() {
       <div className="border-b border-grayish" />
       <p className="font-light mx-2 mt-1 text-center">
         Oklart vad denna sida ska vara! Kanske ett ställe där swimmerboi
-        rekommenderar sina loadouts? Posta gärna era förslag i Home
+        rekommenderar loadouts? Posta gärna era förslag i Home
       </p>
       <img
         className="rounded-xl mt-3 mx-4"

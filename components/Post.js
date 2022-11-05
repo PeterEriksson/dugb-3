@@ -244,7 +244,7 @@ const Post = forwardRef(({ item }, ref) => {
                       item.newWinsAmount +
                       " new win" +
                       (item.newWinsAmount > 1 ? "s" : "") +
-                      " 🎉"
+                      " 🎉🏆"
                     : /* post is NORMAL post ->  */
                       "@" + item.userName}
                 </p>
@@ -268,7 +268,7 @@ const Post = forwardRef(({ item }, ref) => {
               src={item?.postImg}
               alt=""
             />
-            {/* DIV FOR ICONS ON BOTTOM OF (main)POST */}
+            {/* DIV FOR ICONS ON BOTTOM OF POST */}
             <div className="TEST-TEMP(heart-issue): -mb-4 !-mt-3     )        flex items-center xs:mt-2 -mt-0.5 justify-between   postDivAlignTemp      w-11/12     mdLgTest:w-10/12  widthForShowDate:!w-85% ">
               <div
                 onClick={handleOnChatIconClick}
@@ -287,14 +287,14 @@ const Post = forwardRef(({ item }, ref) => {
                 onClick={handleDeletePost}
                 className={`postIcon hover:text-black ${
                   user?.displayName !== item.userName && "hidden"
-                }`}
+                }     TEST-TEMP(using heart): ml-2 xs:ml-0 `}
               />
               <InformationCircleIcon
                 onClick={() => setOpen(true)}
-                className="postIcon hover:text-black   TEST-TEMP(using heart): !ml-3 xs:!ml-0"
+                className="postIcon hover:text-black   TEST-TEMP(using heart): !ml-5 xs:!ml-0"
               />
 
-              {/* div for FireIcon + nr of likes */}
+              {/* div for FireIcon + nr of likes (testing twitter-heart btn now..) */}
               {/* <div
                 onClick={handleLikePost}
                 className={` flex items-center group relative   mr-4 xs:mr-0  pr-2.5/  pr-3`}

@@ -4,9 +4,9 @@ import styles from "../styles/effects.module.css";
 import { useState } from "react";
 
 function about() {
-  const [animate, setAnimate] = useState(true);
+  /* const [animate, setAnimate] = useState(true);
 
-  console.log(animate);
+  console.log(animate); */
 
   return (
     <div className="flex border-l border-grayish border-r flex-col">
@@ -17,12 +17,12 @@ function about() {
       <About />
 
       {/* TEST TEMP twitter like btn */}
-      <div
+      {/* <div
         onClick={() => setAnimate((prev) => !prev)}
         className={`${styles.heartRed} ${animate && styles.animate}  ${
           !animate && styles.animateUnlike
         } `}
-      />
+      /> */}
     </div>
   );
 }
