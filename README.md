@@ -68,7 +68,8 @@ If you like it, please drop a star 🙂
 
  ### Profile mobile screen
   ![bigMStats!](https://user-images.githubusercontent.com/17027312/200541188-37e68030-7a1e-4bb0-a0dd-1fbfa5816abd.png)
- 
+ ![nurrminatorProfileMobile](https://user-images.githubusercontent.com/17027312/200541397-1d62936e-2c64-4468-9c90-67b7e54906b9.png)
+
  #### Search page 
  ![search-nurrm](https://user-images.githubusercontent.com/17027312/193240518-8616f2c6-07a7-4736-8aee-ee924c9d1327.png)
 
