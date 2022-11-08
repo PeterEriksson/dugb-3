@@ -67,7 +67,7 @@ If you like it, please drop a star 🙂
   ![profile desktop](https://user-images.githubusercontent.com/17027312/198875613-563e82b5-3149-46be-a44a-caadde90e17a.png)
 
  ### Profile mobile screen
-  ![profile mobile](https://user-images.githubusercontent.com/17027312/198875628-4501354e-4dde-488d-a3e9-21dda051839e.png)
+  ![bigMStats!](https://user-images.githubusercontent.com/17027312/200541188-37e68030-7a1e-4bb0-a0dd-1fbfa5816abd.png)
  
  #### Search page 
  ![search-nurrm](https://user-images.githubusercontent.com/17027312/193240518-8616f2c6-07a7-4736-8aee-ee924c9d1327.png)
