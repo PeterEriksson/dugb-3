@@ -34,6 +34,7 @@ If you like it, please drop a star 🙂
 - react-flip-move
 - react-twitter-embed (displaying news)
 - Hero icons
+- react-intersection-observer (highlighting Post after notification-click)
 
 ## Features
 
