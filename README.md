@@ -31,7 +31,7 @@ If you like it, please drop a star 🙂
 - Netlify (hosting)
 - Rapid api (fetching player statistics)
 - react-beautiful-dnd (listing players)
-- react-flip-move
+- react-flip-move (animating list of items)
 - react-twitter-embed (displaying news)
 - Hero icons
 - react-intersection-observer (highlighting Post after notification-click)
