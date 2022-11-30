@@ -40,7 +40,7 @@ function profile({ /*  data: wzData, */ /* br: wzData, */ profile }) {
   const [loadingStats, setLoadingStats] = useState(false);
   const [loadingAdditionalStats, setLoadingAdditionalStats] = useState(false);
 
-  const getWeeklyStats = async () => {
+  /* const getWeeklyStats = async () => {
     setLoadingAdditionalStats(true);
     const resWeekly = await fetch(
       `https://call-of-duty-modern-warfare.p.rapidapi.com/weekly-stats/${profile}/psn`,
@@ -68,9 +68,10 @@ function profile({ /*  data: wzData, */ /* br: wzData, */ profile }) {
       })); //ok
 
     dataWeekly && setLoadingAdditionalStats(false);
-  };
+  }; */
 
   /* Solution for: call api limited times. Called via Load Stats button. Avoid calling every time we enter Profile-page.. Save api calls... */
+  /* 30/11-22 Now new api. Weekly is in same endpoint. Dont need to do two api calls anymore. Comment out getWeeklyStats */
   const getStats = async () => {
     if (profileWzData) return;
     try {
@@ -87,18 +88,23 @@ function profile({ /*  data: wzData, */ /* br: wzData, */ profile }) {
         }
       );
 
-      const { br } = await res.json();
+      /* const { br } = await res.json(); */
+      const { data } = await res.json();
+      const br = data.lifetime.mode.br.properties;
+
       //br && console.log(br);
       br && setProfileWzData(br);
       br && setLoadingStats(false);
 
       //only fetch if first api call worked
       //Rate Limit Basic: one request per second
-      br && setLoadingAdditionalStats(true);
+
+      //30/11-22 Now new api...do some clean up
+      /*  br && setLoadingAdditionalStats(true);
       br &&
         setTimeout(() => {
-          getWeeklyStats();
-        }, 2700);
+          //getWeeklyStats();  
+        }, 2700); */
     } catch (err) {
       console.log(err);
       setLoadingStats(false);
