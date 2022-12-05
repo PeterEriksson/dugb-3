@@ -93,7 +93,6 @@ If you like it, please drop a star 🙂
 - Come up with what Loadouts page should be
 - Automatic scroll down to the corresponding post/list when user clicks on a notification + css animation highlighting the corresponding post. Ok ✅ 
 - Comments on Posts? Ok ✅
-- Use grid instead of flex for parent containers(Sidebar, Feed, Widgets)? -> cleaner.
 - Make the mobile screen size more user firendly. Ok ✅
 - Upgrade Firebase version so that we can install firebase-hooks in order to render loading indicator while verifying user.
 - Error in the console when refreshing the site on the profile page
@@ -105,6 +104,7 @@ If you like it, please drop a star 🙂
 - Paginate posts data
 - Add a special celebration Post when a user has a new win. Ok ✅
    - Implement same feature but when user has increased(significantly) his k/d
+   - install react-hot-toast and notify the user 
 - Database sanitation (delete nested data using cloud functions)
 
 
