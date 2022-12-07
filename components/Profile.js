@@ -51,11 +51,6 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
       setFavoriteSaying("");
     }
 
-    /* use firebase set method. use userInfo and spread operator  */
-    const userInfo = users.find(
-      (item) => item.displayName === user?.displayName
-    );
-
     if (
       maxFavoriteSayingCharacters > favoriteSaying.length &&
       favoriteSaying.trim() !== ""
@@ -72,6 +67,10 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
   };
 
   const userInfo = users.find((item) => item.displayName === user?.displayName);
+  //info to use in photos ->
+  const searchedUserInfo = users.find(
+    (_user) => _user.displayName === profileName
+  );
 
   const submitAvatar = (e) => {
     e.preventDefault();
@@ -166,12 +165,12 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
             loading="lazy" /* ..? */
             alt=""
             /* src={avatar} */
-            src={userInfo?.profileAvatar}
+            src={searchedUserInfo?.profileAvatar}
             className=" rounded-t-2xl rounded-b-none xs:rounded-lg  w-full xs:mr-3 xs:max-w-profileAvatar  xs:object-cover  xs:mb-0 mb-1.5"
           />
           <LazyLoadImage
             loading="lazy" /* ..? */
-            src={userInfo?.photoURL}
+            src={searchedUserInfo?.photoURL}
             alt=""
             className={`  xs:hidden -bottom-4 absolute z-50 rounded-full h-22 w-22 ${
               userInfo && "border-3"
@@ -193,10 +192,12 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
               {profileName}
             </h2>
 
-            <RefreshIcon
-              onClick={handleUpdateData}
-              className=" ml-auto   h-5 w-5 text-gray-600 transform ease-out transition duration-150 hover:rotate-90 cursor-pointer"
-            />
+            {user?.displayName === profileName && (
+              <RefreshIcon
+                onClick={handleUpdateData}
+                className=" ml-auto   h-5 w-5 text-gray-600 transform ease-out transition duration-150 hover:rotate-90 cursor-pointer"
+              />
+            )}
           </div>
           {/* underline gray ... */}
           <div className=" bg-gray-300 h-0.5 mb-2 w-full " />

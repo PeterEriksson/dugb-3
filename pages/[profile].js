@@ -36,7 +36,7 @@ function profile({ /*  data: wzData, */ /* br: wzData, */ profile }) {
   /* console.log(wzData);
   console.log(profile); */
 
-  const { setProfileWzData, profileWzData } = useContext(Context);
+  const { setProfileWzData, profileWzData, user } = useContext(Context);
   const [loadingStats, setLoadingStats] = useState(false);
   const [loadingAdditionalStats, setLoadingAdditionalStats] = useState(false);
 
@@ -135,20 +135,22 @@ function profile({ /*  data: wzData, */ /* br: wzData, */ profile }) {
         profileName={profile}
       />
 
-      <button
-        disabled={profileWzData || loadingStats || loadingAdditionalStats}
-        className={` ${
-          !tempEffect
-            ? "!opacity-0"
-            : "transform !transition !duration-500 !ease-in-out"
-        }   
+      {user.displayName == profile && (
+        <button
+          disabled={profileWzData || loadingStats || loadingAdditionalStats}
+          className={` ${
+            !tempEffect
+              ? "!opacity-0"
+              : "transform !transition !duration-300 !ease-in-out"
+          }   
         ${!profileWzData ? "hover:opacity-75 " : " opacity-100"}    ${
-          profileWzData && "!line-through"
-        } mt-2  disabled:bg-gray-300  p-3 bg-blueish/90 flex w-24/ mx-auto text-white text-sm rounded-xl`}
-        onClick={getStats}
-      >
-        Fetch stats
-      </button>
+            profileWzData && "!line-through"
+          } mt-2  disabled:bg-gray-300  p-3 bg-blueish/90 flex w-24/ mx-auto text-white text-sm rounded-xl`}
+          onClick={getStats}
+        >
+          Fetch stats
+        </button>
+      )}
     </div>
   );
 }
