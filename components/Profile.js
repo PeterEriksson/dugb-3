@@ -382,7 +382,7 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
                 </p>
               </h3>
 
-              {!favoriteSayingEditing && (
+              {!favoriteSayingEditing && user?.displayName === profileName && (
                 <PencilIcon
                   onClick={handlePencilIconFavoriteClick}
                   className="postIcon profileEditIconEffects"
@@ -427,7 +427,7 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
                 </p>
               </h3>
 
-              {!avatarEditing && (
+              {!avatarEditing && user?.displayName === profileName && (
                 <PencilIcon
                   onClick={handlePencilIconAvatarClick}
                   className="postIcon profileEditIconEffects"
