@@ -119,6 +119,7 @@ Website: [Peter resume](https://peter-portfolio-app.netlify.app/) <br />
  ## Setup
  
 ```
-//setup guide coming...you will need to setup a firebase project and also get a key from rapidapi at //https://rapidapi.com/elreco/api/call-of-duty-modern-warfare
+//setup guide coming...you will need to setup a firebase project and also get a key from 
+rapidapi at https://rapidapi.com/elreco/api/call-of-duty-modern-warfare
 ```
  
