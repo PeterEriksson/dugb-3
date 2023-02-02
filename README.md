@@ -15,6 +15,7 @@ If you like it, please drop a star 🙂
 - [Screenshots](#screenshots)
 - [Todo](#todo)
 - [Author](#author)
+- [Setup](#setup)
  
 
 ## Technologies
@@ -115,5 +116,9 @@ Website: [Peter resume](https://peter-portfolio-app.netlify.app/) <br />
 [Instagram](https://www.instagram.com/petee_10/)<br />
 [Linkedin](https://www.linkedin.com/in/peter-eriksson-13b8b1120/)
 
+ ## Setup
  
+```
+//setup guide coming...you will need to setup a firebase project and also get a key from rapidapi at //https://rapidapi.com/elreco/api/call-of-duty-modern-warfare
+```
  
