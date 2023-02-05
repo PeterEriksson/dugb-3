@@ -92,9 +92,11 @@ function profile({ /*  data: wzData, */ /* br: wzData, */ profile }) {
       const { data } = await res.json();
       const br = data.lifetime.mode.br.properties;
 
-      //br && console.log(br);
-      br && setProfileWzData(br);
-      br && setLoadingStats(false);
+      /* br && setProfileWzData(br);
+      br && setLoadingStats(false); */
+      /* test temp.. */
+      data && setProfileWzData(data);
+      data && setLoadingStats(false);
 
       //only fetch if first api call worked
       //Rate Limit Basic: one request per second

@@ -96,9 +96,9 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
   const handleUpdateData = () => {
     //Don't have to call Firestore IF we don't need to update kd or wins.
     if (
-      Number(profileWzData?.kdRatio.toFixed(4)) ==
+      Number(profileWzData?.lifetime.mode.br.properties?.kdRatio.toFixed(4)) ==
         Number(userInfo.lastKd.toFixed(4)) &&
-      profileWzData?.wins == userInfo.lastWins
+      profileWzData?.lifetime.mode.br.properties?.wins == userInfo.lastWins
     )
       return;
 
@@ -106,7 +106,7 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
     if (profileWzData === null) return;
 
     /* if there are new wins we want to create a rewardPost AND update user stats */
-    if (profileWzData?.wins > userInfo.lastWins) {
+    if (profileWzData?.lifetime.mode.br.properties?.wins > userInfo.lastWins) {
       db.collection("posts")
         .add({
           isRewardPost: true,
@@ -114,11 +114,13 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
           fullName: users.find((item) => item.displayName === user?.displayName)
             .fullName,
           userName: user?.displayName,
-          postText: `His total BR-wins is now ${profileWzData?.wins}. Congrats!`,
+          postText: `His total BR-wins is now ${profileWzData?.lifetime.mode.br.properties?.wins}. Congrats!`,
           postImg:
             "https://i.pinimg.com/736x/99/e7/55/99e755bcd84c42a684c7f23a8679340e.jpg",
           timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-          newWinsAmount: profileWzData?.wins - userInfo.lastWins,
+          newWinsAmount:
+            profileWzData?.lifetime.mode.br.properties?.wins -
+            userInfo.lastWins,
         })
         .then(() => {
           db.collection("users")
@@ -127,8 +129,8 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
             )
             .set({
               ...userInfo,
-              lastKd: profileWzData?.kdRatio,
-              lastWins: profileWzData?.wins,
+              lastKd: profileWzData?.lifetime.mode.br.properties?.kdRatio,
+              lastWins: profileWzData?.lifetime.mode.br.properties?.wins,
             });
         });
     } else {
@@ -137,7 +139,7 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
         .doc(users.find((item) => item.displayName === user?.displayName).id)
         .set({
           ...userInfo,
-          lastKd: profileWzData?.kdRatio,
+          lastKd: profileWzData?.lifetime.mode.br.properties?.kdRatio,
           /* lastWins: profile?.wins, */
         });
     }
@@ -221,41 +223,48 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
                 </div>
               ) : (
                 <p className={`font-light`}>
-                  {Number(profileWzData?.kdRatio)?.toFixed(4)}
+                  {Number(
+                    profileWzData?.lifetime.mode.br.properties?.kdRatio
+                  )?.toFixed(4)}
                 </p>
               )}
 
               <p className={`font-light ml-2    `}>
                 {/* IF KD EQUALS LASTKD -> display gray arrow forward */}
-                {Number(profileWzData?.kdRatio?.toFixed(4)) ==
-                  Number(userInfo?.lastKd?.toFixed(4)) && (
+                {Number(
+                  profileWzData?.lifetime.mode.br.properties?.kdRatio.toFixed(4)
+                ) == Number(userInfo?.lastKd?.toFixed(4)) && (
                   <ArrowCircleUpIcon className="w-5 h-5 ml-0.5 rotate-90 text-gray-500  " />
                 )}
               </p>
               {/* IF KD IS UP->display green text(the diff) */}
-              {Number(profileWzData?.kdRatio?.toFixed(4)) >
-                Number(userInfo?.lastKd?.toFixed(4)) && (
+              {Number(
+                profileWzData?.lifetime.mode.br.properties?.kdRatio.toFixed(4)
+              ) > Number(userInfo?.lastKd?.toFixed(4)) && (
                 <div className="flex items-center space-x-0.5 text-green-500">
                   <ArrowCircleUpIcon className="w-5 h-5 ml-0.5 rotate-45   " />
                   <p className="font-light text-sm  italic">
                     (
-                    {Number(profileWzData?.kdRatio - userInfo.lastKd).toFixed(
-                      4
-                    )}
+                    {Number(
+                      profileWzData?.lifetime.mode.br.properties?.kdRatio -
+                        userInfo.lastKd
+                    ).toFixed(4)}
                     )
                   </p>
                 </div>
               )}
               {/* IF KD IS DOWN->display red text(the diff) */}
-              {Number(profileWzData?.kdRatio?.toFixed(4)) <
-                Number(userInfo?.lastKd?.toFixed(4)) && (
+              {Number(
+                profileWzData?.lifetime.mode.br.properties?.kdRatio.toFixed(4)
+              ) < Number(userInfo?.lastKd?.toFixed(4)) && (
                 <div className="flex items-center space-x-0.5 text-red-500">
                   <ArrowCircleDownIcon className="w-5 h-5 ml-0.5 -rotate-45  " />
                   <p className="font-light text-sm italic">
                     (
-                    {Number(profileWzData?.kdRatio - userInfo.lastKd).toFixed(
-                      4
-                    )}
+                    {Number(
+                      profileWzData?.lifetime.mode.br.properties?.kdRatio -
+                        userInfo.lastKd
+                    ).toFixed(4)}
                     )
                   </p>
                 </div>
@@ -280,30 +289,36 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
                   )}
                 </>
               ) : (
-                <p className={`font-light`}>{profileWzData?.wins}</p>
+                <p className={`font-light`}>
+                  {profileWzData?.lifetime.mode.br.properties?.wins}
+                </p>
               )}
 
               <p className={`font-light ml-2  `}>
-                {profileWzData?.wins == userInfo?.lastWins && (
+                {profileWzData?.lifetime.mode.br.properties?.wins ==
+                  userInfo?.lastWins && (
                   <ArrowCircleUpIcon className="w-5 h-5 ml-0.5 rotate-90 text-gray-500  " />
                 )}
               </p>
               {/* IF WINS ARE UP->display green text(the diff) */}
-              {profileWzData?.wins > userInfo?.lastWins && (
+              {profileWzData?.lifetime.mode.br.properties?.wins >
+                userInfo?.lastWins && (
                 <div className="flex items-center space-x-0.5 text-green-500">
                   <ArrowCircleUpIcon className="w-5 h-5 ml-0.5 rotate-45  " />
                   <p className="font-light text-sm  italic">
-                    ({profileWzData?.wins - userInfo?.lastWins})
+                    (
+                    {profileWzData?.lifetime.mode.br.properties?.wins -
+                      userInfo?.lastWins}
+                    )
                   </p>
                 </div>
               )}
             </section>
 
-            {/* GULAG TESTING TEMP STATS */}
+            {/* WEEKLY GULAG KD TESTING TEMP STATS */}
             <section className="flex items-center">
-              <h4 className="font-semibold">Weekly Gulag K/D:&nbsp;</h4>
-
-              {!profileWzData?.gulagKd ? (
+              <h4 className="font-semibold">Weekly Gulag:&nbsp;</h4>
+              {!profileWzData ? (
                 <>
                   {loadingAdditionalStats || loadingStats ? (
                     <LazyLoadImage
@@ -317,39 +332,26 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
                 </>
               ) : (
                 <p className={`font-light`}>
-                  {Number(profileWzData?.gulagKd).toFixed(2)} (
-                  {profileWzData?.gulagKills}/{profileWzData?.gulagDeaths})
+                  {Number(
+                    profileWzData?.weekly.mode.br_all.properties?.gulagKills /
+                      (profileWzData?.weekly.mode.br_all.properties
+                        ?.gulagDeaths +
+                        profileWzData?.weekly.mode.br_all.properties
+                          ?.gulagKills)
+                  ).toFixed(2)}{" "}
+                  ({profileWzData?.weekly.mode.br_all.properties?.gulagKills}/
+                  {profileWzData?.weekly.mode.br_all.properties?.gulagDeaths +
+                    profileWzData?.weekly.mode.br_all.properties?.gulagKills}
+                  )
                 </p>
               )}
             </section>
 
-            {/* EXECUTIONS TEMP TEST */}
-            {/* <div className="flex items-center">
-              <h4 className="font-semibold">Weekly executions:&nbsp;</h4>
-
-              {!profileWzData?.executionsWeekly ? (
-                <p
-                  className={`font-extralight text-sm italic   ${
-                    (loadingAdditionalStats || loadingStats) &&
-                    "animate-pulse font-normal"
-                  }`}
-                >
-                  {loadingAdditionalStats || loadingStats
-                    ? "Loading Stats"
-                    : ""}
-                </p>
-              ) : (
-                <p className={`font-light`}>
-                  {profileWzData?.executionsWeekly}
-                </p>
-              )}
-            </div> */}
-
-            {/* REBIRTH stats */}
+            {/* REBIRTH stats    make to-> Weekly KD */}
             <section className="flex items-center">
-              <h4 className="font-semibold">Weekly Rebirth Quads K/D:&nbsp;</h4>
+              <h4 className="font-semibold">Weekly K/D:&nbsp;</h4>
 
-              {!profileWzData?.rebirthQuadWeeklyKd ? (
+              {!profileWzData ? (
                 <>
                   {loadingAdditionalStats || loadingStats ? (
                     <LazyLoadImage
@@ -363,7 +365,9 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
                 </>
               ) : (
                 <p className={`font-light`}>
-                  {Number(profileWzData?.rebirthQuadWeeklyKd).toFixed(2)}
+                  {Number(
+                    profileWzData?.weekly.mode.br_all.properties?.kdRatio
+                  ).toFixed(2)}
                 </p>
               )}
             </section>
