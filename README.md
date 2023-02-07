@@ -89,24 +89,20 @@ If you like it, please drop a star 🙂
 
 - [ ] Come up with a nicer design for Profile page + add logic for reviewing other players (strengths/weaknesses)
 - [x] In profile page see trend for k/d. ↘ or ↗ or  ➡️. Ok ✅
-- Personal notification after being reviewed by another player OR when a player has updated his ***favorite saying*** 
-- Come up with a better design for lists
-- Come up with what Loadouts page should be
-- Automatic scroll down to the corresponding post/list when user clicks on a notification + css animation highlighting the corresponding post. Ok ✅ 
-- Comments on Posts? Ok ✅
-- Make the mobile screen size more user firendly. Ok ✅
+- [ ] Personal notification after being reviewed by another player OR when a player has updated his ***favorite saying*** 
+- [ ] Come up with a better design for lists
+- [ ] Come up with what Loadouts page should be
+- [x] Automatic scroll down to the corresponding post/list when user clicks on a notification + css animation highlighting the corresponding post. Ok ✅ 
+- [x] Comments on Posts? Ok ✅
+- [x] Make the mobile screen size more user firendly. Ok ✅
 - Upgrade Firebase version so that we can install firebase-hooks in order to render loading indicator while verifying user.
-- Error in the console when refreshing the site on the profile page
-   - Refactor spaghetti code on profile-page (ok✅) and search-page.
-- Add feature to edit user's info. 
+- [ ] Add feature to edit user's info. 
    - if a user is edited (for example user has updated his userImage) add cloud function that handles updating user's info in posts/lists/comments
-- Dark/light mode toggle button
-   - Find colour palette for dark mode
-- Paginate posts data
-- Add a special celebration Post when a user has a new win. Ok ✅
-   - Implement same feature but when user has increased(significantly) his k/d
-   - install react-hot-toast and notify the user 
-- Database sanitation (delete nested data using cloud functions)
+- [ ] Paginate posts data
+- [x] Add a special celebration Post when a user has a new win. Ok ✅
+   - Implement same feature but when user has increased(significantly) his k/d (todo)
+   - install react-hot-toast and notify the user (todo)
+- [ ] Database sanitation (delete nested data using cloud functions)
 
 
 ## Author
