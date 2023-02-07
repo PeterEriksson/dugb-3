@@ -115,7 +115,9 @@ Website: [Peter resume](https://petere-portfolio-2.vercel.app/) <br />
  ## Setup
  
 ```
-//setup guide coming...you will need to setup a firebase project and also get a key from 
-//rapidapi at https://rapidapi.com/elreco/api/call-of-duty-modern-warfare
+//setup guide coming...you will need to create a firebase project and set up email/password auth. 
+//For fetching player statistics you need to setup a rapidapi account and get a key from https://rapidapi.com/elreco/api/call-of-duty-modern-warfare
+//If you want to enable notifications you need to add cloud functions, to do that you need to
+//change project billing to to blaze plan.
 ```
  
