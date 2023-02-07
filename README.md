@@ -87,8 +87,8 @@ If you like it, please drop a star 🙂
 
 ## Todo
 
-- Come up with a nicer design for Profile page + add logic for reviewing other players (strengths/weaknesses)
-- In profile page see trend for k/d. ↘ or ↗ or  ➡️. Ok ✅
+- [ ] Come up with a nicer design for Profile page + add logic for reviewing other players (strengths/weaknesses)
+- [x] In profile page see trend for k/d. ↘ or ↗ or  ➡️. Ok ✅
 - Personal notification after being reviewed by another player OR when a player has updated his ***favorite saying*** 
 - Come up with a better design for lists
 - Come up with what Loadouts page should be
