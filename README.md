@@ -87,9 +87,10 @@ If you like it, please drop a star 🙂
 
 ## Todo
 
-- [ ] Come up with a nicer design for Profile page + add logic for reviewing other players (strengths/weaknesses)
+- [ ] Come up with a nicer design for Profile page (desktop, mobile ok) + add logic for reviewing other players (strengths/weaknesses)
+   - Personal notification after being reviewed by another player OR when a player has updated his ***favorite saying*** 
+- [ ] Refactor/Rewrite search logic.
 - [x] In profile page see trend for k/d. ↘ or ↗ or  ➡️. Ok ✅
-- [ ] Personal notification after being reviewed by another player OR when a player has updated his ***favorite saying*** 
 - [ ] Come up with a better design for lists
 - [ ] Come up with what Loadouts page should be
 - [x] Automatic scroll down to the corresponding post/list when user clicks on a notification + css animation highlighting the corresponding post. Ok ✅ 
