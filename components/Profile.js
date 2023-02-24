@@ -11,6 +11,7 @@ import { Context } from "../Context";
 import { db } from "../firebase";
 import firebase from "firebase";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import toast, { Toaster } from "react-hot-toast";
 
 function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
   const { profileWzData } = useContext(Context);
@@ -27,6 +28,9 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
 
   const favoriteSayingRef = useRef();
   const avatarInputRef = useRef();
+
+  /* TEST TEMP use hot toast, add state for when loading */
+  const [newStatsUpdating, setNewStatsUpdating] = useState(false);
 
   const handlePencilIconFavoriteClick = () => {
     setFavoriteSayingEditing(true);
@@ -104,9 +108,24 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
 
     /* if we dont have profileWzData return */
     if (profileWzData === null) return;
+    if (newStatsUpdating) return;
 
     /* if there are new wins we want to create a rewardPost AND update user stats */
+    /* TEST TEMP  use hot toast for notifying user what's going on */
+    setNewStatsUpdating(true);
+    const notification = toast.loading("updating stats...", {
+      style: {
+        background: "white",
+        color: "#50b7f5",
+        fontWeight: "bold",
+        fontSize: "17px",
+        padding: "20px",
+      },
+    });
+
     if (profileWzData?.lifetime.mode.br.properties?.wins > userInfo.lastWins) {
+      /* test temp insert timeout */
+
       db.collection("posts")
         .add({
           isRewardPost: true,
@@ -132,6 +151,42 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
               lastKd: profileWzData?.lifetime.mode.br.properties?.kdRatio,
               lastWins: profileWzData?.lifetime.mode.br.properties?.wins,
             });
+        })
+        .then(() => {
+          toast.success(
+            profileWzData?.lifetime.mode.br.properties?.wins -
+              userInfo.lastWins >
+              1
+              ? "Stats updated. CONGRATS on the new wins!"
+              : "Stats updated, CONGRATS on the new win!",
+            {
+              duration: 3300,
+              style: {
+                background: "white",
+                color: "#50b7f5",
+                fontWeight: "bolder",
+                fontSize: "17px",
+                padding: "20px",
+              },
+            }
+          );
+        })
+        .catch((err) => {
+          console.log(err);
+          toast("ERROR, something went wrong", {
+            duration: 7000,
+            style: {
+              background: "red",
+              color: "white",
+              fontWeight: "bolder",
+              fontSize: "17px",
+              padding: "20px",
+            },
+          });
+        })
+        .finally(() => {
+          toast.dismiss(notification);
+          setNewStatsUpdating(false);
         });
     } else {
       /* else, just update the user with new kd stats */
@@ -143,20 +198,20 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
           /* lastWins: profile?.wins, */
         });
     }
-
-    /* try react hot toast for notifyhing the user what happened. Use Timeout and 
-    extend the loading time */
   };
 
+  /* temp solution for nice displaying effect when profile shows up */
   const [tempEffect, setTempEffect] = useState(false);
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setTempEffect(true);
     }, 200);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
     <div className="mx-2.5 mt-1">
+      <Toaster position="top-center" />
       <div
         className={` ${!tempEffect && "!opacity-0"} ${
           tempEffect && "!transform !transition !duration-500 !ease-in-out"

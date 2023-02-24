@@ -83,7 +83,7 @@ exports.createNotificationOnPost = functions.firestore
     /* const postAuthorUid = usersData.docs.find(
       (doc) => doc.data().displayName === postAuthor
     ).id; */
-    /* --> if random user for example Rickard posts we recieve error: "cannot read property "id" of undefined */
+    /* --> if random user posts we recieve error: "cannot read property "id" of undefined */
     /* rewrite -> seems to work. */
     const postAuthorUid = usersData.docs.some(
       (doc) => doc.data().displayName === postAuthor
@@ -112,7 +112,7 @@ exports.createNotificationOnPost = functions.firestore
       isRewardNotification: postIsRewardPost ? true : false,
     };
 
-    // WARNING: Limited to 500 writes at once. - not a problem for now lol.
+    // WARNING: Limited to 500 writes at once. - not a problem for now.
     // If handling more than 500 entries, split into groups.
     const batch = db.batch();
     userUids.forEach((uid) => {
