@@ -102,7 +102,7 @@ If you like it, please drop a star 🙂
 - [ ] Paginate posts data
 - [x] Add a special celebration Post when a user has a new win. Ok ✅
    - Implement same feature but when user has increased(significantly) his k/d (todo)
-   - install react-hot-toast and notify the user (todo)
+   - install react-hot-toast and notify the user. Ok ✅
 - [ ] Database sanitation (delete nested data using cloud functions)
 
 
