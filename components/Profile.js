@@ -184,6 +184,8 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
             },
           });
         })
+        //The finally() method can be useful if you want to do some processing or
+        //cleanup once the promise is settled, regardless of its outcome
         .finally(() => {
           toast.dismiss(notification);
           setNewStatsUpdating(false);
@@ -196,6 +198,23 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
           ...userInfo,
           lastKd: profileWzData?.lifetime.mode.br.properties?.kdRatio,
           /* lastWins: profile?.wins, */
+        })
+        .catch((err) => {
+          console.log(err);
+          toast("ERROR, something went wrong", {
+            duration: 7000,
+            style: {
+              background: "red",
+              color: "white",
+              fontWeight: "bolder",
+              fontSize: "17px",
+              padding: "20px",
+            },
+          });
+        })
+        .finally(() => {
+          toast.dismiss(notification);
+          setNewStatsUpdating(false);
         });
     }
   };
