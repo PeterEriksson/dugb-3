@@ -407,15 +407,18 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
               ) : (
                 <p className={`font-light`}>
                   {Number(
-                    profileWzData?.weekly.mode.br_all.properties?.gulagKills /
-                      (profileWzData?.weekly.mode.br_all.properties
+                    profileWzData?.weekly?.mode?.br_all?.properties
+                      ?.gulagKills /
+                      (profileWzData?.weekly.mode?.br_all?.properties
                         ?.gulagDeaths +
-                        profileWzData?.weekly.mode.br_all.properties
+                        profileWzData?.weekly.mode?.br_all?.properties
                           ?.gulagKills)
                   ).toFixed(2)}{" "}
-                  ({profileWzData?.weekly.mode.br_all.properties?.gulagKills}/
-                  {profileWzData?.weekly.mode.br_all.properties?.gulagDeaths +
-                    profileWzData?.weekly.mode.br_all.properties?.gulagKills}
+                  ({profileWzData?.weekly?.mode?.br_all?.properties?.gulagKills}
+                  /
+                  {profileWzData?.weekly?.mode?.br_all?.properties
+                    ?.gulagDeaths +
+                    profileWzData?.weekly?.mode?.br_all?.properties?.gulagKills}
                   )
                 </p>
               )}
@@ -440,7 +443,7 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
               ) : (
                 <p className={`font-light`}>
                   {Number(
-                    profileWzData?.weekly.mode.br_all.properties?.kdRatio
+                    profileWzData?.weekly?.mode?.br_all?.properties?.kdRatio
                   ).toFixed(2)}
                 </p>
               )}
