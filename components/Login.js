@@ -43,23 +43,11 @@ function Login() {
           setOpenRegisterUserModal={setOpenRegisterUserModal}
         />
         <button
-          /* onClick={() => setUserGuest((prev) => !prev)} */
+          //onClick={() => setUserGuest(true)}
           className="text-white rounded-md border border-white px-4 xs:mb-6 mb-14  hover:bg-white hover:text-black      "
         >
           Guest
         </button>
-
-        {/* TEST TEMP (about-info) */}
-        {/* <details className="text-xs text-center py-1 px-2.5 max-w-detailsAboutLogin border border-white rounded-md">
-          <summary className="cursor-pointer text-white">About</summary>
-
-          <p className="text-xs text-white">
-            Warzone-portal för seriösa elitgibbare. Ditt andra hem från
-            Caldera/Verdansk. Posta skvaller, skapa listor, bedöm spelare, spana
-            in din och dina vänners statistik. Välkommen till det heliga
-            gibblocket 3.0
-          </p>
-        </details> */}
       </div>
     </div>
   );

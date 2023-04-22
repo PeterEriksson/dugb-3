@@ -125,6 +125,7 @@ const Post = forwardRef(({ item }, ref) => {
 
   const handleSubmitComment = (e) => {
     e.preventDefault();
+    if (userGuest) return;
     if (commentInput > commentMaxLength) return;
     const newCommentObj = {
       commentText: commentInput,
@@ -321,7 +322,6 @@ const Post = forwardRef(({ item }, ref) => {
                 </p>
               </div> */}
 
-              {/* TEST TEMP TWITER LIKE HEART */}
               <div
                 onClick={handleLikePost}
                 className="relative bg-green-300/            flex justify-center items-center overflow-visible  forWhenUsingHeart-TEST TEMP: mr-2 xs:mr-0"
@@ -350,9 +350,8 @@ const Post = forwardRef(({ item }, ref) => {
                   {postLikes.length > 0 && postLikes.length}
                 </p>
               </div>
-              {/* END OF TEST TEMP */}
             </div>
-            {/* END OF ICONS DIV */}
+
             {/* COMMENT BOX */}
             <div className="postDivAlignTemp  pt-1 ">
               <form
