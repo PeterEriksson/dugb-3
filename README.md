@@ -91,17 +91,17 @@ If you like it, please drop a star 🙂
 - [ ] Come up with a nicer design for Profile page (desktop, mobile ok) + add logic for reviewing other players (strengths/weaknesses)
    - Personal notification after being reviewed by another player OR when a player has updated his ***favorite saying*** 
 - [ ] Refactor/Rewrite search logic.
-- [x] In profile page see trend for k/d. ↘ or ↗ or  ➡️. Ok ✅
+- [x] In profile page see trend for k/d. ↘ or ↗ or  ➡️.
 - [ ] Come up with a better design for lists
 - [ ] Come up with what Loadouts page should be
-- [x] Automatic scroll down to the corresponding post/list when user clicks on a notification + css animation highlighting the corresponding post. Ok ✅ 
-- [x] Comments on Posts? Ok ✅
-- [x] Make the mobile screen size more user firendly. Ok ✅
+- [x] Automatic scroll down to the corresponding post/list when user clicks on a notification + css animation highlighting the corresponding post. 
+- [x] Comments on Posts.
+- [x] Make the mobile screen size more user firendly. 
 - [ ] Upgrade Firebase version so that we can install firebase-hooks in order to render loading indicator while verifying user.
 - [ ] Add feature to edit user's info. 
    - if a user is edited (for example user has updated his userImage) add cloud function that handles updating user's info in posts/lists/comments
 - [ ] Paginate posts data
-- [x] Add a special celebration Post when a user has a new win. Ok ✅
+- [x] Add a special celebration Post when a user has a new win.
    - Implement same feature but when user has increased(significantly) his k/d (todo)
    - install react-hot-toast and notify the user. Ok ✅
 - [ ] Database sanitation (delete nested data using cloud functions)
