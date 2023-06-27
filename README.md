@@ -87,6 +87,7 @@ If you like it, please drop a star 🙂
 
 ## Todo
 
+- [ ] Find a Warzone 2 api and replace current one.
 - [ ] Come up with a nicer design for Profile page (desktop, mobile ok) + add logic for reviewing other players (strengths/weaknesses)
    - Personal notification after being reviewed by another player OR when a player has updated his ***favorite saying*** 
 - [ ] Refactor/Rewrite search logic.
