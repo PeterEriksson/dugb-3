@@ -159,7 +159,7 @@ const Post = forwardRef(({ item }, ref) => {
     <div
       id={item.postId}
       ref={ref}
-      className={`TEST-TEMP(heart-issue): overflow-hidden    flex flex-col w-full font-mainFontHelv border-b border-gray-300 `}
+      className={`TEST-TEMP(heart-issue): /overflow-hidden    flex flex-col w-full font-mainFontHelv border-b border-gray-300 `}
     >
       {item.isRewardPost && (
         <div className={styles.balloonsParent}>
@@ -270,7 +270,7 @@ const Post = forwardRef(({ item }, ref) => {
               alt=""
             />
             {/* DIV FOR ICONS ON BOTTOM OF POST */}
-            <div className="TEST-TEMP(heart-issue): -mb-4 !-mt-3     )        flex items-center xs:mt-2 -mt-0.5 justify-between   postDivAlignTemp      w-11/12     mdLgTest:w-10/12  widthForShowDate:!w-85% ">
+            <div className="  flex items-center xs:mt-2 -mt-0.5 justify-between   postDivAlignTemp      w-11/12     mdLgTest:w-10/12  widthForShowDate:!w-85% ">
               <div
                 onClick={handleOnChatIconClick}
                 className="flex items-center space-x-1.5 cursor-pointer  transform transition duration-100 ease-in hover:scale-110"
@@ -281,27 +281,24 @@ const Post = forwardRef(({ item }, ref) => {
                 </p>
               </div>
 
-              {/* Future retweet functionality? -> */}
-              {/* <SwitchHorizontalIcon className="postIcon opacity-50 !cursor-default" /> */}
-              {/* <RefreshIcon className="postIcon" /> */}
               <TrashIcon
                 onClick={handleDeletePost}
                 className={`postIcon hover:text-black ${
                   user?.displayName !== item.userName && "hidden"
-                }     TEST-TEMP(using heart): ml-2 xs:ml-0 `}
+                }    `}
               />
               <InformationCircleIcon
                 onClick={() => setOpen(true)}
-                className="postIcon hover:text-black   TEST-TEMP(using heart): !ml-5 xs:!ml-0"
+                className="postIcon hover:text-black  "
               />
 
-              {/* div for FireIcon + nr of likes (testing twitter-heart btn now..) */}
-              {/* <div
+              {/* div for FireIcon + nr of likes  */}
+              <div
                 onClick={handleLikePost}
-                className={` flex items-center group relative   mr-4 xs:mr-0  pr-2.5/  pr-3`}
+                className={` flex items-center group relative   mr-4 xs:mr-0  pr-2.5 xs:pr-5 sm:pr-0 `}
               >
                 <FireIcon
-                  onClick={handleLikePost}
+                  //onClick={handleLikePost}
                   className={`postIcon  transform transition duration-125 ease-in group-hover:!text-red-900  cursor-pointer
                     ${userHasNotLikedPost() ? "text-gray-800" : "text-orange"}
                     ${
@@ -316,13 +313,14 @@ const Post = forwardRef(({ item }, ref) => {
                   onClick={handleLikePost}
                   className={`${
                     userHasNotLikedPost() ? "text-gray-800 " : "text-orange "
-                  } text-sm font-extralight cursor-pointer   absolute pl-5  group-hover:!text-red-900     transform transition duration-125 `}
+                  } text-sm font-extralight cursor-pointer   absolute pl-4  group-hover:!text-red-900     transform transition duration-125 `}
                 >
                   {postLikes.length > 0 && postLikes.length}
                 </p>
-              </div> */}
+              </div>
 
-              <div
+              {/* div for twitter heart icon + nr of likes */}
+              {/* <div
                 onClick={handleLikePost}
                 className="relative bg-green-300/            flex justify-center items-center overflow-visible  forWhenUsingHeart-TEST TEMP: mr-2 xs:mr-0"
               >
@@ -349,7 +347,7 @@ const Post = forwardRef(({ item }, ref) => {
                 >
                   {postLikes.length > 0 && postLikes.length}
                 </p>
-              </div>
+              </div> */}
             </div>
 
             {/* COMMENT BOX */}
