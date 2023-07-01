@@ -2,9 +2,7 @@
 
 Full-stack web app for Call of Duty gamers. Design is inspired by Twitter. Welcome to your other home from Caldera/Verdansk. Post your thoughts, rank your teammates, view satistics + more.
 
-A hobby project built over a longer period of time, constantly implementing new features as I progress in my coding journey.
-
-The project is created for educational purposes. It is only being used by a small group of users.
+A hobby project built over a longer period of time. The project is created for educational purposes. It is only being used by a small group of users.
 
 If you like it, please drop a star 🙂
 
