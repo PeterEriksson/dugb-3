@@ -43,7 +43,7 @@ function Login() {
           setOpenRegisterUserModal={setOpenRegisterUserModal}
         />
         <button
-          //onClick={() => setUserGuest(true)}
+          onClick={() => setUserGuest(true)}
           className="text-white rounded-md border border-white px-4 xs:mb-6 mb-14  hover:bg-white hover:text-black      "
         >
           Guest
