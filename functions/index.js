@@ -158,7 +158,7 @@ exports.createNotificationOnList = functions.firestore
       idToScrollTo: listId,
     };
 
-    // WARNING: Limited to 500 writes at once. - not a problem for now lol.
+    // WARNING: Limited to 500 writes at once. - not a problem for now.
     // If handling more than 500 entries, split into groups.
     const batch = db.batch();
     userUids.forEach((uid) => {
