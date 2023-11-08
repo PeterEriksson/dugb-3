@@ -304,7 +304,6 @@ const Post = forwardRef(({ item }, ref) => {
                 className={` flex items-center group relative   mr-4 xs:mr-0  pr-2.5 xs:pr-5 sm:pr-0 `}
               >
                 <FireIcon
-                  //onClick={handleLikePost}
                   className={`postIcon  transform transition duration-125 ease-in group-hover:!text-red-900  cursor-pointer
                     ${userHasNotLikedPost() ? "text-gray-800" : "text-orange"}
                     ${
@@ -316,7 +315,6 @@ const Post = forwardRef(({ item }, ref) => {
                    `}
                 />
                 <p
-                  onClick={handleLikePost}
                   className={`${
                     userHasNotLikedPost() ? "text-gray-800 " : "text-orange "
                   } text-sm font-extralight cursor-pointer   absolute pl-4  group-hover:!text-red-900     transform transition duration-125 `}
