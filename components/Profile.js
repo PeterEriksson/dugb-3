@@ -261,10 +261,21 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
               {profileName}
             </h2>
 
+            {/* ui/ux experimenting...logic not implemented. */}
+            <button
+              className={`py-2 px-2.5 bg-gray-500/90  ml-auto text-white text-sm rounded-xl border border-gray-500  `}
+            >
+              Fetch stats
+            </button>
+
             {user?.displayName === profileName && (
               <RefreshIcon
                 onClick={handleUpdateData}
-                className=" ml-auto   h-5 w-5 text-gray-600 transform ease-out transition duration-150 hover:rotate-90 cursor-pointer"
+                className={`${
+                  !profileWzData && "opacity-50 cursor-not-allowed"
+                } ml-2   h-5 w-5 text-gray-600 transform ease-out transition duration-150 ${
+                  profileWzData && "hover:rotate-90"
+                }  cursor-pointer`}
               />
             )}
           </div>

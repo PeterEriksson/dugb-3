@@ -137,7 +137,7 @@ function profile({ /*  data: wzData, */ /* br: wzData, */ profile }) {
         profileName={profile}
       />
 
-      {user.displayName == profile && (
+      {/* {user.displayName == profile && (
         <button
           disabled={profileWzData || loadingStats || loadingAdditionalStats}
           className={` ${
@@ -147,12 +147,12 @@ function profile({ /*  data: wzData, */ /* br: wzData, */ profile }) {
           }   
         ${!profileWzData ? "hover:opacity-75 " : " opacity-100"}    ${
             profileWzData && "!line-through"
-          } mt-2  disabled:bg-gray-300  p-3 bg-blueish/90 flex w-24/ mx-auto text-white text-sm rounded-xl`}
+          } mt-2  disabled:bg-gray-300  p-3 bg-blueish flex mx-auto text-white text-sm rounded-xl   `}
           onClick={getStats}
         >
           Fetch stats
         </button>
-      )}
+      )} */}
     </div>
   );
 }
