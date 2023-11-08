@@ -127,7 +127,7 @@ function profile({ /*  data: wzData, */ /* br: wzData, */ profile }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <p className="font-bold text-2xl py-3 ml-3 border-b border-grayish">
+      <p className="font-bold text-2xl py-3 pl-3 border-b border-grayish">
         Profile
       </p>
 

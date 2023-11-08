@@ -252,13 +252,6 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
               userInfo && "border-3"
             } border-blueish/80/ border-blue-200`}
           />
-          {/* <img
-            src={userInfo?.photoURL}
-            alt=""
-            className={`  xs:hidden -bottom-4 absolute z-50 rounded-full h-22 w-22 ${
-              userInfo && "border-3"
-            } border-blueish/80/ border-blue-200`}
-          /> */}
         </div>
 
         <div className=" w-89% /w-11/12 flex// flex-col// mx-auto xs:!ml-2.5   mb-2      ">
@@ -449,17 +442,13 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
               )}
             </section>
 
-            {/* TEST TEMP GRAY LINE seperating stats from user info */}
-            <div className=" bg-gray-200 h-0.5 mb-2 w-full" />
+            <hr className=" bg-gray-200 h-0.5 mb-2 w-full" />
 
             <section className="flex items-center group ">
               <h3 className="font-semibold flex items-center">
                 Favorite saying:&nbsp;
                 <p className={`font-light `}>
-                  {!favoriteSayingEditing &&
-                    users?.find(
-                      (item) => item?.displayName === user?.displayName
-                    )?.favoriteSaying}
+                  {searchedUserInfo?.favoriteSaying}
                 </p>
               </h3>
 

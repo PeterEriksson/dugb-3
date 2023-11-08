@@ -11,16 +11,14 @@ import { ShieldCheckIcon, FireIcon } from "@heroicons/react/solid";
 import { forwardRef, useContext, useEffect, useRef, useState } from "react";
 import { Context } from "../Context";
 import { db } from "../firebase";
-
 import "react-responsive-modal/styles.css";
 import { Modal } from "react-responsive-modal";
 import firebase from "firebase";
-
 import styles from "../styles/effects.module.css";
-/* OBSERVER */
 import { InView } from "react-intersection-observer";
 import Moment from "react-moment";
 import PostComment from "./PostComment";
+import { useRouter } from "next/router";
 
 const Post = forwardRef(({ item }, ref) => {
   const {
@@ -47,6 +45,8 @@ const Post = forwardRef(({ item }, ref) => {
   const [commentInput, setCommentInput] = useState("");
   const [comments, setComments] = useState([]);
   const commentInputRef = useRef(null);
+
+  const router = useRouter();
 
   /* react-responsive-modal */
   const [open, setOpen] = useState(false);
@@ -214,14 +214,20 @@ const Post = forwardRef(({ item }, ref) => {
             {/* DIV FOR AVATAR NAME USERNAME + TIMESTAMP (different widths to make timestamp align with rest of post. also used in icons-div)*/}
             <div className="flex      w-11/12 mdLgTest:w-10/12 widthForShowDate:!w-11/12            xs:mt-1 mt-0.5 ">
               <img
-                className=" h-10 w-10       ml-3    mt-2 rounded-full object-cover"
+                onClick={() => {
+                  router.push("/" + item.userName);
+                }}
+                className=" h-10 w-10 ml-3 mt-2 rounded-full object-cover hover:opacity-80 hover:cursor-pointer transition duration-150 ease-in"
                 src={item.avatar}
                 alt=""
               />
               <div className="flex ml-3 items-center w-full ">
                 {/* fullName + shield + userName */}
                 <p
-                  className={`font-bold  xs:text-base text-sm  ${
+                  onClick={() => {
+                    router.push("/" + item.userName);
+                  }}
+                  className={`font-bold  xs:text-base text-sm hover:underline hover:cursor-pointer ${
                     item.isRewardPost && "hidden"
                   }`}
                 >
