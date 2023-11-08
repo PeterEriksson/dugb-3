@@ -159,7 +159,7 @@ const Post = forwardRef(({ item }, ref) => {
     <div
       id={item.postId}
       ref={ref}
-      className={`TEST-TEMP(heart-issue): /overflow-hidden    flex flex-col w-full font-mainFontHelv border-b border-gray-300 `}
+      className={`flex flex-col w-full font-mainFontHelv border-b border-gray-300 `}
     >
       {item.isRewardPost && (
         <div className={styles.balloonsParent}>
@@ -217,7 +217,7 @@ const Post = forwardRef(({ item }, ref) => {
                 onClick={() => {
                   router.push("/" + item.userName);
                 }}
-                className=" h-10 w-10 ml-3 mt-2 rounded-full object-cover hover:opacity-80 hover:cursor-pointer transition duration-150 ease-in"
+                className="z-20 h-10 w-10 ml-3 mt-2 rounded-full object-cover hover:opacity-80 hover:cursor-pointer transition duration-150 ease-in"
                 src={item.avatar}
                 alt=""
               />
@@ -324,36 +324,6 @@ const Post = forwardRef(({ item }, ref) => {
                   {postLikes.length > 0 && postLikes.length}
                 </p>
               </div>
-
-              {/* div for twitter heart icon + nr of likes */}
-              {/* <div
-                onClick={handleLikePost}
-                className="relative bg-green-300/            flex justify-center items-center overflow-visible  forWhenUsingHeart-TEST TEMP: mr-2 xs:mr-0"
-              >
-                <div
-                  className={` 
-                  ${userHasNotLikedPost() ? styles.heart : styles.heartRed}
-                  ${
-                    userHasNotLikedPost() &&
-                    triggerLikeEffect &&
-                    styles.animateUnlike
-                  }
-                  ${
-                    !userHasNotLikedPost() &&
-                    triggerLikeEffect &&
-                    styles.animate
-                  }
-                    `}
-                />
-
-                <p
-                  className={`${
-                    userHasNotLikedPost() ? "opacity-70 " : "!text-red-700 "
-                  }  text-sm font-extralight cursor-pointer   absolute pl-7  group-hover:!text-red-300     transform transition duration-125 ease-in `}
-                >
-                  {postLikes.length > 0 && postLikes.length}
-                </p>
-              </div> */}
             </div>
 
             {/* COMMENT BOX */}

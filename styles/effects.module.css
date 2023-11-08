@@ -164,7 +164,7 @@
   box-shadow: inset -10px -10px 0 rgba(0, 0, 0, 0.07);
 
   transition: transform 0.5s ease;
-  z-index: 10;
+  z-index: 30;
   animation: balloons 6s ease-in-out forwards;
   transform-origin: bottom center;
 
@@ -184,6 +184,7 @@
   }
   100% {
     transform: scale(0.8);
+    z-index: 0;
   }
 }
 
