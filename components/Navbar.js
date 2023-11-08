@@ -30,7 +30,7 @@ function Sidebar(/* { children } */) {
   return (
     <nav
       aria-label="SIDEBAR/BOTTOMBAR-CONTAINER"
-      className="bottom-0  xs:top-0  xs:h-screen   font-mainFontHelv sm:px-4   xs:!pt-3 py-1  border-grayish sticky z-50             bg-white border-t /border-gray-300 xs:border-0 xs:bg-white  flex  flex-row  justify-center xs:justify-start space-x-2 xs:space-x-0  xs:flex-col  xs:py-0 sm:space-y-4 shadow-inner xs:shadow-none"
+      className="bottom-0  xs:top-0  xs:h-screen   font-mainFontHelv sm:px-4   xs:!pt-3 py-1  border-grayish sticky z-50             bg-white border-t xs:border-0 xs:bg-white  flex  flex-row  justify-center xs:justify-start space-x-2 xs:space-x-0  xs:flex-col  xs:py-0 sm:space-y-4 shadow-inner xs:shadow-none"
     >
       <LazyLoadImage
         aria-label="COD-IMAGE ON TOP OF SIDEBAR"
@@ -41,11 +41,11 @@ function Sidebar(/* { children } */) {
       />
       <NavbarOption isHome text="Home" Icon={HomeIcon} />
       {!userGuest && <NavbarOption text="Profile" Icon={UserIcon} />}
-      <NavbarOption hideOnMobile text="Search" Icon={SearchIcon} />
+      {/* <NavbarOption hideOnMobile text="Search" Icon={SearchIcon} /> */}
       <NavbarOption text="Lists" Icon={ClipboardListIcon} />
       {!userGuest && <NavbarNotificationOption />}
       <NavbarOption hideOnMobile text="Loadouts" Icon={GiftIcon} />
-      <NavbarOption hideOnMobile text="About" Icon={InformationCircleIcon} />
+      {/* <NavbarOption hideOnMobile text="About" Icon={InformationCircleIcon} /> */}
       <NavbarOption text="Log out" Icon={LogoutIcon} handleLogout />
     </nav>
   );

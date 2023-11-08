@@ -44,12 +44,9 @@ function lists() {
         <title>Lists</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1 className="mt-3 font-bold text-2xl text-center">Lists</h1>
-      <p className="font-light px-3 text-center pb-4">
-        Who is best at what? Customize your own lists and rank your friends. Hot
-        tip: it's probably not Norman. Hot tip 2: it's probably not Martin.
-      </p>
-      <div className="border-b border-grayish " />
+      <h1 className="py-3 font-bold text-2xl ml-3">Lists</h1>
+
+      <hr className="border-b/ border-grayish " />
 
       <button
         onClick={() => setOpenNewListModal((prev) => !prev)}

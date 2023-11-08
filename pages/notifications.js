@@ -27,12 +27,12 @@ function notifications() {
 
   return (
     /* if many notifics...can't see last one. Add mb */
-    <div className="w-full flex flex-col border-l border-r border-grayish  h-screen   mb-16">
+    <div className="w-full  border-l border-r border-grayish  h-screen   mb-16">
       <Head>
         <title>Notifications</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <p className="text-2xl font-bold  mt-3 pb-2 text-center  border-b border-grayish">
+      <p className="text-2xl font-bold  py-3 pb-2 pl-3  border-b border-grayish">
         Notifications
       </p>
       {notifications.map((item) => (
