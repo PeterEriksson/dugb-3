@@ -234,7 +234,7 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
       <div
         className={` ${!tempEffect && "!opacity-0"} ${
           tempEffect && "!transform !transition !duration-500 !ease-in-out"
-        } xs:p-5     bg-gray-100 border border-gray-300 drop-shadow-lg   flex flex-col  xs:flex-row   rounded-2xl max-w-lg  !mx-auto `}
+        } xs:p-5    border// border-gray-200 //drop-shadow-lg   flex flex-col  xs:flex-row   rounded-2xl max-w-lg  !mx-auto `}
       >
         <div className={`relative flex justify-center     `}>
           <LazyLoadImage
@@ -254,7 +254,7 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
           />
         </div>
 
-        <div className=" w-89% /w-11/12 flex// flex-col// mx-auto xs:!ml-2.5   mb-2      ">
+        <div className=" w-89%  mx-auto xs:!ml-2.5   mb-2      ">
           <div className="flex items-center xs:justify-between     mb-1">
             <h2 className="font-bold text-lg xs:text-xl ">
               {/* {user?.displayName} */}
@@ -263,7 +263,7 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
 
             {/* ui/ux experimenting...logic not implemented. */}
             <button
-              className={`py-2 px-2.5 bg-gray-500/90  ml-auto text-white text-sm rounded-xl border border-gray-500  `}
+              className={`py-2 px-2.5 bg-gray-500/80  ml-auto text-white text-sm rounded-xl border border-gray-500  `}
             >
               Fetch stats
             </button>
@@ -280,7 +280,7 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
             )}
           </div>
           {/* underline gray ... */}
-          <div className=" bg-gray-300 h-0.5 mb-2 w-full " />
+          <hr className=" border-gray-300 border mb-2 w-full " />
 
           <div className="flex flex-col space-y-1.5">
             {/* KD INFO DIV/SECTION */}
@@ -296,7 +296,7 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
                   {loadingStats ? (
                     <LazyLoadImage className="" src="/spinner2.svg" alt="" />
                   ) : (
-                    "stats not fetched"
+                    "stats not fetched ... (api down)"
                   )}
                 </div>
               ) : (
