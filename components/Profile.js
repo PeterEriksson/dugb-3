@@ -234,7 +234,7 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
       <div
         className={` ${!tempEffect && "!opacity-0"} ${
           tempEffect && "!transform !transition !duration-500 !ease-in-out"
-        } xs:p-5    border// border-gray-200 //drop-shadow-lg   flex flex-col  xs:flex-row   rounded-2xl max-w-lg  !mx-auto `}
+        } xs:p-3    border// border-gray-200 //drop-shadow-lg   flex flex-col  xs:flex-row   rounded-2xl max-w-lg  !mx-auto `}
       >
         <div className={`relative flex justify-center     `}>
           <LazyLoadImage
@@ -263,7 +263,7 @@ function Profile({ loadingStats, loadingAdditionalStats, profileName }) {
 
             {/* ui/ux experimenting...logic not implemented. */}
             <button
-              className={`py-2 px-2.5 bg-gray-500/80  ml-auto text-white text-sm rounded-xl border border-gray-500  `}
+              className={`py-2 px-2.5 bg-gray-500/90  ml-auto text-white text-sm rounded-xl border border-gray-500  `}
             >
               Fetch stats
             </button>
