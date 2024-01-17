@@ -1,5 +1,6 @@
 import React from "react";
 import Moment from "react-moment";
+import Link from "next/link";
 
 function PostComment({
   commentText,
@@ -15,11 +16,13 @@ function PostComment({
     <>
       <div className="flex space-x-2" key={i}>
         <div className="flex flex-col items-center   ">
-          <img
-            className=" h-7 w-7 rounded-full object-cover    "
-            src={avatar}
-            alt="commentProfileImg"
-          />
+          <Link href={"/" + userName}>
+            <img
+              className=" h-7 w-7 rounded-full object-cover transition duration-100 ease-in hover:opacity-80 hover:cursor-pointer  "
+              src={avatar}
+              alt="commentProfileImg"
+            />
+          </Link>
 
           <hr
             className={`${
@@ -28,22 +31,27 @@ function PostComment({
           />
         </div>
 
-        <div className="flex-1">
-          <div className="flex items-center justify-between /space-x-1 ">
-            <div className="flex items-center">
-              <p className="mr-1 font-semibold xs:text-base text-sm">
-                {fullName}
-              </p>
-              <p className="text-gray-400 text-sm hidden xs:inline">
-                @{userName}
-              </p>
+        <Link href={"/" + userName}>
+          <div className="flex-1">
+            <div className="flex items-center justify-between  ">
+              <div className="flex items-center">
+                <p className="mr-1 font-semibold xs:text-base text-sm hover:underline hover:cursor-pointer">
+                  {fullName}
+                </p>
+                <p className="text-gray-400 text-sm hidden xs:inline">
+                  @{userName}
+                </p>
+              </div>
+              <Moment
+                fromNow
+                className="text-xs text-gray-300 hidden lg:inline"
+              >
+                {timestamp?.toDate()}
+              </Moment>
             </div>
-            <Moment fromNow className="text-xs text-gray-300 hidden lg:inline">
-              {timestamp?.toDate()}
-            </Moment>
+            <p className="text-sm       ">{commentText}</p>
           </div>
-          <p className="text-sm       ">{commentText}</p>
-        </div>
+        </Link>
       </div>
 
       <hr
