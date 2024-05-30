@@ -25,8 +25,8 @@ function Widgets() {
  */}
         <TwitterTimelineEmbed
           sourceType="profile"
-          /* screenName="BattleRoyaleCoD" */
-          screenName="Warzone2News"
+          /* screenName="warzone2hub" */
+          screenName="charlieINTEL"
           options={{
             /* height: 400, */
             height: 530,
