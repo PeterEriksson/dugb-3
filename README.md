@@ -98,8 +98,7 @@ If you like it, please drop a star 🙂
 - [x] Add a special celebration Post when a user has a new win.
    - Implement same feature but when user has increased(significantly) his k/d (todo)
    - install react-hot-toast and notify the user. Ok ✅
-- [ ] Database sanitation (delete nested data using cloud functions. see firebase extensions)
-
+ 
 
 ## Author
 
