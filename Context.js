@@ -6,7 +6,7 @@ const Context = React.createContext();
 function ContextProvider({ children }) {
   const [user, setUser] = useState(null);
   const [users, setUsers] = useState([]);
-  const [userGuest, setUserGuest] = useState(false);
+  const [userGuest, setUserGuest] = useState(true);
   /*SAVE rapidAPI CALLS for profile page. Once a user has loaded it, the data is saved in state -> */
   const [profileWzData, setProfileWzData] = useState(null);
   const [searchOk, setSearchOk] = useState(false);
