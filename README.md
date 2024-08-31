@@ -103,7 +103,7 @@ If you like it, please drop a star 🙂
 ## Author
 
 Created by Peter<br />
-Website: [Peter resume](https://petere-portfolio-2.vercel.app/) <br />
+Website: [Peter portfolio](https://petere-portfolio-2.vercel.app/) <br />
 [Instagram](https://www.instagram.com/petee_10/)<br />
 [Linkedin](https://www.linkedin.com/in/peter-eriksson-13b8b1120/)
 
