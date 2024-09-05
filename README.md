@@ -1,4 +1,4 @@
-# 🎮 Heliga Gibblocket - a social media app for gamers
+# 🎮 Social media app for Warzone gamers
 
 Full-stack web app for Call of Duty gamers. Design is inspired by Twitter. Welcome to your other home from Caldera/Verdansk. Post your thoughts, rank your teammates, view satistics + more.
 
