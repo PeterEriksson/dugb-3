@@ -1,7 +1,5 @@
 # 🎮 Social media app for Warzone gamers
 
-Full-stack web app for Call of Duty gamers. Design is inspired by Twitter. Welcome to your other home from Caldera/Verdansk. Post your thoughts, rank your teammates, view satistics + more.
-
 Created as a hobby project for educational purposes only. This app is not affiliated with, endorsed by, or associated with Call of Duty or Activision."
 
 If you like it, please drop a star 🙂
@@ -9,12 +7,10 @@ If you like it, please drop a star 🙂
 ## Table of contents
 
 - [Technologies](#technologies)
-- [Features](#features)
 - [Screenshots](#screenshots)
+- [Features](#features)
 - [Todo](#todo)
-- [Author](#author)
-- [Setup](#setup)
- 
+- [Author](#author) 
 
 ## Technologies
 
@@ -34,17 +30,6 @@ If you like it, please drop a star 🙂
 - react-twitter-embed (displaying news)
 - Hero icons
 - react-intersection-observer (highlighting Post after notification-click)
-
-## Features
-
-- Login (email + password)
-- Share and like posts
-- Create lists
-- Personal notifications
-- View statistics
-- Responsive design
-- Guest mode
-- View latest news
 
 ## Screenshots
 #### Home page 
@@ -81,6 +66,17 @@ If you like it, please drop a star 🙂
 
 #### Login screen
 ![login2](https://user-images.githubusercontent.com/17027312/196694811-fd299e19-6fe7-48d0-b6b2-e53681b93ce4.png)
+
+## Features
+
+- Login (email + password)
+- Share and like posts
+- Create lists
+- Personal notifications
+- View statistics
+- Responsive design
+- Guest mode
+- View latest news
 
 
 ## Todo
