@@ -10,8 +10,12 @@ export default function Home() {
         <title>Heliga Gibblocket</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1 className="mt-3 font-bold xs:text-2xl text-xl ml-3 mb-2 ">
-        Home | Skvaller
+
+      <h1 className=" mt-3 font-bold xs:text-2xl text-xl ml-3 mb-2">
+        Home
+        <span className="text-xs font-bold ml-2 xs:ml-4 opacity-70 ">
+          hobby project for educational purposes only.
+        </span>
       </h1>
 
       <Tweetbox />

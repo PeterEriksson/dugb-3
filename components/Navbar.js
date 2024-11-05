@@ -44,9 +44,10 @@ function Sidebar(/* { children } */) {
       {/* <NavbarOption hideOnMobile text="Search" Icon={SearchIcon} /> */}
       <NavbarOption text="Lists" Icon={ClipboardListIcon} />
       {!userGuest && <NavbarNotificationOption />}
-      <NavbarOption hideOnMobile text="Loadouts" Icon={GiftIcon} />
+
       {/* <NavbarOption hideOnMobile text="About" Icon={InformationCircleIcon} /> */}
       <NavbarOption text="Log out" Icon={LogoutIcon} handleLogout />
+      <NavbarOption hideOnMobile text="Loadouts" Icon={GiftIcon} />
     </nav>
   );
 }

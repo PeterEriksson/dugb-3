@@ -40,7 +40,9 @@ function NavbarOption({ text, Icon, handleLogout, isHome, hideOnMobile }) {
   return (
     <div
       onClick={handleClick}
-      className={`sidebarBtn group
+      className={`sidebarBtn group //tempfix,maintain w but hide(useless..) -> ${
+        text == "Loadouts" && "opacity-0 pointer-events-none "
+      }
        ${
          /* Handle Profile link active */ text === "Profile" &&
          asPath === `/${user?.displayName}` &&

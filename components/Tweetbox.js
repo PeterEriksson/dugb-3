@@ -86,7 +86,7 @@ function Tweetbox() {
       <button
         onClick={(e) => handleNewPost(e)}
         disabled={!postText.trim() || userGuest}
-        className="xs:py-3 py-2.5 mx-auto px-9 xs:px-12 cursor-pointer mb-3 hover:bg-hoverBluish transition transform duration-100 bg-blueish rounded-full"
+        className="disabled:opacity-60 xs:py-3 py-2.5 mx-auto px-9 xs:px-12 cursor-pointer mb-3 hover:bg-hoverBluish disabled:pointer-events-none transition transform duration-100 bg-blueish rounded-full"
       >
         <p className="text-white text-sm">Post</p>
       </button>
