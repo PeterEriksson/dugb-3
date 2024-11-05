@@ -6,30 +6,12 @@ If you like it, please drop a star 🙂
 
 ## Table of contents
 
-- [Technologies](#technologies)
 - [Screenshots](#screenshots)
+- [Technologies](#technologies)
 - [Features](#features)
 - [Todo](#todo)
 - [Author](#author) 
 
-## Technologies
-
-#### Project is created with:
-
-- React
-- Next.js
-- Tailwind CSS
-- Tailwind Modals
-- Firebase
-- Node.js (writing cloud functions)
-- Context api (state management)
-- Netlify (hosting)
-- Rapid api (fetching player statistics)
-- react-beautiful-dnd (listing players)
-- react-flip-move (animating list of items)
-- react-twitter-embed (displaying news)
-- Hero icons
-- react-intersection-observer (highlighting Post after notification-click)
 
 ## Screenshots
 #### Home page 
@@ -66,6 +48,25 @@ If you like it, please drop a star 🙂
 
 #### Login screen
 ![login2](https://user-images.githubusercontent.com/17027312/196694811-fd299e19-6fe7-48d0-b6b2-e53681b93ce4.png)
+
+## Technologies
+
+#### Project is created with:
+
+- React
+- Next.js
+- Tailwind CSS
+- Tailwind Modals
+- Firebase
+- Node.js (writing cloud functions)
+- Context api (state management)
+- Netlify (hosting)
+- Rapid api (fetching player statistics)
+- react-beautiful-dnd (listing players)
+- react-flip-move (animating list of items)
+- react-twitter-embed (displaying news)
+- Hero icons
+- react-intersection-observer (highlighting Post after notification-click)
 
 ## Features
 
