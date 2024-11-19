@@ -120,6 +120,8 @@ function NewListModal({ openNewListModal, setOpenNewListModal }) {
                     onChange={(e) => setNewListSubHeader(e.target.value)}
                   />
 
+                  <hr className=" mb-3 w-5/6 mx-auto bg-gray-300/60 h-0.5 " />
+
                   {/* TEST TEMP... works ok. Fix plus/minus icon */}
                   <h2 className="text-sm font-semibold text-gray-500 mb-1 ">
                     Add players
@@ -158,11 +160,11 @@ function NewListModal({ openNewListModal, setOpenNewListModal }) {
                     rows={3}
                     className="w-full text-center focus:ring-transparent font-light border-none outline-none resize-none "
                     type="text"
-                    placeholder="Motivate your ranking. Drag n drop to reorder players. Swing hard"
+                    placeholder="Motivate your ranking. Drag n drop to reorder."
                   />
                 </div>
 
-                <div className="mt-2 flex justify-center sm:mt-6">
+                <div className="flex justify-center mt-1">
                   <button
                     disabled={
                       _profiles.length == 0 ||
