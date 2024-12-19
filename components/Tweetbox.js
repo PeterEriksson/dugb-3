@@ -53,43 +53,44 @@ function Tweetbox() {
           name=""
           id=""
           cols=""
-          rows={4}
+          rows={userGuest ? 2 : 4}
           className="  w-full xs:text-xl text-base focus:ring-transparent font-light border-none outline-none resize-none"
           type="text"
           placeholder={`${
             userGuest
-              ? "Hello Guest. Only users can post."
+              ? "Only users can post"
               : `Vad händer ${user?.displayName}?`
           }  `}
         />
       </div>
-      {/* imgInput + chars div */}
-      <div className="flex mb-3  items-center">
+
+      <div className="flex mb-2 items-center ">
         <input
           value={postImg}
           onChange={(e) => setPostImg(e.target.value)}
           type="text"
-          className=" ml-20 focus:ring-gray-600 focus:border-gray-600  w-40 text-xs border-gray-200 rounded-md"
-          placeholder="optional: enter img url"
+          className=" ml-20 focus:ring-gray-600 focus:border-gray-600  w-32 text-xs border-gray-200 rounded-md "
+          placeholder="optional: img url"
         />
-        <p
-          className={`ml-auto mr-5 mb-1.5 ${
-            postText.length > postMaxLength ? "font-normal" : "font-light"
-          } ${postText.length === 0 && "opacity-0"} ${
-            postText.length > postMaxLength ? "text-red-500" : "text-gray-500"
-          }`}
+
+        <button
+          onClick={(e) => handleNewPost(e)}
+          disabled={!postText.trim() || userGuest}
+          className="disabled:opacity-60 py-2.5 ml-auto mr-4 px-9 xs:px-10 cursor-pointer hover:bg-hoverBluish disabled:pointer-events-none transition transform duration-100 bg-blueish rounded-xl"
         >
-          {postText.length}/{postMaxLength}
-        </p>
+          <p className="text-white text-sm">Post</p>
+        </button>
       </div>
 
-      <button
-        onClick={(e) => handleNewPost(e)}
-        disabled={!postText.trim() || userGuest}
-        className="disabled:opacity-60 xs:py-3 py-2.5 mx-auto px-9 xs:px-12 cursor-pointer mb-3 hover:bg-hoverBluish disabled:pointer-events-none transition transform duration-100 bg-blueish rounded-full"
+      <p
+        className={`ml-auto mr-5 mb-0.5 ${
+          postText.length > postMaxLength ? "font-normal" : "font-light"
+        } ${postText.length === 0 && "opacity-0"} ${
+          postText.length > postMaxLength ? "text-red-500" : "text-gray-500"
+        }`}
       >
-        <p className="text-white text-sm">Post</p>
-      </button>
+        {postText.length}/{postMaxLength}
+      </p>
     </div>
   );
 }
