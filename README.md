@@ -1,6 +1,6 @@
 # 🎮 Social media app for Warzone gamers
 
-Created as a hobby project for educational purposes only. This app is not affiliated with, endorsed by, or associated with Call of Duty or Activision."
+Created as a hobby project for educational purposes only. This app is not affiliated with, endorsed by, or associated with Call of Duty or Activision.
 
 If you like it, please drop a star 🙂
 
