@@ -17,27 +17,21 @@ function Widgets() {
         {/* documentation for increasing width on TwitterTimelineEmbed?? */}
 
         {/* Documentation: https://saurabhnemade.github.io/react-twitter-embed/?path=/story/twitter-timeline-embed--timeline-profile-with-screen-name */}
-        {/* <TwitterTweetEmbed tweetId={"1576658755063775232"}  /> */}
-        {/*  <TwitterTweetEmbed
-          placeholder="loading.."
-          tweetId={"1356641505889378305"}
-        />
- */}
-        <TwitterTimelineEmbed
+
+        {/* <TwitterTimelineEmbed
           sourceType="profile"
-          /* screenName="warzone2hub" */
-          screenName="charlieINTEL"
+          screenName="warzone2hub"
+          //screenName="charlieINTEL"
           options={{
-            /* height: 400, */
             height: 530,
             width: 230,
           }}
-          /* borderColor="#e6ecf0" */
-          /* (bottom line is meant, not surrounding border) */
           noHeader
-          /* noFooter */
+        /> */}
+        <TwitterTweetEmbed
+          placeholder="loading.."
+          tweetId={"1356641505889378305"}
         />
-        {/* <TwitterTweetEmbed tweetId={"1356641505889378305"} /> */}
       </div>
     </div>
   );
